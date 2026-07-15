@@ -38,6 +38,9 @@ Governs all planning, copy, and page builds for lisacolliorealtor.com. Every Cla
   Hablo español
   REALTOR® | NAR® Member | SRES®
   RE/MAX Results | The Viruez Team
+- **Footer disclaimer (every page, in the page's language):** a small-text disclaimer appears below the footer signature on every page, written in that page's language.
+  - EN: To protect client confidentiality, some client stories on this site are illustrative composites and names or details may have been changed. All reviews and testimonials are real and shown as written.
+  - ES (/es/ pages): Para proteger la confidencialidad de nuestros clientes, algunas historias en este sitio son ejemplos ilustrativos y ciertos nombres o detalles pueden haber sido modificados. Todas las reseñas y testimonios son reales y se muestran tal como fueron escritos.
 - **GBP description:** use the approved bilingual description from the Brand Cheat Sheet, trimming "and surrounding areas" for consistency; GBP service areas: Goshen, IN and Elkhart, IN only (Lisa to update GBP settings to match).
 
 ## 3. Voice, Values & Language Rules
