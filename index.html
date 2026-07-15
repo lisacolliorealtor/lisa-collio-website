@@ -65,10 +65,10 @@
   .hero{background:linear-gradient(160deg,var(--navy) 0%,#0e2c63 55%,var(--remax-blue) 100%);color:#fff;position:relative;overflow:hidden}
   .hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(220,28,46,.35),transparent 68%)}
   .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:end;padding-top:72px;position:relative;z-index:1}
-  .hero h1{font-size:clamp(38px,5.4vw,62px);font-weight:800;color:#fff;letter-spacing:-.015em}
-  .hero h1 .es{display:block;color:#FFD9DE;font-weight:600;font-size:.52em;margin-top:14px;font-style:italic}
-  .hero h1 .accent{position:relative;white-space:nowrap}
-  .hero h1 .accent::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:10px;background:var(--remax-red);z-index:-1;border-radius:3px}
+  .hero h1{font-size:clamp(22px,2.6vw,30px);font-weight:700;color:#EAF0FB;letter-spacing:-.01em}
+  .hero .hero-headline{font-family:var(--display);font-size:clamp(34px,5vw,56px);font-weight:800;color:#fff;letter-spacing:-.015em;line-height:1.08;margin-top:12px}
+  .hero .accent{position:relative;white-space:nowrap}
+  .hero .accent::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:10px;background:var(--remax-red);z-index:-1;border-radius:3px}
   .hero p.lead{margin:22px 0 30px;font-size:18px;color:#D4DEF0;max-width:46ch}
   .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px}
   .hero-photo{position:relative}
@@ -137,15 +137,13 @@
   .why-card p{font-size:15.5px;color:#4A576E}
   @media(max-width:800px){.why-grid{grid-template-columns:1fr}}
 
-  /* ---------- spanish band (signature) ---------- */
-  .es-band{background:linear-gradient(120deg,var(--remax-red) 0%,#A9101F 100%);color:#fff;position:relative;overflow:hidden}
-  .es-band::before{content:"SE HABLA ESPAÑOL";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--display);font-weight:800;font-size:clamp(70px,12vw,150px);opacity:.08;white-space:nowrap;letter-spacing:.02em}
-  .es-band .wrap{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
-  .es-band h2{color:#fff;font-size:clamp(28px,3.6vw,40px)}
-  .es-band p{margin-top:16px;color:#FFE2E6;max-width:52ch}
-  .es-band .btn-col{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
-  .es-band .en-note{font-size:14px;color:#FFC9D0;font-style:italic}
-  @media(max-width:800px){.es-band .wrap{grid-template-columns:1fr}}
+  /* ---------- hablo español banner ---------- */
+  .hablo-band{display:flex;align-items:center;justify-content:center;gap:14px;background:linear-gradient(120deg,var(--remax-red) 0%,#A9101F 100%);color:#fff;text-decoration:none;padding:18px 24px;font-family:var(--display);font-weight:700}
+  .hablo-band .hablo-key{font-size:22px;line-height:1}
+  .hablo-band .hablo-text{font-size:clamp(18px,2.4vw,24px);letter-spacing:.01em}
+  .hablo-band .hablo-go{font-size:20px;transition:transform .15s ease}
+  .hablo-band:hover .hablo-go{transform:translateX(5px)}
+  .hablo-band:focus-visible{outline:3px solid var(--remax-blue);outline-offset:-4px}
 
   /* ---------- communities ---------- */
   .comm-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
@@ -184,6 +182,10 @@
   footer a{color:#9FB0CC;text-decoration:none;display:block;margin-bottom:9px}
   footer a:hover{color:#fff}
   .foot-brand p{margin-top:14px;max-width:34ch}
+  .foot-sig{line-height:1.75}
+  .foot-sig .sig-name{font-family:var(--display);color:#fff;font-size:19px;font-weight:700}
+  .foot-sig .sig-es{color:#fff;font-weight:600}
+  .foot-sig span{display:block}
   .legal{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;text-align:center;font-size:13px;color:#6B7C9C}
   @media(max-width:800px){footer .wrap{grid-template-columns:1fr;gap:34px}}
   @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto}}
@@ -215,15 +217,7 @@
       },
       "areaServed": [
         {"@type": "City", "name": "Goshen, IN"},
-        {"@type": "City", "name": "Elkhart, IN"},
-        {"@type": "City", "name": "Dunlap, IN"},
-        {"@type": "City", "name": "Bristol, IN"},
-        {"@type": "City", "name": "Middlebury, IN"},
-        {"@type": "City", "name": "Nappanee, IN"},
-        {"@type": "City", "name": "Wakarusa, IN"},
-        {"@type": "City", "name": "Millersburg, IN"},
-        {"@type": "City", "name": "Syracuse, IN"},
-        {"@type": "City", "name": "Shipshewana, IN"}
+        {"@type": "City", "name": "Elkhart, IN"}
       ],
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
@@ -242,16 +236,17 @@
       "@type": "Person",
       "@id": "https://lisacolliorealtor.com/#person",
       "name": "Lisa Collio",
-      "jobTitle": "REALTOR®",
+      "jobTitle": "Real Estate Agent",
       "url": "https://lisacolliorealtor.com/",
       "telephone": "+1-574-370-5410",
       "worksFor": {"@id": "https://lisacolliorealtor.com/#agent"},
       "knowsLanguage": ["en", "es"],
       "hasCredential": [
-        {"@type": "EducationalOccupationalCredential", "name": "SRES® – Seniors Real Estate Specialist"},
+        {"@type": "EducationalOccupationalCredential", "name": "REALTOR®"},
         {"@type": "EducationalOccupationalCredential", "name": "NAR® Member"},
-        {"@type": "EducationalOccupationalCredential", "name": "IRMLS"}
-      ]
+        {"@type": "EducationalOccupationalCredential", "name": "SRES® – Seniors Real Estate Specialist"}
+      ],
+      "award": ["RE/MAX Executive Club", "RE/MAX 100% Club"]
     },
     {
       "@type": "WebSite",
@@ -283,7 +278,7 @@
   <div class="wrap">
   <a href="tel:5743705410">📞 Call or text: (574) 370-5410 · Goshen, IN</a>
     <div class="lang-switch" aria-label="Language">
-      <a href="#" class="active">EN</a><a href="#">ES</a>
+      <a href="/" class="active">EN</a><a href="/es/" hreflang="es">ES</a>
     </div>
   </div>
 </div>
@@ -292,7 +287,7 @@
   <div class="wrap">
     <a class="brand" href="#">
       <span class="brand-balloon" aria-hidden="true"></span>
-      <span class="brand-name">Lisa Collio<small>RE/MAX Results · Realtor®</small></span>
+      <span class="brand-name">Lisa Collio<small>Real Estate Agent · RE/MAX Results</small></span>
     </a>
     <nav class="links" aria-label="Main">
       <a href="#about">Meet Lisa</a>
@@ -308,10 +303,9 @@
 <section class="hero" style="padding:0">
   <div class="wrap">
     <div>
-      <h1>Your next move in Elkhart County starts with a <span class="accent">conversation.</span>
-        <span class="es">— en inglés o en español.</span>
-      </h1>
-      <p class="lead">Lisa Collio has guided 120+ families through buying and selling homes across Goshen and Elkhart — with clear answers at every step, in the language you're most comfortable in.</p>
+      <h1>Lisa Collio, Real Estate Agent in Goshen and Elkhart, Indiana</h1>
+      <p class="hero-headline">Your next move starts with a <span class="accent">conversation.</span></p>
+      <p class="lead">Lisa Collio has guided 120+ families through buying and selling homes in Goshen and Elkhart — with clear answers and honest guidance at every step.</p>
       <div class="cta-row">
         <a class="btn btn-red" href="tel:5743705410">Call or Text (574) 370-5410</a>
         <a class="btn btn-white" href="#contact">Schedule a Free Consultation</a>
@@ -345,7 +339,7 @@
     <div>
       <span class="eyebrow">Meet Lisa</span>
       <h2>A local expert who happens to think your goals matter more than her stats.</h2>
-      <p>Lisa knows this market. Based in Goshen and part of The Viruez Team at RE/MAX Results, she's helped over 120 families buy and sell homes across Elkhart County — more than $20 million in sales and counting.</p>
+      <p>Lisa knows this market. Based in Goshen and part of The Viruez Team at RE/MAX Results, she's helped over 120 families buy and sell homes in Goshen and Elkhart — more than $20 million in sales and counting.</p>
       <p>Whether you're buying your first place, selling after years in the same home, or relocating from a distance, Lisa has walked clients through all of it — from the first conversation straight through to closing. And she speaks Spanish, which makes a real difference for many of the families she serves.</p>
       <div class="creds">
         <span class="hl">Se habla español</span>
@@ -391,7 +385,7 @@
       <div class="why-card">
         <div class="ico">🏠</div>
         <h3>Local market expertise</h3>
-        <p>Deep knowledge of Goshen, Elkhart, and surrounding communities — neighborhood by neighborhood, street by street.</p>
+        <p>Deep knowledge of Goshen and Elkhart, Indiana — neighborhood by neighborhood, street by street.</p>
       </div>
       <div class="why-card">
         <div class="ico">💬</div>
@@ -407,20 +401,11 @@
   </div>
 </section>
 
-<section class="es-band" id="contact">
-  <div class="wrap">
-    <div>
-      <span style="font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#FFC9D0">Consulta inicial gratis</span>
-      <h2>¿Listo para comprar o vender su casa en Goshen o Elkhart?</h2>
-      <p>El primer paso es una conversación. Lisa le ayuda a entender todo el proceso desde el principio — sin términos confusos, con paciencia, y completamente en español.</p>
-    </div>
-    <div class="btn-col">
-      <a class="btn btn-white" href="tel:5743705410">Llame o mande un mensaje de texto</a>
-      <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.5)" href="#contact">Agende su consulta gratis</a>
-      <span class="en-note">Prefer English? Call, text, or schedule your free consultation — same options.</span>
-    </div>
-  </div>
-</section>
+<a class="hablo-band" href="/es/" hreflang="es" aria-label="Hablo español — ver este sitio en español">
+  <span class="hablo-key" aria-hidden="true">🔑</span>
+  <span class="hablo-text" lang="es">Hablo español</span>
+  <span class="hablo-go" aria-hidden="true">→</span>
+</a>
 
 <section id="communities">
   <div class="wrap">
@@ -479,7 +464,7 @@
   </div>
 </section>
 
-<section class="final">
+<section class="final" id="contact">
   <div class="wrap">
     <h2>Real estate guidance you can trust.</h2>
     <p>It's about more than contracts — it's about helping you move into the next chapter of your life with clear guidance and honest communication.</p>
@@ -491,8 +476,14 @@
 <footer>
   <div class="wrap">
     <div class="foot-brand">
-      <span class="brand-name" style="color:#fff">Lisa Collio<small style="color:#8FA4C9">RE/MAX Results · The Viruez Team</small></span>
-      <p>Helping buyers and sellers navigate the Goshen and Elkhart market with local expertise and bilingual, personalized guidance.</p>
+      <div class="foot-sig">
+        <span class="sig-name">Lisa Collio | Real Estate Agent</span>
+        <span>$20M+ Sold | 120+ homes sold | Top 20% Elkhart County</span>
+        <span>Helping buyers &amp; sellers in Goshen &amp; Elkhart, IN</span>
+        <span class="sig-es" lang="es">Hablo español</span>
+        <span>REALTOR® | NAR® Member | SRES®</span>
+        <span>RE/MAX Results | The Viruez Team</span>
+      </div>
     </div>
     <div>
       <h4>Quick links</h4>
