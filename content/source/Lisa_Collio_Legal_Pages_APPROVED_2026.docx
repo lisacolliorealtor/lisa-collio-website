@@ -1,0 +1,157 @@
+Legal Pages for lisacolliorealtor.com
+
+**APPROVED — July 2026 · Signed off as written by Lisa Collio and her Managing Broker (RE/MAX Results)**
+
+Prepared under the Lisa Collio Website Master Plan (Section 18) and approved as written, July 2026. Contains the approval record and the four final page texts: Terms of Use, Privacy Policy, Accessibility Statement, and Fair Housing Statement. The analytics question has been resolved: the Site uses Netlify's server-side analytics only — no client-side tracking, no cookies placed. The one remaining bracket is each page's effective date, which Claude Code inserts on the day the page goes live. This document is a working reference, not legal advice.
+
+# Approval Record
+
+- **Status:** Approved as written — Lisa Collio and her Managing Broker (RE/MAX Results), July 2026. This satisfies the Master Plan Section 13 review gate for these four pages.
+
+- **Decisions confirmed in this approval:** communications language describes actual practice (personal calls/texts from (574) 370-5410, no automated dialing); no lender or settlement-provider data sharing; California-specific statutory sections replaced by the plain-language consumer-rights section; English-only legal pages at launch, with Spanish courtesy versions to be revisited later with professional legal translation.
+
+- **Resolved after broker review:** site analytics confirmed as Netlify server-side analytics — traffic measured on the server, no cookies placed, no individual tracking. The Privacy Policy's automatic-collection and cookies sections below reflect this.
+
+- **Standing obligations:** if automated texting is ever enabled in GoHighLevel, the communications section must be updated to name the sending number and method BEFORE the feature goes live. If a lender referral relationship ever becomes active, a written Affiliated Business Arrangement disclosure must exist before any referral, and the Privacy Policy updates to match.
+
+- **Publication:** these pages go live before or together with /contact/ — no lead-capture form launches without them. Claude Code inserts each page’s effective date at publication and applies the standard footer stack.
+
+# PAGE 1 (FINAL) — Terms of Use (/terms/)
+
+Build notes (not for publication): title tag “Terms of Use | Lisa Collio, Real Estate Agent” · standard footer stack applies · effective date set at publication.
+
+## Terms of Use
+
+**Effective date:** [inserted at publication]
+
+Welcome. This website, lisacolliorealtor.com (the “Site”), is owned and operated by Lisa Collio, a real estate agent licensed in the State of Indiana (License #RB21002460), affiliated with RE/MAX Results and a member of The Viruez Team. Each RE/MAX office is independently owned and operated. By using the Site, you agree to these Terms of Use. If you don't agree with them, please don't use the Site.
+
+## What this Site is for
+
+The Site provides general information about buying and selling residential real estate in Goshen and Elkhart, Indiana, along with information about Lisa's services. Everything on the Site is offered for general informational purposes only. It is not legal, financial, tax, or lending advice, and it is not a substitute for advice from a qualified professional about your specific situation. Real estate market conditions change; information that was accurate when published may not remain so.
+
+**Lisa Collio is a licensed real estate agent and is not a mortgage lender, loan officer, or broker. She does not originate loans, quote loan terms, or make lending decisions. For financing questions, speak directly with a licensed lender.**
+
+## Accuracy of information
+
+Reasonable care goes into keeping the Site current and accurate, including market statistics sourced from the Elkhart County Board of REALTORS® MLS, which are always presented with their source and date range. Even so, all information on the Site is deemed reliable but not guaranteed, and is provided “as is” without warranties of any kind, express or implied. Any property information that may appear on the Site is subject to change, prior sale, or withdrawal without notice.
+
+## Your use of the Site
+
+You agree to use the Site only for lawful purposes. You may not attempt to interfere with the Site's operation, probe or breach its security, scrape its content at scale, or use it to transmit anything unlawful, misleading, or harmful.
+
+## Intellectual property
+
+The content of the Site — text, photographs, graphics, logos, and design — is owned by Lisa Collio or used with permission, and is protected by copyright and other intellectual property laws. REALTOR®, SRES®, and related marks belong to their respective owners; the RE/MAX name and balloon logo are trademarks of RE/MAX, LLC, used under license. You may view and print pages for your personal, non-commercial use. Any other copying, reproduction, or republication requires prior written permission.
+
+## Messages and submissions
+
+If you send ideas, questions, feedback, or other material through the Site's forms or by email, you're granting permission for that material to be used to respond to you and to improve the Site's content and services. Don't send anything confidential through a general contact form. How personal information in your submissions is handled is described in the Privacy Policy.
+
+## Links to other websites
+
+The Site links to third-party websites — for example, government housing resources, the consultation-scheduling system, and remax.com for nationwide listings. Those sites have their own terms and privacy practices, which are not controlled or endorsed here. Visiting them is at your own discretion.
+
+## Limitation of liability
+
+To the fullest extent permitted by Indiana law, Lisa Collio will not be liable for indirect, incidental, or consequential damages arising from your use of the Site or reliance on its content. Nothing in these Terms limits any rights you have under applicable law that cannot be limited by agreement.
+
+## Governing law
+
+These Terms are governed by the laws of the State of Indiana, without regard to conflict-of-law principles. Any dispute arising out of your use of the Site will be resolved in the state or federal courts serving Elkhart County, Indiana.
+
+## Changes to these Terms
+
+These Terms may be updated from time to time. The current version, with its effective date, will always be posted on this page. Continued use of the Site after a change means you accept the updated Terms.
+
+## Contact
+
+Questions about these Terms: Lisa Collio, Real Estate Agent · RE/MAX Results · The Viruez Team · 1918 Elkhart Rd, Goshen, IN 46526 · (574) 370-5410 · lisacolliorealtor@gmail.com
+
+# PAGE 2 (FINAL) — Privacy Policy (/privacy/)
+
+Build notes (not for publication): title tag “Privacy Policy | Lisa Collio, Real Estate Agent” · standard footer stack applies · analytics resolved: Netlify server-side analytics, no cookies · insert effective date at publication.
+
+## Privacy Policy
+
+**Effective date:** [inserted at publication]
+
+This policy explains what personal information is collected on lisacolliorealtor.com (the “Site”), how it's used, and the choices you have. The Site is owned and operated by Lisa Collio, a real estate agent licensed in Indiana (License #RB21002460), affiliated with RE/MAX Results and a member of The Viruez Team. The short version: your information is used to respond to you and help with your real estate needs — it is never sold, and it isn't shared with anyone except the service providers that keep the Site and scheduling tools running.
+
+## What is collected
+
+- **Information you provide.** When you fill out a contact form, request a consultation, or schedule an appointment, you may provide your name, email address, phone number, and whatever you write in your message — for example, whether you're thinking about buying or selling and your general timeline.
+
+- **Information collected automatically.** The Site's hosting provider, Netlify, keeps standard server logs (IP address, browser type, pages visited) for security and performance, and Site traffic is measured through Netlify's server-side analytics. This measurement happens on the server: it does not place cookies on your device, run tracking scripts in your browser, or build profiles of individual visitors.
+
+The Site does not knowingly collect information from children under 18, and its services are not directed to them.
+
+## How your information is used
+
+- To respond to your inquiry and provide the real estate services you've asked about.
+
+- To schedule and confirm appointments and consultations.
+
+- To follow up with relevant information about your home search or sale, if you've asked for it.
+
+- To operate, secure, and improve the Site.
+
+## Calls and texts
+
+If you provide your phone number in a form, you're agreeing that Lisa may call or text you at that number about your inquiry. **Calls and texts come personally from (574) 370-5410 — no automatic dialing systems, no prerecorded or artificial voice messages.** Message and data rates from your carrier may apply. You can stop texts at any time by replying STOP, and you can ask to stop all contact by emailing lisacolliorealtor@gmail.com or calling (574) 370-5410. Providing a phone number is never a condition of buying or selling property or receiving any service.
+
+## Sharing
+
+Your personal information is not sold, rented, or traded — and it never has been. It is shared only with the service providers that operate the Site's infrastructure — website hosting and the customer-relationship and scheduling system used to manage inquiries and appointments — and only so they can perform those functions. It may also be disclosed if the law requires it, or to protect safety and legal rights. No form submission on this Site is shared with any lender, title company, or other settlement service provider.
+
+## Email
+
+If you've asked to receive updates or market information by email, every message will include an unsubscribe link. Opting out of marketing email won't affect messages needed to complete something you've asked for, like appointment confirmations.
+
+## Your choices and rights
+
+You can ask at any time to see the personal information held about you, to correct it, or to have it deleted — subject to records that Indiana real estate law or brokerage policy requires keeping (for example, transaction records). To make a request, email lisacolliorealtor@gmail.com or call (574) 370-5410. Requests get a response within 30 days. You will never be treated differently for exercising these rights.
+
+## Cookies
+
+This Site does not set tracking or advertising cookies. Traffic statistics come from Netlify's server-side analytics, which works without placing anything on your device. If you schedule a consultation, that happens through a linked scheduling system that operates under its own privacy practices — you can review them there before booking.
+
+## Security and retention
+
+Reasonable technical and organizational measures protect the information collected through the Site. Information is kept only as long as needed for the purposes above or as required by law, and then deleted.
+
+## Changes to this policy
+
+If this policy changes, the updated version and its effective date will be posted here. Significant changes to how information is handled will be noted clearly at the top of the page.
+
+## Contact
+
+Privacy questions or requests: Lisa Collio, Real Estate Agent · RE/MAX Results · The Viruez Team · 1918 Elkhart Rd, Goshen, IN 46526 · (574) 370-5410 · lisacolliorealtor@gmail.com
+
+# PAGE 3 (FINAL) — Accessibility Statement (/accessibility/)
+
+Build notes (not for publication): title tag “Accessibility | Lisa Collio, Real Estate Agent” · standard footer stack applies · retains the WCAG 2.1 AA target from the legacy site.
+
+## Accessibility
+
+Everyone should be able to use this website. lisacolliorealtor.com is built and maintained with the goal of meeting the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA, and the Site is reviewed and updated on an ongoing basis to keep improving — including text alternatives for images, sufficient color contrast, keyboard navigation, and pages that work well with screen readers.
+
+If any part of the Site is difficult for you to use, or if you'd like help searching for real estate in another format, please reach out — by phone at (574) 370-5410 or by email at lisacolliorealtor@gmail.com. Feedback about accessibility barriers is genuinely welcome and gets acted on.
+
+# PAGE 4 (FINAL) — Fair Housing Statement (/fair-housing/)
+
+Build notes (not for publication): title tag “Fair Housing | Lisa Collio, Real Estate Agent” · standard footer stack applies · Equal Housing Opportunity logo displayed on this page and in the site-wide footer · protected-class list matches Master Plan v2.2 §3/§15 (strictest combined layer).
+
+## Fair Housing Statement
+
+Lisa Collio, Real Estate Agent, and this website fully support the principles of the federal Fair Housing Act (Title VIII of the Civil Rights Act of 1968, as amended), the Indiana Fair Housing Act, and the REALTOR® Code of Ethics. Housing discrimination has no place in this business — in any listing, any showing, any negotiation, or any word published on this Site.
+
+That means equal professional service for everyone, without regard to race, color, religion, sex, disability, familial status, national origin, sexual orientation, gender identity, or ancestry. It also shapes how this Site is written: property descriptions and community pages describe homes, neighborhoods, and amenities — never the kind of person who “belongs” in them.
+
+As a member of the National Association of REALTORS®, Lisa is bound by a Code of Ethics that in several respects goes beyond what the law requires, and this Site is built to that stricter standard.
+
+If you believe you have experienced housing discrimination, you can file a complaint with the U.S. Department of Housing and Urban Development at hud.gov/fairhousing or by calling 1-800-669-9777, or with the Indiana Civil Rights Commission at in.gov/icrc.
+
+Questions about this commitment are welcome: (574) 370-5410 · lisacolliorealtor@gmail.com.
+
+Lisa Collio, Real Estate Agent · RE/MAX Results · The Viruez Team · Licensed in Indiana #RB21002460 · Each Office Independently Owned and Operated. Equal Housing Opportunity.
