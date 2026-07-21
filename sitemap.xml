@@ -10,10 +10,37 @@
     <loc>https://lisacolliorealtor.com/accessibility/</loc>
   </url>
   <url>
+    <loc>https://lisacolliorealtor.com/blog/buyers/are-homes-goshen-indiana-competitive-to-buy/</loc>
+  </url>
+  <url>
+    <loc>https://lisacolliorealtor.com/blog/buyers/elkhart-indiana-good-place-invest-real-estate/</loc>
+  </url>
+  <url>
     <loc>https://lisacolliorealtor.com/blog/buyers/good-time-to-buy-home-goshen-indiana/</loc>
   </url>
   <url>
+    <loc>https://lisacolliorealtor.com/blog/buyers/good-time-to-buy-home-goshen-indiana/</loc>
+  </url>
+  <url>
+    <loc>https://lisacolliorealtor.com/blog/buyers/how-to-compete-with-other-buyers-elkhart-indiana/</loc>
+  </url>
+  <url>
     <loc>https://lisacolliorealtor.com/blog/buyers/</loc>
+  </url>
+  <url>
+    <loc>https://lisacolliorealtor.com/blog/buyers/what-makes-goshen-indiana-desirable-place-to-live/</loc>
+  </url>
+  <url>
+    <loc>https://lisacolliorealtor.com/blog/buyers/what-to-look-for-buying-home-elkhart-indiana/</loc>
+  </url>
+  <url>
+    <loc>https://lisacolliorealtor.com/blog/buyers/what-to-prioritize-buying-house-goshen-indiana/</loc>
+  </url>
+  <url>
+    <loc>https://lisacolliorealtor.com/blog/buyers/why-buy-home-elkhart-indiana-lisa-collio/</loc>
+  </url>
+  <url>
+    <loc>https://lisacolliorealtor.com/blog/buyers/why-buy-home-goshen-indiana-lisa-collio/</loc>
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/blog/community/does-lisa-collio-speak-spanish/</loc>
@@ -112,6 +139,12 @@
     <loc>https://lisacolliorealtor.com/blog/spanish/renta-o-compra-como-decidir/</loc>
   </url>
   <url>
+    <loc>https://lisacolliorealtor.com/buyers/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lisacolliorealtor.com/buyers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/compradores/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/buyers/"/>
+  </url>
+  <url>
     <loc>https://lisacolliorealtor.com/communities/elkhart/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://lisacolliorealtor.com/communities/elkhart/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/comunidades/elkhart/"/>
@@ -131,6 +164,9 @@
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/es/compradores/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lisacolliorealtor.com/buyers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/compradores/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/buyers/"/>
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/es/comunidades/elkhart/</loc>
