@@ -667,6 +667,24 @@ main { flex: 1 0 auto; }
   color: var(--navy-ink);
 }
 
+/* ---------- Contact card (contact pages) ---------------------------------- */
+.contact-card {
+  background: #fff;
+  border: 1px solid var(--gray);           /* decorative border */
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-top: var(--space-5);
+  box-shadow: var(--shadow-sm);
+}
+.contact-card dl { display: grid; gap: var(--space-4); margin: 0; }
+.contact-card dt {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--navy-ink);
+}
+.contact-card dd { margin: 0; color: var(--black); }
+.contact-card a { color: var(--remax-blue); font-weight: 600; }
+
 /* ---------- Reduced motion ------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }
