@@ -1,2 +1,121 @@
 # lisa-collio-website
-Lisa Collio, Real Estate Agent
+
+Website for **Lisa Collio, Real Estate Agent** — RE/MAX Results, The Viruez Team.
+Bilingual EN/ES static site (HTML + CSS, no JS frameworks) for
+[lisacolliorealtor.com](https://lisacolliorealtor.com), hosted on Netlify.
+
+See [`CLAUDE.md`](CLAUDE.md) for the locked brand identity, compliance rules, and
+the Design & Naming Addendum. `CLAUDE.md` mirrors the Master Plan; the Master Plan
+wins on any conflict.
+
+---
+
+## Project layout
+
+```
+/                         Homepage (EN) — /es/ arrives in a later PR
+terms/  privacy/  accessibility/  fair-housing/   Legal pages (EN at launch)
+assets/
+  css/
+    tokens.css            Design tokens (color, type, spacing) + @font-face. Edit tokens HERE.
+    site.css              Base + component styles (header, footer, buttons, badge, legal body)
+  fonts/                  Self-hosted woff2 (Bricolage Grotesque, Instrument Sans) + OFL licenses
+  images/                 Photography & logos (see below)
+components/
+  header.html             Single-source site header partial
+  footer.html             Single-source site footer partial (locked six-item stack)
+content/
+  review-photo-map.md     Client-review photo → reviewer pairing map (load-bearing)
+build.js                  Tiny partial injector (see "Build" below)
+package.json              `npm run build` / `npm run check`
+```
+
+## Design system
+
+- **Colors** (authoritative, July 2026) live as CSS custom properties in
+  `assets/css/tokens.css`: `--remax-blue #003DA5`, `--remax-red #E60E16`,
+  `--warm-white #FAF7EF`, `--crimson #AF0032`, `--gray #AAAAAA`,
+  `--navy-ink #00062E`, `--black #000000`.
+- **Accessibility rules baked into the CSS:** body text is black or navy-ink on
+  warm-white; red/crimson appear only on buttons, badges, and large display
+  elements — **never on paragraph text**; `--gray` is borders/dividers only,
+  **never text** (fails WCAG contrast); every interactive element has a visible
+  focus state; meaning is never carried by color alone.
+- **Typography:** Bricolage Grotesque (display/headings) and Instrument Sans
+  (body), **self-hosted** as woff2 in `assets/fonts/` with their SIL Open Font
+  License files. There are **no third-party font CDN calls** — this matches the
+  approved Privacy Policy, which describes no client-side tracking.
+- Mobile-first, fast, no JS.
+
+To restyle the whole site, edit `tokens.css` (tokens) and `site.css` (components).
+Every page links these two stylesheets and nothing else.
+
+## Shared header & footer (single source)
+
+The header and footer are authored **once** in `components/header.html` and
+`components/footer.html`, then injected into each page by `build.js` between
+marker comments. This keeps Netlify serving plain committed HTML (no deploy-time
+build) while giving us one place to edit shared chrome.
+
+### Editing the header or footer
+
+1. Edit `components/header.html` or `components/footer.html`.
+2. Run the build to propagate to every page:
+   ```bash
+   npm run build      # or: node build.js
+   ```
+3. Commit the changed partial **and** the regenerated pages.
+
+The header is compliant with 876 IAC 8-1-8: **"RE/MAX Results" has equal-or-greater
+visual prominence than "Lisa Collio"** (do not shrink the RE/MAX lockup below the
+agent lockup in `site.css`). The header also carries the compact red **"Hablo
+español"** badge, whose `/es/` target is a per-page parameter.
+
+### How the injection works
+
+Each page contains marker regions the build fills in and keeps in sync
+(idempotent — re-running only refreshes the region):
+
+```html
+<!-- build:header {"esHref":"/es/terminos/"} -->
+   ...generated header (do not hand-edit)...
+<!-- endbuild:header -->
+
+<!-- build:footer -->
+   ...generated footer...
+<!-- endbuild:footer -->
+```
+
+- The optional JSON after `build:header` supplies template params. The only
+  param today is `esHref` — the "Hablo español" badge's link to the Spanish
+  equivalent. (The `/es/` pages themselves arrive in later PRs; the EN legal
+  pages point at their natural Spanish URLs: `/es/terminos/`, `/es/privacidad/`,
+  `/es/accesibilidad/`, `/es/vivienda-justa/`.)
+- Templates use `{{param}}` placeholders; unknown params fall back to defaults
+  in `build.js`.
+
+Verify pages are up to date (e.g. in CI) without writing:
+
+```bash
+npm run check      # exits non-zero if any page is stale
+```
+
+`index.html` predates this system and is intentionally left untouched here; it
+gets the shared components when the homepage is rebuilt in a later PR.
+
+## Images
+
+Photography lives in `assets/images/{lisa, logos, client-reviews, client-general,
+homes-goshen, homes-elkhart, homes-general, goshen, elkhart}`. Every raster photo
+has a `.webp` sibling (originals kept). Filenames are lowercase, hyphenated, and
+web-safe. See `CLAUDE.md` → ASSETS and `content/review-photo-map.md` for the
+photo-usage rules (client-review pairing, homes-general = decorative only, lender
+photos on HOLD, etc.).
+
+## Local preview
+
+It's a static site — open a page directly, or serve the folder:
+
+```bash
+python3 -m http.server 8000    # then visit http://localhost:8000/terms/
+```
