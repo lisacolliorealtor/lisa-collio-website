@@ -4,7 +4,8 @@
   "private": true,
   "description": "Website for Lisa Collio, Real Estate Agent — RE/MAX Results, The Viruez Team. Bilingual EN/ES static site.",
   "scripts": {
-    "build": "node build.js",
+    "build": "node minify-css.js && node build.js",
+    "css": "node minify-css.js",
     "check": "node build.js --check"
   },
   "license": "UNLICENSED"
