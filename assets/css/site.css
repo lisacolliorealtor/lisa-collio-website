@@ -685,6 +685,38 @@ main { flex: 1 0 auto; }
 .contact-card dd { margin: 0; color: var(--black); }
 .contact-card a { color: var(--remax-blue); font-weight: 600; }
 
+/* ---------- Data tables (market-stats pages) ------------------------------- */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-4);
+}
+.prose th, .prose td {
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--gray);   /* decorative rule */
+  color: var(--black);
+}
+.prose th { font-family: var(--font-display); color: var(--navy-ink); }
+.prose .table-scroll { overflow-x: auto; }
+.data-note {
+  font-size: var(--fs-200);
+  font-style: italic;
+  color: var(--navy-ink);
+  margin-bottom: var(--space-3);
+}
+
+/* ---------- Related card (cross-link outside verbatim body) ---------------- */
+.related-card {
+  background: #fff;
+  border: 1px solid var(--gray);           /* decorative border */
+  border-left: 4px solid var(--remax-blue);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  margin: var(--space-5) 0;
+}
+.related-card a { color: var(--remax-blue); font-weight: 600; }
+
 /* ---------- Reduced motion ------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }
