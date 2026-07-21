@@ -34,6 +34,7 @@ const COMPONENTS_DIR = path.join(ROOT, "components");
 // Per-partial default template params.
 const DEFAULTS = {
   esHref: "/es/", // "Hablo español" badge target; overridden per page via marker JSON
+  enHref: "/",    // "English" badge target on /es/ pages
 };
 
 // Directories never scanned for pages.
@@ -41,9 +42,11 @@ const IGNORE_DIRS = new Set([".git", "node_modules", "components", "assets"]);
 
 function loadPartials() {
   const partials = {};
-  for (const name of ["header", "footer"]) {
+  for (const entry of fs.readdirSync(COMPONENTS_DIR)) {
+    if (!entry.endsWith(".html")) continue;
+    const name = entry.slice(0, -".html".length);
     partials[name] = fs.readFileSync(
-      path.join(COMPONENTS_DIR, `${name}.html`),
+      path.join(COMPONENTS_DIR, entry),
       "utf8"
     ).trimEnd();
   }
