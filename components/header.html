@@ -15,15 +15,24 @@
         </span>
       </span>
     </a>
-    <div class="site-header__nav">
-      <!-- Some destinations ship in later PRs (about, buyers, sellers, method, contact) -->
-      <ul class="site-nav" aria-label="Main navigation">
-        <li><a href="/about/">Meet Lisa</a></li>
-        <li><a href="/buyers/">Buyers</a></li>
-        <li><a href="/sellers/">Sellers</a></li>
-        <li><a href="/next-chapter-method/">The Method</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/contact/">Contact</a></li>
+    <nav class="site-header__nav" aria-label="Main navigation">
+      <input type="checkbox" id="nav-open" class="nav-toggle__box" aria-label="Open menu">
+      <label for="nav-open" class="nav-toggle"><span aria-hidden="true">☰</span>&nbsp;Menu</label>
+      <ul class="site-nav">
+        <li><a href="/"{{curHome}}>Home</a></li>
+        <li><a href="/buyers/"{{curBuyers}}>Buyers</a></li>
+        <li><a href="/sellers/"{{curSellers}}>Sellers</a></li>
+        <li class="nav-drop">
+          <span class="nav-drop__label" tabindex="0"{{curCommunities}}>Communities <span class="nav-drop__caret" aria-hidden="true">▾</span></span>
+          <ul class="nav-drop__menu">
+            <li><a href="/communities/goshen/"{{curGoshen}}>Goshen</a></li>
+            <li><a href="/communities/elkhart/"{{curElkhart}}>Elkhart</a></li>
+          </ul>
+        </li>
+        <li><a href="/market-stats/"{{curStats}}>Market Stats</a></li>
+        <li><a href="/about/"{{curAbout}}>About</a></li>
+        <li><a href="/next-chapter-method/"{{curMethod}}>The Next Chapter Method™</a></li>
+        <li><a href="/contact/"{{curContact}}>Contact</a></li>
       </ul>
       <div class="site-header__actions">
         <a class="hablo-badge" href="{{esHref}}" hreflang="es" lang="es" aria-label="Hablo español — ver esta página en español">
@@ -33,6 +42,6 @@
         </a>
         <a class="btn btn--primary" href="tel:+15743705410">Call or Text&nbsp;<span class="btn__full">(574)&nbsp;370-5410</span></a>
       </div>
-    </div>
+    </nav>
   </div>
 </header>

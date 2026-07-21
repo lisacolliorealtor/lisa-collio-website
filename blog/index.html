@@ -53,14 +53,23 @@
         </span>
       </span>
     </a>
-    <div class="site-header__nav">
-      <!-- Some destinations ship in later PRs (about, buyers, sellers, method, contact) -->
-      <ul class="site-nav" aria-label="Main navigation">
-        <li><a href="/about/">Meet Lisa</a></li>
+    <nav class="site-header__nav" aria-label="Main navigation">
+      <input type="checkbox" id="nav-open" class="nav-toggle__box" aria-label="Open menu">
+      <label for="nav-open" class="nav-toggle"><span aria-hidden="true">☰</span>&nbsp;Menu</label>
+      <ul class="site-nav">
+        <li><a href="/">Home</a></li>
         <li><a href="/buyers/">Buyers</a></li>
         <li><a href="/sellers/">Sellers</a></li>
-        <li><a href="/next-chapter-method/">The Method</a></li>
-        <li><a href="/blog/">Blog</a></li>
+        <li class="nav-drop">
+          <span class="nav-drop__label" tabindex="0">Communities <span class="nav-drop__caret" aria-hidden="true">▾</span></span>
+          <ul class="nav-drop__menu">
+            <li><a href="/communities/goshen/">Goshen</a></li>
+            <li><a href="/communities/elkhart/">Elkhart</a></li>
+          </ul>
+        </li>
+        <li><a href="/market-stats/">Market Stats</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/next-chapter-method/">The Next Chapter Method™</a></li>
         <li><a href="/contact/">Contact</a></li>
       </ul>
       <div class="site-header__actions">
@@ -71,7 +80,7 @@
         </a>
         <a class="btn btn--primary" href="tel:+15743705410">Call or Text&nbsp;<span class="btn__full">(574)&nbsp;370-5410</span></a>
       </div>
-    </div>
+    </nav>
   </div>
 </header>
 <!-- endbuild:header -->
@@ -216,8 +225,9 @@
     <!-- 5. Independence statement -->
     <p class="footer-statement footer-statement--fineprint">Each Office Independently Owned and Operated.</p>
 
-    <!-- 6. Legal links -->
+    <!-- 6. Legal links (+ Blog, per launch nav plan) -->
     <ul class="footer-legal-links" aria-label="Legal">
+      <li><a href="/blog/">Blog</a></li>
       <li><a href="/terms/">Terms of Use</a></li>
       <li><a href="/privacy/">Privacy Policy</a></li>
       <li><a href="/accessibility/">Accessibility</a></li>

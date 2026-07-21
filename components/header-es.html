@@ -15,14 +15,23 @@
         </span>
       </span>
     </a>
-    <div class="site-header__nav">
-      <!-- Estas páginas llegan en PRs posteriores -->
-      <ul class="site-nav" aria-label="Navegación principal">
-        <li><a href="/es/conozca-a-lisa/">Conozca a Lisa</a></li>
-        <li><a href="/es/compradores/">Compradores</a></li>
-        <li><a href="/es/vendedores/">Vendedores</a></li>
-        <li><a href="/es/tu-proximo-capitulo/">El Método</a></li>
-        <li><a href="/es/contacto/">Contacto</a></li>
+    <nav class="site-header__nav" aria-label="Navegación principal">
+      <input type="checkbox" id="nav-open" class="nav-toggle__box" aria-label="Abrir menú">
+      <label for="nav-open" class="nav-toggle"><span aria-hidden="true">☰</span>&nbsp;Menú</label>
+      <ul class="site-nav">
+        <li><a href="/es/"{{curInicio}}>Inicio</a></li>
+        <li><a href="/es/compradores/"{{curCompradores}}>Compradores</a></li>
+        <li><a href="/es/vendedores/"{{curVendedores}}>Vendedores</a></li>
+        <li class="nav-drop">
+          <span class="nav-drop__label" tabindex="0"{{curComunidades}}>Comunidades <span class="nav-drop__caret" aria-hidden="true">▾</span></span>
+          <ul class="nav-drop__menu">
+            <li><a href="/es/comunidades/goshen/"{{curGoshen}}>Goshen</a></li>
+            <li><a href="/es/comunidades/elkhart/"{{curElkhart}}>Elkhart</a></li>
+          </ul>
+        </li>
+        <li><a href="/es/conozca-a-lisa/"{{curConozca}}>Conozca a Lisa</a></li>
+        <li><a href="/es/tu-proximo-capitulo/"{{curMetodo}}>Tu Próximo Capítulo™</a></li>
+        <li><a href="/es/contacto/"{{curContacto}}>Contacto</a></li>
       </ul>
       <div class="site-header__actions">
         <a class="hablo-badge" href="{{enHref}}" hreflang="en" lang="en" aria-label="English — view this page in English">
@@ -32,6 +41,6 @@
         </a>
         <a class="btn btn--primary" href="tel:+15743705410">Llame o mande un mensaje de texto<span class="btn__full">:&nbsp;(574)&nbsp;370-5410</span></a>
       </div>
-    </div>
+    </nav>
   </div>
 </header>

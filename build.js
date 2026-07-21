@@ -35,6 +35,7 @@ const COMPONENTS_DIR = path.join(ROOT, "components");
 const DEFAULTS = {
   esHref: "/es/", // "Hablo español" badge target; overridden per page via marker JSON
   enHref: "/",    // "English" badge target on /es/ pages
+  blogHref: "/blog/", // footer Blog link; ES pages override to /blog/spanish/
 };
 
 // Directories never scanned for pages.
