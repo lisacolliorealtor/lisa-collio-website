@@ -641,6 +641,32 @@ main { flex: 1 0 auto; }
 }
 .review-card__reply cite { font-style: normal; font-weight: 600; }
 
+/* ---------- Credentials band (about pages) -------------------------------- */
+.credentials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-6);
+  margin-top: var(--space-5);
+}
+.credentials__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--navy-ink);
+}
+.credentials__logo { height: 40px; width: auto; }
+
+/* ---------- Small note above a review photo's quote ----------------------- */
+.review-card__note {
+  display: block;
+  padding: var(--space-2) var(--space-4) 0;
+  font-size: var(--fs-100);
+  color: var(--navy-ink);
+}
+
 /* ---------- Reduced motion ------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }
