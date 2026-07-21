@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 92" role="img" aria-label="Equal Housing Opportunity">
+  <title>Equal Housing Opportunity</title>
+  <g fill="#000">
+    <!-- House symbol with equal sign -->
+    <path d="M46 6 6 38h11v42h58V38h11L46 6zm0 12.7L63 32H29l17-13.3z"/>
+    <rect x="30" y="46" width="32" height="8"/>
+    <rect x="30" y="61" width="32" height="8"/>
+  </g>
+  <g fill="#000" font-family="Arial, Helvetica, sans-serif" font-weight="700">
+    <text x="98" y="40" font-size="22" letter-spacing="0.5">EQUAL HOUSING</text>
+    <text x="98" y="70" font-size="22" letter-spacing="0.5">OPPORTUNITY</text>
+  </g>
+</svg>
