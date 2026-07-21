@@ -597,6 +597,50 @@ main { flex: 1 0 auto; }
 .blog-card h3 a:hover { color: var(--remax-blue); text-decoration: underline; }
 .blog-card p { color: var(--black); }
 
+/* ---------- Recently-sold band (sellers hubs) ----------------------------- */
+.sold-grid { display: grid; gap: var(--space-5); margin-top: var(--space-5); }
+@media (min-width: 700px) { .sold-grid { grid-template-columns: 1fr 1fr; } }
+.sold-card { margin: 0; }
+.sold-card__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+.sold-card figcaption {
+  margin-top: var(--space-2);
+  font-size: var(--fs-200);
+  font-weight: 600;
+  color: var(--navy-ink);
+}
+
+/* ---------- Three-point cards (sellers hubs) ------------------------------ */
+.points-grid { display: grid; gap: var(--space-4); margin-top: var(--space-5); }
+@media (min-width: 700px) { .points-grid { grid-template-columns: repeat(3, 1fr); } }
+.point-card {
+  background: #fff;
+  border: 1px solid var(--gray);           /* decorative border */
+  border-top: 3px solid var(--remax-red);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--navy-ink);
+}
+
+/* ---------- Owner response inside a review card --------------------------- */
+.review-card__reply {
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--warm-white);
+  border-left: 3px solid var(--remax-blue);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-200);
+  color: var(--black);
+}
+.review-card__reply cite { font-style: normal; font-weight: 600; }
+
 /* ---------- Reduced motion ------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }
