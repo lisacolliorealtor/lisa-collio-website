@@ -123,3 +123,60 @@ sign-off for advertising and legal content → merge → publish. Every page PR
 runs the Master Plan §8 pre-publish gate before requesting Lisa's review.
 Build order (§14): Homepage EN → /es/ → buyers pair → communities → remaining
 pairs → market-stats → legal pages live before any form.
+
+## DESIGN & NAMING ADDENDUM (July 2026)
+Foundations shipped in PR 1. The design system lives in `assets/css/tokens.css`
+(tokens + self-hosted @font-face) and `assets/css/site.css` (components); shared
+chrome lives in `components/header.html` and `components/footer.html`, injected by
+`build.js` (`npm run build`). See README for the workflow.
+
+### Color tokens and roles (authoritative)
+- `--remax-blue #003DA5` — primary brand/trust: heading accents, links, key UI.
+- `--remax-red #E60E16` — primary accent: CTA buttons, the "Hablo español" badge,
+  highlights.
+- `--warm-white #FAF7EF` — page background.
+- `--crimson #AF0032` — sparing secondary accent: hover states, small emphasis.
+- `--gray #AAAAAA` — borders / dividers / decoration ONLY — NEVER text (fails WCAG
+  contrast).
+- `--navy-ink #00062E` — headings, dark sections.
+- `--black #000000` — body text.
+Accessibility: body text is black or navy-ink on warm-white; red/crimson only on
+buttons, badges, and large display elements, never paragraph text; visible focus
+on every interactive element; WCAG AA contrast throughout; never rely on color
+alone for meaning.
+
+### Typography
+Bricolage Grotesque for display/headings, Instrument Sans for body. Both are
+self-hosted woff2 in `assets/fonts/` (SIL OFL, license files included). No
+third-party font CDN calls (privacy: the approved Privacy Policy describes no
+client-side tracking).
+
+### Naming & usage rules (locked)
+1. **Brokerage name in writing** is always the full "RE/MAX Results, The Viruez
+   Team". "RE/MAX" is always written with the slash; the slash-free "REMAX" is
+   permitted ONLY inside logo graphics/filenames, never in prose.
+2. **`assets/images/homes-general/`** is decorative house imagery ONLY: no
+   addresses or city names anywhere (filenames, captions, or alt text) and never
+   any "Sold" framing. Sold-listing content comes exclusively from the
+   `homes-goshen/` and `homes-elkhart/` address subfolders (with written seller
+   consent per 876 IAC 8-1-8(f)).
+3. **Header prominence (876 IAC 8-1-8):** "RE/MAX Results" carries equal-or-greater
+   visual prominence than "Lisa Collio" — do not shrink the RE/MAX lockup below
+   the agent lockup.
+4. **The six-item footer stack is locked verbatim, in this exact order,** on every
+   page (single-sourced in `components/footer.html`):
+   1. Footer signature (single line): "Lisa Collio | Real Estate Agent | $20M+
+      Sold | 120+ homes sold | Top 20% Elkhart County | Helping buyers & sellers
+      in Goshen & Elkhart, IN | Hablo español | REALTOR® | NAR® Member | SRES®
+      Seniors Real Estate Specialist | RE/MAX Results | The Viruez Team | Licensed
+      in Indiana #RB21002460"
+   2. Site footer disclaimer: "Some client stories are illustrative composites to
+      protect confidentiality; all reviews and testimonials are real and shown as
+      written."
+   3. Agent-not-lender statement: "Lisa Collio is a licensed real estate agent and
+      is not a mortgage lender, loan officer, or broker. She does not originate
+      loans, quote loan terms, or make lending decisions. For financing questions,
+      speak directly with a licensed lender."
+   4. Equal Housing Opportunity statement and logo.
+   5. "Each Office Independently Owned and Operated."
+   6. Links to /terms/, /privacy/, /accessibility/, /fair-housing/.
