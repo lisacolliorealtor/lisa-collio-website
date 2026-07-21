@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>How Lisa Collio Helps Seniors Downsize | Goshen &amp; Elkhart</title>
 <meta name="description" content="How does Lisa Collio help seniors and families downsize in Goshen and Elkhart, Indiana? A clear, step-by-step SRES® approach for major life transitions.">
 <link rel="canonical" href="https://lisacolliorealtor.com/blog/community/lisa-collio-helps-seniors-families-downsize/">
@@ -112,14 +116,23 @@
         </span>
       </span>
     </a>
-    <div class="site-header__nav">
-      <!-- Some destinations ship in later PRs (about, buyers, sellers, method, contact) -->
-      <ul class="site-nav" aria-label="Main navigation">
-        <li><a href="/about/">Meet Lisa</a></li>
+    <nav class="site-header__nav" aria-label="Main navigation">
+      <input type="checkbox" id="nav-open" class="nav-toggle__box" aria-label="Open menu">
+      <label for="nav-open" class="nav-toggle"><span aria-hidden="true">☰</span>&nbsp;Menu</label>
+      <ul class="site-nav">
+        <li><a href="/">Home</a></li>
         <li><a href="/buyers/">Buyers</a></li>
         <li><a href="/sellers/">Sellers</a></li>
-        <li><a href="/next-chapter-method/">The Method</a></li>
-        <li><a href="/blog/">Blog</a></li>
+        <li class="nav-drop">
+          <span class="nav-drop__label" tabindex="0">Communities <span class="nav-drop__caret" aria-hidden="true">▾</span></span>
+          <ul class="nav-drop__menu">
+            <li><a href="/communities/goshen/">Goshen</a></li>
+            <li><a href="/communities/elkhart/">Elkhart</a></li>
+          </ul>
+        </li>
+        <li><a href="/market-stats/">Market Stats</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/next-chapter-method/">The Next Chapter Method™</a></li>
         <li><a href="/contact/">Contact</a></li>
       </ul>
       <div class="site-header__actions">
@@ -130,7 +143,7 @@
         </a>
         <a class="btn btn--primary" href="tel:+15743705410">Call or Text&nbsp;<span class="btn__full">(574)&nbsp;370-5410</span></a>
       </div>
-    </div>
+    </nav>
   </div>
 </header>
 <!-- endbuild:header -->
@@ -203,6 +216,31 @@
       RE/MAX Results · The Viruez Team</p>
     </div>
   </article>
+
+  <!-- more-from-lisa -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap wrap--narrow">
+      <h2>More from Lisa</h2>
+      <div class="blog-list">
+        <article class="blog-card">
+          <p class="blog-card__cat"><a href="/blog/community/">Community</a></p>
+          <h3><a href="/blog/community/does-lisa-collio-speak-spanish/">Does Lisa Collio Speak Spanish? A Bilingual Real Estate Agent in Goshen and Elkhart, Indiana</a></h3>
+          <p>Does Lisa Collio speak Spanish? Yes — native-level. A bilingual real estate agent serving Goshen and Elkhart, Indiana families in English and Spanish.</p>
+        </article>
+        <article class="blog-card">
+          <p class="blog-card__cat"><a href="/blog/community/">Community</a></p>
+          <h3><a href="/blog/community/how-many-homes-lisa-collio-sold-goshen-elkhart/">How Many Homes Has Lisa Collio Sold in Goshen and Elkhart, Indiana?</a></h3>
+          <p>How many homes has Lisa Collio sold? 120+ homes and $20M+ in closed sales across Goshen and Elkhart, Indiana — and what that experience means for you.</p>
+        </article>
+        <article class="blog-card">
+          <p class="blog-card__cat"><a href="/blog/community/">Community</a></p>
+          <h3><a href="/blog/community/what-is-it-like-to-work-with-lisa-collio/">What Is It Like to Work with Lisa Collio as a Buyer or Seller in Goshen and Elkhart, Indiana?</a></h3>
+          <p>What is it like to work with Lisa Collio? Buyers and sellers in Goshen and Elkhart, Indiana describe clear steps, steady communication, and no pressure.</p>
+        </article>
+      </div>
+      <p class="faq-more"><a href="/blog/">See all articles →</a></p>
+    </div>
+  </section>
 </main>
 
 <!-- build:footer -->
@@ -226,8 +264,9 @@
     <!-- 5. Independence statement -->
     <p class="footer-statement footer-statement--fineprint">Each Office Independently Owned and Operated.</p>
 
-    <!-- 6. Legal links -->
+    <!-- 6. Legal links (+ Blog, per launch nav plan) -->
     <ul class="footer-legal-links" aria-label="Legal">
+      <li><a href="/blog/">Blog</a></li>
       <li><a href="/terms/">Terms of Use</a></li>
       <li><a href="/privacy/">Privacy Policy</a></li>
       <li><a href="/accessibility/">Accessibility</a></li>

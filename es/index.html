@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>Lisa Collio, Agente de Bienes Raíces | Goshen y Elkhart, IN</title>
 <meta name="description" content="Lisa Collio, Agente de Bienes Raíces en Goshen y Elkhart, Indiana. Acompañamiento en español para comprar o vender su casa. Llame al (574) 370-5410.">
 <link rel="canonical" href="https://lisacolliorealtor.com/es/">
@@ -102,7 +106,7 @@
 </head>
 <body>
 
-<!-- build:header-es -->
+<!-- build:header-es {"curInicio": " aria-current=\"page\""} -->
 <a class="skip-link" href="#main">Saltar al contenido</a>
 <header class="site-header">
   <div class="wrap site-header__inner">
@@ -120,13 +124,22 @@
         </span>
       </span>
     </a>
-    <div class="site-header__nav">
-      <!-- Estas páginas llegan en PRs posteriores -->
-      <ul class="site-nav" aria-label="Navegación principal">
-        <li><a href="/es/conozca-a-lisa/">Conozca a Lisa</a></li>
+    <nav class="site-header__nav" aria-label="Navegación principal">
+      <input type="checkbox" id="nav-open" class="nav-toggle__box" aria-label="Abrir menú">
+      <label for="nav-open" class="nav-toggle"><span aria-hidden="true">☰</span>&nbsp;Menú</label>
+      <ul class="site-nav">
+        <li><a href="/es/" aria-current="page">Inicio</a></li>
         <li><a href="/es/compradores/">Compradores</a></li>
         <li><a href="/es/vendedores/">Vendedores</a></li>
-        <li><a href="/es/tu-proximo-capitulo/">El Método</a></li>
+        <li class="nav-drop">
+          <span class="nav-drop__label" tabindex="0">Comunidades <span class="nav-drop__caret" aria-hidden="true">▾</span></span>
+          <ul class="nav-drop__menu">
+            <li><a href="/es/comunidades/goshen/">Goshen</a></li>
+            <li><a href="/es/comunidades/elkhart/">Elkhart</a></li>
+          </ul>
+        </li>
+        <li><a href="/es/conozca-a-lisa/">Conozca a Lisa</a></li>
+        <li><a href="/es/tu-proximo-capitulo/">Tu Próximo Capítulo™</a></li>
         <li><a href="/es/contacto/">Contacto</a></li>
       </ul>
       <div class="site-header__actions">
@@ -137,7 +150,7 @@
         </a>
         <a class="btn btn--primary" href="tel:+15743705410">Llame o mande un mensaje de texto<span class="btn__full">:&nbsp;(574)&nbsp;370-5410</span></a>
       </div>
-    </div>
+    </nav>
   </div>
 </header>
 <!-- endbuild:header-es -->
@@ -255,7 +268,7 @@
 
 </main>
 
-<!-- build:footer -->
+<!-- build:footer {"blogHref": "/blog/spanish/"} -->
 <footer class="site-footer">
   <div class="wrap site-footer__inner">
     <!-- 1. Footer signature (single line, locked verbatim) -->
@@ -276,8 +289,9 @@
     <!-- 5. Independence statement -->
     <p class="footer-statement footer-statement--fineprint">Each Office Independently Owned and Operated.</p>
 
-    <!-- 6. Legal links -->
+    <!-- 6. Legal links (+ Blog, per launch nav plan) -->
     <ul class="footer-legal-links" aria-label="Legal">
+      <li><a href="/blog/spanish/">Blog</a></li>
       <li><a href="/terms/">Terms of Use</a></li>
       <li><a href="/privacy/">Privacy Policy</a></li>
       <li><a href="/accessibility/">Accessibility</a></li>

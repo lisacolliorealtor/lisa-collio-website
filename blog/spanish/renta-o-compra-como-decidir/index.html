@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>¿Renta o compra? Cómo decidir | Lisa Collio</title>
 <meta name="description" content="¿Le conviene seguir rentando o comprar casa? Una comparación honesta — patrimonio, estabilidad, costos y flexibilidad — en español, para Goshen y Elkhart.">
 <link rel="canonical" href="https://lisacolliorealtor.com/blog/spanish/renta-o-compra-como-decidir/">
@@ -89,7 +93,7 @@
 </head>
 <body>
 
-<!-- build:header-es {"enHref":"/blog/"} -->
+<!-- build:header-es {"enHref": "/blog/"} -->
 <a class="skip-link" href="#main">Saltar al contenido</a>
 <header class="site-header">
   <div class="wrap site-header__inner">
@@ -107,13 +111,22 @@
         </span>
       </span>
     </a>
-    <div class="site-header__nav">
-      <!-- Estas páginas llegan en PRs posteriores -->
-      <ul class="site-nav" aria-label="Navegación principal">
-        <li><a href="/es/conozca-a-lisa/">Conozca a Lisa</a></li>
+    <nav class="site-header__nav" aria-label="Navegación principal">
+      <input type="checkbox" id="nav-open" class="nav-toggle__box" aria-label="Abrir menú">
+      <label for="nav-open" class="nav-toggle"><span aria-hidden="true">☰</span>&nbsp;Menú</label>
+      <ul class="site-nav">
+        <li><a href="/es/">Inicio</a></li>
         <li><a href="/es/compradores/">Compradores</a></li>
         <li><a href="/es/vendedores/">Vendedores</a></li>
-        <li><a href="/es/tu-proximo-capitulo/">El Método</a></li>
+        <li class="nav-drop">
+          <span class="nav-drop__label" tabindex="0">Comunidades <span class="nav-drop__caret" aria-hidden="true">▾</span></span>
+          <ul class="nav-drop__menu">
+            <li><a href="/es/comunidades/goshen/">Goshen</a></li>
+            <li><a href="/es/comunidades/elkhart/">Elkhart</a></li>
+          </ul>
+        </li>
+        <li><a href="/es/conozca-a-lisa/">Conozca a Lisa</a></li>
+        <li><a href="/es/tu-proximo-capitulo/">Tu Próximo Capítulo™</a></li>
         <li><a href="/es/contacto/">Contacto</a></li>
       </ul>
       <div class="site-header__actions">
@@ -124,7 +137,7 @@
         </a>
         <a class="btn btn--primary" href="tel:+15743705410">Llame o mande un mensaje de texto<span class="btn__full">:&nbsp;(574)&nbsp;370-5410</span></a>
       </div>
-    </div>
+    </nav>
   </div>
 </header>
 <!-- endbuild:header-es -->
@@ -193,9 +206,34 @@
       RE/MAX Results · The Viruez Team</p>
     </div>
   </article>
+
+  <!-- more-from-lisa -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap wrap--narrow">
+      <h2>Más de Lisa</h2>
+      <div class="blog-list">
+        <article class="blog-card">
+          <p class="blog-card__cat">En Español</p>
+          <h3><a href="/blog/spanish/como-comprar-una-casa-en-indiana/">Cómo comprar una casa en Indiana, paso a paso</a></h3>
+          <p>¿Cómo comprar una casa en Indiana? Guía paso a paso en español para familias de Goshen y Elkhart — desde la preaprobación hasta el cierre. Hable con Lisa Collio.</p>
+        </article>
+        <article class="blog-card">
+          <p class="blog-card__cat">En Español</p>
+          <h3><a href="/blog/spanish/costos-de-cierre-que-son/">Costos de cierre: qué son y qué incluyen</a></h3>
+          <p>¿Qué son los costos de cierre al comprar casa? Qué incluyen, cuándo se pagan y cómo conocer su cantidad exacta por escrito — explicado en español.</p>
+        </article>
+        <article class="blog-card">
+          <p class="blog-card__cat">En Español</p>
+          <h3><a href="/blog/spanish/cuanto-dinero-necesito-para-comprar-una-casa/">¿Cuánto dinero necesito para comprar una casa?</a></h3>
+          <p>¿Cuánto dinero se necesita para comprar una casa? Enganche, costos de cierre y reserva, explicados en español para compradores de Goshen y Elkhart, Indiana.</p>
+        </article>
+      </div>
+      <p class="faq-more"><a href="/blog/spanish/">Ver todos los artículos →</a></p>
+    </div>
+  </section>
 </main>
 
-<!-- build:footer -->
+<!-- build:footer {"blogHref": "/blog/spanish/"} -->
 <footer class="site-footer">
   <div class="wrap site-footer__inner">
     <!-- 1. Footer signature (single line, locked verbatim) -->
@@ -216,8 +254,9 @@
     <!-- 5. Independence statement -->
     <p class="footer-statement footer-statement--fineprint">Each Office Independently Owned and Operated.</p>
 
-    <!-- 6. Legal links -->
+    <!-- 6. Legal links (+ Blog, per launch nav plan) -->
     <ul class="footer-legal-links" aria-label="Legal">
+      <li><a href="/blog/spanish/">Blog</a></li>
       <li><a href="/terms/">Terms of Use</a></li>
       <li><a href="/privacy/">Privacy Policy</a></li>
       <li><a href="/accessibility/">Accessibility</a></li>

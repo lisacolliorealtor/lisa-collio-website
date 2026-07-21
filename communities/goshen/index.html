@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>Living in Goshen, Indiana | Lisa Collio</title>
 <meta name="description" content="A plain-facts introduction to living in Goshen, Indiana — the county seat of Elkhart County — from Lisa Collio, a real estate agent based right in Goshen.">
 <link rel="canonical" href="https://lisacolliorealtor.com/communities/goshen/">
@@ -48,7 +52,7 @@
 </head>
 <body>
 
-<!-- build:header {"esHref":"/es/comunidades/goshen/"} -->
+<!-- build:header {"esHref": "/es/comunidades/goshen/", "curCommunities": " aria-current=\"page\"", "curGoshen": " aria-current=\"page\""} -->
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap site-header__inner">
@@ -66,14 +70,23 @@
         </span>
       </span>
     </a>
-    <div class="site-header__nav">
-      <!-- Some destinations ship in later PRs (about, buyers, sellers, method, contact) -->
-      <ul class="site-nav" aria-label="Main navigation">
-        <li><a href="/about/">Meet Lisa</a></li>
+    <nav class="site-header__nav" aria-label="Main navigation">
+      <input type="checkbox" id="nav-open" class="nav-toggle__box" aria-label="Open menu">
+      <label for="nav-open" class="nav-toggle"><span aria-hidden="true">☰</span>&nbsp;Menu</label>
+      <ul class="site-nav">
+        <li><a href="/">Home</a></li>
         <li><a href="/buyers/">Buyers</a></li>
         <li><a href="/sellers/">Sellers</a></li>
-        <li><a href="/next-chapter-method/">The Method</a></li>
-        <li><a href="/blog/">Blog</a></li>
+        <li class="nav-drop">
+          <span class="nav-drop__label" tabindex="0" aria-current="page">Communities <span class="nav-drop__caret" aria-hidden="true">▾</span></span>
+          <ul class="nav-drop__menu">
+            <li><a href="/communities/goshen/" aria-current="page">Goshen</a></li>
+            <li><a href="/communities/elkhart/">Elkhart</a></li>
+          </ul>
+        </li>
+        <li><a href="/market-stats/">Market Stats</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/next-chapter-method/">The Next Chapter Method™</a></li>
         <li><a href="/contact/">Contact</a></li>
       </ul>
       <div class="site-header__actions">
@@ -84,7 +97,7 @@
         </a>
         <a class="btn btn--primary" href="tel:+15743705410">Call or Text&nbsp;<span class="btn__full">(574)&nbsp;370-5410</span></a>
       </div>
-    </div>
+    </nav>
   </div>
 </header>
 <!-- endbuild:header -->
@@ -167,8 +180,9 @@
     <!-- 5. Independence statement -->
     <p class="footer-statement footer-statement--fineprint">Each Office Independently Owned and Operated.</p>
 
-    <!-- 6. Legal links -->
+    <!-- 6. Legal links (+ Blog, per launch nav plan) -->
     <ul class="footer-legal-links" aria-label="Legal">
+      <li><a href="/blog/">Blog</a></li>
       <li><a href="/terms/">Terms of Use</a></li>
       <li><a href="/privacy/">Privacy Policy</a></li>
       <li><a href="/accessibility/">Accessibility</a></li>

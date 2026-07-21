@@ -247,7 +247,65 @@ main { flex: 1 0 auto; }
   white-space: nowrap;
 }
 .site-nav a:hover { border-color: var(--remax-red); }
+.site-nav a[aria-current="page"] {
+  color: var(--remax-blue);
+  font-weight: 700;
+  border-color: var(--remax-blue);
+}
 .site-header__actions { display: flex; align-items: center; gap: var(--space-3); }
+
+/* Communities dropdown — CSS-only, keyboard accessible via :focus-within. */
+.nav-drop { position: relative; }
+.nav-drop__label {
+  color: var(--navy-ink);
+  font-weight: 500;
+  font-size: var(--fs-200);
+  padding-block: var(--space-1);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  cursor: default;
+}
+.nav-drop__label[aria-current="page"] {
+  color: var(--remax-blue);
+  font-weight: 700;
+  border-color: var(--remax-blue);
+}
+.nav-drop:hover .nav-drop__label,
+.nav-drop:focus-within .nav-drop__label { border-color: var(--remax-red); }
+.nav-drop__menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 9rem;
+  background: #fff;
+  border: 1px solid var(--gray);           /* decorative border */
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-2);
+  margin: 0;
+  list-style: none;
+  z-index: 20;
+}
+.nav-drop:hover .nav-drop__menu,
+.nav-drop:focus-within .nav-drop__menu { display: block; }
+.nav-drop__menu a { display: block; padding: var(--space-2) var(--space-3); border: 0; }
+.nav-drop__menu a:hover { color: var(--remax-blue); text-decoration: underline; }
+
+/* Mobile menu toggle — no JS: visually-hidden checkbox + label. */
+.nav-toggle__box {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.nav-toggle { display: none; }
+.nav-toggle__box:focus-visible + .nav-toggle {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
 
 /* Header collapses gracefully on small screens (no JS). */
 .site-header .btn--primary { white-space: nowrap; }
@@ -255,8 +313,51 @@ main { flex: 1 0 auto; }
   /* keep the header on one line: number hides, full CTA remains in hero/CTA bands */
   .site-header .btn__full { display: none; }
 }
-@media (max-width: 860px) {
+@media (max-width: 999px) {
+  /* Nav moves to its own full-width row beneath the brand lockup. */
+  .site-header__inner { flex-wrap: wrap; }
+  .site-header__nav { flex: 0 0 100%; flex-wrap: wrap; justify-content: flex-end; }
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--fs-200);
+    color: var(--navy-ink);
+    border: 1px solid var(--gray);         /* decorative border */
+    border-radius: var(--radius-sm);
+    padding: var(--space-2) var(--space-3);
+  }
   .site-nav { display: none; }
+  .nav-toggle__box:checked ~ .site-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    order: 3;
+    background: #fff;
+    border: 1px solid var(--gray);         /* decorative border */
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    margin-top: var(--space-2);
+  }
+  .nav-toggle__box:checked ~ .site-nav a,
+  .nav-toggle__box:checked ~ .site-nav .nav-drop__label {
+    display: block;
+    padding: var(--space-2) var(--space-2);
+  }
+  /* Flatten the Communities dropdown into the mobile list. */
+  .nav-drop__menu {
+    display: block;
+    position: static;
+    border: 0;
+    box-shadow: none;
+    padding: 0 0 0 var(--space-4);
+  }
+  .nav-drop__caret { display: none; }
+}
+@media (max-width: 860px) {
   .brand-lockup { gap: var(--space-3); }
   .brand-agent__name { font-size: 0.9rem; }
   .brand-remax__name { font-size: 1rem; }
@@ -278,6 +379,8 @@ main { flex: 1 0 auto; }
   .brand-remax__team,
   .brand-agent__role { display: none; }
   .site-header__actions .btn--primary .btn__full { display: none; }
+  .site-header__actions { flex-wrap: wrap; }
+  .site-header .btn--primary { white-space: normal; text-align: left; }
   .site-header__nav { justify-content: space-between; }
 }
 
@@ -684,6 +787,38 @@ main { flex: 1 0 auto; }
 }
 .contact-card dd { margin: 0; color: var(--black); }
 .contact-card a { color: var(--remax-blue); font-weight: 600; }
+
+/* ---------- Data tables (market-stats pages) ------------------------------- */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-4);
+}
+.prose th, .prose td {
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--gray);   /* decorative rule */
+  color: var(--black);
+}
+.prose th { font-family: var(--font-display); color: var(--navy-ink); }
+.prose .table-scroll { overflow-x: auto; }
+.data-note {
+  font-size: var(--fs-200);
+  font-style: italic;
+  color: var(--navy-ink);
+  margin-bottom: var(--space-3);
+}
+
+/* ---------- Related card (cross-link outside verbatim body) ---------------- */
+.related-card {
+  background: #fff;
+  border: 1px solid var(--gray);           /* decorative border */
+  border-left: 4px solid var(--remax-blue);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  margin: var(--space-5) 0;
+}
+.related-card a { color: var(--remax-blue); font-weight: 600; }
 
 /* ---------- Reduced motion ------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {

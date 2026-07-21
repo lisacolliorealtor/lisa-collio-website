@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lisacolliorealtor.com/sitemap.xml
