@@ -345,7 +345,7 @@ main { flex: 1 0 auto; }
   .nav-toggle__box:checked ~ .site-nav a,
   .nav-toggle__box:checked ~ .site-nav .nav-drop__label {
     display: block;
-    padding: var(--space-2) var(--space-2);
+    padding: var(--space-3) var(--space-2); /* >=44px tap target in the open menu */
   }
   /* Flatten the Communities dropdown into the mobile list. */
   .nav-drop__menu {
@@ -442,7 +442,7 @@ main { flex: 1 0 auto; }
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   font-size: var(--fs-200);
 }
-.footer-legal-links a { font-weight: 600; text-decoration: none; }
+.footer-legal-links a { font-weight: 600; text-decoration: none; display: inline-block; padding-block: var(--space-1); }
 .footer-legal-links a:hover { text-decoration: underline; }
 
 .footer-divider { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.14); margin: 0; }
@@ -695,9 +695,9 @@ main { flex: 1 0 auto; }
   color: var(--remax-blue);
   margin-bottom: var(--space-2);
 }
-.blog-card h3 { margin-bottom: var(--space-2); }
-.blog-card h3 a { color: var(--navy-ink); text-decoration: none; }
-.blog-card h3 a:hover { color: var(--remax-blue); text-decoration: underline; }
+.blog-card h2, .blog-card h3 { margin-bottom: var(--space-2); font-size: var(--fs-600); }
+.blog-card h2 a, .blog-card h3 a { color: var(--navy-ink); text-decoration: none; }
+.blog-card h2 a:hover, .blog-card h3 a:hover { color: var(--remax-blue); text-decoration: underline; }
 .blog-card p { color: var(--black); }
 
 /* ---------- Recently-sold band (sellers hubs) ----------------------------- */
