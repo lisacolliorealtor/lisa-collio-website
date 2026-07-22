@@ -1062,3 +1062,56 @@ main { flex: 1 0 auto; }
   .hero__grid--flip > picture { order: -1; }
 }
 
+
+/* ---------- Smart Move Framework™ step cards (PR 11) ----------------------- */
+.smf-grid {
+  display: grid;
+  gap: var(--space-5);
+  margin-block: var(--space-5) var(--space-6);
+  list-style: none;
+  padding: 0;
+}
+@media (min-width: 640px) { .smf-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 980px) { .smf-grid { grid-template-columns: repeat(3, 1fr); } }
+.smf-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--gray);           /* decorative border */
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.smf-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+@media (prefers-reduced-motion: reduce) { .smf-card:hover { transform: none; } }
+/* Large, unmistakable step number — the primary anchor for each card. */
+.smf-card__num {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  z-index: 1;
+}
+/* Sequence keeps adjacent numbers visually distinct: blue, crimson, navy, red, blue, navy. */
+.smf-card__num--blue    { background: var(--remax-blue); }
+.smf-card__num--crimson { background: var(--crimson); }
+.smf-card__num--navy    { background: var(--navy-ink); }
+.smf-card__num--red     { background: var(--remax-red); }
+.smf-card__photo { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+.smf-card__body { padding: var(--space-4) var(--space-5) var(--space-5); }
+.smf-card__body h3 { margin-bottom: var(--space-2); font-size: var(--fs-600); }
+.smf-card__body p { color: var(--black); font-size: var(--fs-300); line-height: 1.65; }
+/* Step card without a usable photo (image pending from Lisa): the number
+   badge keeps its anchor position; the body clears it. */
+.smf-card--noimg .smf-card__body { padding-top: calc(46px + var(--space-4) + var(--space-3)); }
