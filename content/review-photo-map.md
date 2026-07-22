@@ -4,6 +4,25 @@ Final `assets/images/client-reviews/` filenames, the reviewer each photo belongs
 to, and the locked pairing notes. **Load-bearing for later PRs** — these final
 names are referenced by the page builds.
 
+**Synced to review source v3.3 (late July 2026):**
+- **Raiza Sandoval:** full review text captured — quotable in full wherever her
+  card appears (confirmed first-time buyer; strong fit for /buyers/):
+  "I just wanted to thank you for all your help in buying my first home. Your
+  support and guidance made the whole process so much easier and less stressful.
+  I truly appreciate your dedication and professionalism.
+  Thanks again for everything!"
+- **Amilcar Villatoro:** confirmed 5 stars with NO written review text (that IS
+  the review, not a capture gap). His two photos may only ever appear as
+  photo-only star-rating cards — image + name + ★★★★★ — never with a quote.
+
+## Card-display rules (PR 9, sitewide)
+
+- A review with no paired photo renders as a **text-only quote card**
+  (`review-card--textonly`) — never an empty/placeholder image box.
+- A client photo with no quotable review text on that page renders as a
+  **photo-only star card** (`review-card--photoonly`) — image + name + star
+  rating, no quote, no quotation styling.
+
 ## Locked pairing rules (from Lisa)
 
 - A client photo appears **only** with that same client's own verbatim review —
@@ -48,8 +67,8 @@ names are referenced by the page builds.
 | review-yesica-rivera.jpg | Yesica Rivera | married to Mickel Izaguirre — shared photo, either review |
 | review-naun-cerrato.jpg | Naun Cerrato | already correctly named |
 | review-auner-jimenez.jpg | Auner Jimenez | already correctly named |
-| review-amilcar-villatoro-1.jpg | Amilcar Villatoro | already correctly named — photo 1 of 2 |
-| review-amilcar-villatoro-2.jpg | Amilcar Villatoro | already correctly named — photo 2 of 2 |
+| review-amilcar-villatoro-1.jpg | Amilcar Villatoro | photo 1 of 2 — ★-only review: photo-only star card, never a quote (v3.3) |
+| review-amilcar-villatoro-2.jpg | Amilcar Villatoro | photo 2 of 2 — ★-only review: photo-only star card, never a quote (v3.3) |
 | review-noel-trejo.jpg | Noel Trejo | already correctly named |
 | review-leyla-verde.jpg | Leyla Verde | already correctly named |
 | review-lourdes-peay.jpg | Lourdes Peay | web-safe normalized (had a stray space) |
