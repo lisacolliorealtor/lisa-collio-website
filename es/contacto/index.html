@@ -221,16 +221,51 @@
   </section>
 
   <!-- Contenido heredado (PR 25) — Sección D -->
-  <section class="band--cta">
-    <div class="wrap">
-      <h2>¿Listo para dar el siguiente paso?</h2>
-      <p>Si está pensando en comprar o vender una casa en Goshen o Elkhart, el primer paso es una conversación. Lisa Collio está lista para ayudarle a explorar sus opciones, entender el mercado local, y desarrollar una estrategia que se ajuste a sus metas.</p>
-      <div class="hero__ctas">
-        <a class="btn btn--primary" href="tel:+15743705410">Llame o mande un mensaje de texto: (574) 370-5410</a>
-        <a class="btn btn--secondary" href="tel:+15743705410">Agende su consulta gratis</a>
-      </div>
+  <!-- Formulario de contacto (Netlify Forms — propio, sin scripts de terceros; requiere consentimiento) -->
+  <section class="section" id="hable-con-lisa">
+    <div class="wrap wrap--narrow">
+      <h2>Hable con Lisa</h2>
+      <p>¿Prefiere escribir en lugar de llamar? Escríbale a Lisa y ella le responderá personalmente — en español o inglés. Su información nunca se vende, y nunca se comparte con ningún prestamista, compañía de título ni proveedor de servicios de cierre.</p>
+      <form name="contacto-es" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/es/contacto/gracias/" class="lead-form">
+        <input type="hidden" name="form-name" value="contacto-es">
+        <p class="lead-form__hp" hidden aria-hidden="true"><label>Deje este campo vacío si es una persona: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="lead-form__field">
+          <label for="lf-nombre">Nombre</label>
+          <input id="lf-nombre" name="nombre" type="text" autocomplete="name" required>
+        </div>
+        <div class="lead-form__field">
+          <label for="lf-telefono">Teléfono</label>
+          <input id="lf-telefono" name="telefono" type="tel" autocomplete="tel" required>
+        </div>
+        <div class="lead-form__field">
+          <label for="lf-correo">Correo electrónico</label>
+          <input id="lf-correo" name="correo" type="email" autocomplete="email" required>
+        </div>
+        <div class="lead-form__field">
+          <label for="lf-mensaje">¿Cómo puede ayudarle Lisa? <span class="lead-form__optional">(opcional)</span></label>
+          <textarea id="lf-mensaje" name="mensaje" rows="4"></textarea>
+        </div>
+        <div class="lead-form__consent">
+          <input id="lf-consent-es" name="consentimiento" type="checkbox" value="si" required>
+          <label for="lf-consent-es">Autorizo a Lisa Collio a recopilar la información que ingresé arriba y a comunicarse conmigo sobre mi consulta de bienes raíces por teléfono, mensaje de texto o correo electrónico. Consulte la <a href="/privacy/">Política de Privacidad</a>.</label>
+        </div>
+        <button class="btn btn--primary" type="submit">Enviar a Lisa</button>
+      </form>
     </div>
   </section>
+
+  <!-- build:talk-to-lisa-es -->
+<section class="band--cta">
+  <div class="wrap">
+    <h2>Su próximo capítulo comienza con una decisión inteligente.</h2>
+    <p class="band--cta__sub">¿Tiene una pregunta o quiere dar el primer paso? Escríbale a Lisa — en español o inglés — y ella le responderá personalmente.</p>
+    <div class="hero__ctas">
+      <a class="btn btn--primary" href="/es/contacto/#hable-con-lisa">Hable con Lisa</a>
+      <a class="btn btn--secondary" href="tel:+15743705410">Llame o escriba (574)&nbsp;370-5410</a>
+    </div>
+  </div>
+</section>
+<!-- endbuild:talk-to-lisa-es -->
 
 </main>
 
