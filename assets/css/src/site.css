@@ -1117,3 +1117,54 @@ main { flex: 1 0 auto; }
 .smf-card__body { padding: var(--space-4) var(--space-5) var(--space-5); }
 .smf-card__body h3 { margin-bottom: var(--space-2); font-size: var(--fs-600); }
 .smf-card__body p { color: var(--black); font-size: var(--fs-300); line-height: 1.65; }
+
+/* ---------- Five Life Chapters cards (PR 14) ------------------------------- */
+/* Deliberately DIFFERENT from the Smart Move step cards (white, image-on-top,
+   numbered, 2-across): Life Chapters are a single-column stack of horizontal
+   image-left / text-right cards on a warm tint, with a blue rail and no number
+   badges — a distinct framework, a distinct look. */
+.chapters {
+  display: grid;
+  gap: var(--space-5);
+  margin-block: var(--space-5) var(--space-6);
+  list-style: none;
+  padding: 0;
+}
+.chapter-card {
+  display: grid;
+  grid-template-columns: 1fr;              /* mobile: image stacks on top */
+  background: var(--warm-white);
+  border: 1px solid var(--gray);
+  border-left: 6px solid var(--remax-blue);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+@media (min-width: 680px) {
+  /* image left, text right; both vertically centered so a fixed-shape image
+     never leaves a gap regardless of how long the description runs */
+  .chapter-card { grid-template-columns: minmax(260px, 34%) 1fr; align-items: center; }
+}
+.chapter-card__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;                      /* consistent shape across all five, both layouts */
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.chapter-card__body { padding: var(--space-5); }
+.chapter-card__body h3 {
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-600);
+  color: var(--navy-ink);
+}
+.chapter-card__desc { color: var(--black); font-size: var(--fs-300); line-height: 1.65; }
+.chapter-card__q {
+  margin-top: var(--space-3);
+  padding-left: var(--space-4);
+  border-left: 3px solid var(--remax-red);
+  color: var(--black);
+  font-size: var(--fs-300);
+  line-height: 1.6;
+}
+.chapter-card__q em { color: var(--navy-ink); font-weight: 500; }
