@@ -179,30 +179,23 @@ main { flex: 1 0 auto; }
 }
 .brand-lockup:hover { color: inherit; }
 /* Lisa side */
-.brand-agent { display: flex; align-items: center; gap: var(--space-2); line-height: 1.05; }
-.brand-agent__logo { height: 40px; width: auto; } /* +18% per PR 9; stays below the 42px RE/MAX balloon (876 IAC prominence) */
-.brand-agent__text { display: flex; flex-direction: column; gap: 1px; }
-.brand-agent__tagline {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-style: italic;
-  font-size: 0.72rem;
-  color: var(--navy-ink);
-  white-space: nowrap;
-}
-.brand-agent__name {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--navy-ink);
-}
-.brand-agent__role {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--remax-blue);
+.brand-agent { display: flex; align-items: center; flex-shrink: 0; }
+/* Single lockup unit: LC mark + wordmark + baked-in "Unlocking smart moves"
+   tagline (transparent raster derived from Lisa's logo file). Scales with the
+   viewport via clamp() — no fixed pixel size to overflow at mid widths. */
+.brand-agent__logo { height: clamp(44px, 28px + 1.9vw, 60px); width: auto; }
+
+/* Desktop header (no hamburger): two calm rows that can never collide —
+   row 1: brand lockup left + language badge/CTA right; row 2: nav links,
+   right-aligned on their own full-width line. */
+@media (min-width: 1280px) {
+  .site-header__inner { flex-wrap: wrap; row-gap: var(--space-1); }
+  /* Promote the nav's children to header-row items so the link row can span
+     the full header width beneath the lockup — the lockup, badge, and CTA
+     share row 1; the links get row 2 to themselves. Nothing can collide. */
+  .site-header .site-header__nav { display: contents; }
+  .site-header .site-header__actions { order: 1; margin-left: auto; }
+  .site-header .site-nav { order: 2; flex: 0 0 100%; justify-content: flex-end; column-gap: var(--space-4); }
 }
 /* Divider between the two brands */
 .brand-lockup__rule {
@@ -212,12 +205,12 @@ main { flex: 1 0 auto; }
 }
 /* RE/MAX side — equal-or-greater prominence (logo height >= agent logo). */
 .brand-remax { display: flex; align-items: center; gap: var(--space-3); }
-.brand-remax__logo { height: 42px; width: auto; }   /* >= brand-agent__logo */
+.brand-remax__logo { height: clamp(44px, 28px + 1.8vw, 56px); width: auto; }   /* >= brand-agent__logo at every width */
 .brand-remax__text { display: flex; flex-direction: column; line-height: 1.05; }
 .brand-remax__name {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.15rem;             /* >= brand-agent__name */
+  font-size: 1.15rem;             /* >= the wordmark inside the agent lockup */
   color: var(--navy-ink);
   white-space: nowrap;            /* keep "RE/MAX Results" on one line */
 }
@@ -322,7 +315,7 @@ main { flex: 1 0 auto; }
   /* keep the header on one line: number hides, full CTA remains in hero/CTA bands */
   .site-header .btn__full { display: none; }
 }
-@media (max-width: 999px) {
+@media (max-width: 1279px) {
   /* Nav moves to its own full-width row beneath the brand lockup. */
   .site-header__inner { flex-wrap: wrap; }
   .site-header__nav { flex: 0 0 100%; flex-wrap: wrap; justify-content: flex-end; }
@@ -368,11 +361,7 @@ main { flex: 1 0 auto; }
 }
 @media (max-width: 860px) {
   .brand-lockup { gap: var(--space-3); }
-  .brand-agent__name { font-size: 0.9rem; }
   .brand-remax__name { font-size: 1rem; }
-  .brand-remax__logo { height: 36px; }
-  .brand-agent__logo { height: 36px; }
-  .brand-agent__tagline { font-size: 0.66rem; }
 }
 /* On narrow screens, let the actions (badge + CTA) wrap to their own full-width
    row beneath the brand lockup so nothing is cramped. */
@@ -386,13 +375,10 @@ main { flex: 1 0 auto; }
   .site-header__actions { gap: var(--space-2); }
 }
 @media (max-width: 520px) {
-  .brand-remax__team,
-  .brand-agent__role { display: none; }
+  .brand-remax__team { display: none; }
   .brand-lockup { gap: var(--space-2); }
   .brand-remax { gap: var(--space-2); }
   .brand-remax__name { font-size: 0.95rem; }
-  .brand-agent__name { font-size: 0.85rem; }
-  .brand-agent__tagline { font-size: 0.6rem; }
   .site-header__actions .btn--primary .btn__full { display: none; }
   .site-header__actions { flex-wrap: wrap; }
   .site-header .btn--primary { white-space: normal; text-align: left; }
@@ -657,7 +643,13 @@ main { flex: 1 0 auto; }
   display: flex;
   flex-direction: column;
 }
-.review-card__photo { width: 100%; height: auto; }
+.review-card__photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;          /* consistent card rhythm; cover never distorts */
+  object-fit: cover;
+  object-position: 50% 30%;     /* keep faces in frame for portrait photos */
+}
 .review-card blockquote {
   padding: var(--space-5);
   color: var(--black);
@@ -896,6 +888,12 @@ main { flex: 1 0 auto; }
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
   display: block;
 }
+/* Transparent-cutout portrait: no box, no border — stands on the scene. */
+.hero--photo .hero__portrait--transparent {
+  border-radius: 0;
+  box-shadow: none;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.55));
+}
 @media (max-width: 819px) {
   .hero--photo { padding-block: var(--space-7) 0; }
   .hero--photo .hero__text { padding-bottom: var(--space-6); }
@@ -944,7 +942,13 @@ main { flex: 1 0 auto; }
   display: flex;
   flex-direction: column;
 }
-.sold-quote-card__photo { width: 100%; height: auto; display: block; }
+.sold-quote-card__photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
 .sold-quote-card blockquote {
   padding: var(--space-5) var(--space-5) 0;
   color: var(--black);
@@ -1058,8 +1062,3 @@ main { flex: 1 0 auto; }
   .hero__grid--flip > picture { order: -1; }
 }
 
-/* Very narrow screens: the header tagline yields to the two brand names
-   (it remains visible at all widths >= 400px). */
-@media (max-width: 399px) {
-  .brand-agent__tagline { display: none; }
-}
