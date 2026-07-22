@@ -179,8 +179,17 @@ main { flex: 1 0 auto; }
 }
 .brand-lockup:hover { color: inherit; }
 /* Lisa side */
-.brand-agent { display: flex; flex-direction: column; line-height: 1.05; }
-.brand-agent__logo { height: 34px; width: auto; }
+.brand-agent { display: flex; align-items: center; gap: var(--space-2); line-height: 1.05; }
+.brand-agent__logo { height: 40px; width: auto; } /* +18% per PR 9; stays below the 42px RE/MAX balloon (876 IAC prominence) */
+.brand-agent__text { display: flex; flex-direction: column; gap: 1px; }
+.brand-agent__tagline {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 0.72rem;
+  color: var(--navy-ink);
+  white-space: nowrap;
+}
 .brand-agent__name {
   font-family: var(--font-display);
   font-weight: 700;
@@ -362,7 +371,8 @@ main { flex: 1 0 auto; }
   .brand-agent__name { font-size: 0.9rem; }
   .brand-remax__name { font-size: 1rem; }
   .brand-remax__logo { height: 36px; }
-  .brand-agent__logo { height: 30px; }
+  .brand-agent__logo { height: 36px; }
+  .brand-agent__tagline { font-size: 0.66rem; }
 }
 /* On narrow screens, let the actions (badge + CTA) wrap to their own full-width
    row beneath the brand lockup so nothing is cramped. */
@@ -378,6 +388,11 @@ main { flex: 1 0 auto; }
 @media (max-width: 520px) {
   .brand-remax__team,
   .brand-agent__role { display: none; }
+  .brand-lockup { gap: var(--space-2); }
+  .brand-remax { gap: var(--space-2); }
+  .brand-remax__name { font-size: 0.95rem; }
+  .brand-agent__name { font-size: 0.85rem; }
+  .brand-agent__tagline { font-size: 0.6rem; }
   .site-header__actions .btn--primary .btn__full { display: none; }
   .site-header__actions { flex-wrap: wrap; }
   .site-header .btn--primary { white-space: normal; text-align: left; }
@@ -840,4 +855,211 @@ main { flex: 1 0 auto; }
 /* ---------- Reduced motion ------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ==========================================================================
+   PR 9 — design refresh
+   ========================================================================== */
+
+/* ---------- Photographic homepage hero ------------------------------------ */
+/* Page sets the image via a custom property:
+     <section class="hero hero--photo" style="--hero-img:url(...)">
+   Dark navy gradient guarantees WCAG-AA white text over any photo. */
+.hero--photo {
+  background-color: var(--navy-ink); /* fallback while/if the photo doesn't load */
+  background-image:
+    linear-gradient(to right, rgba(0, 6, 46, 0.82) 0%, rgba(0, 6, 46, 0.66) 52%, rgba(0, 6, 46, 0.38) 100%),
+    var(--hero-img);
+  background-size: cover;
+  background-position: center;
+  padding-block: var(--space-8) 0;
+}
+.hero--photo .hero__grid { align-items: end; }
+.hero--photo .hero__text { padding-bottom: var(--space-8); }
+.hero--photo .hero__promise {
+  font-size: clamp(2.4rem, 1.5rem + 4.2vw, 4.3rem);
+  font-weight: 800;
+  color: #fff;
+  text-wrap: balance;
+}
+.hero--photo h1.hero__identity {
+  font-size: var(--fs-500);        /* clearly secondary to the promise (~3x smaller) */
+  color: #fff;
+  font-weight: 600;
+}
+.hero--photo .hero__sub { color: #c3cce4; }
+.hero--photo .hero__tagline { color: #c3cce4; }
+.hero--photo .btn--secondary { color: #fff; border-color: #fff; }
+.hero--photo .btn--secondary:hover { background: #fff; color: var(--navy-ink); }
+.hero--photo .hero__portrait {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;  /* sits on the hero's bottom edge */
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+  display: block;
+}
+@media (max-width: 819px) {
+  .hero--photo { padding-block: var(--space-7) 0; }
+  .hero--photo .hero__text { padding-bottom: var(--space-6); }
+  .hero--photo .hero__portrait { max-width: 78%; margin-inline: auto; }
+}
+
+/* ---------- Review-card variants (no empty photo slots — ever) ------------- */
+/* Text-only quote card: the quotation is the visual focus. */
+.review-card--textonly {
+  position: relative;
+  background: rgba(0, 6, 46, 0.04);
+  padding-top: var(--space-6);
+  justify-content: center;   /* don't leave a tall empty area beside photo cards */
+}
+.review-card--textonly::before {
+  content: "\201C";
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-4);
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--remax-blue);
+  opacity: 0.85;
+}
+.review-card--textonly blockquote { font-size: var(--fs-400); padding-top: var(--space-4); }
+
+/* Photo-only "happy client" card: image + name + stars, no quote styling. */
+.review-card--photoonly blockquote { display: none; }
+.review-card--photoonly figcaption { padding-top: var(--space-4); }
+.review-stars {
+  display: block;
+  color: var(--remax-red);
+  font-size: var(--fs-400);
+  letter-spacing: 0.12em;
+  margin-bottom: var(--space-1);
+}
+
+/* ---------- Recently Sold: seller-testimonial cards ------------------------ */
+.sold-quote-card {
+  margin: 0;
+  background: #fff;
+  border: 1px solid var(--gray);           /* decorative border */
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.sold-quote-card__photo { width: 100%; height: auto; display: block; }
+.sold-quote-card blockquote {
+  padding: var(--space-5) var(--space-5) 0;
+  color: var(--black);
+  font-size: var(--fs-300);
+  line-height: 1.65;
+}
+.sold-quote-card figcaption {
+  padding: var(--space-3) var(--space-5) var(--space-5);
+  font-weight: 600;
+  color: var(--navy-ink);
+}
+.sold-quote-card__addr {
+  display: block;
+  font-weight: 500;
+  font-size: var(--fs-200);
+  color: var(--remax-blue);
+  margin-top: 2px;
+}
+
+/* Compact sold-gallery grid (plain address cards, no testimonial implied) */
+.sold-gallery { display: grid; gap: var(--space-4); margin-top: var(--space-5); }
+@media (min-width: 640px) { .sold-gallery { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 980px) { .sold-gallery { grid-template-columns: repeat(3, 1fr); } }
+.sold-gallery .sold-card figcaption { font-size: var(--fs-200); }
+.sold-gallery .sold-card__photo { aspect-ratio: 3 / 2; object-fit: cover; }
+
+/* ---------- Personal aside (About pages only — not a client testimonial) --- */
+.personal-aside {
+  margin-top: var(--space-6);
+  background: rgba(0, 61, 165, 0.06);      /* soft blue tint, distinct from review cards */
+  border: 0;
+  border-left: 5px solid var(--remax-blue);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+}
+.personal-aside__photo {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.personal-aside blockquote { color: var(--black); font-size: var(--fs-300); line-height: 1.65; }
+.personal-aside figcaption { margin-top: var(--space-3); font-weight: 600; color: var(--navy-ink); }
+@media (max-width: 560px) {
+  .personal-aside { flex-direction: column; align-items: center; text-align: center; }
+}
+
+/* ---------- Visual-rhythm utilities ---------------------------------------- */
+/* Very light navy wash for alternating section backgrounds (AA-safe: body
+   text stays black/navy-ink on a ~4% tint of warm-white). */
+.section--tint { background: rgba(0, 6, 46, 0.045); }
+
+/* Text + image rows with alternating image side; collapses to one column. */
+.media-row {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+@media (min-width: 760px) {
+  .media-row { grid-template-columns: 3fr 2fr; }
+  .media-row--flip .media-row__media { order: -1; }
+}
+.media-row__media img { border-radius: var(--radius-md); box-shadow: var(--shadow-md); }
+
+/* Editorial pull quote (decorative duplicate of an article sentence). */
+.pullquote {
+  margin-block: var(--space-6);
+  padding: var(--space-4) var(--space-5);
+  border-left: 5px solid var(--remax-red);
+  font-family: var(--font-display);
+  font-size: var(--fs-600);
+  font-weight: 700;
+  line-height: var(--lh-snug);
+  color: var(--navy-ink);
+  text-wrap: balance;
+  max-width: none;
+}
+
+/* Inline line icons for credential / fact rows (stroke inherits currentColor). */
+.cred-icon {
+  width: 1.05em;
+  height: 1.05em;
+  vertical-align: -0.18em;
+  margin-right: 0.35em;
+  color: var(--remax-blue);
+  flex-shrink: 0;
+}
+
+/* Subtle interactive-card hover (path, blog, sold, review cards). */
+.path-card, .blog-card, .sold-card, .sold-quote-card, .review-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.path-card:hover, .blog-card:hover, .sold-card:hover, .sold-quote-card:hover, .review-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+@media (prefers-reduced-motion: reduce) {
+  .path-card:hover, .blog-card:hover, .sold-card:hover, .sold-quote-card:hover, .review-card:hover {
+    transform: none;
+  }
+}
+@media (min-width: 980px) { .review-grid--three { grid-template-columns: repeat(3, 1fr); } }
+
+/* Alternating hero/media image side (PR 9 §4.2) */
+@media (min-width: 760px) {
+  .hero__grid--flip { grid-template-columns: 5fr 7fr; }
+  .hero__grid--flip > picture { order: -1; }
+}
+
+/* Very narrow screens: the header tagline yields to the two brand names
+   (it remains visible at all widths >= 400px). */
+@media (max-width: 399px) {
+  .brand-agent__tagline { display: none; }
 }
