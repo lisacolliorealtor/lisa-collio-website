@@ -180,3 +180,32 @@ client-side tracking).
    4. Equal Housing Opportunity statement and logo.
    5. "Each Office Independently Owned and Operated."
    6. Links to /terms/, /privacy/, /accessibility/, /fair-housing/.
+
+### Featured image standard (locked — PR 24; supersedes PR 17–20 layouts)
+Every page/blog featured image is composited by `scripts/generate-featured-images.py`.
+Colors are ALWAYS RE/MAX Blue `#003DA5` or Red `#E60E16` (white title text on
+both); font is Bricolage Grotesque. **Text/color bands must NEVER cover a
+person's face** — bands sit beside or below the photo, never over the subject.
+The script picks a template automatically by looking at the source photo
+(visual judgment — house vs people — not filename):
+- **Template A — house/property photos.** 1200×630. Title in a color band
+  overlaid at the top of the photo (houses have sky/wall space). Single file
+  used for both the page and `og:image`. (Unchanged from PR 17.)
+- **Template B — LANDSCAPE or square people photos.** 1200×900: photo fills the
+  top 1200×700 (cover, anchored high), solid color band across the bottom
+  1200×200 holds the title. Nothing overlaps the photo.
+- **Template C — PORTRAIT people photos.** 1200×900: photo fills one vertical
+  half (600×900, minimal crop), a solid color panel fills the other half with
+  the title vertically centered.
+- **Four-variant rotation, tracked across the whole set (not per template)** so
+  no two consecutive articles look alike: C uses photo side × panel color —
+  (1) LEFT+Blue, (2) RIGHT+Red, (3) LEFT+Red, (4) RIGHT+Blue; B alternates
+  blue/red only. Selection/rotation logic lives in the script.
+- **Dual output for B and C:** `{slug}-header.jpg` (1200×900, used on the page
+  and in the BlogPosting `image` field) plus `{slug}-og.jpg` (1200×630, used for
+  `og:image`/`twitter:image` only, so social crops never lose the band).
+  Template A needs only the single 1200×630 file. Generate `.webp` beside every
+  `.jpg`. FAQ-hub/blog-card thumbnails stay a consistent 1.9:1 (derived from the
+  OG version for B/C) so mixed-template grids read evenly.
+- Spanish images: title text must match the article's Spanish H1 exactly
+  (accents, ñ, ¿…?). Verify the font renders those glyphs before shipping.

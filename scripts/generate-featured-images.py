@@ -218,6 +218,123 @@ def variant_for(index):
     return VARIANTS[index % len(VARIANTS)]
 
 
+# =====================================================================
+# PR 24 — Featured-image standard (three templates, never cover a face)
+# ---------------------------------------------------------------------
+# Template A = generate_header() above (houses; 1200x630 overlay).
+# Template B = LANDSCAPE/square people photos (1200x900: photo 1200x700 on
+#   top, solid color band 1200x200 at bottom — nothing overlaps the photo).
+# Template C = PORTRAIT people photos (1200x900: photo 600x900 on one side,
+#   solid color panel 600x900 with the title on the other).
+# Every B/C article also gets a 1200x630 "-og.jpg" for social meta.
+# =====================================================================
+
+def _cover_focal2(img, box_w, box_h, focal_x=0.5, focal_y=0.5):
+    """object-fit: cover with independent horizontal + vertical focal points."""
+    sw, sh = img.size
+    scale = max(box_w / sw, box_h / sh)
+    nw, nh = int(round(sw * scale)), int(round(sh * scale))
+    img = img.resize((nw, nh), Image.LANCZOS)
+    left = max(0, min(int(round((nw - box_w) * focal_x)), nw - box_w))
+    top = max(0, min(int(round((nh - box_h) * focal_y)), nh - box_h))
+    return img.crop((left, top, left + box_w, top + box_h))
+
+
+def _fit_box(draw, title, max_w, max_h, size_max=FONT_MAX, size_min=26):
+    """Largest font size whose wrapped title fits BOTH max_w and max_h."""
+    for size in range(size_max, size_min - 1, -2):
+        font = _load_font(size)
+        lines = _wrap(draw, title, font, max_w)
+        line_h = int(size * LINE_SPACING)
+        if line_h * len(lines) <= max_h and all(
+                draw.textlength(ln, font=font) <= max_w for ln in lines):
+            return font, lines, size
+    font = _load_font(size_min)
+    return font, _wrap(draw, title, font, max_w), size_min
+
+
+def _load_people(photo_filename, crop_box):
+    photo = Image.open(os.path.join(LISA_DIR, photo_filename)).convert("RGB")
+    if crop_box:
+        w, h = photo.size
+        l, t, r, b = crop_box
+        photo = photo.crop((int(l * w), int(t * h), int(r * w), int(b * h)))
+    return photo
+
+
+def _save(canvas, out_slug, suffix):
+    os.makedirs(OUT_DIR, exist_ok=True)
+    jpg = os.path.join(OUT_DIR, f"{out_slug}-{suffix}.jpg")
+    canvas.save(jpg, "JPEG", quality=88, optimize=True, progressive=True)
+    canvas.save(os.path.join(OUT_DIR, f"{out_slug}-{suffix}.webp"), "WEBP", quality=85, method=6)
+    return jpg
+
+
+def generate_template_b(photo_filename, title, color_name, out_slug,
+                        crop_box=None, focal_y=0.0):
+    """Landscape/square people photo. 1200x900: photo top 1200x700 (cover,
+    anchored high), solid color band bottom 1200x200 with the title."""
+    color = BLUE if color_name == "blue" else RED
+    BW, BH, PHOTO_H = 1200, 900, 700
+    canvas = Image.new("RGB", (BW, BH), color)   # bottom band shows through
+    draw = ImageDraw.Draw(canvas)
+    photo = _load_people(photo_filename, crop_box)
+    canvas.paste(_cover_focal(photo, BW, PHOTO_H, focal_y), (0, 0))
+    font, lines, size = _fit_box(draw, title, BW - 2 * BAR_PAD_X, (BH - PHOTO_H) - 30)
+    line_h = int(size * LINE_SPACING)
+    y = PHOTO_H + ((BH - PHOTO_H) - line_h * len(lines)) // 2
+    for ln in lines:
+        tw = draw.textlength(ln, font=font)
+        draw.text(((BW - tw) / 2, y), ln, font=font, fill=WHITE)
+        y += line_h
+    return _save(canvas, out_slug, "header")
+
+
+def generate_template_c(photo_filename, title, color_name, side, out_slug,
+                        crop_box=None, focal_x=0.5, focal_y=0.5):
+    """Portrait people photo. 1200x900: photo 600x900 on `side`, solid color
+    panel 600x900 on the other side with the vertically-centered title."""
+    color = BLUE if color_name == "blue" else RED
+    BW, BH, HALF = 1200, 900, 600
+    canvas = Image.new("RGB", (BW, BH), color)
+    draw = ImageDraw.Draw(canvas)
+    photo = _load_people(photo_filename, crop_box)
+    photo = _cover_focal2(photo, HALF, BH, focal_x, focal_y)
+    photo_x = 0 if side == "left" else HALF
+    panel_x = HALF if side == "left" else 0
+    canvas.paste(photo, (photo_x, 0))
+    pad = 44
+    font, lines, size = _fit_box(draw, title, HALF - 2 * pad, BH - 2 * 60)
+    line_h = int(size * LINE_SPACING)
+    y = (BH - line_h * len(lines)) // 2
+    for ln in lines:
+        tw = draw.textlength(ln, font=font)
+        draw.text((panel_x + (HALF - tw) / 2, y), ln, font=font, fill=WHITE)
+        y += line_h
+    return _save(canvas, out_slug, "header")
+
+
+def generate_og(photo_filename, title, color_name, out_slug,
+                crop_box=None, focal_y=0.5):
+    """1200x630 social version (Template A-style top band overlay) for the
+    B/C people articles, so og:image/twitter:image never crop off the band."""
+    color = BLUE if color_name == "blue" else RED
+    canvas = Image.new("RGB", (W, H), WHITE)
+    draw = ImageDraw.Draw(canvas)
+    photo = _load_people(photo_filename, crop_box)
+    canvas.paste(_cover_focal(photo, W, H, focal_y), (0, 0))
+    font, lines, size = _fit_box(draw, title, W - 2 * BAR_PAD_X, H // 2)
+    line_h = int(size * LINE_SPACING)
+    band_h = 2 * BAR_PAD_Y + line_h * len(lines)
+    draw.rectangle([0, 0, W, band_h], fill=color)
+    y = BAR_PAD_Y
+    for ln in lines:
+        tw = draw.textlength(ln, font=font)
+        draw.text(((W - tw) / 2, y), ln, font=font, fill=WHITE)
+        y += line_h
+    return _save(canvas, out_slug, "og")
+
+
 if __name__ == "__main__":
     # Smoke test: one image
     bc, ls = variant_for(0)
