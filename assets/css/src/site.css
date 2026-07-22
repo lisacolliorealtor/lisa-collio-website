@@ -677,6 +677,51 @@ main { flex: 1 0 auto; }
 .faq-item p { color: var(--black); }
 .faq-item .faq-more a { font-weight: 600; color: var(--remax-blue); }
 
+/* FAQ hub items with a linked-article thumbnail (compact, alternating sides) */
+.faq-item--media {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+.faq-item--media.faq-item--right { flex-direction: row-reverse; }
+.faq-item--media .faq-item__media {
+  flex: 0 0 32%;
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.faq-item--media .faq-item__media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 800 / 420;
+  object-fit: cover;
+  display: block;
+}
+.faq-item--media .faq-item__body { flex: 1 1 auto; min-width: 0; }
+.faq-item--media .faq-item__body > :first-child { margin-top: 0; }
+@media (max-width: 640px) {
+  .faq-item--media,
+  .faq-item--media.faq-item--right {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+  .faq-item--media .faq-item__media { flex-basis: auto; width: 100%; }
+}
+
+/* Blog listing card thumbnail (image on top, consistent aspect ratio) */
+.blog-card__thumb { display: block; }
+.blog-card__thumb img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 800 / 420;
+  object-fit: cover;
+  display: block;
+}
+.blog-card__text { padding: var(--space-5); }
+
 /* Final CTA band */
 .band--cta {
   background: var(--color-dark-surface);
@@ -719,7 +764,9 @@ main { flex: 1 0 auto; }
   border: 1px solid var(--gray);           /* decorative border */
   border-radius: var(--radius-md);
   padding: var(--space-5);
+  overflow: hidden;
 }
+.blog-card:has(.blog-card__thumb) { padding: 0; }
 .blog-card__cat {
   font-size: var(--fs-100);
   font-weight: 600;
