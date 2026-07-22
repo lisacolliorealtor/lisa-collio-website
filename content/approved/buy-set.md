@@ -28,7 +28,7 @@ Lisa Collio helps buyers get to know Goshen’s neighborhoods well enough to fin
 
 **Why should I buy a home in Goshen, Indiana with Lisa Collio?** Because buying a home in Goshen works better as a conversation than a transaction — one built around your goals and your timeline, not a script. Lisa takes the time to understand both before showing you a single listing. Read the full article: Why Should I Buy a Home in Goshen, Indiana with Lisa Collio?
 
-**What makes Goshen, Indiana a desirable place to live?** A walkable downtown, a strong sense of community, and housing that’s still affordable relative to much of the surrounding region. People tend to move to Goshen and stay. Read the full article: What Makes Goshen, Indiana a Desirable Place to Live?
+**What makes Goshen, Indiana a desirable place to live?** A compact downtown with businesses clustered close together, a strong sense of community, and housing that’s still affordable relative to much of the surrounding region. People tend to move to Goshen and stay. Read the full article: What Makes Goshen, Indiana a Desirable Place to Live?
 
 **Are homes in Goshen, Indiana competitive to buy?** Some are, some aren’t — it depends heavily on price point and condition. Move-in-ready homes in popular areas can draw multiple offers fast; others sit and leave more room to negotiate. Read the full article: Are Homes in Goshen, Indiana Competitive to Buy?
 
@@ -426,11 +426,11 @@ Lisa Collio Real Estate Agent in Goshen and Elkhart, Indiana Seniors Real Estate
 
 - Primary keyword: “is Goshen Indiana a good place to live”, “living in Goshen Indiana”
 
-- Hyperlocal references woven in: First Fridays, Old Bag Factory, downtown walkability
+- Hyperlocal references woven in: First Fridays, Old Bag Factory, downtown compactness
 
 Ask around Goshen why people ended up staying, and you rarely hear “the schools” or “the commute” as the whole answer — even though both are genuinely good. More often it’s something harder to put on a spreadsheet: a downtown that actually gets used, a Friday night with music spilling out of a storefront, a place that feels lived-in rather than just built.
 
-The short answer: Goshen is desirable for its strong sense of community, affordable and stable housing, walkable downtown, and a lifestyle that manages to feel both small-town and genuinely connected.
+The short answer: Goshen is desirable for its strong sense of community, affordable and stable housing, compact downtown, and a lifestyle that manages to feel both small-town and genuinely connected.
 
 ## A strong sense of community
 
@@ -446,7 +446,7 @@ Goshen strikes a rhythm a lot of buyers say they didn’t know they were looking
 
 ## A downtown people actually use
 
-Goshen’s downtown isn’t decorative — it’s genuinely walkable and active, home to First Fridays, the Old Bag Factory, and a steady rotation of local restaurants and shops that give the town its identity. For buyers weighing Goshen against somewhere else, the downtown is often the tipping point.
+Goshen’s downtown isn’t decorative — it’s genuinely compact and active, home to First Fridays, the Old Bag Factory, and a steady rotation of local restaurants and shops that give the town its identity. For buyers weighing Goshen against somewhere else, the downtown is often the tipping point.
 
 ## Location and accessibility
 
@@ -474,11 +474,11 @@ Goshen has a genuinely diverse population, and Lisa’s bilingual support reflec
 
 ## Frequently Asked Questions
 
-**Is Goshen a good place to raise a family?** Yes — strong community ties, good schools, and a genuinely walkable downtown make it a popular choice for families specifically.
+**Is Goshen a good place to raise a family?** Yes — strong community ties, good schools, and a genuinely compact downtown make it a popular choice for families specifically.
 
 **Is Goshen affordable compared to nearby areas?** Generally, yes. Housing costs tend to be more accessible than nearby metro areas without sacrificing much in quality of life.
 
-**What’s downtown Goshen actually like?** Walkable and genuinely active — local shops, restaurants, and events like First Fridays give it a real identity beyond just being a place to pass through.
+**What’s downtown Goshen actually like?** Compact and genuinely active — local shops, restaurants, and events like First Fridays give it a real identity beyond just being a place to pass through.
 
 ## Final thoughts
 

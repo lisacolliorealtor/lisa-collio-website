@@ -33,11 +33,11 @@ Buying now isn’t right for everyone, and pretending otherwise would be sales t
 Mistakes worth avoiding
 The recurring ones: waiting for a “perfect market” that never announces itself, fixating on interest rates while ignoring prices, plans, and lifestyle, and trusting online estimates that can’t see a neighborhood’s character, a home’s real condition, or the nuances of a market this size. Local insight fills exactly those gaps.
 Why buyers keep choosing Goshen
-Beyond the timing question, Goshen itself keeps making the case: a walkable downtown that people actually use — First Fridays, the Old Bag Factory, a steady rotation of local shops — plus proximity to jobs and schools, and the kind of smaller-market stability that tends to see steadier long-term growth than large metros with dramatic swings.
+Beyond the timing question, Goshen itself keeps making the case: a compact downtown that people actually use — First Fridays, the Old Bag Factory, a steady rotation of local shops — plus proximity to jobs and schools, and the kind of smaller-market stability that tends to see steadier long-term growth than large metros with dramatic swings.
 Frequently Asked Questions
 Are home prices dropping in Goshen, Indiana?** **Prices vary by neighborhood and condition, but the local market has stayed relatively stable compared to larger cities — steadiness, not swings, is the pattern here.
 Should I wait for interest rates to go down?** **Rates are unpredictable, and waiting for the perfect one can mean losing the right home — or facing more competition if rates do drop. Your budget comfort matters more than the forecast.
-Is Goshen, Indiana a good place to live?** **Many buyers are drawn to Goshen for its community feel, walkable downtown, and the balance between small-town living and access to larger job markets nearby.
+Is Goshen, Indiana a good place to live?** **Many buyers are drawn to Goshen for its community feel, compact downtown, and the balance between small-town living and access to larger job markets nearby.
 Final thoughts
 Buying a home isn’t just a financial decision — it’s a life decision, and the goal was never to time the market perfectly. The goal is to make the right move for your situation, with real numbers in front of you.
 If you’re thinking about buying in Goshen or Elkhart and want an honest read on whether the timing works for you, the best next step is a conversation.

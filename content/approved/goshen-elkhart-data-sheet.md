@@ -54,7 +54,7 @@ Some data below (ethnicity, religion, national origin) is included **for backgro
 - **Goshen College** — small liberal arts college, known for international education and study-abroad programs; adds to local diversity and offers community-facing courses.
 - **IU Health Goshen Hospital** — the area's primary hospital and a major employer.
 - **Goshen Community Schools** — public school district, also a significant local employer (see below).
-- Downtown Goshen has a notable base of small/independent businesses (relevant to the "walkable downtown" lifestyle angle already used in your articles).
+- Downtown Goshen has a notable base of small/independent businesses (relevant to the "compact downtown" lifestyle angle already used in your articles).
 
 *Sources: Lippert company blog; RV PRO industry trade coverage; Wikipedia (Thor Industries); Goshen Community Schools "About Goshen" page.*
 
@@ -76,7 +76,7 @@ Some data below (ethnicity, religion, national origin) is included **for backgro
 
 ## 5. Landmarks & Community Character (already reflected in your existing articles)
 
-- **Downtown Goshen** — walkable, active small-business district; home to **First Fridays** (monthly downtown event)
+- **Downtown Goshen** — compact, active small-business district; home to **First Fridays** (monthly downtown event)
 - **Old Bag Factory** — historic building turned shops/studios, Goshen
 - **Wellfield Botanic Gardens** — Elkhart
 - **Lerner Theatre** — historic downtown Elkhart performance venue
