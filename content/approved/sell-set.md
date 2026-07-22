@@ -510,7 +510,7 @@ Every Goshen seller wants the same two things, and they sound like they’re in 
 
 ## What Goshen buyers respond to
 
-Goshen’s buyers are engaged and selective — many are drawn by the town itself, the walkable downtown and the community feel, and they compare homes carefully within it. Condition and honest pricing register immediately; so does location relative to downtown, schools, and parks. A selling strategy here starts by understanding what these specific buyers are weighing, because that’s the audience your price and presentation have to convince.
+Goshen’s buyers are engaged and selective — many are drawn by the town itself, the compact downtown and the community feel, and they compare homes carefully within it. Condition and honest pricing register immediately; so does location relative to downtown, schools, and parks. A selling strategy here starts by understanding what these specific buyers are weighing, because that’s the audience your price and presentation have to convince.
 
 ## Price it right the first time
 
