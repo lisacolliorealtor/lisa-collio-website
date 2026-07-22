@@ -149,6 +149,66 @@ def generate_header(house_filename, title, bar_color, lisa_side, out_slug):
     return jpg_path
 
 
+LISA_DIR = os.path.join(ROOT, "assets", "images", "lisa")
+
+
+def _cover_focal(img, box_w, box_h, focal_y=0.5):
+    """object-fit: cover, but choose the vertical crop window via focal_y
+    (0.0 = keep the top, 0.5 = center, 1.0 = keep the bottom)."""
+    src_w, src_h = img.size
+    scale = max(box_w / src_w, box_h / src_h)
+    new_w, new_h = int(round(src_w * scale)), int(round(src_h * scale))
+    img = img.resize((new_w, new_h), Image.LANCZOS)
+    left = (new_w - box_w) // 2
+    top = int(round((new_h - box_h) * focal_y))
+    top = max(0, min(top, new_h - box_h))
+    return img.crop((left, top, left + box_w, top + box_h))
+
+
+def generate_lisa_header(photo_filename, title, bar_color, out_slug,
+                         crop_box=None, focal_y=0.35):
+    """Second template: a photo of Lisa fills the whole 1200x630 frame, with the
+    title in a solid color band across the BOTTOM. No cutout overlay.
+
+    photo_filename : file in assets/images/lisa/
+    crop_box       : optional (l, t, r, b) as 0-1 fractions, pre-cropped before cover
+    focal_y        : vertical focal point for the cover crop (keep Lisa's face high
+                     so the bottom band never covers it). 0=top, 1=bottom.
+    """
+    color = BLUE if bar_color == "blue" else RED
+    canvas = Image.new("RGB", (W, H), WHITE)
+    draw = ImageDraw.Draw(canvas)
+
+    max_text_w = W - 2 * BAR_PAD_X
+    font, lines, size = _fit_title(draw, title, max_text_w)
+    line_h = int(size * LINE_SPACING)
+    band_h = 2 * BAR_PAD_Y + line_h * len(lines)
+
+    photo = Image.open(os.path.join(LISA_DIR, photo_filename)).convert("RGB")
+    if crop_box:
+        w, h = photo.size
+        l, t, r, b = crop_box
+        photo = photo.crop((int(l * w), int(t * h), int(r * w), int(b * h)))
+    # photo fills the FULL frame; the band is drawn on top of the bottom edge
+    photo = _cover_focal(photo, W, H, focal_y)
+    canvas.paste(photo, (0, 0))
+
+    # bottom band
+    band_top = H - band_h
+    draw.rectangle([0, band_top, W, H], fill=color)
+    y = band_top + BAR_PAD_Y
+    for ln in lines:
+        tw = draw.textlength(ln, font=font)
+        draw.text(((W - tw) / 2, y), ln, font=font, fill=WHITE)
+        y += line_h
+
+    os.makedirs(OUT_DIR, exist_ok=True)
+    jpg_path = os.path.join(OUT_DIR, f"{out_slug}-header.jpg")
+    canvas.save(jpg_path, "JPEG", quality=88, optimize=True, progressive=True)
+    canvas.save(os.path.join(OUT_DIR, f"{out_slug}-header.webp"), "WEBP", quality=85, method=6)
+    return jpg_path
+
+
 # Variant rotation: no two consecutive articles identical.
 # art0=blue+right, art1=red+left, art2=blue+left, art3=red+right, repeating.
 VARIANTS = [("blue", "right"), ("red", "left"), ("blue", "left"), ("red", "right")]
