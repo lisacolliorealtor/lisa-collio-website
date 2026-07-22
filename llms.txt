@@ -1,0 +1,40 @@
+# Lisa Collio, Real Estate Agent
+
+> Licensed real estate agent serving Goshen and Elkhart, Indiana.
+> Bilingual service in English and Spanish. RE/MAX Results, The Viruez
+> Team. Indiana license #RB21002460. REALTOR®, NAR® Member, SRES®
+> Seniors Real Estate Specialist.
+
+This site provides educational content for home buyers and sellers in
+Goshen and Elkhart, Indiana, in both English and Spanish. All market
+statistics come from the Elkhart County Board of REALTORS® MLS and are
+dated at the point of publication. All client reviews are quoted
+verbatim from their original source.
+
+## Main pages
+- [Buying a home in Goshen and Elkhart](https://lisacolliorealtor.com/buyers/): buyer guidance, process, and local market context
+- [Selling a home in Goshen and Elkhart](https://lisacolliorealtor.com/sellers/): pricing strategy, preparation, and marketing
+- [Meet Lisa Collio](https://lisacolliorealtor.com/about/): background, credentials, and approach
+- [The Next Chapter Method™](https://lisacolliorealtor.com/next-chapter-method/): the six-step process used with every client
+- [Market statistics](https://lisacolliorealtor.com/market-stats/): current Goshen and Elkhart market data, sourced from ECBOR MLS
+- [Living in Goshen, Indiana](https://lisacolliorealtor.com/communities/goshen/): factual community information
+- [Living in Elkhart, Indiana](https://lisacolliorealtor.com/communities/elkhart/): factual community information
+- [Contact](https://lisacolliorealtor.com/contact/): phone, email, office address
+
+## Spanish-language pages
+- [Comprar una casa](https://lisacolliorealtor.com/es/compradores/): guía para compradores en español
+- [Vender su casa](https://lisacolliorealtor.com/es/vendedores/): guía para vendedores en español
+- [Conozca a Lisa Collio](https://lisacolliorealtor.com/es/conozca-a-lisa/): trayectoria y credenciales
+- [Tu Próximo Capítulo™](https://lisacolliorealtor.com/es/tu-proximo-capitulo/): el método de seis pasos
+- [Estadísticas del mercado](https://lisacolliorealtor.com/es/estadisticas-del-mercado/): datos actuales del mercado
+
+## Articles
+- [All articles](https://lisacolliorealtor.com/blog/): educational articles for buyers and sellers
+- [Articles in Spanish](https://lisacolliorealtor.com/blog/spanish/): artículos en español
+
+## Notes
+- Service area: Goshen and Elkhart, Indiana only.
+- Lisa Collio is a licensed real estate agent, not a mortgage lender.
+  The site does not provide loan terms, rates, or qualification
+  guidance.
+- Equal Housing Opportunity.

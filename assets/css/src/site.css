@@ -1071,7 +1071,34 @@ main { flex: 1 0 auto; }
   .media-row { grid-template-columns: 3fr 2fr; }
   .media-row--flip .media-row__media { order: -1; }
 }
-.media-row__media img { border-radius: var(--radius-md); box-shadow: var(--shadow-md); }
+/* Stacked (mobile): image sits ABOVE its text regardless of DOM order. */
+@media (max-width: 759px) {
+  .media-row__media { order: -1; }
+}
+.media-row__media img { width: 100%; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md); }
+
+/* Awards & Recognition — Individual and Team lists kept visually distinct
+   (NAR Art. 12: personal production must never read as team production). */
+.award-group + .award-group { margin-top: var(--space-5); }
+.award-group__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-500);
+  color: var(--navy-ink);
+  border-left: 5px solid var(--remax-blue);   /* individual = blue */
+  padding-left: var(--space-3);
+  margin-bottom: var(--space-3);
+  line-height: var(--lh-tight);
+}
+.award-group--team .award-group__title { border-left-color: var(--remax-red); }   /* team = red */
+.award-list { list-style: none; padding: 0; margin: 0; }
+.award-list li {
+  padding: var(--space-2) 0;
+  color: var(--black);
+  border-bottom: 1px solid var(--gray);       /* divider only */
+}
+.award-list li:last-child { border-bottom: 0; }
+.award-year { font-weight: 700; color: var(--navy-ink); }
+.award-note { color: var(--black); margin: 0; }
 
 /* Editorial pull quote (decorative duplicate of an article sentence). */
 .pullquote {
