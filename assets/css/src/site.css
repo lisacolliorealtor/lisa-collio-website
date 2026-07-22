@@ -1071,8 +1071,10 @@ main { flex: 1 0 auto; }
   list-style: none;
   padding: 0;
 }
+/* 1 column on mobile, 2 columns from tablet up (3 rows of 2 on desktop).
+   A 2-across grid keeps each card wide enough that the text baked into the
+   step photos stays legible — 3-across forced them too narrow and clipped it. */
 @media (min-width: 640px) { .smf-grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 980px) { .smf-grid { grid-template-columns: repeat(3, 1fr); } }
 .smf-card {
   position: relative;
   background: #fff;
@@ -1108,10 +1110,10 @@ main { flex: 1 0 auto; }
 .smf-card__num--crimson { background: var(--crimson); }
 .smf-card__num--navy    { background: var(--navy-ink); }
 .smf-card__num--red     { background: var(--remax-red); }
-.smf-card__photo { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+/* 4:3 box (verified to crop least across all twelve step photos — sides/top
+   trimmed are empty margin/props, never the baked-in step text). object-position
+   center keeps each poster's title and checklist inside the frame. */
+.smf-card__photo { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: center; display: block; }
 .smf-card__body { padding: var(--space-4) var(--space-5) var(--space-5); }
 .smf-card__body h3 { margin-bottom: var(--space-2); font-size: var(--fs-600); }
 .smf-card__body p { color: var(--black); font-size: var(--fs-300); line-height: 1.65; }
-/* Step card without a usable photo (image pending from Lisa): the number
-   badge keeps its anchor position; the body clears it. */
-.smf-card--noimg .smf-card__body { padding-top: calc(46px + var(--space-4) + var(--space-3)); }
