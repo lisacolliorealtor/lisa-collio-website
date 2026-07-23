@@ -396,4 +396,24 @@
   <url>
     <loc>https://lisacolliorealtor.com/terms/</loc>
   </url>
+  <url>
+    <loc>https://lisacolliorealtor.com/es/privacidad/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://lisacolliorealtor.com/es/terminos/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://lisacolliorealtor.com/es/accesibilidad/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://lisacolliorealtor.com/es/vivienda-justa/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
