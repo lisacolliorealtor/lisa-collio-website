@@ -136,9 +136,7 @@
   <!-- 1. Hero -->
   <section class="hero">
     <div class="wrap">
-      <h1>Contact Lisa Collio</h1>
-      <p class="hero__sub">Your next move starts with a conversation.</p>
-      <div class="hero__ctas">
+      <h1>Contact Lisa Collio</h1>      <div class="hero__ctas">
         <a class="btn btn--primary" href="tel:+15743705410">Call or Text (574) 370-5410</a>
         <a class="btn btn--secondary" href="tel:+15743705410">Schedule a free consultation</a>
       </div>
@@ -220,17 +218,52 @@
     </div>
   </section>
 
-  <!-- Legacy content (PR 23) — Section D: Ready to take the next step? -->
-  <section class="band--cta">
-    <div class="wrap">
-      <h2>Ready to take the next step?</h2>
-      <p>If you are thinking about buying or selling a home in Goshen or Elkhart, the first step is a conversation. Lisa Collio is ready to help you explore your options, understand the local market, and develop a strategy that fits your goals.</p>
-      <div class="hero__ctas">
-        <a class="btn btn--primary" href="tel:+15743705410">Call or Text (574) 370-5410</a>
-        <a class="btn btn--secondary" href="tel:+15743705410">Schedule a free consultation</a>
-      </div>
+  <!-- Lead capture (Netlify Forms — first-party, no third-party script; consent required) -->
+  <section class="section" id="talk-to-lisa">
+    <div class="wrap wrap--narrow">
+      <h2>Talk to Lisa</h2>
+      <p>Prefer to write instead of call? Send Lisa a note and she'll get back to you personally — in English or Spanish. Your information is never sold, and it's never shared with any lender, title, or settlement company.</p>
+      <form name="lead-capture" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/contact/thank-you/" class="lead-form">
+        <input type="hidden" name="form-name" value="lead-capture">
+        <p class="lead-form__hp" hidden aria-hidden="true"><label>Leave this field empty if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="lead-form__field">
+          <label for="lf-name">Name</label>
+          <input id="lf-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="lead-form__field">
+          <label for="lf-phone">Phone</label>
+          <input id="lf-phone" name="phone" type="tel" autocomplete="tel" required>
+        </div>
+        <div class="lead-form__field">
+          <label for="lf-email">Email</label>
+          <input id="lf-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="lead-form__field">
+          <label for="lf-message">How can Lisa help? <span class="lead-form__optional">(optional)</span></label>
+          <textarea id="lf-message" name="message" rows="4"></textarea>
+        </div>
+        <div class="lead-form__consent">
+          <input id="lf-consent" name="consent" type="checkbox" value="yes" required>
+          <label for="lf-consent">I authorize Lisa Collio to collect the information I've entered above and to contact me about my real estate inquiry by phone, text, or email. See the <a href="/privacy/">Privacy Policy</a>.</label>
+        </div>
+        <button class="btn btn--primary" type="submit">Send to Lisa</button>
+      </form>
     </div>
   </section>
+
+  <!-- Legacy content (PR 23) — Section D: Ready to take the next step? -->
+  <!-- build:talk-to-lisa -->
+<section class="band--cta">
+  <div class="wrap">
+    <h2>Your next chapter starts with a smart move.</h2>
+    <p class="band--cta__sub">Have a question, or ready to get started? Send Lisa a note — in English or Spanish — and she'll get back to you personally.</p>
+    <div class="hero__ctas">
+      <a class="btn btn--primary" href="/contact/#talk-to-lisa">Talk to Lisa</a>
+      <a class="btn btn--secondary" href="tel:+15743705410">Call or Text (574)&nbsp;370-5410</a>
+    </div>
+  </div>
+</section>
+<!-- endbuild:talk-to-lisa -->
 
 </main>
 
@@ -238,7 +271,7 @@
 <footer class="site-footer">
   <div class="wrap site-footer__inner">
     <!-- 1. Footer signature (single line, locked verbatim) -->
-    <p class="footer-signature">Lisa Collio | Real Estate Agent | $20M+ Sold | 120+ homes sold | Top 20% Elkhart County | Helping buyers &amp; sellers in Goshen &amp; Elkhart, IN | Hablo español | REALTOR® | NAR® Member | SRES® Seniors Real Estate Specialist | RE/MAX Results | The Viruez Team | Licensed in Indiana #RB21002460</p>
+    <p class="footer-signature">Lisa Collio | Real Estate Agent | $20M+ Sold | 120+ homes sold | Top 20% Elkhart County | Helping buyers &amp; sellers in Goshen &amp; Elkhart, IN | Hablo español | REALTOR® | NAR® Member | SRES® Seniors Real Estate Specialist | RE/MAX Results, The Viruez Team | Licensed in Indiana #RB21002460</p>
 
     <!-- 2. Site footer disclaimer -->
     <p class="footer-statement">Some client stories are illustrative composites to protect confidentiality; all reviews and testimonials are real and shown as written.</p>

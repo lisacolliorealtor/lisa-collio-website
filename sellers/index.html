@@ -628,16 +628,56 @@
     </div>
   </section>
 
-  <!-- 6. Final CTA -->
-  <section class="band--cta">
-    <div class="wrap">
-      <h2>Your next chapter starts with a conversation.</h2>
-      <div class="hero__ctas">
-        <a class="btn btn--primary" href="tel:+15743705410">Call or Text (574) 370-5410</a>
-        <a class="btn btn--secondary" href="/contact/">Schedule a free consultation</a>
-      </div>
+  <!-- Home valuation request (Netlify Forms — first-party; personalized, agent-prepared, not an automated AVM) -->
+  <section class="section section--tint" id="home-value">
+    <div class="wrap wrap--narrow">
+      <h2>What's your home worth?</h2>
+      <p>Get a personalized home value from Lisa — not an automated online estimate. She'll look at what's actually selling near you and send back a realistic range, with no obligation and no pressure. Tell her where to send it:</p>
+      <form name="home-valuation" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/contact/thank-you/" class="lead-form">
+        <input type="hidden" name="form-name" value="home-valuation">
+        <p class="lead-form__hp" hidden aria-hidden="true"><label>Leave this field empty if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="lead-form__field">
+          <label for="hv-address">Property address</label>
+          <input id="hv-address" name="property_address" type="text" autocomplete="street-address" required>
+        </div>
+        <div class="lead-form__field">
+          <label for="hv-name">Name</label>
+          <input id="hv-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="lead-form__field">
+          <label for="hv-phone">Phone</label>
+          <input id="hv-phone" name="phone" type="tel" autocomplete="tel" required>
+        </div>
+        <div class="lead-form__field">
+          <label for="hv-email">Email</label>
+          <input id="hv-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="lead-form__field">
+          <label for="hv-timing">When are you thinking of selling? <span class="lead-form__optional">(optional)</span></label>
+          <input id="hv-timing" name="timeframe" type="text" placeholder="e.g. next few months, or just curious">
+        </div>
+        <div class="lead-form__consent">
+          <input id="hv-consent" name="consent" type="checkbox" value="yes" required>
+          <label for="hv-consent">I authorize Lisa Collio to collect the information above — including my property address — and to contact me about a home valuation by phone, text, or email. My information is never sold or shared with any lender, title, or settlement company. See the <a href="/privacy/">Privacy Policy</a>.</label>
+        </div>
+        <button class="btn btn--primary" type="submit">Request my home value</button>
+      </form>
     </div>
   </section>
+
+  <!-- 6. Final CTA -->
+  <!-- build:talk-to-lisa -->
+<section class="band--cta">
+  <div class="wrap">
+    <h2>Your next chapter starts with a smart move.</h2>
+    <p class="band--cta__sub">Have a question, or ready to get started? Send Lisa a note — in English or Spanish — and she'll get back to you personally.</p>
+    <div class="hero__ctas">
+      <a class="btn btn--primary" href="/contact/#talk-to-lisa">Talk to Lisa</a>
+      <a class="btn btn--secondary" href="tel:+15743705410">Call or Text (574)&nbsp;370-5410</a>
+    </div>
+  </div>
+</section>
+<!-- endbuild:talk-to-lisa -->
 
 </main>
 
@@ -645,7 +685,7 @@
 <footer class="site-footer">
   <div class="wrap site-footer__inner">
     <!-- 1. Footer signature (single line, locked verbatim) -->
-    <p class="footer-signature">Lisa Collio | Real Estate Agent | $20M+ Sold | 120+ homes sold | Top 20% Elkhart County | Helping buyers &amp; sellers in Goshen &amp; Elkhart, IN | Hablo español | REALTOR® | NAR® Member | SRES® Seniors Real Estate Specialist | RE/MAX Results | The Viruez Team | Licensed in Indiana #RB21002460</p>
+    <p class="footer-signature">Lisa Collio | Real Estate Agent | $20M+ Sold | 120+ homes sold | Top 20% Elkhart County | Helping buyers &amp; sellers in Goshen &amp; Elkhart, IN | Hablo español | REALTOR® | NAR® Member | SRES® Seniors Real Estate Specialist | RE/MAX Results, The Viruez Team | Licensed in Indiana #RB21002460</p>
 
     <!-- 2. Site footer disclaimer -->
     <p class="footer-statement">Some client stories are illustrative composites to protect confidentiality; all reviews and testimonials are real and shown as written.</p>
