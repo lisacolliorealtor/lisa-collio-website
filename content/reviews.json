@@ -1,0 +1,368 @@
+{
+  "_README": "Single source of truth for client reviews rendered on the site. Text is VERBATIM and must never be reworded. Attribution follows first name + last initial unless full-name consent is confirmed (Maria Baltazar, Steven Jackniell) or the platform display name is a handle (Anidem, EliteGodGamer), which are kept as-is per Lisa, July 2026. lang = the language the review was ORIGINALLY written in. es_translation = a labeled Spanish rendering used ONLY on /es/ pages, always shown with the 'Traducido del ingles' label; never presented as the original. EXCLUDED and not present in this file: lenders Sergio Gomez, Lucia Sanchez, Zachary Fletcher (text may appear via the Google integration but is never framed as a client testimonial, RESPA); Matt McCarthy (vendor, not a client); Francisco G. Collio (Lisa's husband, requires explicit labeling, About-page fact rather than testimonial); Gloria Orellana Saez (references religion, a protected class, Fair Housing risk); Jordi B photos and the Yaquelin Lozano -1/-2 pair (no photo permission on file).",
+  "aggregate": {
+    "ratingValue": "5.0",
+    "reviewCount": 39,
+    "source": "Google Business Profile"
+  },
+  "reviews": [
+    {
+      "id": "jose-luis-marquez",
+      "name": "Jose Luis M.",
+      "lang": "es",
+      "photo": null,
+      "source": "Google",
+      "text": "Gran atención y profesionalismo, bilingüe gran ayuda"
+    },
+    {
+      "id": "eber-trejo",
+      "name": "Eber T.",
+      "lang": "es",
+      "photo": "review-eber-trejo-1",
+      "source": "Google",
+      "text": "Estoy muy feliz porque ella me cumplio mi sueño de agarrar mi casa a como yo la buscaba,es una persona muy amable y amigable es una de las mejores del area ,nunca se da por vencido hasta que lo consgue.si ud anda buscando una casa le recomiendo a Lisa Collio."
+    },
+    {
+      "id": "leani-lopez",
+      "name": "Leani L.",
+      "lang": "es",
+      "photo": null,
+      "source": "Google",
+      "text": "Recomiendo al 100 a Lisa Collio , compre una casa con ella siempre buscando las mejores opciones de compra . Si buscas una comprar una casa no lo dudes llámale, si te ayuda mi familia está agradecida por su ayuda."
+    },
+    {
+      "id": "leani-lopez-fb",
+      "name": "Leani L.",
+      "lang": "es",
+      "photo": "review-leani-lopez-1",
+      "source": "Facebook",
+      "text": "Lisa es la mejor Real state, habla español e inglés recomenda al 100, si buscas casa no dudes en buscarla."
+    },
+    {
+      "id": "auner-jimenez",
+      "name": "Auner J.",
+      "lang": "es",
+      "photo": "review-auner-jimenez",
+      "source": "Google",
+      "text": "Muchas gracias Lisa por ayudarnos a comprar nuestra primer casa... Se los recomiendo muy buena agente de vienes y raises"
+    },
+    {
+      "id": "mickel-izaguirre",
+      "name": "Mickel I.",
+      "lang": "es",
+      "photo": "review-yesica-rivera",
+      "source": "Google",
+      "text": "Muy recomendable 👌 ella se enfoca en lo que tu kieres, te aconseja muy bien si tu le pides un consejo, y es muy honesta cuando se habla de las cosas que tiene que hacer, me encantó la presentación de su trabajo."
+    },
+    {
+      "id": "yesica-rivera",
+      "name": "Yesica R.",
+      "lang": "es",
+      "photo": "review-yesica-rivera",
+      "source": "Google",
+      "text": "Lisa es una persona muy amable y dedicada a lo que hace, ella nos ayudó a comprar nuestra primera casa 🏠 definitivamente la volveríamos a contratar en un futuro."
+    },
+    {
+      "id": "yaquelin-lozano",
+      "name": "Yaquelin L.",
+      "lang": "es",
+      "photo": null,
+      "source": "Google",
+      "text": "Super bueno excelente gracias x su paciencia estamos feliz"
+    },
+    {
+      "id": "leyla-verde",
+      "name": "Leyla V.",
+      "lang": "es",
+      "photo": "review-leyla-verde",
+      "source": "Google",
+      "text": "Lisa es una excelente persona Alyuda mucho a q nuestros sueños Se agan realidad Dios le bendiga siempre la recomendó"
+    },
+    {
+      "id": "noel-trejo",
+      "name": "Noel T.",
+      "lang": "es",
+      "photo": "review-noel-trejo",
+      "source": "Google",
+      "text": "Excelente agente camina contigo durante el proceso de la compra de la casa muy comprensiva 💯 recomendada 👍"
+    },
+    {
+      "id": "monica-burr",
+      "name": "Monica B.",
+      "lang": "es",
+      "photo": null,
+      "source": "Google",
+      "text": "Lisa es una persona muy dedicada a su trabajo y profesional . La recomiendo a todos quienes quieran comprar su casa."
+    },
+    {
+      "id": "angelica-gutierrez",
+      "name": "Angelica G.",
+      "lang": "es",
+      "photo": null,
+      "source": "Google",
+      "text": "Lisa es una persona muy amable, confiable, responde de tus preguntas, tus dudas, estas en plena confianza. Realmente la Te la recomiendo. Gracias Lisa."
+    },
+    {
+      "id": "felicita-donoso",
+      "name": "Felicita D.",
+      "lang": "es",
+      "photo": null,
+      "source": "Google",
+      "text": "Realmente una atención muy agradable y profesional. Hace todo lo posible de buscar y presentar lo que uno requiere. Felicitaciones por conseguir lo solicitado. Muy buenas noches"
+    },
+    {
+      "id": "abby-lopez",
+      "name": "Abby L.",
+      "lang": "es",
+      "photo": null,
+      "source": "Google",
+      "text": "Buen servicio y apoyo en todo. Buenas negociaciones recomendado!"
+    },
+    {
+      "id": "fitness-pacojf",
+      "name": "P. F.",
+      "lang": "es",
+      "photo": "review-fitness-pacojf",
+      "source": "Google",
+      "text": "Tuve la oportunidad de trabajar con Lisa Collio y puedo afirmar que es una agente inmobiliaria altamente profesional, destacada por su respeto, compromiso y, sobre todo, su honestidad. En todo momento demostró una atención excepcional, respondiendo con rapidez y claridad a cada una de mis consultas, incluso fuera del horario habitual. Su acompañamiento fue fundamental para lograr la compra de mi vivienda, brindando confianza y tranquilidad durante todo el proceso. Además, el hecho de que hable español fue una gran ayuda, ya que facilitó la comunicación y permitió que cada detalle se entendiera perfectamente. Recomiendo ampliamente sus servicios por su dedicación, ética y excelencia profesional, muchas gracias."
+    },
+    {
+      "id": "liza-pantoja-marquez",
+      "name": "Liza P.",
+      "lang": "es",
+      "photo": null,
+      "source": "Facebook",
+      "text": "Excelente realtor y es bilingüe!"
+    },
+    {
+      "id": "jhiianna-zallas",
+      "name": "Jhiianna Z.",
+      "lang": "es",
+      "photo": null,
+      "source": "Facebook",
+      "text": "👍si estas en busca de vender o comprar tu casa ella es la indicada!! bilingue, servicial y eficaz siempre busca la mejor opción para ti!"
+    },
+    {
+      "id": "lili-martin",
+      "name": "Lili M.",
+      "lang": "es",
+      "photo": null,
+      "source": "Facebook",
+      "text": "Una persona excelente, que nunca te va a ofrecer lo que no conviene para tu presupuesto. 💯 por ciento recomendada. 10 de 10."
+    },
+    {
+      "id": "ana-zaragoza",
+      "name": "Ana Z.",
+      "lang": "es",
+      "photo": null,
+      "source": "Facebook",
+      "text": "En la compra de tu casa nadie mejor que ella para dirigirte por el mejor camino a encontrar tu hogar o ya sea que busques para invertir en propiedad o para negocio, ella al hablar tu mismo idioma te sentirás en confianza de preguntar, además con su conocimiento en vendedora de casa puede también sugerirte a según tu búsqueda. NO dudes en llamarla a tu cita ya!!"
+    },
+    {
+      "id": "cindy-ortiz",
+      "name": "Cindy O.",
+      "lang": "en",
+      "photo": "review-cindy-ortiz-1",
+      "source": "Google",
+      "text": "Buying a home can be stressful, but my realtor made the entire process smooth and easy. They were always available, answered all my questions, and truly cared about helping me find the right home. I'm very grateful and highly recommend her thanks Lisa for your professionalism and dedication 😊.",
+      "es_translation": "Comprar una casa puede ser estresante, pero mi agente hizo que todo el proceso fuera fácil y sin complicaciones. Siempre estuvo disponible, respondió todas mis preguntas y de verdad se preocupó por ayudarme a encontrar la casa correcta. Estoy muy agradecida y la recomiendo ampliamente. Gracias Lisa por su profesionalismo y dedicación 😊."
+    },
+    {
+      "id": "naun-cerrato",
+      "name": "Naun C.",
+      "lang": "en",
+      "photo": "review-naun-cerrato",
+      "source": "Google",
+      "text": "Lisa Collio made the home-buying process smooth and stress-free. I'm truly happy with the way she helped me purchase my house. She was professional, responsive, and guided me every step of the way. I highly recommend her to anyone looking to buy or sell a home.",
+      "es_translation": "Lisa Collio hizo que el proceso de comprar casa fuera sencillo y sin estrés. Estoy verdaderamente contento con la manera en que me ayudó a comprar mi casa. Fue profesional, atenta y me guió en cada paso del camino. La recomiendo ampliamente a cualquier persona que busque comprar o vender una casa."
+    },
+    {
+      "id": "naun-cerrato-fb",
+      "name": "Naun C.",
+      "lang": "en",
+      "photo": null,
+      "source": "Facebook",
+      "text": "Working with Lisa Collio has been a great experience. She is professional, responsive, and genuinely passionate about helping people find the right home. You can tell she truly cares about her clients and community.",
+      "es_translation": "Trabajar con Lisa Collio ha sido una gran experiencia. Es profesional, atenta y de verdad le apasiona ayudar a la gente a encontrar la casa correcta. Se nota que le importan de verdad sus clientes y su comunidad."
+    },
+    {
+      "id": "maria-baltazar",
+      "name": "Maria Baltazar",
+      "lang": "en",
+      "photo": "review-maria-baltazar",
+      "source": "Google",
+      "text": "I'm very thankful With Lisa C. She helped us get the right house we've dreamed of getting. 😊 Lisa was very patient with us and helped us with the process. She gave us advice before choosing the right house. Thank you again. May the Lord Bless You & Your Family 🙏",
+      "es_translation": "Estoy muy agradecida con Lisa C. Nos ayudó a conseguir la casa correcta que habíamos soñado. 😊 Lisa fue muy paciente con nosotros y nos ayudó con el proceso. Nos dio consejos antes de elegir la casa correcta. Gracias de nuevo. Que el Señor la bendiga a usted y a su familia 🙏"
+    },
+    {
+      "id": "natalie-tiscareno",
+      "name": "Natalie T.",
+      "lang": "en",
+      "photo": "review-natalie-tiscareno",
+      "source": "Google",
+      "text": "I'm very grateful that Lisa helped my parents with getting a dream house that we've been looking for. I also liked getting to see how kind and generous she is while speaking to her. Thank you lisa once again.",
+      "es_translation": "Estoy muy agradecida de que Lisa ayudara a mis papás a conseguir la casa de sus sueños que tanto habíamos buscado. También me gustó ver lo amable y generosa que es al hablar con ella. Gracias Lisa una vez más."
+    },
+    {
+      "id": "elitegodgamer",
+      "name": "EliteGodGamer",
+      "lang": "en",
+      "photo": "review-elitegodgamer",
+      "source": "Google",
+      "text": "Very smooth process, all in all took about 3-4 months and our realtor Lisa made the process easy and she was very intelligent when it came to the whole process.",
+      "es_translation": "Un proceso muy fluido; en total tomó como 3 o 4 meses y nuestra agente Lisa hizo que el proceso fuera fácil, y fue muy inteligente en todo lo relacionado con el proceso."
+    },
+    {
+      "id": "raiza-sandoval",
+      "name": "Raiza S.",
+      "lang": "en",
+      "photo": "review-raiza-sandoval-1",
+      "source": "Google",
+      "text": "I just wanted to thank you for all your help in buying my first home. Your support and guidance made the whole process so much easier and less stressful. I truly appreciate your dedication and professionalism. Thanks again for everything!",
+      "es_translation": "Solo quería agradecerle toda su ayuda en la compra de mi primera casa. Su apoyo y su orientación hicieron que todo el proceso fuera mucho más fácil y menos estresante. De verdad aprecio su dedicación y su profesionalismo. ¡Gracias de nuevo por todo!"
+    },
+    {
+      "id": "anidem",
+      "name": "Anidem",
+      "lang": "en",
+      "photo": null,
+      "source": "Google",
+      "text": "Lisa made everything simple and easy for us with strong communication and great enthusiasm at all times, will definitely recommend and come to her for future projects!",
+      "es_translation": "Lisa hizo que todo fuera simple y fácil para nosotros, con muy buena comunicación y mucho entusiasmo en todo momento. Sin duda la recomendaré y volveré con ella para proyectos futuros."
+    },
+    {
+      "id": "steven-jackniell",
+      "name": "Steven Jackniell",
+      "lang": "en",
+      "photo": "review-steven-jackniell-1",
+      "source": "Google",
+      "text": "I want to express my sincerest gratitude to Lisa Collio for the excellent work she did as our real estate agent. From day one, she provided us with professional and friendly service, and was always willing to answer our questions and guide us through every step of the process. Thanks to her dedication, experience, and commitment, we were able to find and buy the house we so desired.",
+      "es_translation": "Quiero expresar mi más sincero agradecimiento a Lisa Collio por el excelente trabajo que hizo como nuestra agente de bienes raíces. Desde el primer día nos brindó un servicio profesional y amable, y siempre estuvo dispuesta a responder nuestras preguntas y guiarnos en cada paso del proceso. Gracias a su dedicación, su experiencia y su compromiso, pudimos encontrar y comprar la casa que tanto deseábamos."
+    },
+    {
+      "id": "janet-aguilar",
+      "name": "Janet A.",
+      "lang": "en",
+      "photo": "review-janet-aguilar",
+      "source": "Google",
+      "text": "I highly recommend working with Lisa. She is very flexible when it comes to showings works around with your schedule. Very good communication, gives you advice on what you need to work on. Very friendly.",
+      "es_translation": "Recomiendo ampliamente trabajar con Lisa. Es muy flexible con las citas para ver casas y se acomoda a su horario. Muy buena comunicación, y le da consejos sobre lo que necesita mejorar. Muy amable."
+    },
+    {
+      "id": "cristina-larreinaga",
+      "name": "Cristina L.",
+      "lang": "en",
+      "photo": "review-cristina-larreinaga",
+      "source": "Google",
+      "text": "I highly recommend her as a real estate agent, she helped us to get our home and we are so happy and thankful for the hard work and dedication. And because of that I do recomend her! She will go beyond limits to get the best deal for you.",
+      "es_translation": "La recomiendo ampliamente como agente de bienes raíces; nos ayudó a conseguir nuestra casa y estamos muy felices y agradecidos por su trabajo y su dedicación. ¡Y por eso la recomiendo! Ella va más allá de los límites para conseguirle el mejor trato."
+    },
+    {
+      "id": "jordi-b",
+      "name": "Jordi B.",
+      "lang": "en",
+      "photo": null,
+      "source": "Google",
+      "text": "We've worked with Lisa twice now, and each time has been an absolute pleasure. Her availability, dedication, and willingness to help make the entire process feel simple and stress-free.",
+      "es_translation": "Ya hemos trabajado con Lisa dos veces, y cada vez ha sido un verdadero placer. Su disponibilidad, su dedicación y sus ganas de ayudar hacen que todo el proceso se sienta simple y sin estrés."
+    },
+    {
+      "id": "felipe-merino",
+      "name": "Felipe M.",
+      "lang": "en",
+      "photo": null,
+      "source": "Google",
+      "text": "Great customer service. Excellent problem-solver and quick to close.",
+      "es_translation": "Excelente servicio al cliente. Excelente para resolver problemas y rápida para cerrar."
+    },
+    {
+      "id": "valerie-smith",
+      "name": "Valerie S.",
+      "lang": "en",
+      "photo": "review-valerie-smith",
+      "source": "Zillow",
+      "text": "Lisa helped me with a 1031 exchange purchase, which is a complicated deal. She did a great job helping me to negotiate with the seller and represented me well.",
+      "es_translation": "Lisa me ayudó con una compra de intercambio 1031, que es una transacción complicada. Hizo un gran trabajo ayudándome a negociar con el vendedor y me representó muy bien."
+    },
+    {
+      "id": "jason-wuthrich",
+      "name": "Jason W.",
+      "lang": "en",
+      "photo": null,
+      "source": "Google",
+      "text": "Lisa was a big help in finding a buyer for my house.",
+      "es_translation": "Lisa fue de gran ayuda para encontrar un comprador para mi casa."
+    },
+    {
+      "id": "lourdes-peay",
+      "name": "Lourdes P.",
+      "lang": "en",
+      "photo": "review-lourdes-peay",
+      "source": "Google",
+      "text": "She was very helpful and knowledgeable about selling our property for the maximum value",
+      "es_translation": "Fue de mucha ayuda y sabía muy bien cómo vender nuestra propiedad por el máximo valor."
+    },
+    {
+      "id": "doug-deter",
+      "name": "Doug D., Goshen",
+      "lang": "en",
+      "photo": "review-doug-deter",
+      "source": "Realtor.com verified review",
+      "text": "Lisa Collio was a pleasure to work with. Lisa did an excellent job communicating to keep me informed on every step during the sale of my home. Lisa did a great job both marketing and showing my home to prospective buyers. I would highly recommend anyone needing to sell their home to use Lisa Collio as their agent.",
+      "es_translation": "Fue un placer trabajar con Lisa Collio. Lisa hizo un excelente trabajo comunicándose para mantenerme informado en cada paso durante la venta de mi casa. Hizo un gran trabajo tanto promocionando como mostrando mi casa a los posibles compradores. Recomiendo ampliamente a cualquier persona que necesite vender su casa que use a Lisa Collio como su agente."
+    },
+    {
+      "id": "suhail-sanchez",
+      "name": "Suhail S.",
+      "lang": "en",
+      "photo": "review-suhail-sanchez",
+      "source": "Realtor.com",
+      "text": "Lisa helped me find a home for my family from the very beginning to the very end of the process. She is a person dedicated to her work and truly essential.",
+      "es_translation": "Lisa me ayudó a encontrar una casa para mi familia desde el principio hasta el final del proceso. Es una persona dedicada a su trabajo y verdaderamente esencial."
+    },
+    {
+      "id": "gabriela-morazan",
+      "name": "Gabriela M.",
+      "lang": "en",
+      "photo": "review-gabriela-morazan",
+      "source": "Facebook",
+      "text": "With the faith and kindness of a person who wants to give the best of her heart for one to acquire a Blessed Home, She is what she needs in these times.☁️❤️🫲🏻 \"Very professional\"",
+      "es_translation": null
+    },
+    {
+      "id": "liz-y-beto",
+      "name": "Liz y Beto",
+      "lang": "en",
+      "photo": "review-liz-y-beto",
+      "source": "Facebook",
+      "text": "Very nice to work with her",
+      "es_translation": "Muy agradable trabajar con ella."
+    }
+  ],
+  "photoOnly": [
+    {
+      "id": "amilcar-villatoro",
+      "name": "Amilcar V.",
+      "photo": "review-amilcar-villatoro-1",
+      "source": "Google"
+    },
+    {
+      "id": "amilcar-villatoro-2",
+      "name": "Amilcar V.",
+      "photo": "review-amilcar-villatoro-2",
+      "source": "Google"
+    },
+    {
+      "id": "dany-villatoro",
+      "name": "Dany V.",
+      "photo": "review-dany-villatoro",
+      "source": "Google"
+    },
+    {
+      "id": "ana-gabriela",
+      "name": "Ana Gabriela",
+      "photo": "review-ana-gabriela",
+      "source": "Google"
+    }
+  ]
+}
