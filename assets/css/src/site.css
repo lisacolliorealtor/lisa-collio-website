@@ -1286,3 +1286,79 @@ main { flex: 1 0 auto; }
   line-height: 1.6;
 }
 .chapter-card__q em { color: var(--navy-ink); font-weight: 500; }
+
+/* ---------- CTA band subtitle (Talk-to-Lisa partial) --------------------- */
+.band--cta__sub {
+  max-width: 46ch;
+  margin: 0 auto var(--space-5);
+  color: #c3cce4;
+  font-size: var(--fs-400);
+  line-height: 1.6;
+}
+
+/* ---------- Lead-capture & home-valuation forms -------------------------- */
+/* Netlify Forms — first-party, no third-party script. */
+.lead-form {
+  max-width: 34rem;
+  margin-top: var(--space-5);
+  display: grid;
+  gap: var(--space-4);
+}
+.lead-form__hp { position: absolute; left: -9999px; }
+.lead-form__field { display: grid; gap: var(--space-2); }
+.lead-form__field label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--navy-ink);
+}
+.lead-form__optional {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--navy-ink);
+  opacity: 0.7;
+}
+.lead-form input[type="text"],
+.lead-form input[type="tel"],
+.lead-form input[type="email"],
+.lead-form textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: var(--fs-300);
+  color: var(--black);
+  background: #fff;
+  border: 1px solid var(--gray);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.85rem;
+  line-height: 1.4;
+}
+.lead-form input:focus-visible,
+.lead-form textarea:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 1px;
+  border-color: var(--remax-blue);
+}
+.lead-form textarea { resize: vertical; min-height: 5.5rem; }
+.lead-form__consent {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-3);
+  align-items: start;
+  background: rgba(0, 61, 165, 0.05);
+  border-left: 4px solid var(--remax-blue);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+}
+.lead-form__consent input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.2rem;
+  accent-color: var(--remax-blue);
+}
+.lead-form__consent label {
+  font-size: var(--fs-200);
+  color: var(--black);
+  font-weight: 400;
+  line-height: 1.55;
+}
+.lead-form__consent a { color: var(--remax-blue); font-weight: 600; }
+.lead-form button[type="submit"] { justify-self: start; }
