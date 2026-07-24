@@ -5,12 +5,12 @@
 ## Summary
 
 - **Total photos in `homes-general/`:** 72
-- **Used at least once:** 30
-- **Completely unused:** 42
+- **Used at least once:** 37
+- **Completely unused:** 35
 
 ### Do we have enough unused photos for the ~25 English pages still without featured images?
 
-Short answer: **yes for anything that should show a house — with margin to spare, but with one real gap.** 42 house photos remain unused. The ~25 pages break down as:
+Short answer: **yes for anything that should show a house — with margin to spare, but with one real gap.** 35 house photos remain unused. The ~25 pages break down as:
 
 - **Home (≈4)** and **Meet Lisa (≈6):** these should ideally use *people / lifestyle / community* imagery, not decorative house photos — so `homes-general/` is not the right well for most of them. They'll want `assets/images/lisa/`, `client-general/`, `goshen/`, and `elkhart/` instead.
 - **Communities (≈10):** should ideally use *community/neighborhood* photos (Goshen & Elkhart streetscapes, parks, downtown) from `assets/images/goshen/` and `elkhart/`, not generic houses. A house photo would read as generic here.
@@ -22,23 +22,23 @@ So the 42 unused house photos comfortably cover the Method pages and any page th
 
 | Filename | Status | Used on |
 |---|---|---|
-| `exterior-backyard-deck-fenced-trees.jpg` | Unused | — |
+| `exterior-backyard-deck-fenced-trees.jpg` | Used | `/blog/spanish/industria-rv-comprar-casa-goshen-indiana/` |
 | `exterior-backyard-lawn-metal-shed.jpg` | Unused | — |
-| `exterior-backyard-playset-shed-winter.jpg` | Unused | — |
-| `exterior-backyard-privacy-fence-chairs.jpg` | Unused | — |
-| `exterior-backyard-shrub-lawn-trees.jpg` | Unused | — |
+| `exterior-backyard-playset-shed-winter.jpg` | Used | `/blog/spanish/costo-de-vida-goshen-indiana/` |
+| `exterior-backyard-privacy-fence-chairs.jpg` | Used | `/blog/spanish/eventos-comunitarios-goshen-indiana/` |
+| `exterior-backyard-shrub-lawn-trees.jpg` | Used | `/blog/spanish/que-hacer-en-goshen-indiana/` |
 | `exterior-covered-brick-porch-hanging-chair.jpg` | Used | `/blog/buyers/good-time-to-buy-home-goshen-indiana/` |
 | `exterior-covered-porch-framing-rural-view.jpg` | Used | `/blog/spanish/renta-o-compra-como-decidir/` |
-| `exterior-home-rear-deck-stairs-fenced.jpg` | Unused | — |
+| `exterior-home-rear-deck-stairs-fenced.jpg` | Used | `/blog/spanish/mudarse-a-goshen-desde-otro-estado/` |
 | `exterior-home-side-wood-deck-lawn.jpg` | Used | `/blog/buyers/what-to-look-for-buying-home-elkhart-indiana/` |
-| `exterior-large-lawn-mature-trees.jpg` | Unused | — |
+| `exterior-large-lawn-mature-trees.jpg` | Used | `/blog/community/things-to-do-in-goshen-indiana/` |
 | `exterior-open-acreage-field-trees.jpg` | Used | `/blog/spanish/prestamos-fha-y-usda-en-espanol/` |
 | `exterior-ranch-rear-leafy-yard-fence.jpg` | Unused | — |
-| `exterior-red-wood-deck-backyard.jpg` | Unused | — |
+| `exterior-red-wood-deck-backyard.jpg` | Used | `/blog/spanish/comprar-casa-antigua-goshen-indiana/` |
 | `exterior-single-story-ranch-driveway.jpg` | Used | `/blog/buyers/elkhart-indiana-good-place-invest-real-estate/` |
 | `exterior-two-story-rear-covered-porch.jpg` | Used | `/blog/spanish/como-comprar-una-casa-en-indiana/` |
 | `exterior-wooded-backyard-swing-set-fire-pit.jpg` | Used | `/blog/buyers/why-buy-home-goshen-indiana-lisa-collio/` |
-| `hero-twilight-1.jpg` | Used | Homepage / (hero) |
+| `hero-twilight-1.jpg` | Used | Homepage / (hero)<br>`/living-in-goshen/` (featured)<br>`/es/viviendo-en-goshen/` (featured) |
 | `hero-twilight-2.jpg` | Used | Homepage /es/ (hero) |
 | `interior-bathroom-double-vanity-tile-shower.jpg` | Unused | — |
 | `interior-bathroom-glass-shower-gray-vanity.jpg` | Unused | — |
