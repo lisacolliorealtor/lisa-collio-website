@@ -17,7 +17,7 @@
 - Meta description (145–160 char): The Next Chapter Method™ is how Lisa Collio helps Goshen and Elkhart, Indiana clients make real estate decisions that fit their life — not just the market.
 - Schema: WebPage + Article + FAQPage (FAQs are visible)
 - hreflang pair: /es/tu-proximo-capitulo/
-- Internal links: /about/, /buyers/, /sellers/, /communities/goshen/, /communities/elkhart/, /market-stats/, /contact/
+- Internal links: /about/, /buyers/, /sellers/, /living-in-goshen/, /living-in-elkhart/, /market-stats/, /contact/
 - Primary keyword: "The Next Chapter Method"; secondary: "real estate agent Goshen Indiana approach," "how to decide to buy or sell a home"
 - Required elements: "Hablo español" banner (top, links to /es/tu-proximo-capitulo/), locked footer stack
 
@@ -106,7 +106,7 @@ Every home marks the beginning of a new chapter. Lisa's role is to help you move
 - Meta description (145–160 char): Tu Próximo Capítulo™ es la manera en que Lisa Collio ayuda a las familias de Goshen y Elkhart, Indiana a tomar decisiones de vivienda con claridad y sin presión.
 - Schema: WebPage + Article + FAQPage (FAQs visibles)
 - hreflang pair: /next-chapter-method/
-- Internal links: /es/conozca-a-lisa/, /es/compradores/, /es/vendedores/, /es/comunidades/goshen/, /es/comunidades/elkhart/, /es/contacto/
+- Internal links: /es/conozca-a-lisa/, /es/compradores/, /es/vendedores/, /es/viviendo-en-goshen/, /es/viviendo-en-elkhart/, /es/contacto/
 - Palabra clave principal: "agente de bienes raíces que habla español en Elkhart"; secundarias: "cómo saber si estoy listo para comprar casa," "vender mi casa en Goshen Indiana"
 - Elementos requeridos: lang="es", solo el selector EN|ES (sin banner "Hablo español" — es página en español), footer stack completo con la declaración agente-no-prestamista en español
 - Nota Vol 37: esta página sirve a los tres perfiles culturales por auto-selección — el tono base es el del Soñador (máxima claridad, cero presión), con secciones donde el Bicultural y la Segunda Generación se reconocen. Nunca se etiqueta al visitante.

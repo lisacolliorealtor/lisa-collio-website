@@ -50,7 +50,7 @@ Lisa Collio is based in Goshen and helps local sellers answer exactly those ques
 
 - Schema: Article + FAQPage (3 Qs below)
 
-- Internal links: /sellers/, /communities/elkhart/, /about/, /contact/; sibling article: How Do I Sell My Home in Elkhart, Indiana for the Best Price? (Home Page set)
+- Internal links: /sellers/, /living-in-elkhart/, /about/, /contact/; sibling article: How Do I Sell My Home in Elkhart, Indiana for the Best Price? (Home Page set)
 
 - Primary keyword: “sell my home in Elkhart Indiana”; secondary: “listing agent Elkhart Indiana,” “bilingual listing agent Elkhart”
 
@@ -126,7 +126,7 @@ RE/MAX Results · The Viruez Team
 
 - Schema: Article + FAQPage (3 Qs below)
 
-- Internal links: /sellers/, /communities/elkhart/, /contact/; future: home valuation tool (phase 3) — until then, CTA is the free market analysis
+- Internal links: /sellers/, /living-in-elkhart/, /contact/; future: home valuation tool (phase 3) — until then, CTA is the free market analysis
 
 - Primary keyword: “how much is my home worth Elkhart Indiana”; secondary: “Elkhart home value,” “home valuation Elkhart”
 
@@ -200,7 +200,7 @@ RE/MAX Results · The Viruez Team
 
 - Schema: Article + FAQPage (3 Qs below)
 
-- Internal links: /sellers/, /communities/elkhart/, /contact/; sibling: Is Now a Good Time to Buy a Home in Goshen, Indiana? (Home Page set — the buyer-side mirror)
+- Internal links: /sellers/, /living-in-elkhart/, /contact/; sibling: Is Now a Good Time to Buy a Home in Goshen, Indiana? (Home Page set — the buyer-side mirror)
 
 - Primary keyword: “good time to sell a home in Elkhart Indiana”; secondary: “should I sell my house now Elkhart,” “Elkhart housing market sellers”
 
@@ -276,7 +276,7 @@ RE/MAX Results · The Viruez Team
 
 - Schema: Article + FAQPage (3 Qs below)
 
-- Internal links: /sellers/, /communities/elkhart/, /contact/; siblings: best-price article (Home Page set), marketing article (this set)
+- Internal links: /sellers/, /living-in-elkhart/, /contact/; siblings: best-price article (Home Page set), marketing article (this set)
 
 - Primary keyword: “why homes sit on the market Elkhart Indiana”; secondary: “home not selling Elkhart,” “house sitting on market Indiana”
 
@@ -350,7 +350,7 @@ RE/MAX Results · The Viruez Team
 
 - Schema: Article + FAQPage (3 Qs below)
 
-- Internal links: /sellers/, /communities/elkhart/, /contact/; siblings: why-homes-sit article (this set), best-price article (Home Page set)
+- Internal links: /sellers/, /living-in-elkhart/, /contact/; siblings: why-homes-sit article (this set), best-price article (Home Page set)
 
 - Primary keyword: “market my home Elkhart Indiana”; secondary: “real estate marketing Elkhart,” “sell house marketing plan Indiana”
 
@@ -424,7 +424,7 @@ RE/MAX Results · The Viruez Team
 
 - Schema: Article + FAQPage (3 Qs below)
 
-- Internal links: /sellers/, /communities/goshen/, /about/, /contact/
+- Internal links: /sellers/, /living-in-goshen/, /about/, /contact/
 
 - Primary keyword: “sell my home in Goshen Indiana”; secondary: “listing agent Goshen Indiana,” “Goshen Realtor sell house”
 
@@ -500,7 +500,7 @@ RE/MAX Results · The Viruez Team
 
 - Schema: Article + FAQPage (3 Qs below)
 
-- Internal links: /sellers/, /communities/goshen/, /contact/; future: pricing-right-the-first-time article (Cluster 2)
+- Internal links: /sellers/, /living-in-goshen/, /contact/; future: pricing-right-the-first-time article (Cluster 2)
 
 - Primary keyword: “sell my home in Goshen Indiana”; secondary: “sell house for best price Goshen,” “home selling strategy Goshen Indiana”
 
@@ -572,7 +572,7 @@ RE/MAX Results · The Viruez Team
 
 - Schema: Article + FAQPage (3 Qs below)
 
-- Internal links: /sellers/, /communities/goshen/, /contact/; future: 11-step prep guide as standalone downloadable (Cluster 2)
+- Internal links: /sellers/, /living-in-goshen/, /contact/; future: 11-step prep guide as standalone downloadable (Cluster 2)
 
 - Primary keyword: “prepare home to sell Goshen Indiana”; secondary: “staging home Goshen,” “what to fix before selling house Indiana”
 
@@ -646,7 +646,7 @@ RE/MAX Results · The Viruez Team
 
 - Schema: Article + FAQPage (3 Qs below)
 
-- Internal links: /sellers/, /communities/goshen/, /contact/; siblings: prepare-to-sell and best-price articles (this set)
+- Internal links: /sellers/, /living-in-goshen/, /contact/; siblings: prepare-to-sell and best-price articles (this set)
 
 - Primary keyword: “how long does it take to sell a house Goshen Indiana”; secondary: “days on market Goshen,” “selling timeline Indiana”
 
@@ -722,7 +722,7 @@ RE/MAX Results · The Viruez Team
 
 - Schema: Article + FAQPage (3 Qs below)
 
-- Internal links: /sellers/, /communities/goshen/, /contact/; siblings: why-homes-sit (Elkhart, this set), prepare-to-sell and best-price (this set)
+- Internal links: /sellers/, /living-in-goshen/, /contact/; siblings: why-homes-sit (Elkhart, this set), prepare-to-sell and best-price (this set)
 
 - Primary keyword: “mistakes selling home Goshen Indiana”; secondary: “home selling mistakes,” “what not to do when selling a house”
 

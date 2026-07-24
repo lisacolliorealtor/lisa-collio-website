@@ -5,7 +5,7 @@
 
 ---
 
-# SECCIÓN HUB — Preguntas frecuentes para /es/comunidades/elkhart/
+# SECCIÓN HUB — Preguntas frecuentes para /es/viviendo-en-elkhart/
 
 **1. ¿Por qué es conocido Elkhart, Indiana?**
 Elkhart es la ciudad más grande del condado de Elkhart y se encuentra en el centro de la industria de fabricación de casas rodantes (RV) de Estados Unidos — frecuentemente llamada la Capital Mundial de las RV. Varios fabricantes importantes tienen su sede aquí. → Lea el artículo completo

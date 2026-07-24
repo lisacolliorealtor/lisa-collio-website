@@ -6,7 +6,7 @@
 - Title tag (≤60 char): Goshen & Elkhart, IN Real Estate Market Stats
 - Meta description (145–160 char): Current home prices, days on market, and sales data for Goshen and Elkhart, Indiana — sourced from the local MLS and updated quarterly.
 - Schema: WebPage + Article, plus LocalBusiness/RealEstateAgent (site-wide) — FAQPage if FAQ section stays visible
-- Internal links: /sellers/, /buyers/, /communities/goshen/, /communities/elkhart/, /about/, /contact/, /blog/market-updates/
+- Internal links: /sellers/, /buyers/, /living-in-goshen/, /living-in-elkhart/, /about/, /contact/, /blog/market-updates/
 - Primary keyword: "Goshen Elkhart Indiana real estate market stats"; secondary: "Elkhart County home prices," "Goshen Indiana housing market data"
 - Language: English (business page)
 - Required page elements: "Hablo español" banner (top, links to /es/), locked footer signature, MLS disclaimer (long version), visible "Data as of" date near the top

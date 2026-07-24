@@ -21,7 +21,7 @@ and/or managing-broker review — no change made).
 ### 1.2 Banned strings
 | Check | Status | Notes |
 | --- | --- | --- |
-| "Northern Indiana" | **FIXED** | Two occurrences of "in Elkhart County in northern Indiana" (communities/goshen line 135, communities/elkhart line 135) → now "in Elkhart County, Indiana". |
+| "Northern Indiana" | **FIXED** | Two occurrences of "in Elkhart County in northern Indiana" (living-in-goshen line 135, living-in-elkhart line 135 — pages renamed from communities/* in Batch 2f) → now "in Elkhart County, Indiana". |
 | "norte de Indiana" (ES equivalent) | **FIXED** | Four occurrences on /es/comunidades/goshen/ and /es/comunidades/elkhart/ → now "del/en el condado de Elkhart, Indiana". |
 | 574-975-0141 | PASS | Zero occurrences. |
 | "surrounding areas" as service area | PASS | Zero occurrences (EN and ES equivalents checked). |

@@ -302,6 +302,22 @@ main { flex: 1 0 auto; }
 .nav-drop:focus-within .nav-drop__menu { display: block; }
 .nav-drop__menu a { display: block; padding: var(--space-2) var(--space-3); border: 0; }
 .nav-drop__menu a:hover { color: var(--remax-blue); text-decoration: underline; }
+/* City group inside the dropdown: non-clickable header + indented sub-links
+   (Goshen today; Elkhart converts when /moving-to-elkhart/ ships). */
+.nav-drop__group-label {
+  display: block;
+  padding: var(--space-2) var(--space-3) var(--space-1);
+  font-size: var(--fs-100);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy-ink);
+}
+.nav-drop__sub {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 var(--space-3);
+}
 
 /* Mobile menu toggle — no JS: visually-hidden checkbox + label. */
 .nav-toggle__box {

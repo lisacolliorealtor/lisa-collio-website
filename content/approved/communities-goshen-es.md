@@ -3,7 +3,7 @@
 
 ---
 
-# SECCIÓN HUB — Preguntas frecuentes para /es/comunidades/goshen/
+# SECCIÓN HUB — Preguntas frecuentes para /es/viviendo-en-goshen/
 
 **1. ¿Por qué es conocido Goshen, Indiana?**
 Goshen es conocido por su centro compacto con negocios agrupados de cerca, una fuerte base de comercios independientes, y por formar parte del condado de Elkhart — el centro de la industria de fabricación de casas rodantes (RV) de Estados Unidos. También es hogar de Goshen College. → Lea el artículo completo
