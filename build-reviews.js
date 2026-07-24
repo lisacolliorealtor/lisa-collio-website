@@ -36,7 +36,7 @@ const ROOT = __dirname;
 const DATA = JSON.parse(fs.readFileSync(path.join(ROOT, "content/reviews.json"), "utf8"));
 const GENERAL_DIR = path.join(ROOT, "assets/images/client-general");
 
-const EXCLUDE_RE = /(^|\/)(privacy|terms|accessibility|fair-housing|404)\/|(^|\/)es\/(privacidad|terminos|accesibilidad|vivienda-justa)\/|thank-you\/|gracias\//;
+const EXCLUDE_RE = /(^|\/)(privacy|terms|accessibility|fair-housing|disclaimers|sources|404)\/|(^|\/)es\/(privacidad|terminos|accesibilidad|vivienda-justa)\/|thank-you\/|gracias\//;
 
 function esc(s) {
   return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
