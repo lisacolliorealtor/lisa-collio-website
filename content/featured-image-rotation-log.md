@@ -22,5 +22,11 @@ reconstructed from the images themselves starting with the Goshen cluster
 | 8 | `rv-industry-buying-a-home-goshen-indiana-header.jpg` | A | Red + right | Goshen cluster |
 | 9 | `mudarse-a-goshen-header.jpg` | A | Blue + right | 2e Part 1 |
 | 10 | `viviendo-en-goshen-header.jpg` | A | Red + left | 2e Part 1 |
+| 11 | `que-hacer-en-goshen-indiana-header.jpg` | A | Blue + left | 2e Part 2 |
+| 12 | `eventos-comunitarios-goshen-indiana-header.jpg` | A | Red + right | 2e Part 2 |
+| 13 | `costo-de-vida-goshen-indiana-header.jpg` | A | Blue + right | 2e Part 2 |
+| 14 | `mudarse-a-goshen-desde-otro-estado-header.jpg` | A | Red + left | 2e Part 2 |
+| 15 | `comprar-casa-antigua-goshen-indiana-header.jpg` | A | Blue + left | 2e Part 2 |
+| 16 | `industria-rv-comprar-casa-goshen-indiana-header.jpg` | A | Red + right | 2e Part 2 |
 
-**Next variant: Blue + left** (then Red + right, and so on).
+**Next variant: Blue + right** (then Red + left, and so on).

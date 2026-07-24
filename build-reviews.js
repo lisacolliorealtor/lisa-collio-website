@@ -211,13 +211,14 @@ function main() {
     const rendered = built.html;
     prevNames = built.names;
 
+    // Standing rule (Lisa, July 2026): reviews live on main pages only — a page
+    // opts in by carrying the reviews:start/end markers. Pages without markers
+    // (e.g. new blog articles) are never auto-injected.
     let out;
     if (/<!--\s*reviews:start\s*-->[\s\S]*?<!--\s*reviews:end\s*-->/.test(html)) {
       out = html.replace(/<!--\s*reviews:start\s*-->[\s\S]*?<!--\s*reviews:end\s*-->/, rendered);
-    } else if (/<!--\s*build:talk-to-lisa(-es)?\s*-->/.test(html)) {
-      out = html.replace(/(<!--\s*build:talk-to-lisa(-es)?\s*-->)/, `${rendered}\n\n  $1`);
     } else {
-      return; // no anchor on this page
+      return; // no reviews markers on this page
     }
 
     if (out !== html) {
