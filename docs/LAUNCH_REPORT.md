@@ -22,7 +22,7 @@ and/or managing-broker review — no change made).
 | Check | Status | Notes |
 | --- | --- | --- |
 | "Northern Indiana" | **FIXED** | Two occurrences of "in Elkhart County in northern Indiana" (living-in-goshen line 135, living-in-elkhart line 135 — pages renamed from communities/* in Batch 2f) → now "in Elkhart County, Indiana". |
-| "norte de Indiana" (ES equivalent) | **FIXED** | Four occurrences on /es/comunidades/goshen/ and /es/comunidades/elkhart/ → now "del/en el condado de Elkhart, Indiana". |
+| "norte de Indiana" (ES equivalent) | **FIXED** | Four occurrences on /es/viviendo-en-goshen/ and /es/comunidades/elkhart/ → now "del/en el condado de Elkhart, Indiana". |
 | 574-975-0141 | PASS | Zero occurrences. |
 | "surrounding areas" as service area | PASS | Zero occurrences (EN and ES equivalents checked). |
 | "Elkhart County" outside verifiable-stat contexts | PASS / FLAGGED | All blog/article occurrences are MLS source citations ("Elkhart County Board of REALTORS® MLS") or the mid-year-post title — verifiable-stat contexts. Remaining uses are Census/geographic facts on the community pages and the jurisdiction clause in the approved Terms of Use — see F1. |

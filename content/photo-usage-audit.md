@@ -38,7 +38,7 @@ So the 42 unused house photos comfortably cover the Method pages and any page th
 | `exterior-single-story-ranch-driveway.jpg` | Used | `/blog/buyers/elkhart-indiana-good-place-invest-real-estate/` |
 | `exterior-two-story-rear-covered-porch.jpg` | Used | `/blog/spanish/como-comprar-una-casa-en-indiana/` |
 | `exterior-wooded-backyard-swing-set-fire-pit.jpg` | Used | `/blog/buyers/why-buy-home-goshen-indiana-lisa-collio/` |
-| `hero-twilight-1.jpg` | Used | Homepage / (hero) |
+| `hero-twilight-1.jpg` | Used | Homepage / (hero)<br>`/living-in-goshen/` (featured)<br>`/es/viviendo-en-goshen/` (featured) |
 | `hero-twilight-2.jpg` | Used | Homepage /es/ (hero) |
 | `interior-bathroom-double-vanity-tile-shower.jpg` | Unused | — |
 | `interior-bathroom-glass-shower-gray-vanity.jpg` | Unused | — |

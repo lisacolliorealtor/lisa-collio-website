@@ -64,8 +64,9 @@ legal text).
 /es/tu-proximo-capitulo/ · /buyers/ ↔ /es/compradores/ · /sellers/ ↔
 /es/vendedores/ · /living-in-goshen/ ↔ /es/viviendo-en-goshen/ ·
 /living-in-elkhart/ ↔ /es/viviendo-en-elkhart/ · /contact/ ↔ /es/contacto/ ·
-(ES community pages currently live at /es/comunidades/{goshen,elkhart}/ and move
-to the /es/viviendo-en-*/ paths in Batch 2e) ·
+/moving-to-goshen/ ↔ /es/mudarse-a-goshen/ ·
+(ES Elkhart community page still lives at /es/comunidades/elkhart/ until its
+Batch 4 rebuild renames it to /es/viviendo-en-elkhart/) ·
 /market-stats/ (EN only at launch — documented exception) ·
 /terms/ /privacy/ /accessibility/ /fair-housing/ (EN at launch).
 URL rules: lowercase, hyphens, no dates, consistent trailing slash.
