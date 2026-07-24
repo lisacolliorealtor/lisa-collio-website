@@ -5,7 +5,7 @@
 
 ---
 
-# HUB SECTION — FAQ for /communities/elkhart/
+# HUB SECTION — FAQ for /living-in-elkhart/
 
 **1. What is Elkhart, Indiana known for?**
 Elkhart is the largest city in Elkhart County and sits at the center of the U.S. RV manufacturing industry — often called the RV Capital of the World. Several major RV manufacturers are headquartered here. → Read the full article

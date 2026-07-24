@@ -6,7 +6,7 @@
 - Title tag (≤60 car.): Estadísticas del Mercado en Goshen y Elkhart, IN
 - Meta description (145–160 car.): Precios actuales de casas, días en el mercado, y datos de ventas en Goshen y Elkhart, Indiana — con información del MLS local, actualizada cada trimestre.
 - Schema: WebPage + Article (inLanguage "es"), FAQPage si la sección de preguntas permanece visible
-- Enlaces internos: /es/vendedores/, /es/compradores/, /es/comunidades/goshen/, /es/comunidades/elkhart/, /es/conozca-a-lisa/, /es/contacto/
+- Enlaces internos: /es/vendedores/, /es/compradores/, /es/viviendo-en-goshen/, /es/viviendo-en-elkhart/, /es/conozca-a-lisa/, /es/contacto/
 - hreflang: pareja bidireccional con /market-stats/
 - Elementos requeridos: toggle "English" (arriba, enlaza a /market-stats/), pie de página bloqueado (el pie de página permanece en inglés en TODAS las páginas en español — excepción documentada ya establecida en el sitio), aviso legal largo de MLS, fecha "Datos al día de" visible cerca del inicio
 - Cadencia de actualización: Trimestral, junto con la página en inglés — ambas páginas se actualizan en la misma pasada, mismos números.

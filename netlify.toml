@@ -5,6 +5,18 @@
 [build]
   publish = "."
 
+# Community pages renamed July 2026 (Batch 2f): permanent redirects from the
+# old /communities/ paths. These must stay ABOVE the /* 404 rule (first match wins).
+[[redirects]]
+  from = "/communities/goshen/"
+  to = "/living-in-goshen/"
+  status = 301
+
+[[redirects]]
+  from = "/communities/elkhart/"
+  to = "/living-in-elkhart/"
+  status = 301
+
 # Custom 404 (bilingual wayfinding page).
 [[redirects]]
   from = "/*"

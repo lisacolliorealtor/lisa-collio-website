@@ -3,7 +3,7 @@
 
 ---
 
-# HUB SECTION — FAQ for /communities/goshen/
+# HUB SECTION — FAQ for /living-in-goshen/
 
 **1. What is Goshen, Indiana known for?**
 Goshen is known for its compact downtown business district, a strong base of small independent businesses, and being part of Elkhart County — the center of the U.S. RV manufacturing industry. It's also home to Goshen College. → Read the full article

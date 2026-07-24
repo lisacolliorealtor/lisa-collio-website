@@ -14,7 +14,7 @@ SEO/AEO Notes (internal — not for publication):
 * Title tag (≤60 char): Is Now a Good Time to Buy in Goshen, IN? | Lisa Collio
 * Meta description (145–160 char): Wondering if now is a good time to buy a home in Goshen, Indiana? Lisa Collio explains what actually matters — timing, finances, and fit. Call (574) 370-5410.
 * Schema: Article + FAQPage (3 Qs below)
-* Internal links: /buyers/, /communities/goshen/, /contact/; future: rent-vs-buy article (Cluster 1/4)
+* Internal links: /buyers/, /living-in-goshen/, /contact/; future: rent-vs-buy article (Cluster 1/4)
 * Primary keyword: “good time to buy a home in Goshen Indiana”; secondary: “Goshen Indiana housing market,” “buying a home in Goshen”
 
 Ask ten people whether it’s a good time to buy a house and you’ll get ten confident answers — most of them based on a national headline written about a market three states away. It’s the question Lisa hears more than any other from Goshen buyers, and the honest answer has less to do with the calendar than most people expect.
@@ -55,7 +55,7 @@ SEO/AEO Notes (internal — not for publication):
 * Title tag (≤60 char): How to Sell Your Home in Elkhart, IN for the Best Price
 * Meta description (145–160 char): Selling your home in Elkhart, Indiana? Lisa Collio shows how strategic pricing, pro marketing, and two buyer pools help you sell for the best price.
 * Schema: Article + FAQPage (3 Qs below)
-* Internal links: /sellers/, /communities/elkhart/, /contact/; future: pricing-right-the-first-time and 11-step prep guide articles (Cluster 2)
+* Internal links: /sellers/, /living-in-elkhart/, /contact/; future: pricing-right-the-first-time and 11-step prep guide articles (Cluster 2)
 * Primary keyword: “sell my home in Elkhart Indiana”; secondary: “sell house for best price Elkhart,” “home selling strategy Elkhart Indiana”
 * Lane 2 growth article — written for equity-rich homeowners (5–20 years in home) who want strategy and data. Seller-page tagline “Unlocking smart moves” belongs on the /sellers/ hub this article links to, not repeated in body copy.
 

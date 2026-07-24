@@ -46,7 +46,7 @@ Lisa Collio helps buyers get to know Goshen’s neighborhoods well enough to fin
 
 - Schema: Article + FAQPage (4 Qs below)
 
-- Internal links: /buyers/, /communities/elkhart/, /about/
+- Internal links: /buyers/, /living-in-elkhart/, /about/
 
 - Primary keyword: “buy a home in Elkhart Indiana”; secondary: “Realtor Elkhart Indiana,” “bilingual Realtor Indiana”
 
@@ -118,7 +118,7 @@ Lisa Collio Real Estate Agent in Goshen and Elkhart, Indiana Seniors Real Estate
 
 - Schema: Article + FAQPage
 
-- Internal links: /buyers/, /communities/elkhart/, blog post on home inspections (future)
+- Internal links: /buyers/, /living-in-elkhart/, blog post on home inspections (future)
 
 - Primary keyword: “what to look for buying a home Elkhart Indiana”
 
@@ -198,7 +198,7 @@ Lisa Collio Real Estate Agent in Goshen and Elkhart, Indiana Seniors Real Estate
 
 - Schema: Article + FAQPage
 
-- Internal links: /buyers/, /communities/elkhart/
+- Internal links: /buyers/, /living-in-elkhart/
 
 - Primary keyword: “invest in real estate Elkhart Indiana”
 
@@ -274,7 +274,7 @@ Lisa Collio Real Estate Agent in Goshen and Elkhart, Indiana Seniors Real Estate
 
 - Schema: Article + FAQPage
 
-- Internal links: /buyers/, /communities/elkhart/
+- Internal links: /buyers/, /living-in-elkhart/
 
 - Primary keyword: “compete with buyers Elkhart Indiana”, “multiple offer situation”
 
@@ -354,7 +354,7 @@ Lisa Collio Real Estate Agent in Goshen and Elkhart, Indiana Seniors Real Estate
 
 - Schema: Article + FAQPage
 
-- Internal links: /buyers/, /communities/goshen/, /about/
+- Internal links: /buyers/, /living-in-goshen/, /about/
 
 - Primary keyword: “buy a home in Goshen Indiana”
 
@@ -422,7 +422,7 @@ Lisa Collio Real Estate Agent in Goshen and Elkhart, Indiana Seniors Real Estate
 
 - Schema: Article + FAQPage + Place
 
-- Internal links: /communities/goshen/, /buyers/, relocation content (future)
+- Internal links: /living-in-goshen/, /buyers/, relocation content (future)
 
 - Primary keyword: “is Goshen Indiana a good place to live”, “living in Goshen Indiana”
 
@@ -502,7 +502,7 @@ Lisa Collio Real Estate Agent in Goshen and Elkhart, Indiana Seniors Real Estate
 
 - Schema: Article + FAQPage
 
-- Internal links: /buyers/, /communities/goshen/
+- Internal links: /buyers/, /living-in-goshen/
 
 - Primary keyword: “Goshen Indiana housing market competitive”
 
@@ -576,7 +576,7 @@ Lisa Collio Real Estate Agent in Goshen and Elkhart, Indiana Seniors Real Estate
 
 - Schema: Article + FAQPage
 
-- Internal links: /buyers/, /communities/goshen/
+- Internal links: /buyers/, /living-in-goshen/
 
 - Primary keyword: “what to prioritize buying a house Goshen Indiana”
 

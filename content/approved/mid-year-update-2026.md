@@ -6,7 +6,7 @@
 - Title tag (≤60 char): Elkhart County Mid-Year Market Update 2026
 - Meta description (145–160 char): See the real numbers behind the Goshen and Elkhart, Indiana housing market at mid-year 2026 — median prices, days on market, and what it means for you.
 - Schema: Article + FAQPage (questions below)
-- Internal links: /sellers/, /buyers/, /communities/goshen/, /communities/elkhart/, /contact/
+- Internal links: /sellers/, /buyers/, /living-in-goshen/, /living-in-elkhart/, /contact/
 - Primary keyword: "Elkhart County housing market 2026"; secondary: "Goshen Indiana home prices," "Elkhart Indiana market update," "is it a good time to sell in Elkhart County"
 - Language: English (business page — growth audience, per Content Language Strategy)
 - Required page elements: "Hablo español" banner (top of page, links to /es/), locked footer signature, MLS disclaimer (long version — this is a dedicated market-stats post)
