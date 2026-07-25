@@ -8,6 +8,9 @@
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/accessibility/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lisacolliorealtor.com/accessibility/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/accesibilidad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/accessibility/"/>
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/blog/buyers/are-homes-goshen-indiana-competitive-to-buy/</loc>
@@ -371,6 +374,9 @@
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/fair-housing/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lisacolliorealtor.com/fair-housing/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/vivienda-justa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/fair-housing/"/>
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/</loc>
@@ -392,6 +398,9 @@
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lisacolliorealtor.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/privacidad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/privacy/"/>
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/sellers/</loc>
@@ -401,24 +410,39 @@
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lisacolliorealtor.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/terminos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/terms/"/>
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/es/privacidad/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lisacolliorealtor.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/privacidad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/privacy/"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/es/terminos/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lisacolliorealtor.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/terminos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/terms/"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/es/accesibilidad/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lisacolliorealtor.com/accessibility/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/accesibilidad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/accessibility/"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/es/vivienda-justa/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lisacolliorealtor.com/fair-housing/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/vivienda-justa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/fair-housing/"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
