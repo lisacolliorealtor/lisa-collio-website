@@ -5,9 +5,9 @@
 *Structure adapted from the SEO/AEO/GEO hub-and-spoke framework supplied by Krista Mashore's custom GPT. Source draft rewritten in full — see the Rewrite Notes at the end of this file for what changed and why.*
 *Facts checked against 8 sources supplied by Lisa (July 2026): Wikipedia, City of Elkhart official site, Visit Elkhart County, ACHP Preserve America, Tripadvisor, Greater Elkhart Chamber of Commerce, Britannica, and Baugo Community Schools.*
 
-**STATUS: APPROVED BY LISA — July 25, 2026. CLEARED TO BUILD NOW.**
+**STATUS: APPROVED BY LISA AND BROKER — July 25, 2026. CLEARED TO BUILD NOW.** Revised FAQ block (expanded to 6 questions, mirrors the Goshen topic set, links to the newly-approved authority articles) is confirmed along with the rest of the page.
 
-Build this page and deploy it to the preview branch immediately. Once the entire site is built and deployed to preview, Lisa's broker will review the complete site at the preview link and request any changes directly. Do not merge to `main` or trigger the production DNS cutover until Lisa gives explicit go-ahead after that review — but that restriction applies to the final merge/cutover step only, not to building or deploying this page to preview.
+Build and deploy to the preview branch immediately. Broker's comprehensive whole-site review still occurs before the final `main` merge/DNS cutover, per Lisa's standing July 2026 workflow — that restriction applies to the final merge/cutover step only, not to building or deploying to preview.
 
 **Version:** v1.0 · **Phase:** 1.b (pairs with `/living-in-elkhart/`, which is already live) · **Supersedes:** the current live Elkhart city guide page, which duplicates content top and bottom and is being retired in favor of this page and its `/living-in-elkhart/` counterpart
 
@@ -142,25 +142,29 @@ The practical advice: tour in both, and pay attention to the drive to wherever y
 
 ## Frequently Asked Questions
 
-### What is the cost of living like in Elkhart, Indiana?
+### What is there to do in Elkhart, Indiana?
 
-Housing is meaningfully below the national average, and utilities and commuting tend to run lower too, since drives are short. Winter heating is the cost transplants most often underestimate. Current figures live on Lisa's [market data page](/market-stats/).
+Downtown, Wellfield Botanic Gardens, several museums including the RV/MH Hall of Fame, Island Park and the Riverwalk, and a full calendar of festivals and events throughout the year. → [Read the full article](/blog/community/things-to-do-in-elkhart-indiana/)
 
-### Which school district serves a given Elkhart address?
+### What community events happen in Elkhart during the year?
 
-It depends on the address, not the city. Three districts — Elkhart Community Schools, Concord Community Schools, and Baugo Community Schools — each cover different sections of the city, and boundaries don't follow mailing addresses. Lisa confirms the assigned district before you write an offer and directs you to that district's enrollment office to confirm bus eligibility.
+The Elkhart Jazz Festival each June, Quilt Gardens season in late spring, a monthly downtown Art Walk, a weekly farmers market, and holiday events downtown each winter. → [Read the full article](/blog/community/community-events-in-elkhart-indiana/)
 
-### Is Elkhart or Goshen the better place to relocate to?
+### What does it cost to live in Elkhart, Indiana?
 
-It depends more on where you'll be working than on the city itself. Elkhart is larger and closer to the Toll Road; Goshen is smaller and denser at the center. Touring both and timing the actual commute tells you more than any list of amenities. See the [Elkhart community page](/living-in-elkhart/) for more on daily life here.
-
-### What industries should I know about before moving to Elkhart for work?
-
-RV manufacturing dominates the regional economy and is genuinely cyclical — worth a conversation with a financial professional if your household income depends entirely on it. Healthcare, logistics, education, and advanced manufacturing add real diversification beyond the RV nickname.
+Housing is meaningfully below the national average, and utilities and commuting tend to run lower too, since drives are short. Winter heating is the cost transplants most often underestimate. → [Read the full article](/blog/community/cost-of-living-in-elkhart-indiana/)
 
 ### How do I move to Elkhart from another state?
 
-Sequence matters more than speed: the financing conversation first, a scouting visit second, an offer third — and there are a couple of steps most people do out of order. A full step-by-step is coming as its own article; in the meantime, [Lisa is glad to walk through it directly](/contact/).
+Sequence matters more than speed: the financing conversation first, a scouting visit second, an offer third — and confirming your school district assignment directly before you write that offer. → [Read the full article](/blog/community/moving-to-elkhart-indiana-from-out-of-state/)
+
+### What should I check before buying an older home in Elkhart?
+
+Foundation and structure, knob-and-tube wiring or older plumbing, original windows, and roof condition given the region's snow load — older homes near downtown have real character but need real diligence. → [Read the full article](/blog/community/buying-an-older-home-in-elkhart-indiana/)
+
+### I'm moving to Elkhart for an RV industry job. What should I know before buying?
+
+Get your specific plant address before house hunting, since commutes vary widely by plant; ask your lender how they'll document production-based pay; and build in some cushion for the industry's genuine cyclicality. → [Read the full article](/blog/community/working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana/)
 
 ## Thinking about a move to Elkhart?
 

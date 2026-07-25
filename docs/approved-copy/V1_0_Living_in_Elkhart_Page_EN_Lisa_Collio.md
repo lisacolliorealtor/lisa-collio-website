@@ -3,7 +3,9 @@
 *Prepared for Lisa Collio, Real Estate Agent · July 2026*
 *Per Master Plan v2.8 (§6, §7, §8), Federal Fair Housing Act Website Compliance Reference, Goshen–Elkhart Reference Data Sheet, and the 8 sources supplied by Lisa: Wikipedia, City of Elkhart official site, Visit Elkhart County, ACHP Preserve America, Tripadvisor, Greater Elkhart Chamber of Commerce, Britannica, and Baugo Community Schools.*
 
-**STATUS: APPROVED BY LISA — July 25, 2026. CLEARED TO BUILD NOW.**
+**STATUS: APPROVED BY LISA AND BROKER — July 25, 2026. CLEARED TO BUILD NOW.** Revised FAQ block (mirrors the Goshen topic set, links to the newly-approved authority articles) is confirmed along with the rest of the page.
+
+Build and deploy to the preview branch immediately. Broker's comprehensive whole-site review still occurs before the final `main` merge/DNS cutover, per Lisa's standing July 2026 workflow — that restriction applies to the final merge/cutover step only, not to building or deploying to preview.
 
 Build this page and deploy it to the preview branch immediately. Once the entire site is built and deployed to preview, Lisa's broker will review the complete site at the preview link and request any changes directly. Do not merge to `main` or trigger the production DNS cutover until Lisa gives explicit go-ahead after that review — but that restriction applies to the final merge/cutover step only, not to building or deploying this page to preview.
 
@@ -82,23 +84,23 @@ Elkhart's range is what stands out most to Lisa after years of working here — 
 
 ### What is Elkhart, Indiana known for?
 
-Elkhart is internationally known as the RV Capital of the World, home to most of the industry's leading manufacturers. It's also known for its historic downtown, the Lerner Theatre, Wellfield Botanic Gardens, and a rail history tied to some of the largest freight yards in the country.
+Elkhart is internationally known as the RV Capital of the World, home to most of the industry's leading manufacturers — plus lesser-known history in musical instruments and pharmaceuticals. → [Read the full article](/blog/community/what-is-elkhart-indiana-known-for/)
 
-### What is there to do in downtown Elkhart?
+### What school district serves Elkhart, Indiana?
 
-The Lerner Theatre anchors a compact, closely clustered business district with independent restaurants and shops, a monthly Art Walk, a weekly farmers market, and a downtown social district that allows drinks to travel between participating businesses.
+Three districts — Elkhart Community Schools, Concord Community Schools, and Baugo Community Schools — each cover different sections of the city. An Elkhart mailing address doesn't tell you which one applies to a specific address. → [Read the full article](/blog/community/elkhart-indiana-school-districts/)
 
-### What parks does Elkhart have?
+### What is downtown Elkhart like?
 
-Island Park is the signature green space at the river confluence, with Wellfield Botanic Gardens, the Riverwalk, Studebaker Park, American Park, and McNaughton Park rounding out a 35-facility park system that includes ball fields, a public pool, and seasonal ice-skating and splash-pad features downtown.
+A compact, closely clustered district built around the Lerner Theatre, with Civic Plaza, a downtown social district, a monthly Art Walk, and a weekly farmers market. → [Read the full article](/blog/community/downtown-elkhart-indiana/)
 
-### What museums are in Elkhart?
+### What industries and employers are in Elkhart?
 
-The RV/MH Hall of Fame & Museum (now located along the toll road), the Ruthmere Museum and Havilah Beardsley House, the National New York Central Railroad Museum, the Midwest Museum of American Art, and the Hall of Heroes Superhero Museum.
+RV manufacturing dominates the regional economy, alongside healthcare, logistics, education, and advanced manufacturing — with a rail history that still anchors a meaningful logistics sector. → [Read the full article](/blog/community/elkhart-indiana-industries-employers/)
 
-### What is Elkhart's history?
+### What landmarks and amenities does Elkhart have?
 
-Platted in 1832, Elkhart grew as a railroad hub and became a national center for band instrument manufacturing in the late 1800s before earning its best-known title, RV Capital of the World, by 1949. Its downtown and the State and Division Streets area are both listed on the National Register of Historic Places.
+Wellfield Botanic Gardens, the Lerner Theatre, Island Park, the Ruthmere Museum, and a downtown commercial district on the National Register of Historic Places. → [Read the full article](/blog/community/elkhart-indiana-landmarks-amenities/)
 
 ## Thinking about Elkhart?
 

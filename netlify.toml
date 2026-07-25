@@ -29,6 +29,19 @@
   to = "/es/viviendo-en-elkhart/"
   status = 301
 
+# Elkhart authority articles superseded July 2026 by the approved article sets:
+# the single-district school article is replaced by the three-district version,
+# and "landmarks & attractions" is replaced by "landmarks & amenities".
+[[redirects]]
+  from = "/blog/community/elkhart-indiana-school-district/"
+  to = "/blog/community/elkhart-indiana-school-districts/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/community/elkhart-indiana-landmarks-attractions/"
+  to = "/blog/community/elkhart-indiana-landmarks-amenities/"
+  status = 301
+
 # Custom 404 (bilingual wayfinding page).
 [[redirects]]
   from = "/*"
