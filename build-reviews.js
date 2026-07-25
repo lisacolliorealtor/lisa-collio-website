@@ -175,22 +175,46 @@ ${revs.join(",\n")}
     </script>`;
 }
 
-// Pick the first candidate whose PERSON (not row id) isn't banned. Some people
-// appear more than once in the corpus across platforms — e.g. Naun C. has both
-// a Google review and a Facebook recommendation — so de-duplication is by
-// display name, never by row id.
-function pick(pool, start, banned) {
-  for (let i = 0; i < pool.length; i++) {
-    const c = pool[(start + i) % pool.length];
-    if (!banned.has(c.name)) return c;
+// Pick the least-used candidate whose PERSON (not row id) is not banned. Some
+// people appear more than once in the corpus across platforms — e.g. Naun C.
+// has both a Google review and a Facebook recommendation — so de-duplication
+// is by display name, never by row id.
+//
+// `banned` carries the names already shown on ADJACENT pages (Batch 2b §4:
+// nav-linked pages plus parent/child pairs), so a review never repeats within
+// a cluster a visitor is likely to browse in one sitting. Among the allowed
+// candidates we take the one used fewest times so far, breaking ties by
+// longest-unused — that spreads the pool as widely as possible before any
+// review is reused anywhere. If adjacency makes every candidate ineligible
+// (pool smaller than a page's adjacent set), we fall back to the least-used
+// candidate overall and record the page so it can be reported as genuine
+// overflow rather than silently repeating.
+const overflowPages = [];
+function pick(pool, banned, usage, rel, slot) {
+  const rank = (c) => [usage.count.get(c.name) || 0, usage.last.get(c.name) ?? -1];
+  const allowed = pool.filter((c) => !banned.has(c.name));
+  const from = allowed.length ? allowed : pool;
+  if (!allowed.length && pool.length) overflowPages.push(`${rel} (${slot})`);
+  let best = from[0];
+  for (const c of from) {
+    const [ca, cb] = rank(c);
+    const [ba, bb] = rank(best);
+    if (ca < ba || (ca === ba && cb < bb)) best = c;
   }
-  return pool[start % pool.length];
+  return best;
 }
 
-function block(idx, lang, prevNames, rel) {
+function noteUse(usage, name, idx) {
+  usage.count.set(name, (usage.count.get(name) || 0) + 1);
+  usage.last.set(name, idx);
+}
+
+function block(idx, lang, bannedNames, rel, usage) {
   const P = POOLS[lang];
-  const a = pick(P.withPhoto, idx, prevNames);
-  const b = pick(P.textOnly, idx * 3 + 1, new Set([...prevNames, a.name]));
+  const a = pick(P.withPhoto, bannedNames, usage, rel, "photo");
+  noteUse(usage, a.name, idx);
+  const b = pick(P.textOnly, new Set([...bannedNames, a.name]), usage, rel, "text");
+  noteUse(usage, b.name, idx);
   const g = generalPhotos[idx % generalPhotos.length];
   const heading = lang === "es" ? "Lo que dicen sus clientes" : "What Lisa's clients say";
   const more =
@@ -225,23 +249,98 @@ function findHtml(dir, acc = []) {
   return acc;
 }
 
+// ---- Adjacency graph (Batch 2b §4) -----------------------------------------
+// "Adjacent" = pages a visitor reaches directly from one another: pages linked
+// from one another in body content, plus a page and its immediate parent/child
+// in the URL hierarchy. Links are read ONLY from inside <main> and with the
+// reviews block itself removed — the shared header/footer link to nearly every
+// page, so counting those would make the whole site mutually adjacent and the
+// no-repeat rule unsatisfiable.
+function urlToRel(href, files) {
+  let u = href.split("#")[0].split("?")[0];
+  if (!u.startsWith("/")) return null;
+  u = u.replace(/^\//, "");
+  const cand = u.endsWith("/") || u === "" ? `${u}index.html` : u;
+  return files.includes(cand) ? cand : null;
+}
+
+function buildAdjacency(files, htmlByRel) {
+  const adj = new Map(files.map((f) => [f, new Set()]));
+  const link = (a, b) => {
+    if (a === b || !adj.has(a) || !adj.has(b)) return;
+    adj.get(a).add(b);
+    adj.get(b).add(a);
+  };
+
+  for (const rel of files) {
+    // Parent/child in the URL hierarchy (…/blog/buyers/foo/ ↔ …/blog/buyers/)
+    const dir = path.posix.dirname(path.posix.dirname(rel));
+    link(rel, dir === "." ? "index.html" : `${dir}/index.html`);
+
+    // Body links only: inside <main>, minus the reviews block.
+    const html = htmlByRel.get(rel);
+    const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
+    const body = (mainMatch ? mainMatch[1] : "").replace(
+      /<!--\s*reviews:start\s*-->[\s\S]*?<!--\s*reviews:end\s*-->/g,
+      ""
+    );
+    for (const m of body.matchAll(/href="([^"]+)"/g)) {
+      const target = urlToRel(m[1], files);
+      if (target) link(rel, target);
+    }
+  }
+  return adj;
+}
+
 function main() {
   const check = process.argv.includes("--check");
-  const files = findHtml(ROOT)
-    .map((f) => path.relative(ROOT, f))
+  const all = findHtml(ROOT)
+    .map((f) => path.relative(ROOT, f).replace(/\\/g, "/"))
     .filter((f) => !EXCLUDE_RE.test("/" + f))
     .sort();
 
+  // Only pages that opt in (carry the markers) take part in the rotation, so
+  // the adjacency graph and the pool spread are computed over exactly the set
+  // of pages that will actually display a review.
+  const htmlByRel = new Map();
+  for (const rel of all) htmlByRel.set(rel, fs.readFileSync(path.join(ROOT, rel), "utf8"));
+  const files = all.filter((rel) =>
+    /<!--\s*reviews:start\s*-->[\s\S]*?<!--\s*reviews:end\s*-->/.test(htmlByRel.get(rel))
+  );
+  const adj = buildAdjacency(files, htmlByRel);
+
   let touched = 0;
   const stale = [];
-  let prevNames = new Set();
+  const assigned = new Map(); // rel -> Set(names) already placed
+  const usage = { en: { count: new Map(), last: new Map() }, es: { count: new Map(), last: new Map() } };
+
+  // Assignment order matters: a page can only avoid reviews already placed on
+  // its neighbours, so whatever is assigned last is the most constrained. Hub
+  // pages (homepages, blog indexes) link to dozens of pages, and if they go
+  // last their adjacent set covers the whole pool and a repeat is forced.
+  // Assigning highest-degree pages FIRST gives them a free choice and leaves
+  // each low-degree leaf to avoid only its handful of neighbours — which the
+  // pool comfortably absorbs. Ties break on path so the result stays
+  // deterministic. Rendering still walks `files` in sorted order.
+  const order = [...files].sort(
+    (a, b) => (adj.get(b)?.size || 0) - (adj.get(a)?.size || 0) || a.localeCompare(b)
+  );
+  const blocks = new Map();
+  order.forEach((rel, idx) => {
+    const lang = /^es\/|^blog\/spanish\//.test(rel) ? "es" : "en";
+    const banned = new Set();
+    for (const nb of adj.get(rel) || []) {
+      for (const n of assigned.get(nb) || []) banned.add(n);
+    }
+    const built = block(idx, lang, banned, rel, usage[lang]);
+    assigned.set(rel, built.names);
+    blocks.set(rel, built);
+  });
+
   files.forEach((rel, idx) => {
     const file = path.join(ROOT, rel);
-    let html = fs.readFileSync(file, "utf8");
-    const lang = /^es\/|^blog\/spanish\//.test(rel) ? "es" : "en";
-    const built = block(idx, lang, prevNames, rel.replace(/\\/g, "/"));
-    const rendered = built.html;
-    prevNames = built.names;
+    let html = htmlByRel.get(rel);
+    const rendered = blocks.get(rel).html;
 
     // Standing rule (Lisa, July 2026): reviews live on main pages only — a page
     // opts in by carrying the reviews:start/end markers. Pages without markers
@@ -269,7 +368,25 @@ function main() {
     }
     console.log("All review blocks are up to date.");
   } else {
-    console.log(`Done. ${touched} page(s) updated. Pools — EN: ${POOLS.en.withPhoto.length} photo / ${POOLS.en.textOnly.length} text; ES: ${POOLS.es.withPhoto.length} photo / ${POOLS.es.textOnly.length} text; ${generalPhotos.length} client-general photos.`);
+    console.log(`Done. ${touched} page(s) updated across ${files.length} rotation pages. Pools — EN: ${POOLS.en.withPhoto.length} photo / ${POOLS.en.textOnly.length} text; ES: ${POOLS.es.withPhoto.length} photo / ${POOLS.es.textOnly.length} text; ${generalPhotos.length} client-general photos.`);
+    for (const l of ["en", "es"]) {
+      const c = usage[l].count;
+      const used = [...c.values()];
+      if (!used.length) continue;
+      console.log(
+        `  ${l.toUpperCase()}: ${c.size} distinct reviews placed, ` +
+          `each shown ${Math.min(...used)}–${Math.max(...used)} time(s).`
+      );
+    }
+    // Batch 2b §4: genuine overflow — pages whose adjacent set consumed every
+    // eligible candidate, so a repeat was unavoidable. Reported, never silent.
+    if (overflowPages.length) {
+      console.log(`  Adjacency overflow (unavoidable repeat) on ${overflowPages.length} slot(s):`);
+      for (const p of overflowPages.slice(0, 20)) console.log(`    - ${p}`);
+      if (overflowPages.length > 20) console.log(`    ...and ${overflowPages.length - 20} more`);
+    } else {
+      console.log("  No adjacency overflow: no review repeats on any adjacent page.");
+    }
   }
 }
 
