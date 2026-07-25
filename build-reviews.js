@@ -128,16 +128,36 @@ function generalCard(name, lang) {
         </figure>`;
 }
 
-function schemaFor(items) {
-  const revs = items
+// Pages that hand-author their own complete RealEstateAgent node (name,
+// address, etc.) earlier in the SAME document's main @graph — homepage pair
+// and contact-page pair. Google's structured-data parser merges same-@id
+// nodes only WITHIN one page, so on these four the bare incremental node
+// below is valid (it merges into the page's own full definition). Every
+// other page carries no such definition, so it needs a fully self-contained
+// node or it renders as an invalid LocalBusiness with invalid child Reviews.
+const FULL_AGENT_EXEMPT = new Set(["index.html", "es/index.html", "contact/index.html", "es/contacto/index.html"]);
+
+function reviewList(items, lang) {
+  return items
     .filter((r) => r && r.text)
     .map(
       (r) =>
-        `      {"@type":"Review","author":{"@type":"Person","name":${JSON.stringify(r.name)}},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":${JSON.stringify(r.text)}}`
+        `      {"@type":"Review","inLanguage":${JSON.stringify(lang)},"author":{"@type":"Person","name":${JSON.stringify(r.name)}},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":${JSON.stringify(r.text)}}`
     );
+}
+
+function schemaFor(items, lang, rel) {
+  const revs = reviewList(items, lang);
   if (!revs.length) return "";
-  return `    <script type="application/ld+json">
+  if (FULL_AGENT_EXEMPT.has(rel)) {
+    return `    <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"RealEstateAgent","@id":"https://lisacolliorealtor.com/#agent","aggregateRating":{"@type":"AggregateRating","ratingValue":"${DATA.aggregate.ratingValue}","reviewCount":"${DATA.aggregate.reviewCount}"},"review":[
+${revs.join(",\n")}
+]}
+    </script>`;
+  }
+  return `    <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"RealEstateAgent","@id":"https://lisacolliorealtor.com/#agent","name":"Lisa Collio, Real Estate Agent","url":"https://lisacolliorealtor.com/","telephone":"+1-574-370-5410","email":"lisacolliorealtor@gmail.com","address":{"@type":"PostalAddress","streetAddress":"1918 Elkhart Rd","addressLocality":"Goshen","addressRegion":"IN","postalCode":"46526","addressCountry":"US"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"19:00"},"areaServed":[{"@type":"City","name":"Goshen","address":{"@type":"PostalAddress","addressLocality":"Goshen","addressRegion":"IN","addressCountry":"US"}},{"@type":"City","name":"Elkhart","address":{"@type":"PostalAddress","addressLocality":"Elkhart","addressRegion":"IN","addressCountry":"US"}}],"knowsLanguage":["en","es"],"memberOf":{"@type":"Organization","name":"RE/MAX Results, The Viruez Team"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"${DATA.aggregate.ratingValue}","reviewCount":"${DATA.aggregate.reviewCount}","bestRating":"5"},"review":[
 ${revs.join(",\n")}
 ]}
     </script>`;
@@ -155,7 +175,7 @@ function pick(pool, start, banned) {
   return pool[start % pool.length];
 }
 
-function block(idx, lang, prevNames) {
+function block(idx, lang, prevNames, rel) {
   const P = POOLS[lang];
   const a = pick(P.withPhoto, idx, prevNames);
   const b = pick(P.textOnly, idx * 3 + 1, new Set([...prevNames, a.name]));
@@ -176,7 +196,7 @@ ${textCard(b)}
 ${generalCard(g, lang)}
       </div>
     </div>
-${schemaFor([a, b])}
+${schemaFor([a, b], lang, rel)}
   </section>
   <!-- reviews:end -->`;
   return { html, names: new Set([a.name, b.name]) };
@@ -207,7 +227,7 @@ function main() {
     const file = path.join(ROOT, rel);
     let html = fs.readFileSync(file, "utf8");
     const lang = /^es\/|^blog\/spanish\//.test(rel) ? "es" : "en";
-    const built = block(idx, lang, prevNames);
+    const built = block(idx, lang, prevNames, rel.replace(/\\/g, "/"));
     const rendered = built.html;
     prevNames = built.names;
 
