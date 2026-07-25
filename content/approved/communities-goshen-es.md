@@ -50,7 +50,7 @@ Para familias que están investigando escuelas como parte de una mudanza, el sit
 
 # ARTÍCULO 3: ¿Cómo es el centro de Goshen, Indiana?
 
-El centro de Goshen se destaca por tener sus negocios agrupados de cerca — una característica más inusual de lo que podría parecer para una ciudad de este tamaño en el norte de Indiana.
+El centro de Goshen se destaca por tener sus negocios agrupados de cerca — una característica más inusual de lo que podría parecer para una ciudad de este tamaño en esta parte de Indiana.
 
 El distrito del centro es hogar de una fuerte base de negocios independientes, de dueños locales: tiendas, restaurantes, y cafés que le dan al área un carácter distintivo en lugar de una franja comercial genérica. Uno de los lugares más visitados es el Old Bag Factory, un edificio industrial histórico que se ha convertido en una colección de tiendas y estudios de artistas — un buen ejemplo de cómo Goshen ha preservado su arquitectura histórica mientras le da nueva vida.
 
