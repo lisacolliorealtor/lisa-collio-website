@@ -131,11 +131,22 @@ function generalCard(name, lang) {
 // Pages that hand-author their own complete RealEstateAgent node (name,
 // address, etc.) earlier in the SAME document's main @graph — homepage pair
 // and contact-page pair. Google's structured-data parser merges same-@id
-// nodes only WITHIN one page, so on these four the bare incremental node
-// below is valid (it merges into the page's own full definition). Every
-// other page carries no such definition, so it needs a fully self-contained
-// node or it renders as an invalid LocalBusiness with invalid child Reviews.
+// nodes only WITHIN one page, so on these four a bare incremental node
+// would still be valid on its own (it merges into the page's own full
+// definition). Every other page carries no such definition, so it needs a
+// fully self-contained node or it renders as an invalid LocalBusiness with
+// invalid child Reviews.
 const FULL_AGENT_EXEMPT = new Set(["index.html", "es/index.html", "contact/index.html", "es/contacto/index.html"]);
+
+// Of those four, the homepage pair ALSO hand-authors its own aggregateRating
+// + review for #agent in that same main @graph. Emitting a second
+// aggregateRating for the same @id from this reviews block — even in a
+// separate <script> tag — reads to Google as "Review has multiple aggregate
+// ratings" (same-page @id nodes are merged into one). So the homepage pair
+// gets no reviews-block schema at all; their own hand-authored node is the
+// sole source of truth. The contact pair's hand-authored node has no
+// aggregateRating/review of its own, so it still needs the bare node below.
+const NO_SCHEMA_EMIT = new Set(["index.html", "es/index.html"]);
 
 function reviewList(items, lang) {
   return items
@@ -149,6 +160,7 @@ function reviewList(items, lang) {
 function schemaFor(items, lang, rel) {
   const revs = reviewList(items, lang);
   if (!revs.length) return "";
+  if (NO_SCHEMA_EMIT.has(rel)) return "";
   if (FULL_AGENT_EXEMPT.has(rel)) {
     return `    <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"RealEstateAgent","@id":"https://lisacolliorealtor.com/#agent","aggregateRating":{"@type":"AggregateRating","ratingValue":"${DATA.aggregate.ratingValue}","reviewCount":"${DATA.aggregate.reviewCount}"},"review":[
@@ -185,6 +197,7 @@ function block(idx, lang, prevNames, rel) {
     lang === "es"
       ? `<p class="reviews__meta">5.0 ★ · ${DATA.aggregate.reviewCount} reseñas en Google</p>`
       : `<p class="reviews__meta">5.0 ★ · ${DATA.aggregate.reviewCount} Google reviews</p>`;
+  const schema = schemaFor([a, b], lang, rel);
   const html = `<!-- reviews:start -->
   <section class="section section--tint">
     <div class="wrap">
@@ -195,8 +208,7 @@ ${photoCard(a, lang)}
 ${textCard(b)}
 ${generalCard(g, lang)}
       </div>
-    </div>
-${schemaFor([a, b], lang, rel)}
+    </div>${schema ? `\n${schema}` : ""}
   </section>
   <!-- reviews:end -->`;
   return { html, names: new Set([a.name, b.name]) };
