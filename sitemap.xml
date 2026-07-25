@@ -463,6 +463,11 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://lisacolliorealtor.com/es/fuentes/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://lisacolliorealtor.com/blog/relocation/</loc>
   </url>
   <url>
