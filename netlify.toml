@@ -23,6 +23,12 @@
   to = "/es/viviendo-en-goshen/"
   status = 301
 
+# Spanish Elkhart community page renamed July 2026 (Elkhart pair), same pattern.
+[[redirects]]
+  from = "/es/comunidades/elkhart/"
+  to = "/es/viviendo-en-elkhart/"
+  status = 301
+
 # Custom 404 (bilingual wayfinding page).
 [[redirects]]
   from = "/*"

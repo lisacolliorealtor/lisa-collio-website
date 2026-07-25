@@ -297,7 +297,7 @@
   <url>
     <loc>https://lisacolliorealtor.com/living-in-elkhart/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://lisacolliorealtor.com/living-in-elkhart/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/comunidades/elkhart/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/viviendo-en-elkhart/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/living-in-elkhart/"/>
   </url>
   <url>
@@ -319,10 +319,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/buyers/"/>
   </url>
   <url>
-    <loc>https://lisacolliorealtor.com/es/comunidades/elkhart/</loc>
+    <loc>https://lisacolliorealtor.com/es/viviendo-en-elkhart/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://lisacolliorealtor.com/living-in-elkhart/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/comunidades/elkhart/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/viviendo-en-elkhart/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/living-in-elkhart/"/>
+  </url>
+  <url>
+    <loc>https://lisacolliorealtor.com/es/mudarse-a-elkhart/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lisacolliorealtor.com/moving-to-elkhart/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/mudarse-a-elkhart/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/moving-to-elkhart/"/>
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/es/mudarse-a-goshen/</loc>
@@ -445,6 +451,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/fair-housing/"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://lisacolliorealtor.com/moving-to-elkhart/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lisacolliorealtor.com/moving-to-elkhart/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lisacolliorealtor.com/es/mudarse-a-elkhart/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lisacolliorealtor.com/moving-to-elkhart/"/>
   </url>
   <url>
     <loc>https://lisacolliorealtor.com/moving-to-goshen/</loc>

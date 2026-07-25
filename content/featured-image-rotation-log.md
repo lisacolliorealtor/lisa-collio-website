@@ -28,5 +28,9 @@ reconstructed from the images themselves starting with the Goshen cluster
 | 14 | `mudarse-a-goshen-desde-otro-estado-header.jpg` | A | Red + left | 2e Part 2 |
 | 15 | `comprar-casa-antigua-goshen-indiana-header.jpg` | A | Blue + left | 2e Part 2 |
 | 16 | `industria-rv-comprar-casa-goshen-indiana-header.jpg` | A | Red + right | 2e Part 2 |
+| 17 | `moving-to-elkhart-header.jpg` | A | Blue + right | Elkhart pair |
+| 18 | `living-in-elkhart-guide-header.jpg` | A | Red + left | Elkhart pair |
+| 19 | `mudarse-a-elkhart-header.jpg` | A | Blue + left | Elkhart pair |
+| 20 | `viviendo-en-elkhart-header.jpg` | A | Red + right | Elkhart pair |
 
 **Next variant: Blue + right** (then Red + left, and so on).
