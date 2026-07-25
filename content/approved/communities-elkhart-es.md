@@ -20,7 +20,7 @@ Elkhart es hogar de fabricantes importantes de RV, incluyendo Thor Industries, F
 Elkhart es hogar del histórico Lerner Theatre, Wellfield Botanic Gardens, y el RV/MH Hall of Fame & Museum, que atrae a más de 15,000 visitantes al año. → Lea el artículo completo
 
 **5. ¿Dónde está ubicado Elkhart en relación con las ciudades cercanas?**
-Elkhart se encuentra justo al este de South Bend y Mishawaka, cerca de la frontera con Michigan, y a unos 25 minutos al noreste de Goshen. → Lea el artículo completo
+Elkhart se encuentra en el norte de Indiana, justo al este de South Bend y Mishawaka, y a unos 25 minutos al noreste de Goshen. → Lea el artículo completo
 
 ---
 
@@ -84,7 +84,7 @@ Juntos, estos lugares emblemáticos le dan a Elkhart una combinación de arte e 
 
 Para cualquier persona que se esté reubicando al área, entender la ubicación de Elkhart en relación con las ciudades cercanas es una parte práctica de planear una mudanza.
 
-Elkhart se encuentra justo al este de South Bend y Mishawaka, cerca de la frontera con Michigan — lo cual significa que los residentes tienen acceso relativamente fácil a las comodidades y al aeropuerto del área metropolitana de South Bend mientras viven en una ciudad más pequeña. Dentro del condado de Elkhart mismo, Elkhart está ubicado a unos 25 minutos al noreste de Goshen, la sede del condado, facilitando el desplazamiento entre las dos ciudades por trabajo, compras, o para visitar a familiares.
+Elkhart se encuentra en el norte de Indiana, justo al este de South Bend y Mishawaka — lo cual significa que los residentes tienen acceso relativamente fácil a las comodidades y al aeropuerto del área metropolitana de South Bend mientras viven en una ciudad más pequeña. Dentro del condado de Elkhart mismo, Elkhart está ubicado a unos 25 minutos al noreste de Goshen, la sede del condado, facilitando el desplazamiento entre las dos ciudades por trabajo, compras, o para visitar a familiares.
 
 Esta geografía es una de las razones por las que muchos compradores comparan Elkhart y Goshen directamente al decidir dónde establecerse — ambas ciudades se encuentran a poca distancia en auto una de la otra, mientras que cada una ofrece su propio carácter y opciones de vivienda distintivas.
 
