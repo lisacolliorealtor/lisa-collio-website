@@ -62,9 +62,11 @@ Para cualquier persona que valore tener cenas, tiendas, o eventos comunitarios a
 
 # ARTÍCULO 4: ¿Qué industrias y empleadores hay en el área de Goshen, Indiana?
 
+*Corregido en julio de 2026 — sincronizado con la versión publicada. La redacción original encabezaba con "El condado de Elkhart es hogar de..."; el paso de cumplimiento la reformuló hacia el corredor Goshen–Elkhart–Middlebury. La versión en inglés conserva "Elkhart County is home to..." porque ahí la mención va dentro de una cifra verificable.*
+
 Entender la economía local es una parte útil de investigar cualquier lugar al que pudiera mudarse — y en el caso de Goshen, la historia económica está estrechamente ligada a la región más amplia del condado de Elkhart.
 
-El condado de Elkhart es hogar de la mayoría de la fabricación de casas rodantes (RV) en Estados Unidos — comúnmente citado como más del 80% de la producción mundial de RV concentrada en el área de Elkhart–Middlebury–Goshen. Fabricantes importantes con operaciones en la región incluyen Thor Industries (con sede en Elkhart y dueña de marcas como Airstream y Jayco), Forest River, Keystone RV, Lippert Components, y otros. Esta concentración de manufactura significa que una parte importante de los empleos locales — directa o indirectamente a través de industrias de apoyo — se conecta con la producción de RV.
+Se cita comúnmente que el corredor Goshen–Elkhart–Middlebury produce la gran mayoría de las casas rodantes (RV) de Norteamérica. Fabricantes importantes con operaciones en la región incluyen Thor Industries (con sede en Elkhart y dueña de marcas como Airstream y Jayco), Forest River, Keystone RV, Lippert Components, y otros. Esta concentración de manufactura significa que una parte importante de los empleos locales — directa o indirectamente a través de industrias de apoyo — se conecta con la producción de RV.
 
 Dentro de Goshen mismo, dos empleadores destacan a nivel local: Goshen College, la pequeña universidad de artes liberales que da forma a gran parte de la vida cultural y educativa de la ciudad, y el Hospital IU Health Goshen, el hospital principal del área y un empleador local importante.
 
