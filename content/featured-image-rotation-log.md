@@ -32,5 +32,21 @@ reconstructed from the images themselves starting with the Goshen cluster
 | 18 | `living-in-elkhart-guide-header.jpg` | A | Red + left | Elkhart pair |
 | 19 | `mudarse-a-elkhart-header.jpg` | A | Blue + left | Elkhart pair |
 | 20 | `viviendo-en-elkhart-header.jpg` | A | Red + right | Elkhart pair |
+| 21 | `what-is-elkhart-indiana-known-for-header.jpg` | A | Blue + right | Elkhart Living articles |
+| 22 | `elkhart-indiana-school-districts-header.jpg` | A | Red + left | Elkhart Living articles |
+| 23 | `downtown-elkhart-indiana-header.jpg` | A | Blue + left | Elkhart Living articles |
+| 24 | `elkhart-indiana-industries-employers-header.jpg` | A | Red + right | Elkhart Living articles |
+| 25 | `elkhart-indiana-landmarks-amenities-header.jpg` | A | Blue + right | Elkhart Living articles |
+| 26 | `things-to-do-in-elkhart-indiana-header.jpg` | A | Red + left | Elkhart Moving articles |
+| 27 | `community-events-in-elkhart-indiana-header.jpg` | A | Blue + left | Elkhart Moving articles |
+| 28 | `cost-of-living-in-elkhart-indiana-header.jpg` | A | Red + right | Elkhart Moving articles |
+| 29 | `moving-to-elkhart-indiana-from-out-of-state-header.jpg` | A | Blue + right | Elkhart Moving articles |
+| 30 | `buying-an-older-home-in-elkhart-indiana-header.jpg` | A | Red + left | Elkhart Moving articles |
+| 31 | `working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana-header.jpg` | A | Blue + left | Elkhart Moving articles |
+| 32 | `what-is-goshen-indiana-known-for-header.jpg` | A | Red + right | Goshen Living articles |
+| 33 | `goshen-indiana-school-district-header.jpg` | A | Blue + right | Goshen Living articles |
+| 34 | `downtown-goshen-indiana-header.jpg` | A | Red + left | Goshen Living articles |
+| 35 | `goshen-indiana-industries-employers-header.jpg` | A | Blue + left | Goshen Living articles |
+| 36 | `goshen-indiana-landmarks-amenities-header.jpg` | A | Red + right | Goshen Living articles |
 
 **Next variant: Blue + right** (then Red + left, and so on).
