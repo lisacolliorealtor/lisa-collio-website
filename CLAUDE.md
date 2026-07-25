@@ -1,4 +1,5 @@
 # CLAUDE.md — lisa-collio-website
+**v1.1 (July 25, 2026)** — see the Revision Log at the end of this file.
 Mirrors Lisa_Collio_Website_Master_Plan_v2_5 (July 2026). This file defers to the
 Master Plan; if they ever disagree, the Master Plan (highest version) wins.
 Regenerate this file whenever the plan version-bumps (one PR touches both).
@@ -17,6 +18,12 @@ Forms/funnels/booking live in GoHighLevel, not this repo.
   "surrounding areas" as a service area (Elkhart County allowed only inside
   verifiable stats). Never "Northern Indiana". Schema areaServed = Goshen, IN
   and Elkhart, IN exactly.
+  **Decision (Lisa, 25 July 2026):** the ban is on "Northern Indiana" as a
+  service-area/brand descriptor. Plain geographic fact is permitted — e.g.
+  "the northern part of the state" (/moving-to-goshen/) and "northern Goshen"
+  (school-boundary copy on /living-in-goshen/) are approved as-is. Do not flag
+  or reword these in future audits; a bare grep for "northern" is not a
+  violation test on its own.
 - Track record: 120+ families served · $20M+ closed · Top 20% of Elkhart County
   agents. ("100+" anywhere is superseded legacy — never publish it.)
 - Phone (the ONLY number): (574) 370-5410. Delete 574-975-0141 on sight.
@@ -45,12 +52,15 @@ Single-line footer signature, exactly:
 "Lisa Collio | Real Estate Agent | $20M+ Sold | 120+ homes sold | Top 20%
 Elkhart County | Helping buyers & sellers in Goshen & Elkhart, IN | Hablo
 español | REALTOR® | NAR® Member | SRES® Seniors Real Estate Specialist |
-RE/MAX Results | The Viruez Team | Licensed in Indiana #RB21002460"
-Footer stack also carries: Equal Housing Opportunity statement/logo, legal-page
-links (/terms/ /privacy/ /accessibility/ /fair-housing/), and the site-wide
-client-story composite disclaimer (exact texts supplied from
-Lisa_Collio_Legal_Pages_APPROVED_2026 during the build — never alter approved
-legal text).
+RE/MAX Results, The Viruez Team | Licensed in Indiana #RB21002460"
+Footer stack also carries: the composite-story disclaimer, the content
+reliability disclaimer (added July 2026, broker-approved — full text at
+/disclaimers/), the agent-not-lender statement, Equal Housing Opportunity
+statement/logo, the independence line, and legal-page links (/terms/ /privacy/
+/accessibility/ /fair-housing/ /disclaimers/ /sources/). Exact texts supplied
+from Lisa_Collio_Legal_Pages_APPROVED_2026 and the approved Disclaimers &
+Sources doc during the build — never alter approved legal text. See the locked
+seven-item order in the Design & Naming Addendum below.
 
 ## BILINGUAL RULES (the moat)
 - One language per page. No mixed-language pages, ever.
@@ -166,23 +176,29 @@ client-side tracking).
 3. **Header prominence (876 IAC 8-1-8):** "RE/MAX Results" carries equal-or-greater
    visual prominence than "Lisa Collio" — do not shrink the RE/MAX lockup below
    the agent lockup.
-4. **The six-item footer stack is locked verbatim, in this exact order,** on every
-   page (single-sourced in `components/footer.html`):
+4. **The seven-item footer stack is locked verbatim, in this exact order,** on
+   every page (single-sourced in `components/footer.html`; Spanish renderings in
+   `components/footer-es.html`). Item 3 was added July 2026 (broker-approved,
+   PR #43) and is a permanent part of the locked stack:
    1. Footer signature (single line): "Lisa Collio | Real Estate Agent | $20M+
       Sold | 120+ homes sold | Top 20% Elkhart County | Helping buyers & sellers
       in Goshen & Elkhart, IN | Hablo español | REALTOR® | NAR® Member | SRES®
-      Seniors Real Estate Specialist | RE/MAX Results | The Viruez Team | Licensed
+      Seniors Real Estate Specialist | RE/MAX Results, The Viruez Team | Licensed
       in Indiana #RB21002460"
    2. Site footer disclaimer: "Some client stories are illustrative composites to
       protect confidentiality; all reviews and testimonials are real and shown as
       written."
-   3. Agent-not-lender statement: "Lisa Collio is a licensed real estate agent and
+   3. Content reliability disclaimer: "Information on this website is deemed
+      reliable but not guaranteed. Content is drawn from public records and other
+      publicly available sources." (Full version lives at /disclaimers/.)
+   4. Agent-not-lender statement: "Lisa Collio is a licensed real estate agent and
       is not a mortgage lender, loan officer, or broker. She does not originate
       loans, quote loan terms, or make lending decisions. For financing questions,
       speak directly with a licensed lender."
-   4. Equal Housing Opportunity statement and logo.
-   5. "Each Office Independently Owned and Operated."
-   6. Links to /terms/, /privacy/, /accessibility/, /fair-housing/.
+   5. Equal Housing Opportunity statement and logo.
+   6. "Each Office Independently Owned and Operated."
+   7. Links to /terms/, /privacy/, /accessibility/, /fair-housing/,
+      /disclaimers/, /sources/ (plus the Blog link per the launch nav plan).
 
 ### Featured image standard (locked — PR 24; supersedes PR 17–20 layouts)
 Every page/blog featured image is composited by `scripts/generate-featured-images.py`.
@@ -212,3 +228,20 @@ The script picks a template automatically by looking at the source photo
   OG version for B/C) so mixed-template grids read evenly.
 - Spanish images: title text must match the article's Spanish H1 exactly
   (accents, ñ, ¿…?). Verify the font renders those glyphs before shipping.
+
+## REVISION LOG
+
+**v1.1 — July 25, 2026** (Claude, at Lisa's direction)
+- Footer stack updated from six to seven locked items: the content reliability
+  disclaimer ("Information on this website is deemed reliable but not
+  guaranteed…") was added as item 3 (broker-approved July 2026, shipped in
+  PR #43), and the legal-links group now includes /disclaimers/ and /sources/.
+- Recorded Lisa's decision (25 July 2026) on "northern": only "Northern
+  Indiana" as a service-area/brand descriptor is banned; plain geographic
+  phrasing ("the northern part of the state," "northern Goshen") is approved
+  as-is. See the Market bullet under LOCKED IDENTITY.
+- Footer-signature brokerage name in this file corrected to the locked comma
+  form ("RE/MAX Results, The Viruez Team"), matching `components/footer.html`
+  since Batch 1.
+
+**v1.0 — July 2026** — original file (as of Master Plan v2.5).
