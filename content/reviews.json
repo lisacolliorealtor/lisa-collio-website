@@ -1,5 +1,5 @@
 {
-  "_README": "Single source of truth for client reviews rendered on the site. Text is VERBATIM and must never be reworded. Attribution follows first name + last initial unless full-name consent is confirmed (Maria Baltazar, Steven Jackniell) or the platform display name is a handle (Anidem, EliteGodGamer), which are kept as-is per Lisa, July 2026. lang = the language the review was ORIGINALLY written in. es_translation = a labeled Spanish rendering used ONLY on /es/ pages, always shown with the 'Traducido del ingles' label; never presented as the original. EXCLUDED and not present in this file: lenders Sergio Gomez, Lucia Sanchez, Zachary Fletcher (text may appear via the Google integration but is never framed as a client testimonial, RESPA); Matt McCarthy (vendor, not a client); Francisco G. Collio (Lisa's husband, requires explicit labeling, About-page fact rather than testimonial); Gloria Orellana Saez (references religion, a protected class, Fair Housing risk); Jordi B photos and the Yaquelin Lozano -1/-2 pair (no photo permission on file).",
+  "_README": "Single source of truth for client reviews rendered on the site. Text is VERBATIM and must never be reworded. ATTRIBUTION (Lisa, 24 July 2026 standing rule, applied in Batch 2b): every reviewer's name is displayed EXACTLY as it appears on their Google / Facebook / Realtor.com / Zillow review — no first-name-plus-initial truncation, no case normalization ('leani lopez', 'Mickel,f Izaguirre', 'fitness_pacojf P.F', 'EliteGodGamer', 'Anidem' are all platform-exact). lang = the language the review was ORIGINALLY written in. es_translation / en_translation = labeled renderings used ONLY on the opposite-language pages, always shown with the 'Traducido del ingles' / 'Translated from Spanish' label; a translation is never presented as the original. A null translation means the review may NOT appear on the other language's pages at all. person = cross-platform identity key used to de-duplicate the same human appearing on two platforms. household = married couples / immediate family, never placed on the same page. EXCLUDED and not present in this file: lenders Sergio Gomez, Lucia Sanchez, Zachary Fletcher (RESPA, and the source doc classes them as not client testimonials); Matt McCarthy (vendor, not a client); Francisco G. Collio (Lisa's husband — an About-page fact, never a testimonial); Gloria Orellana Saez (the review turns on religion, a protected class — Fair Housing gate outranks the batch instruction; flagged to Lisa for a decision); Jordi B photos and the Yaquelin Lozano -1/-2 pair (no photo permission on file; Jordi B's review TEXT is eligible and is included, text-only).",
   "aggregate": {
     "ratingValue": "5.0",
     "reviewCount": 39,
@@ -8,159 +8,201 @@
   "reviews": [
     {
       "id": "jose-luis-marquez",
-      "name": "Jose Luis M.",
+      "name": "José Luis Márquez",
+      "person": "jose-luis-marquez",
       "lang": "es",
       "photo": null,
       "source": "Google",
-      "text": "Gran atención y profesionalismo, bilingüe gran ayuda"
+      "text": "Gran atención y profesionalismo, bilingüe gran ayuda",
+      "en_translation": "Excellent service and professionalism, bilingual was a great help"
     },
     {
       "id": "eber-trejo",
-      "name": "Eber T.",
+      "name": "Eber Trejo",
+      "person": "eber-trejo",
       "lang": "es",
       "photo": "review-eber-trejo-1",
       "source": "Google",
-      "text": "Estoy muy feliz porque ella me cumplio mi sueño de agarrar mi casa a como yo la buscaba,es una persona muy amable y amigable es una de las mejores del area ,nunca se da por vencido hasta que lo consgue.si ud anda buscando una casa le recomiendo a Lisa Collio."
+      "text": "Estoy muy feliz porque ella me cumplio mi sueño de agarrar mi casa a como yo la buscaba,es una persona muy amable y amigable es una de las mejores del area ,nunca se da por vencido hasta que lo consgue.si ud anda buscando una casa le recomiendo a Lisa Collio.",
+      "en_translation": "I am very happy because she made my dream come true of getting my house just the way I was looking for it. She is a very kind and friendly person, one of the best in the area. She never gives up until she gets it. If you are looking for a house, I recommend Lisa Collio."
     },
     {
       "id": "leani-lopez",
-      "name": "Leani L.",
+      "name": "leani lopez",
+      "person": "leani-lopez",
       "lang": "es",
       "photo": null,
       "source": "Google",
-      "text": "Recomiendo al 100 a Lisa Collio , compre una casa con ella siempre buscando las mejores opciones de compra . Si buscas una comprar una casa no lo dudes llámale, si te ayuda mi familia está agradecida por su ayuda."
+      "text": "Recomiendo al 100 a Lisa Collio , compre una casa con ella siempre buscando las mejores opciones de compra . Si buscas una comprar una casa no lo dudes llámale, si te ayuda mi familia está agradecida por su ayuda.",
+      "en_translation": "I recommend Lisa Collio 100%. I bought a house with her and she was always looking for the best buying options. If you are looking to buy a house, do not hesitate to call her. She really does help you — my family is grateful for her help."
     },
     {
       "id": "leani-lopez-fb",
-      "name": "Leani L.",
+      "name": "Leani Lopez",
+      "person": "leani-lopez",
       "lang": "es",
       "photo": "review-leani-lopez-1",
       "source": "Facebook",
-      "text": "Lisa es la mejor Real state, habla español e inglés recomenda al 100, si buscas casa no dudes en buscarla."
+      "text": "Lisa es la mejor Real state, habla español e inglés recomenda al 100, si buscas casa no dudes en buscarla.",
+      "en_translation": "Lisa is the best realtor. She speaks Spanish and English. I recommend her 100%. If you are looking for a house, do not hesitate to reach out to her."
     },
     {
       "id": "auner-jimenez",
-      "name": "Auner J.",
+      "name": "Auner Jimenez",
+      "person": "auner-jimenez",
       "lang": "es",
       "photo": "review-auner-jimenez",
       "source": "Google",
-      "text": "Muchas gracias Lisa por ayudarnos a comprar nuestra primer casa... Se los recomiendo muy buena agente de vienes y raises"
+      "text": "Muchas gracias Lisa por ayudarnos a comprar nuestra primer casa... Se los recomiendo muy buena agente de vienes y raises",
+      "en_translation": "Thank you so much, Lisa, for helping us buy our first house... I recommend her to you all, a very good real estate agent."
     },
     {
       "id": "mickel-izaguirre",
-      "name": "Mickel I.",
+      "name": "Mickel,f Izaguirre",
+      "person": "mickel-izaguirre",
+      "household": "rivera-izaguirre",
       "lang": "es",
       "photo": "review-yesica-rivera",
       "source": "Google",
-      "text": "Muy recomendable 👌 ella se enfoca en lo que tu kieres, te aconseja muy bien si tu le pides un consejo, y es muy honesta cuando se habla de las cosas que tiene que hacer, me encantó la presentación de su trabajo."
+      "text": "Muy recomendable 👌 ella se enfoca en lo que tu kieres, te aconseja muy bien si tu le pides un consejo, y es muy honesta cuando se habla de las cosas que tiene que hacer, me encantó la presentación de su trabajo.",
+      "en_translation": "Highly recommended 👌 she focuses on what you want, she advises you very well if you ask her for advice, and she is very honest when it comes to the things that have to be done. I loved the presentation of her work."
     },
     {
       "id": "yesica-rivera",
-      "name": "Yesica R.",
+      "name": "Yesica Rivera",
+      "person": "yesica-rivera",
+      "household": "rivera-izaguirre",
       "lang": "es",
       "photo": "review-yesica-rivera",
       "source": "Google",
-      "text": "Lisa es una persona muy amable y dedicada a lo que hace, ella nos ayudó a comprar nuestra primera casa 🏠 definitivamente la volveríamos a contratar en un futuro."
+      "text": "Lisa es una persona muy amable y dedicada a lo que hace, ella nos ayudó a comprar nuestra primera casa 🏠 definitivamente la volveríamos a contratar en un futuro.",
+      "en_translation": "Lisa is a very kind person who is dedicated to what she does. She helped us buy our first house 🏠 we would definitely hire her again in the future."
     },
     {
       "id": "yaquelin-lozano",
-      "name": "Yaquelin L.",
+      "name": "Yaquelin Lozano",
+      "person": "yaquelin-lozano",
       "lang": "es",
       "photo": null,
       "source": "Google",
-      "text": "Super bueno excelente gracias x su paciencia estamos feliz"
+      "text": "Super bueno excelente gracias x su paciencia estamos feliz",
+      "en_translation": "Super good, excellent. Thank you for your patience, we are happy."
     },
     {
       "id": "leyla-verde",
-      "name": "Leyla V.",
+      "name": "Leyla Verde",
+      "person": "leyla-verde",
       "lang": "es",
       "photo": "review-leyla-verde",
       "source": "Google",
-      "text": "Lisa es una excelente persona Alyuda mucho a q nuestros sueños Se agan realidad Dios le bendiga siempre la recomendó"
+      "text": "Lisa es una excelente persona Alyuda mucho a q nuestros sueños Se agan realidad Dios le bendiga siempre la recomendó",
+      "en_translation": "Lisa is an excellent person. She helps a lot so that our dreams come true. May God always bless her. I recommend her."
     },
     {
       "id": "noel-trejo",
-      "name": "Noel T.",
+      "name": "Noel Trejo",
+      "person": "noel-trejo",
       "lang": "es",
       "photo": "review-noel-trejo",
       "source": "Google",
-      "text": "Excelente agente camina contigo durante el proceso de la compra de la casa muy comprensiva 💯 recomendada 👍"
+      "text": "Excelente agente camina contigo durante el proceso de la compra de la casa muy comprensiva 💯 recomendada 👍",
+      "en_translation": "Excellent agent, she walks with you through the process of buying a house, very understanding 💯 recommended 👍"
     },
     {
       "id": "monica-burr",
-      "name": "Monica B.",
+      "name": "Monica Burr",
+      "person": "monica-burr",
       "lang": "es",
       "photo": null,
       "source": "Google",
-      "text": "Lisa es una persona muy dedicada a su trabajo y profesional . La recomiendo a todos quienes quieran comprar su casa."
+      "text": "Lisa es una persona muy dedicada a su trabajo y profesional . La recomiendo a todos quienes quieran comprar su casa.",
+      "en_translation": "Lisa is a person who is very dedicated to her work and very professional. I recommend her to everyone who wants to buy a house."
     },
     {
       "id": "angelica-gutierrez",
-      "name": "Angelica G.",
+      "name": "Angelica Gutierrez",
+      "person": "angelica-gutierrez",
       "lang": "es",
       "photo": null,
       "source": "Google",
-      "text": "Lisa es una persona muy amable, confiable, responde de tus preguntas, tus dudas, estas en plena confianza. Realmente la Te la recomiendo. Gracias Lisa."
+      "text": "Lisa es una persona muy amable, confiable, responde de tus preguntas, tus dudas, estas en plena confianza. Realmente la Te la recomiendo. Gracias Lisa.",
+      "en_translation": "Lisa is a very kind, trustworthy person. She answers your questions and your doubts; you are in complete confidence. I really do recommend her to you. Thank you, Lisa."
     },
     {
       "id": "felicita-donoso",
-      "name": "Felicita D.",
+      "name": "Felicita Donoso",
+      "person": "felicita-donoso",
       "lang": "es",
       "photo": null,
       "source": "Google",
-      "text": "Realmente una atención muy agradable y profesional. Hace todo lo posible de buscar y presentar lo que uno requiere. Felicitaciones por conseguir lo solicitado. Muy buenas noches"
+      "text": "Realmente una atención muy agradable y profesional. Hace todo lo posible de buscar y presentar lo que uno requiere. Felicitaciones por conseguir lo solicitado. Muy buenas noches",
+      "en_translation": "Truly a very pleasant and professional service. She does everything possible to find and present what you need. Congratulations on getting what was asked for. Have a very good evening."
     },
     {
       "id": "abby-lopez",
-      "name": "Abby L.",
+      "name": "Abby Lopez",
+      "person": "abby-lopez",
       "lang": "es",
       "photo": null,
       "source": "Google",
-      "text": "Buen servicio y apoyo en todo. Buenas negociaciones recomendado!"
+      "text": "Buen servicio y apoyo en todo. Buenas negociaciones recomendado!",
+      "en_translation": "Good service and support with everything. Good negotiations, recommended!"
     },
     {
       "id": "fitness-pacojf",
-      "name": "P. F.",
+      "name": "fitness_pacojf P.F",
+      "person": "fitness-pacojf",
+      "household": "pacojf-morazan",
       "lang": "es",
       "photo": "review-fitness-pacojf",
       "source": "Google",
-      "text": "Tuve la oportunidad de trabajar con Lisa Collio y puedo afirmar que es una agente inmobiliaria altamente profesional, destacada por su respeto, compromiso y, sobre todo, su honestidad. En todo momento demostró una atención excepcional, respondiendo con rapidez y claridad a cada una de mis consultas, incluso fuera del horario habitual. Su acompañamiento fue fundamental para lograr la compra de mi vivienda, brindando confianza y tranquilidad durante todo el proceso. Además, el hecho de que hable español fue una gran ayuda, ya que facilitó la comunicación y permitió que cada detalle se entendiera perfectamente. Recomiendo ampliamente sus servicios por su dedicación, ética y excelencia profesional, muchas gracias."
+      "text": "Tuve la oportunidad de trabajar con Lisa Collio y puedo afirmar que es una agente inmobiliaria altamente profesional, destacada por su respeto, compromiso y, sobre todo, su honestidad. En todo momento demostró una atención excepcional, respondiendo con rapidez y claridad a cada una de mis consultas, incluso fuera del horario habitual. Su acompañamiento fue fundamental para lograr la compra de mi vivienda, brindando confianza y tranquilidad durante todo el proceso. Además, el hecho de que hable español fue una gran ayuda, ya que facilitó la comunicación y permitió que cada detalle se entendiera perfectamente. Recomiendo ampliamente sus servicios por su dedicación, ética y excelencia profesional, muchas gracias.",
+      "en_translation": "I had the opportunity to work with Lisa Collio, and I can confidently say that she is a highly professional real estate agent, distinguished by her respect, commitment, and above all, her honesty. At all times, she provided exceptional attention, responding quickly and clearly to each of my inquiries—even outside of regular business hours. Her guidance was essential in achieving the purchase of my home, providing confidence and peace of mind throughout the entire process. In addition, the fact that she speaks Spanish was a great help, as it made communication easier and ensured that every detail was perfectly understood. I highly recommend her services for her dedication, integrity, and professional excellence. Thank you."
     },
     {
       "id": "liza-pantoja-marquez",
-      "name": "Liza P.",
+      "name": "Liza Pantoja-Marquez",
+      "person": "liza-pantoja-marquez",
       "lang": "es",
       "photo": null,
       "source": "Facebook",
-      "text": "Excelente realtor y es bilingüe!"
+      "text": "Excelente realtor y es bilingüe!",
+      "en_translation": "Excellent realtor and she is bilingual!"
     },
     {
       "id": "jhiianna-zallas",
-      "name": "Jhiianna Z.",
+      "name": "Jhiianna Paoola Zallas",
+      "person": "jhiianna-zallas",
       "lang": "es",
       "photo": null,
       "source": "Facebook",
-      "text": "👍si estas en busca de vender o comprar tu casa ella es la indicada!! bilingue, servicial y eficaz siempre busca la mejor opción para ti!"
+      "text": "👍si estas en busca de vender o comprar tu casa ella es la indicada!! bilingue, servicial y eficaz siempre busca la mejor opción para ti!",
+      "en_translation": "👍 If you are looking to sell or buy your house, she is the right one!! Bilingual, helpful and effective — she always looks for the best option for you!"
     },
     {
       "id": "lili-martin",
-      "name": "Lili M.",
+      "name": "Lili Martin",
+      "person": "lili-martin",
       "lang": "es",
       "photo": null,
       "source": "Facebook",
-      "text": "Una persona excelente, que nunca te va a ofrecer lo que no conviene para tu presupuesto. 💯 por ciento recomendada. 10 de 10."
+      "text": "Una persona excelente, que nunca te va a ofrecer lo que no conviene para tu presupuesto. 💯 por ciento recomendada. 10 de 10.",
+      "en_translation": "An excellent person, who will never offer you something that does not suit your budget. 💯 percent recommended. 10 out of 10."
     },
     {
       "id": "ana-zaragoza",
-      "name": "Ana Z.",
+      "name": "Ana Zaragoza",
+      "person": "ana-zaragoza",
       "lang": "es",
       "photo": null,
       "source": "Facebook",
-      "text": "En la compra de tu casa nadie mejor que ella para dirigirte por el mejor camino a encontrar tu hogar o ya sea que busques para invertir en propiedad o para negocio, ella al hablar tu mismo idioma te sentirás en confianza de preguntar, además con su conocimiento en vendedora de casa puede también sugerirte a según tu búsqueda. NO dudes en llamarla a tu cita ya!!"
+      "text": "En la compra de tu casa nadie mejor que ella para dirigirte por el mejor camino a encontrar tu hogar o ya sea que busques para invertir en propiedad o para negocio, ella al hablar tu mismo idioma te sentirás en confianza de preguntar, además con su conocimiento en vendedora de casa puede también sugerirte a según tu búsqueda. NO dudes en llamarla a tu cita ya!!",
+      "en_translation": "When it comes to buying your house, there is no one better than her to guide you down the best path to finding your home, whether you are looking to invest in property or to buy for a business. Because she speaks your own language, you will feel confident asking questions, and with her knowledge as a home seller she can also make suggestions based on what you are looking for. Do NOT hesitate to call her for your appointment now!!"
     },
     {
       "id": "cindy-ortiz",
-      "name": "Cindy O.",
+      "name": "Cindy Ortiz",
+      "person": "cindy-ortiz",
       "lang": "en",
       "photo": "review-cindy-ortiz-1",
       "source": "Google",
@@ -169,7 +211,8 @@
     },
     {
       "id": "naun-cerrato",
-      "name": "Naun C.",
+      "name": "Naun Cerrato",
+      "person": "naun-cerrato",
       "lang": "en",
       "photo": "review-naun-cerrato",
       "source": "Google",
@@ -178,7 +221,8 @@
     },
     {
       "id": "naun-cerrato-fb",
-      "name": "Naun C.",
+      "name": "Naun Lucoer Cerrato",
+      "person": "naun-cerrato",
       "lang": "en",
       "photo": null,
       "source": "Facebook",
@@ -188,6 +232,8 @@
     {
       "id": "maria-baltazar",
       "name": "Maria Baltazar",
+      "person": "maria-baltazar",
+      "household": "baltazar-tiscareno",
       "lang": "en",
       "photo": "review-maria-baltazar",
       "source": "Google",
@@ -196,7 +242,9 @@
     },
     {
       "id": "natalie-tiscareno",
-      "name": "Natalie T.",
+      "name": "Natalie Tiscareno",
+      "person": "natalie-tiscareno",
+      "household": "baltazar-tiscareno",
       "lang": "en",
       "photo": "review-natalie-tiscareno",
       "source": "Google",
@@ -206,6 +254,7 @@
     {
       "id": "elitegodgamer",
       "name": "EliteGodGamer",
+      "person": "elitegodgamer",
       "lang": "en",
       "photo": "review-elitegodgamer",
       "source": "Google",
@@ -214,16 +263,18 @@
     },
     {
       "id": "raiza-sandoval",
-      "name": "Raiza S.",
+      "name": "Raiza Sandoval",
+      "person": "raiza-sandoval",
       "lang": "en",
       "photo": "review-raiza-sandoval-1",
       "source": "Google",
-      "text": "I just wanted to thank you for all your help in buying my first home. Your support and guidance made the whole process so much easier and less stressful. I truly appreciate your dedication and professionalism. Thanks again for everything!",
-      "es_translation": "Solo quería agradecerle toda su ayuda en la compra de mi primera casa. Su apoyo y su orientación hicieron que todo el proceso fuera mucho más fácil y menos estresante. De verdad aprecio su dedicación y su profesionalismo. ¡Gracias de nuevo por todo!"
+      "text": "I just wanted to thank you for all your help in buying my first home. Your support and guidance made the whole process so much easier and less stressful. I truly appreciate your dedication and professionalism.",
+      "es_translation": "Solo quería agradecerle toda su ayuda en la compra de mi primera casa. Su apoyo y su orientación hicieron que todo el proceso fuera mucho más fácil y menos estresante. De verdad aprecio su dedicación y su profesionalismo."
     },
     {
       "id": "anidem",
       "name": "Anidem",
+      "person": "anidem",
       "lang": "en",
       "photo": null,
       "source": "Google",
@@ -233,6 +284,7 @@
     {
       "id": "steven-jackniell",
       "name": "Steven Jackniell",
+      "person": "steven-jackniell",
       "lang": "en",
       "photo": "review-steven-jackniell-1",
       "source": "Google",
@@ -241,7 +293,8 @@
     },
     {
       "id": "janet-aguilar",
-      "name": "Janet A.",
+      "name": "Janet Aguilar",
+      "person": "janet-aguilar",
       "lang": "en",
       "photo": "review-janet-aguilar",
       "source": "Google",
@@ -250,7 +303,8 @@
     },
     {
       "id": "cristina-larreinaga",
-      "name": "Cristina L.",
+      "name": "Cristina Larreinaga",
+      "person": "cristina-larreinaga",
       "lang": "en",
       "photo": "review-cristina-larreinaga",
       "source": "Google",
@@ -259,7 +313,8 @@
     },
     {
       "id": "jordi-b",
-      "name": "Jordi B.",
+      "name": "Jordi B",
+      "person": "jordi-b",
       "lang": "en",
       "photo": null,
       "source": "Google",
@@ -268,7 +323,8 @@
     },
     {
       "id": "felipe-merino",
-      "name": "Felipe M.",
+      "name": "Felipe Merino",
+      "person": "felipe-merino",
       "lang": "en",
       "photo": null,
       "source": "Google",
@@ -277,7 +333,8 @@
     },
     {
       "id": "valerie-smith",
-      "name": "Valerie S.",
+      "name": "Valerie Smith",
+      "person": "valerie-smith",
       "lang": "en",
       "photo": "review-valerie-smith",
       "source": "Zillow",
@@ -286,7 +343,8 @@
     },
     {
       "id": "jason-wuthrich",
-      "name": "Jason W.",
+      "name": "Jason Wuthrich",
+      "person": "jason-wuthrich",
       "lang": "en",
       "photo": null,
       "source": "Google",
@@ -295,7 +353,8 @@
     },
     {
       "id": "lourdes-peay",
-      "name": "Lourdes P.",
+      "name": "Lourdes Peay",
+      "person": "lourdes-peay",
       "lang": "en",
       "photo": "review-lourdes-peay",
       "source": "Google",
@@ -304,7 +363,8 @@
     },
     {
       "id": "doug-deter",
-      "name": "Doug D., Goshen",
+      "name": "Doug Deter",
+      "person": "doug-deter",
       "lang": "en",
       "photo": "review-doug-deter",
       "source": "Realtor.com verified review",
@@ -313,7 +373,8 @@
     },
     {
       "id": "suhail-sanchez",
-      "name": "Suhail S.",
+      "name": "Suhail Sanchez",
+      "person": "suhail-sanchez",
       "lang": "en",
       "photo": "review-suhail-sanchez",
       "source": "Realtor.com",
@@ -322,7 +383,9 @@
     },
     {
       "id": "gabriela-morazan",
-      "name": "Gabriela M.",
+      "name": "Gabriela Morazan",
+      "person": "gabriela-morazan",
+      "household": "pacojf-morazan",
       "lang": "en",
       "photo": "review-gabriela-morazan",
       "source": "Facebook",
@@ -331,36 +394,41 @@
     },
     {
       "id": "liz-y-beto",
-      "name": "Liz y Beto",
+      "name": "Liz Y Beto",
+      "person": "liz-y-beto",
       "lang": "en",
       "photo": "review-liz-y-beto",
       "source": "Facebook",
       "text": "Very nice to work with her",
-      "es_translation": "Muy agradable trabajar con ella."
+      "es_translation": null
     }
   ],
   "photoOnly": [
     {
       "id": "amilcar-villatoro",
-      "name": "Amilcar V.",
+      "name": "Amilcar Villatoro",
+      "person": "amilcar-villatoro",
       "photo": "review-amilcar-villatoro-1",
       "source": "Google"
     },
     {
       "id": "amilcar-villatoro-2",
-      "name": "Amilcar V.",
+      "name": "Amilcar Villatoro",
+      "person": "amilcar-villatoro",
       "photo": "review-amilcar-villatoro-2",
       "source": "Google"
     },
     {
       "id": "dany-villatoro",
-      "name": "Dany V.",
+      "name": "Dany Villatoro",
+      "person": "dany-villatoro",
       "photo": "review-dany-villatoro",
       "source": "Google"
     },
     {
       "id": "ana-gabriela",
       "name": "Ana Gabriela",
+      "person": "ana-gabriela",
       "photo": "review-ana-gabriela",
       "source": "Google"
     }
