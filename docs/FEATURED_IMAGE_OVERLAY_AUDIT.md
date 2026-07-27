@@ -9,8 +9,8 @@ Audit produced 27 July 2026 per step 1 of
 and the Featured-Image Standard in Master Plan v2.10 (§8, Images); remediated
 27 July on Lisa's decisions, recorded below.
 
-**One item is deliberately left open** — a consent-recordkeeping gap unrelated to
-image styling (last section). It does not block the image work.
+**Nothing is left open.** The consent-recordkeeping gap flagged during this work
+(unrelated to image styling) was resolved on 27 July — see the last section.
 
 ## The rule
 
@@ -240,15 +240,17 @@ keeps the overlay it already had.
 
 ---
 
-# OPEN — repo-hygiene item (not an image-standard issue)
+# RESOLVED — repo-hygiene item (was: ambiguous consent record)
 
-**Two sold-property address folders hold a byte-identical photo set, so their
-consent records are ambiguous.**
+**Closed 27 July 2026.** Lisa confirmed
+`assets/images/homes-goshen/22893-county-road-42-goshen-in-46526/` as the
+correct folder for this photo set, and the duplicate
+`assets/images/homes-goshen/715-lincolnway-e-goshen-in-46526/` was deleted.
 
-It is not one stray file. `assets/images/homes-goshen/22893-county-road-42-goshen-in-46526/`
-and `assets/images/homes-goshen/715-lincolnway-e-goshen-in-46526/` contain the
-**same six photographs, byte for byte** — every file in one has an identical twin
-in the other:
+## What the problem was
+
+The two address folders held the **same six photographs, byte for byte** — every
+file in one had an identical twin in the other:
 
 | File | md5 |
 | --- | --- |
@@ -259,29 +261,34 @@ in the other:
 | `037_file_4997.jpg` | `6d501d9f7780a404c4846e1ed83e151e` |
 | `040_2_dji_0293_156.jpg` | `87c58d29a2445147e6730ef702bd39bf` |
 
-One of the two folders is a wholesale mis-copy of the other. Which one is
-correct cannot be determined from the repo.
+`assets/images/homes-goshen/README.md` records: *"Sold-property photos, one
+folder per address. Address folders may be used in 'Sold by Lisa' framing (seller
+consent + broker approval on file, July 2026)."* **The folder name is the consent
+record**, so one property's photo set filed under two addresses meant neither
+folder's consent trail could be relied on — the point of the per-address
+structure under 876 IAC 8-1-8(f).
 
-**Why it matters.** `assets/images/homes-goshen/README.md` states: *"Sold-property
-photos, one folder per address. Address folders may be used in 'Sold by Lisa'
-framing (seller consent + broker approval on file, July 2026)."* **The folder
-name is the consent record.** With one property's photo set sitting under two
-addresses, there is no reliable way to say which seller consented to which
-photographs — which is the whole point of the per-address structure under
-876 IAC 8-1-8(f).
+## How it was resolved
 
-**Nothing live is affected.** Neither folder is referenced by any page: they have
-no `card-photo.jpg`, and the only `homes-goshen/` image used on the site is
-`117-n-6th-street-goshen-in-46528/card-photo.*`. Decision 3 also moved both
-Goshen pillars off this photo set, so nothing in `blog-headers/` uses it either.
-This is a recordkeeping problem waiting to become a publishing one the first time
-someone builds a "Sold by Lisa" card from one of these folders.
+Which address the photographs actually belong to could not be determined from
+the repo; it needed Lisa's records. She confirmed 22893 County Road 42 on
+27 July 2026.
 
-**Not touched.** Resolving it means identifying which address the photographs
-actually belong to, which needs Lisa's records, not a code change.
+- Deleted `715-lincolnway-e-goshen-in-46526/` — 6 photographs plus its
+  `.gitkeep`. (It contained no README; the folder-level README and the one in
+  `501-danbury-dr-goshen-in-46526/` are the only two in this tree.)
+- Added a README to the retained folder recording the confirmed consent status
+  and this correction, so the next reader does not re-investigate it.
 
-**Two adjacent oddities noticed while checking, worth the same sweep:**
-`assets/images/homes-goshen/501-danbury-dr-goshen-in-46526/` contains only a
-`README.md` and no photos, and `assets/images/homes-goshen/58832-saint-marys-ln-goshen-in-46528/`
-is entirely empty. A duplicate check across `homes-elkhart/` found no duplicates
-there.
+**Verified before deleting:** no published page, stylesheet, script, sitemap,
+feed or config file referenced the deleted folder or any of its six filenames.
+The only references anywhere on `main` were in this document. Decision 3 had
+already moved both Goshen pillars off this photo set, so nothing in
+`blog-headers/` used it either.
+
+## Still worth a look, unrelated to consent
+
+Two other Goshen address folders are odd but harmless:
+`501-danbury-dr-goshen-in-46526/` holds only a README and no photographs, and
+`58832-saint-marys-ln-goshen-in-46528/` is empty apart from its `.gitkeep`. A
+duplicate check across `homes-elkhart/` found none there.
