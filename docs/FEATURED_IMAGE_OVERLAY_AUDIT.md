@@ -97,7 +97,10 @@ was linked. The link is now added as an eleventh FAQ card, the slug is added to
 `OVERLAY_SCOPE`, and **its overlay image is unchanged** — it keeps Template A
 with the cutout, matching its twin.
 
-> **Approved by Lisa, 27 July — no changes.** The card required new FAQ copy.
+> **Approved by Lisa, 27 July — no changes.** Section 13 status: **Lisa
+> (licensed agent) approved; managing-broker sign-off still pending** — per her
+> standing workflow the broker signs off once at the end of the whole site
+> build, not per PR. The card required new FAQ copy.
 > The question mirrors the article H1 exactly; the answer is drawn from the
 > article's own opening paragraph so every fact traces to the page, per the §8
 > cluster standard.
@@ -127,9 +130,17 @@ but not the Elkhart twin. Closed in full, at parity with the English side:
   the English card.
 - **Slug added to `OVERLAY_SCOPE`.**
 
-> **Spanish FAQ copy — written natively, not translated.** Per the Volume 37
-> rule, this is a cultural adaptation drafted from the Spanish article's own
-> body, in usted register — not a rendering of the English answer Lisa approved.
+> **Approved by Lisa, 27 July — no changes.** Reviewed and approved separately
+> from the English card, as its own piece of copy rather than as a translation
+> of an already-approved answer. Section 13 status: **Lisa (licensed agent)
+> approved; managing-broker sign-off still pending**, per her standing workflow
+> in which the broker signs off once, comprehensively, at the end of the whole
+> site build — so neither this card nor the English one carries broker approval
+> yet, and neither claims to.
+>
+> **Written natively, not translated.** Per the Volume 37 rule, this is a
+> cultural adaptation drafted from the Spanish article's own body, in usted
+> register — not a rendering of the English answer.
 > Its three elements are exactly the three the Spanish article itself sets out
 > ("un precio basado en datos reales", "presentación cuidada", "alcance a más
 > compradores"), so every claim traces to the page it sits on.
