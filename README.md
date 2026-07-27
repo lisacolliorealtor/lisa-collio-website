@@ -104,6 +104,22 @@ Verify pages are up to date (e.g. in CI) without writing:
 npm run check      # exits non-zero if any page is stale
 ```
 
+## Generated files
+
+Three files are derived from the pages themselves rather than hand-maintained.
+Regenerate them whenever pages are added, renamed, or removed — `npm run audit`
+hard-fails if any of them has fallen behind.
+
+```bash
+npm run llms       # llms.txt — every published page, both languages
+npm run hreflang   # EN/ES alternate tags from content/hreflang-pairs.json
+npm run build:reviews   # the per-page client-review rotation
+```
+
+Each accepts `-- --check` to report without writing. `llms.txt` in particular
+used to be a hand-written 18-page entry-point file; it drifted out of date the
+moment a batch shipped, which is why it is generated now.
+
 `index.html` predates this system and is intentionally left untouched here; it
 gets the shared components when the homepage is rebuilt in a later PR.
 
