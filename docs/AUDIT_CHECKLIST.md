@@ -524,3 +524,48 @@ needing a human call. Save it as
 `docs/audits/AUDIT_REPORT_<YYYY-MM-DD>.md` and note in the opening line what
 scope was actually covered (e.g. "Scope: all live pages as of this date —
 127 EN, 58 ES" ) so a partial-coverage run is never mistaken for a full one.
+
+---
+
+## Automated portion — `npm run audit`
+
+`audit.js` now settles the mechanical checks in this document. Run it before
+requesting review; it exits non-zero on ERRORS.
+
+**Hard checks (fail the run):** sitemap parity in both directions · every
+internal link, asset, and redirect target resolves · visible FAQ copy matches
+FAQPage schema word for word · all JSON-LD parses · locked identity rules
+(superseded phone, "100+", "Northern Indiana", comma-less business name,
+slash-free REMAX, the Alford variant, method brands without ™) · footer
+signature on every page · no Spanish page injecting the English CTA band ·
+blog index counts match the article directories · every `<img>` has alt text.
+
+**Warnings (report, do not fail):** hreflang pairing, title and meta-description
+lengths, llms.txt coverage. These need a judgement call rather than a fix.
+
+Deliberately NOT automated: anything requiring approval, Fair Housing tone,
+photo-pairing rules, review verbatimness, or market-data provenance. A green run
+means the mechanical invariants hold — not that the copy is approved.
+
+Two normalisation notes, learned by getting them wrong first: compare FAQ text
+with HTML entities decoded (`&amp;` vs `&`) and with the space that tag-stripping
+leaves before punctuation removed, and treat one side being a prefix of the other
+as a match — schema answers carry no links, so they sometimes spell out a URL the
+visible copy renders as an anchor.
+
+### hreflang pairing — `npm run hreflang`
+
+The EN/ES pair map lives in `content/hreflang-pairs.json` and is applied by
+`hreflang.js`, which writes the three-tag block (en, es, x-default → EN) onto
+both halves of every pair. It is idempotent; `--check` reports without writing.
+
+Pairs are data, not inference — derived from the tags already live on the site
+plus the approved source documents that carry the same article set in both
+languages (`communities-*.md`, `sell-set*.md`, `meet-lisa-set*.md`).
+
+`npm run audit` enforces three things as hard errors: every page in the map
+carries its tags, both halves agree (a one-sided annotation is ignored by
+Google), and every page is either in the map or in the audit's exemption list.
+**Adding a page without a twin means adding it to that list** — the exemption is
+a deliberate, reviewable entry, never a silent omission. When a Spanish
+adaptation is written, move the page from the exemption list into the pair map.
