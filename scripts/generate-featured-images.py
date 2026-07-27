@@ -3,6 +3,30 @@
 Blog featured-image generator for lisacolliorealtor.com
 =======================================================
 
+SCOPE RULE (Master Plan v2.10, July 2026) — read before adding an image
+----------------------------------------------------------------------
+Text overlay and Lisa's cutout portrait are a SCOPED EXCEPTION, not the default.
+They belong ONLY to the Buyers/Sellers content clusters: /buyers/, /sellers/,
+/es/compradores/, /es/vendedores/ and the authority articles linked from those
+four hub pages (the OVERLAY_SCOPE set below).
+
+Everything else — Communities/Goshen/Elkhart, Meet Lisa, Next Chapter Method,
+Market Stats, Contact, the homepage, and every future post outside the Buy/Sell
+clusters, in both languages — gets a CLEAN photo: no band, no text, no cutout.
+Use generate_clean(). The page's own H1 renders the title as normal HTML.
+
+The overlay entry points enforce this: they raise on an out-of-scope slug rather
+than compositing one. There is no rotation to track outside the exception —
+with no color band there is no variant.
+
+Separately, the Tier 1 page-hero component also uses Lisa's cutout. That is the
+hero standard, not this one; the two are independently scoped and this file has
+nothing to do with the hero.
+
+Retroactive cleanup of already-built out-of-scope images is FLAGGED, never
+auto-applied — see docs/FEATURED_IMAGE_OVERLAY_AUDIT.md. Do not regenerate a
+clean image from a text-bearing one without Lisa's sign-off on the photo itself.
+
 Composites a 1200x630 (Open Graph) social/featured image from three inputs:
   1. A house photo (from assets/images/homes-general/)
   2. An article title (rendered in Bricolage Grotesque to match the site)
@@ -47,6 +71,70 @@ MAX_TITLE_LINES = 3
 FONT_MAX = 62
 FONT_MIN = 34
 LISA_HEIGHT_FRAC = 0.62  # cutout height as fraction of image height
+
+# ---- Overlay scope (Master Plan v2.10) --------------------------------------
+# The ONLY slugs allowed to carry baked-in title text and/or Lisa's cutout.
+# Derived from the /blog/ links actually present on the four hub pages:
+#   /buyers/ (8) + /sellers/ (10) + /es/compradores/ (7) + /es/vendedores/ (10)
+# which matches the Master Plan §11 drafted inventory exactly. When an article
+# is added to or removed from one of those hubs, update this set in the same PR.
+OVERLAY_SCOPE = {
+    # /buyers/ — Buy a Home set
+    "are-homes-goshen-indiana-competitive-to-buy",
+    "elkhart-indiana-good-place-invest-real-estate",
+    "how-to-compete-with-other-buyers-elkhart-indiana",
+    "what-makes-goshen-indiana-desirable-place-to-live",
+    "what-to-look-for-buying-home-elkhart-indiana",
+    "what-to-prioritize-buying-house-goshen-indiana",
+    "why-buy-home-elkhart-indiana-lisa-collio",
+    "why-buy-home-goshen-indiana-lisa-collio",
+    # /sellers/ — Sell a Home set
+    "good-time-to-sell-home-elkhart-indiana",
+    "how-long-to-sell-house-goshen-indiana",
+    "how-much-is-my-home-elkhart-indiana-worth",
+    "how-to-prepare-goshen-indiana-home-to-sell",
+    "how-will-my-elkhart-indiana-home-be-marketed",
+    "mistakes-to-avoid-selling-home-goshen-indiana",
+    "sell-home-goshen-indiana-best-price",
+    "why-homes-elkhart-indiana-sit-on-market",
+    "why-sell-home-elkhart-indiana-lisa-collio",
+    "why-sell-home-goshen-indiana-lisa-collio",
+    # /es/compradores/ — Cluster 1, Compradores Hispanohablantes
+    "como-comprar-una-casa-en-indiana",
+    "costos-de-cierre-que-son",
+    "cuanto-dinero-necesito-para-comprar-una-casa",
+    "errores-comunes-al-comprar-casa",
+    "no-se-si-califico-credito-y-preaprobacion",
+    "prestamos-fha-y-usda-en-espanol",
+    "renta-o-compra-como-decidir",
+    # /es/vendedores/ — Spanish seller set
+    "buen-momento-vender-casa-elkhart",
+    "como-se-promociona-mi-casa-elkhart",
+    "cuanto-tiempo-vender-casa-goshen",
+    "cuanto-vale-mi-casa-elkhart",
+    "errores-evitar-vender-casa-goshen",
+    "por-que-casas-elkhart-tardan-venderse",
+    "preparar-casa-goshen-para-vender",
+    "vender-casa-elkhart-lisa-collio",
+    "vender-casa-goshen-lisa-collio",
+    "vender-casa-goshen-mejor-precio",
+}
+
+
+def _require_overlay_scope(out_slug):
+    """Overlay templates are Buyers/Sellers-only. Refuse anything else so the
+    clean-photo default holds by construction, not by remembering.
+    A leading underscore marks a throwaway dev/smoke-test slug and is allowed."""
+    if out_slug.startswith("_") or out_slug in OVERLAY_SCOPE:
+        return
+    raise ValueError(
+        f"'{out_slug}' is outside the Buyers/Sellers overlay scope "
+        "(Master Plan v2.10). Featured images outside /buyers/, /sellers/, "
+        "/es/compradores/, /es/vendedores/ and their linked authority articles "
+        "carry no text and no cutout portrait — use generate_clean() instead. "
+        "If this article really is linked from one of those four hubs, add its "
+        "slug to OVERLAY_SCOPE in the same PR that links it."
+    )
 
 
 def _load_font(size):
@@ -103,6 +191,7 @@ def generate_header(house_filename, title, bar_color, lisa_side, out_slug):
     out_slug       : output base name -> {out_slug}-header.jpg / .webp
     Returns the output .jpg path.
     """
+    _require_overlay_scope(out_slug)
     color = BLUE if bar_color == "blue" else RED
 
     canvas = Image.new("RGB", (W, H), WHITE)
@@ -175,6 +264,7 @@ def generate_lisa_header(photo_filename, title, bar_color, out_slug,
     focal_y        : vertical focal point for the cover crop (keep Lisa's face high
                      so the bottom band never covers it). 0=top, 1=bottom.
     """
+    _require_overlay_scope(out_slug)
     color = BLUE if bar_color == "blue" else RED
     canvas = Image.new("RGB", (W, H), WHITE)
     draw = ImageDraw.Draw(canvas)
@@ -274,6 +364,7 @@ def generate_template_b(photo_filename, title, color_name, out_slug,
                         crop_box=None, focal_y=0.0):
     """Landscape/square people photo. 1200x900: photo top 1200x700 (cover,
     anchored high), solid color band bottom 1200x200 with the title."""
+    _require_overlay_scope(out_slug)
     color = BLUE if color_name == "blue" else RED
     BW, BH, PHOTO_H = 1200, 900, 700
     canvas = Image.new("RGB", (BW, BH), color)   # bottom band shows through
@@ -294,6 +385,7 @@ def generate_template_c(photo_filename, title, color_name, side, out_slug,
                         crop_box=None, focal_x=0.5, focal_y=0.5):
     """Portrait people photo. 1200x900: photo 600x900 on `side`, solid color
     panel 600x900 on the other side with the vertically-centered title."""
+    _require_overlay_scope(out_slug)
     color = BLUE if color_name == "blue" else RED
     BW, BH, HALF = 1200, 900, 600
     canvas = Image.new("RGB", (BW, BH), color)
@@ -318,6 +410,7 @@ def generate_og(photo_filename, title, color_name, out_slug,
                 crop_box=None, focal_y=0.5):
     """1200x630 social version (Template A-style top band overlay) for the
     B/C people articles, so og:image/twitter:image never crop off the band."""
+    _require_overlay_scope(out_slug)
     color = BLUE if color_name == "blue" else RED
     canvas = Image.new("RGB", (W, H), WHITE)
     draw = ImageDraw.Draw(canvas)
@@ -333,6 +426,36 @@ def generate_og(photo_filename, title, color_name, out_slug,
         draw.text(((W - tw) / 2, y), ln, font=font, fill=WHITE)
         y += line_h
     return _save(canvas, out_slug, "og")
+
+
+# =====================================================================
+# THE DEFAULT — clean photos (everything outside OVERLAY_SCOPE)
+# ---------------------------------------------------------------------
+# Master Plan v2.10: no band, no title, no cutout. The page's own H1 is the
+# title. Nothing here composites anything onto the photograph; it only crops
+# and resizes, so a clean source photo stays a clean photo.
+# =====================================================================
+
+THUMB_W, THUMB_H = 800, 420   # 1.9:1, matches the existing card/grid ratio
+
+
+def generate_clean(photo_path, out_slug, focal_y=0.5, thumb=True):
+    """Clean featured image: 1200x630 cover-crop of the source photo, plus the
+    800x420 card thumbnail. .webp beside every .jpg. No overlay of any kind.
+
+    photo_path : path to the source photo, absolute or relative to the repo root
+                 (any assets/images/ subfolder — houses, places, people alike)
+    focal_y    : vertical focal point for the crop, 0=keep the top, 1=keep the
+                 bottom. On people photos, keep faces in frame.
+    """
+    src = photo_path if os.path.isabs(photo_path) else os.path.join(ROOT, photo_path)
+    photo = Image.open(src).convert("RGB")
+
+    header = _cover_focal(photo, W, H, focal_y)
+    jpg = _save(header, out_slug, "header")
+    if thumb:
+        _save(_cover_focal(photo, THUMB_W, THUMB_H, focal_y), out_slug, "thumb")
+    return jpg
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 # CLAUDE.md — lisa-collio-website
-**v1.3 (July 27, 2026)** — see the Revision Log at the end of this file.
+**v1.4 (July 27, 2026)** — see the Revision Log at the end of this file.
 Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
 files. This file defers to the Master Plan; if they ever disagree, the Master Plan
 wins. Deliberately no version number here — hardcoding one let this line go stale
@@ -318,8 +318,44 @@ client-side tracking).
    7. Links to /terms/, /privacy/, /accessibility/, /fair-housing/,
       /disclaimers/, /sources/ (plus the Blog link per the launch nav plan).
 
-### Featured image standard (locked — PR 24; supersedes PR 17–20 layouts)
-Every page/blog featured image is composited by `scripts/generate-featured-images.py`.
+### Featured image standard (locked — Master Plan v2.10; supersedes the PR 24 site-wide default)
+
+**Text overlay AND Lisa's cutout portrait on blog/article featured images are a
+SCOPED EXCEPTION, not the default.** This reverses the earlier rule that put the
+H1 on every featured image — in practice the words were getting cut off.
+
+**The exception — keep the overlay ONLY here:** `/buyers/`, `/sellers/`,
+`/es/compradores/`, `/es/vendedores/`, and the authority articles linked from
+those four hub pages. The canonical scope list lives in
+`scripts/generate-featured-images.py` (`OVERLAY_SCOPE`); the hub pages' own
+`/blog/` links are the source of truth for it. For that scope only, everything
+below still applies unchanged: Templates A/B/C, the four-variant rotation, "text
+matches the article H1 exactly," and "never over a person's face."
+
+**Everywhere else — a clean photo, nothing overlaid at all: no text, no cutout.**
+Homepage, Meet Lisa, Next Chapter Method / Tu Próximo Capítulo, Communities
+(Moving to / Living in Goshen and Elkhart, EN + ES), Market Stats, Contact, and
+every future blog post outside the Buy/Sell/Compradores/Vendedores clusters.
+The title renders as normal HTML text on the page — never baked into the image.
+This includes the ~56 new Goshen/Elkhart section and FAQ images: those slots
+receive clean photos. The rotation log is not tracked outside the exception
+scope — with no color band there is no variant to rotate.
+
+**Do not confuse this with the Tier 1 page hero.** The signature hero on Home,
+Buyers, Sellers, Meet Lisa, Next Chapter Method, and Contact also uses Lisa's
+cutout, but it layers real HTML text over the photo and is governed by the hero
+standard, not this one. A Buyers/Sellers-cluster page can legitimately carry the
+cutout twice — once in its hero, once in its featured image. Two rules, two
+scopes.
+
+**Retroactive cleanup is flagged, never auto-applied.** Existing out-of-scope
+images with baked-in text or the cutout are listed in
+`docs/FEATURED_IMAGE_OVERLAY_AUDIT.md` for Lisa's reshoot/re-export decision.
+Do not regenerate a clean image from a text-bearing one without her sign-off on
+the photo itself.
+
+#### Templates A/B/C — Buyers/Sellers scope only
+Composited by `scripts/generate-featured-images.py`.
 Colors are ALWAYS RE/MAX Blue `#003DA5` or Red `#E60E16` (white title text on
 both); font is Bricolage Grotesque. **Text/color bands must NEVER cover a
 person's face** — bands sit beside or below the photo, never over the subject.
@@ -347,7 +383,35 @@ The script picks a template automatically by looking at the source photo
 - Spanish images: title text must match the article's Spanish H1 exactly
   (accents, ñ, ¿…?). Verify the font renders those glyphs before shipping.
 
+#### Clean photos — everywhere else
+`generate_clean()` in the same script: cover-crop to 1200×630 (plus the 800×420
+thumbnail), `.webp` beside every `.jpg`, no band, no cutout, no title. The
+overlay functions refuse an out-of-scope slug outright, so the default is clean
+by construction rather than by remembering.
+
 ## REVISION LOG
+
+**v1.4 — July 27, 2026** (Claude, at Lisa's direction)
+- Mirrors **Master Plan v2.10**, which adds the Featured-Image Standard as a new
+  subsection under §8 Images. Text overlay and Lisa's cutout portrait on
+  blog/article featured images are now a scoped exception limited to
+  `/buyers/`, `/sellers/`, `/es/compradores/`, `/es/vendedores/` and their linked
+  authority articles; every other page and article in both languages uses a clean
+  photo with nothing overlaid. Rewrote the Featured image standard section
+  accordingly and kept the Template A/B/C detail as a subsection scoped to the
+  exception.
+- Recorded the separation from the Tier 1 page-hero component, which also uses
+  the cutout but is governed by the hero standard — the two are independently
+  scoped and a Buyers/Sellers page may carry the cutout in both.
+- `scripts/generate-featured-images.py` now carries the scope list
+  (`OVERLAY_SCOPE`) and refuses to composite an overlay for an out-of-scope slug;
+  added `generate_clean()` for everything else.
+- Retroactive cleanup is flagged, not applied:
+  `docs/FEATURED_IMAGE_OVERLAY_AUDIT.md` lists the 53 out-of-scope slugs (220
+  files) that currently carry baked-in text, 45 of them also carrying the cutout,
+  for Lisa's reshoot/re-export decision. Source instructions committed to
+  `docs/drafts/V1_0_Claude_Code_Instructions_Text_Overlay_Exception_Lisa_Collio.md`.
+- No identity, architecture, or compliance-rule changes.
 
 **v1.3 — July 27, 2026** (Claude, at Lisa's direction)
 - Master Plan reference is now self-updating — "the highest-numbered version in
