@@ -1,0 +1,282 @@
+#!/usr/bin/env node
+/*
+ * audit.js — standing site audit, run with `npm run audit`.
+ *
+ * Codifies the checks in docs/AUDIT_CHECKLIST.md that a machine can settle, so
+ * regressions are caught before review instead of during it. Every check here
+ * exists because something actually slipped through: a school-count that said
+ * "fourteen" on one page and "thirteen" on five others, blog-card blurbs left
+ * pointing at retired copy, an English CTA band on 43 Spanish pages, FAQPage
+ * schema on pages that rendered no FAQ.
+ *
+ * ERRORS fail the run (exit 1). WARNINGS report and pass — they flag drift that
+ * needs a human judgement call rather than a fix.
+ *
+ * Judgement calls, compliance nuance, and anything needing Lisa's or the
+ * broker's approval stay OUT of here on purpose. A green run means the
+ * mechanical invariants hold, not that the copy is approved.
+ */
+
+const fs = require("fs");
+const path = require("path");
+
+const ROOT = __dirname;
+const IGNORE = new Set([".git", "node_modules", "assets", "docs", "content", "scripts"]);
+
+const errors = [];
+const warnings = [];
+const err = (check, msg) => errors.push({ check, msg });
+const warn = (check, msg) => warnings.push({ check, msg });
+
+function walk(dir, filter, acc = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (e.isDirectory()) {
+      if (IGNORE.has(e.name)) continue;
+      walk(path.join(dir, e.name), filter, acc);
+    } else if (filter(e.name)) acc.push(path.join(dir, e.name));
+  }
+  return acc;
+}
+
+// Full-tree walk (assets included) for resolving link targets.
+function walkAll(dir, filter, acc = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (e.isDirectory()) {
+      if (e.name === ".git" || e.name === "node_modules") continue;
+      walkAll(path.join(dir, e.name), filter, acc);
+    } else if (filter(e.name)) acc.push(path.join(dir, e.name));
+  }
+  return acc;
+}
+
+const htmlFiles = walk(ROOT, (n) => n.endsWith(".html"));
+const pageFiles = htmlFiles.filter((f) => path.basename(f) === "index.html");
+const read = (f) => fs.readFileSync(f, "utf8");
+const rel = (f) => path.relative(ROOT, f);
+const urlOf = (f) => {
+  const d = path.dirname(rel(f));
+  return d === "." ? "/" : `/${d}/`;
+};
+const decode = (s) =>
+  s.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+   .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, " ");
+// Stripping an inline <a> leaves a space before punctuation ("livability , not"),
+// so tidy that before comparing.
+const strip = (s) =>
+  decode(s.replace(/<[^>]+>/g, " "))
+    .replace(/\s+/g, " ")
+    .replace(/\s+([,.;:!?])/g, "$1")
+    .trim();
+// Schema answers carry no links, so they sometimes spell out a URL the visible
+// copy renders as an anchor, or drop a trailing "read the full article" line.
+// Treat one being a prefix of the other as a match.
+const sameText = (a, b) => {
+  const t = (x) => x.replace(/[.\s]+$/, "");
+  const [x, y] = [t(a), t(b)];
+  return x === y || x.startsWith(y) || y.startsWith(x);
+};
+
+/* 1. Sitemap parity ------------------------------------------------------- */
+{
+  const sm = new Set(
+    [...read(path.join(ROOT, "sitemap.xml")).matchAll(/<loc>https:\/\/lisacolliorealtor\.com([^<]*)<\/loc>/g)]
+      .map((m) => m[1])
+  );
+  // Thank-you pages are intentionally excluded (noindex conversion endpoints).
+  const exempt = new Set(["/contact/thank-you/", "/es/contacto/gracias/"]);
+  const pages = new Set(pageFiles.map(urlOf));
+  for (const p of pages) if (!sm.has(p) && !exempt.has(p)) err("sitemap", `page not in sitemap: ${p}`);
+  for (const u of sm) if (!pages.has(u)) err("sitemap", `sitemap lists a page that does not exist: ${u}`);
+}
+
+/* 2. Internal links and assets resolve ------------------------------------ */
+{
+  const pages = new Set(pageFiles.map(urlOf));
+  const files = new Set(walkAll(ROOT, () => true).map((f) => "/" + rel(f)));
+  const redirects = new Set(
+    [...read(path.join(ROOT, "netlify.toml")).matchAll(/from\s*=\s*"([^"]+)"/g)].map((m) => m[1])
+  );
+  for (const f of htmlFiles) {
+    for (const m of read(f).matchAll(/(?:href|src)="(\/[^"#?]*)"/g)) {
+      const u = m[1];
+      if (u === "/" || pages.has(u) || files.has(u) || redirects.has(u)) continue;
+      err("links", `${rel(f)} -> ${u} (no page, file, or redirect)`);
+    }
+  }
+}
+
+/* 3. FAQ: visible copy and FAQPage schema must match word for word --------- */
+{
+  for (const f of pageFiles) {
+    const s = read(f);
+    // <nav class="faq-item"> is the related-articles block, not an FAQ entry.
+    const visible = [...s.matchAll(/<div class="faq-item[^"]*">\s*<h3>(.*?)<\/h3>\s*<p>(.*?)<\/p>/gs)]
+      .map((m) => [strip(m[1]), strip(m[2])]);
+    let schema = [];
+    for (const m of s.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)) {
+      let data;
+      try { data = JSON.parse(m[1]); } catch { continue; }
+      for (const node of data["@graph"] || [data]) {
+        if (node["@type"] === "FAQPage") {
+          schema = (node.mainEntity || []).map((q) => [
+            strip(q.name || ""), strip(q.acceptedAnswer?.text || ""),
+          ]);
+        }
+      }
+    }
+    if (!visible.length && !schema.length) continue;
+    if (visible.length !== schema.length) {
+      err("faq-sync", `${rel(f)}: ${visible.length} visible vs ${schema.length} in schema`);
+      continue;
+    }
+    visible.forEach(([q, a], i) => {
+      if (!sameText(q, schema[i][0])) err("faq-sync", `${rel(f)} Q${i + 1} text differs from schema`);
+      else if (!sameText(a, schema[i][1])) err("faq-sync", `${rel(f)} A${i + 1} text differs from schema`);
+    });
+  }
+}
+
+/* 4. JSON-LD parses ------------------------------------------------------- */
+{
+  for (const f of htmlFiles) {
+    for (const m of read(f).matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)) {
+      try { JSON.parse(m[1]); } catch (e) { err("json-ld", `${rel(f)}: ${e.message}`); }
+    }
+  }
+}
+
+/* 5. Locked identity rules ------------------------------------------------ */
+{
+  const banned = [
+    [/574[.\-\s]?975[.\-\s]?0141/, "superseded phone number"],
+    [/\b100\+\s+(families|homes)/i, 'superseded "100+" track-record claim'],
+    [/Northern Indiana/i, '"Northern Indiana" as a service-area descriptor'],
+    [/Lisa Collio Real Estate\b(?!,)/, 'business name without the locked comma'],
+    [/\bREMAX\b/, 'slash-free "REMAX" in prose'],
+    [/Alford/i, '"Alford-Collio" name variant'],
+  ];
+  // Method brands must always carry the mark.
+  const marks = ["Next Chapter Method", "Smart Move Framework", "Tu Próximo Capítulo", "Unlocking Smart Moves"];
+  for (const f of htmlFiles) {
+    const s = read(f);
+    for (const [re, label] of banned) if (re.test(s)) err("locked-identity", `${rel(f)}: ${label}`);
+    for (const brand of marks) {
+      const re = new RegExp(`${brand}(?!™)`, "g");
+      if (re.test(s)) err("locked-identity", `${rel(f)}: "${brand}" without ™`);
+    }
+  }
+}
+
+/* 6. Footer signature on every page --------------------------------------- */
+{
+  for (const f of pageFiles) {
+    if (!/RB21002460/.test(read(f))) err("footer", `${rel(f)}: missing the locked footer signature`);
+  }
+}
+
+/* 7. One language per page: no English CTA band on a Spanish page ---------- */
+{
+  for (const f of pageFiles) {
+    const s = read(f);
+    if (!/<html lang="es"/.test(s)) continue;
+    if (/build:talk-to-lisa\s*-->/.test(s))
+      err("bilingual", `${rel(f)}: injects the English CTA band (needs talk-to-lisa-es)`);
+  }
+}
+
+/* 8. Blog index counts match reality -------------------------------------- */
+{
+  const idx = path.join(ROOT, "blog", "index.html");
+  if (fs.existsSync(idx)) {
+    const s = read(idx);
+    const dirs = {
+      Buyers: "buyers", Sellers: "sellers", Community: "community",
+      Relocation: "relocation", "Market Updates": "market-updates", "En Español": "spanish",
+    };
+    for (const [label, dir] of Object.entries(dirs)) {
+      const base = path.join(ROOT, "blog", dir);
+      if (!fs.existsSync(base)) continue;
+      const actual = fs.readdirSync(base, { withFileTypes: true })
+        .filter((e) => e.isDirectory() && fs.existsSync(path.join(base, e.name, "index.html"))).length;
+      const m = s.match(new RegExp(`${label}[^]{0,400}?(\\d+)\\s+articles?`));
+      if (m && Number(m[1]) !== actual)
+        err("blog-counts", `blog/index.html says ${label} = ${m[1]}, actual ${actual}`);
+    }
+  }
+}
+
+/* 9. Images carry alt text ------------------------------------------------ */
+{
+  for (const f of htmlFiles) {
+    for (const tag of read(f).match(/<img\b[^>]*>/g) || []) {
+      if (!/\balt=/.test(tag)) err("a11y", `${rel(f)}: <img> without alt`);
+    }
+  }
+}
+
+/* 10. hreflang pairing (warn) --------------------------------------------- */
+{
+  for (const f of pageFiles) {
+    const s = read(f);
+    const isEs = /<html lang="es"/.test(s);
+    const has = /rel="alternate" hreflang="(en|es)"/.test(s);
+    if (!has) warn("hreflang", `${urlOf(f)} has no hreflang pair (${isEs ? "ES" : "EN"})`);
+  }
+}
+
+/* 11. SEO field lengths (warn) -------------------------------------------- */
+{
+  for (const f of pageFiles) {
+    const s = read(f);
+    const t = s.match(/<title>(.*?)<\/title>/s);
+    const d = s.match(/name="description" content="(.*?)"/s);
+    if (t && t[1].length > 60) warn("seo", `${urlOf(f)} title ${t[1].length} chars (target <=60)`);
+    if (d && (d[1].length < 145 || d[1].length > 160))
+      warn("seo", `${urlOf(f)} meta description ${d[1].length} chars (target 145-160)`);
+  }
+}
+
+/* 12. llms.txt coverage (warn) -------------------------------------------- */
+{
+  const p = path.join(ROOT, "llms.txt");
+  if (fs.existsSync(p)) {
+    const listed = new Set(
+      [...read(p).matchAll(/https:\/\/lisacolliorealtor\.com(\/[^\s)\]]*)/g)].map((m) => m[1])
+    );
+    const missing = pageFiles.map(urlOf).filter((u) => !listed.has(u));
+    if (missing.length) warn("llms", `${missing.length} of ${pageFiles.length} pages absent from llms.txt`);
+  }
+}
+
+/* ------------------------------------------------------------------------- */
+const group = (list) => {
+  const by = {};
+  for (const { check, msg } of list) (by[check] ||= []).push(msg);
+  return by;
+};
+
+console.log(`Audited ${pageFiles.length} pages / ${htmlFiles.length} HTML files.\n`);
+
+const w = group(warnings);
+if (warnings.length) {
+  console.log(`WARNINGS (${warnings.length}) — drift needing a judgement call, not failing the run:`);
+  for (const [c, msgs] of Object.entries(w)) {
+    console.log(`  [${c}] ${msgs.length}`);
+    for (const m of msgs.slice(0, 5)) console.log(`      ${m}`);
+    if (msgs.length > 5) console.log(`      ... and ${msgs.length - 5} more`);
+  }
+  console.log("");
+}
+
+const e = group(errors);
+if (errors.length) {
+  console.error(`ERRORS (${errors.length}):`);
+  for (const [c, msgs] of Object.entries(e)) {
+    console.error(`  [${c}] ${msgs.length}`);
+    for (const m of msgs.slice(0, 12)) console.error(`      ${m}`);
+    if (msgs.length > 12) console.error(`      ... and ${msgs.length - 12} more`);
+  }
+  process.exit(1);
+}
+
+console.log("All hard checks passed.");

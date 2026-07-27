@@ -524,3 +524,31 @@ needing a human call. Save it as
 `docs/audits/AUDIT_REPORT_<YYYY-MM-DD>.md` and note in the opening line what
 scope was actually covered (e.g. "Scope: all live pages as of this date —
 127 EN, 58 ES" ) so a partial-coverage run is never mistaken for a full one.
+
+---
+
+## Automated portion — `npm run audit`
+
+`audit.js` now settles the mechanical checks in this document. Run it before
+requesting review; it exits non-zero on ERRORS.
+
+**Hard checks (fail the run):** sitemap parity in both directions · every
+internal link, asset, and redirect target resolves · visible FAQ copy matches
+FAQPage schema word for word · all JSON-LD parses · locked identity rules
+(superseded phone, "100+", "Northern Indiana", comma-less business name,
+slash-free REMAX, the Alford variant, method brands without ™) · footer
+signature on every page · no Spanish page injecting the English CTA band ·
+blog index counts match the article directories · every `<img>` has alt text.
+
+**Warnings (report, do not fail):** hreflang pairing, title and meta-description
+lengths, llms.txt coverage. These need a judgement call rather than a fix.
+
+Deliberately NOT automated: anything requiring approval, Fair Housing tone,
+photo-pairing rules, review verbatimness, or market-data provenance. A green run
+means the mechanical invariants hold — not that the copy is approved.
+
+Two normalisation notes, learned by getting them wrong first: compare FAQ text
+with HTML entities decoded (`&amp;` vs `&`) and with the space that tag-stripping
+leaves before punctuation removed, and treat one side being a prefix of the other
+as a match — schema answers carry no links, so they sometimes spell out a URL the
+visible copy renders as an anchor.
