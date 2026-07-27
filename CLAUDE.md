@@ -440,6 +440,14 @@ by construction rather than by remembering.
   branch survived its own merge, PR #67 merged seven finished Spanish articles
   onto that dead branch instead of `main`, silently. Delete a branch when its PR
   merges, and verify stacked work actually landed on `main`.
+  **Closed out, verified 27 July 2026 (v1.5 session):** those seven articles are
+  the *Wave 2* Elkhart set — Wave 1 was the branch they were stacked on, not the
+  content. PR #68 (`claude/es-wave-2-to-main`) carried them to `main` and all
+  seven are there, with their images, sitemap entries, hreflang pairs,
+  `/es/fuentes/` citations, blog-hub cards, the two Wave 1 cross-links they were
+  meant to activate, and the Spanish Elkhart pillar FAQ at 6 questions. Nothing
+  was lost. The rule above stands on its own merits — this is recorded so the
+  next reader doesn't re-investigate a resolved incident.
 - Recorded the Spanish title-case convention: Title Case is correct for English
   pages and for Spanish page/legal titles; Spanish **article** titles are
   sentence case. Both Wave docs in `docs/approved-copy/` now carry dated
