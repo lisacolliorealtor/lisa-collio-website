@@ -4,15 +4,24 @@ Compares the approved-copy branch's work (`eadf3a2` -> `9962dc9`) against each p
 **REWRITTEN/NEW** = the branch changed or created that page's body copy. **unchanged** = body untouched.
 Word counts are of current body text (FAQ, signature, and disclaimer excluded).
 
+> **Status — Wave 1 (July 2026):** the nine "English rewritten, Spanish not
+> updated" pairs are **closed**. Eight Spanish articles were rebuilt from the
+> approved Wave 1 adaptations; the ninth,
+> `/blog/spanish/distrito-escolar-elkhart-indiana/`, was checked line by line
+> against the English and needed no change — it already carried the three
+> districts, the thirteen elementary schools, the two-campus high school, the
+> 11,000+ enrollment, the Concord/Dunlap caveat, and the Baugo no-boundary-map
+> note. The seven "no Spanish twin" rows remain open until Wave 2.
+
 
 ## Elkhart
 
 | English page | EN | Spanish twin | ES | Verdict | EN/ES words |
 |---|---|---|---|---|---|
-| `/blog/community/what-is-elkhart-indiana-known-for/` | REWRITTEN | `/blog/spanish/por-que-es-conocido-elkhart-indiana/` | unchanged | **DIVERGED - Spanish not updated** | 283 / 213 |
-| `/blog/community/elkhart-indiana-school-districts/` | NEW | `/blog/spanish/distrito-escolar-elkhart-indiana/` | unchanged | **DIVERGED - Spanish not updated** | 284 / 379 |
-| `/blog/community/elkhart-indiana-industries-employers/` | REWRITTEN | `/blog/spanish/industrias-empleadores-elkhart-indiana/` | unchanged | **DIVERGED - Spanish not updated** | 273 / 204 |
-| `/blog/community/elkhart-indiana-landmarks-amenities/` | NEW | `/blog/spanish/lugares-emblematicos-elkhart-indiana/` | unchanged | **DIVERGED - Spanish not updated** | 263 / 159 |
+| `/blog/community/what-is-elkhart-indiana-known-for/` | REWRITTEN | `/blog/spanish/por-que-es-conocido-elkhart-indiana/` | unchanged | **CLOSED - Wave 1** | 283 / 213 |
+| `/blog/community/elkhart-indiana-school-districts/` | NEW | `/blog/spanish/distrito-escolar-elkhart-indiana/` | unchanged | **CLOSED - Wave 1** | 284 / 379 |
+| `/blog/community/elkhart-indiana-industries-employers/` | REWRITTEN | `/blog/spanish/industrias-empleadores-elkhart-indiana/` | unchanged | **CLOSED - Wave 1** | 273 / 204 |
+| `/blog/community/elkhart-indiana-landmarks-amenities/` | NEW | `/blog/spanish/lugares-emblematicos-elkhart-indiana/` | unchanged | **CLOSED - Wave 1** | 263 / 159 |
 | `/blog/community/elkhart-indiana-location-nearby-cities/` | unchanged | `/blog/spanish/ubicacion-elkhart-indiana-ciudades-cercanas/` | unchanged | **in sync (neither changed)** | 128 / 158 |
 | `/blog/community/downtown-elkhart-indiana/` | NEW | — | NO SPANISH PAGE | **DIVERGED - no Spanish twin** | 258 / — |
 | `/blog/community/things-to-do-in-elkhart-indiana/` | NEW | — | NO SPANISH PAGE | **DIVERGED - no Spanish twin** | 488 / — |
@@ -26,11 +35,11 @@ Word counts are of current body text (FAQ, signature, and disclaimer excluded).
 
 | English page | EN | Spanish twin | ES | Verdict | EN/ES words |
 |---|---|---|---|---|---|
-| `/blog/community/what-is-goshen-indiana-known-for/` | REWRITTEN | `/blog/spanish/por-que-es-conocido-goshen-indiana/` | unchanged | **DIVERGED - Spanish not updated** | 224 / 215 |
-| `/blog/community/goshen-indiana-school-district/` | REWRITTEN | `/blog/spanish/distrito-escolar-goshen-indiana/` | unchanged | **DIVERGED - Spanish not updated** | 197 / 166 |
-| `/blog/community/downtown-goshen-indiana/` | REWRITTEN | `/blog/spanish/centro-de-goshen-indiana/` | unchanged | **DIVERGED - Spanish not updated** | 244 / 189 |
-| `/blog/community/goshen-indiana-industries-employers/` | REWRITTEN | `/blog/spanish/industrias-empleadores-goshen-indiana/` | unchanged | **DIVERGED - Spanish not updated** | 190 / 232 |
-| `/blog/community/goshen-indiana-landmarks-amenities/` | REWRITTEN | `/blog/spanish/lugares-emblematicos-goshen-indiana/` | unchanged | **DIVERGED - Spanish not updated** | 231 / 174 |
+| `/blog/community/what-is-goshen-indiana-known-for/` | REWRITTEN | `/blog/spanish/por-que-es-conocido-goshen-indiana/` | unchanged | **CLOSED - Wave 1** | 224 / 215 |
+| `/blog/community/goshen-indiana-school-district/` | REWRITTEN | `/blog/spanish/distrito-escolar-goshen-indiana/` | unchanged | **CLOSED - Wave 1** | 197 / 166 |
+| `/blog/community/downtown-goshen-indiana/` | REWRITTEN | `/blog/spanish/centro-de-goshen-indiana/` | unchanged | **CLOSED - Wave 1** | 244 / 189 |
+| `/blog/community/goshen-indiana-industries-employers/` | REWRITTEN | `/blog/spanish/industrias-empleadores-goshen-indiana/` | unchanged | **CLOSED - Wave 1** | 190 / 232 |
+| `/blog/community/goshen-indiana-landmarks-amenities/` | REWRITTEN | `/blog/spanish/lugares-emblematicos-goshen-indiana/` | unchanged | **CLOSED - Wave 1** | 231 / 174 |
 | `/blog/community/things-to-do-in-goshen-indiana/` | unchanged | `/blog/spanish/que-hacer-en-goshen-indiana/` | unchanged | **in sync (neither changed)** | 1586 / 1705 |
 | `/blog/community/community-events-in-goshen-indiana/` | unchanged | `/blog/spanish/eventos-comunitarios-goshen-indiana/` | unchanged | **in sync (neither changed)** | 806 / 916 |
 | `/blog/community/cost-of-living-in-goshen-indiana/` | unchanged | `/blog/spanish/costo-de-vida-goshen-indiana/` | unchanged | **in sync (neither changed)** | 729 / 891 |
@@ -51,10 +60,10 @@ Word counts are of current body text (FAQ, signature, and disclaimer excluded).
 ## Summary
 
 - Pairs examined: **27**
-- Diverged: **16**
-  - English rewritten, Spanish twin not updated: **9**
-  - English new, no Spanish page exists at all: **7**
-- In sync: **11**
+- Diverged: **7** (was 16)
+  - English rewritten, Spanish twin not updated: **0** — closed by Wave 1
+  - English new, no Spanish page exists at all: **7** — open until Wave 2
+- In sync: **20**
 
 ## FAQ-layer divergence on the hub/pillar pages
 
@@ -78,19 +87,26 @@ until those articles are adapted:
 - `buying-an-older-home-in-elkhart-indiana`
 - `working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana`
 
-## Known factual contradictions between live twins
+## Known factual contradictions between live twins — RESOLVED (Wave 1)
 
-Where English was rewritten and Spanish was not, the two languages now state
-different facts. Confirmed examples:
+Where English was rewritten and Spanish was not, the two languages stated
+different facts. All three are now fixed:
 
-- **RV/MH Hall of Fame** — the Spanish landmarks articles (Elkhart and Goshen)
-  still say "aproximadamente 40 acres" and "más de 15,000 visitantes al año" in
-  body copy. Both figures were dropped from the rewritten English pages, and the
-  English Elkhart article now says the museum has relocated along the toll road.
-  Four live Spanish uses; the `/sources/` citation for that stat is therefore
-  still required and must not be removed.
-- **Wellfield Botanic Gardens** — English now gives 36 acres and 20+ themed
-  gardens; Spanish gives no figures.
-- **Elkhart identity** — English now covers band instruments (Conn, 1874),
+- **RV/MH Hall of Fame** — ~~the Spanish landmarks articles (Elkhart and Goshen)
+  still say "aproximadamente 40 acres" and "más de 15,000 visitantes al año"~~ —
+  **resolved.** All four Spanish uses (body + FAQ on both articles) are gone. The
+  Spanish Elkhart article now states the toll-road relocation, matching English;
+  the Spanish Goshen article no longer references the museum at all, also
+  matching English. **Zero live pages state the withdrawn figures**, so the
+  employer-listing citation they rested on was retired from `/sources/` and
+  `/es/fuentes/` in the same PR, and `VERIFIED_FACTS.md` now marks them withdrawn
+  in both languages rather than English-only.
+- **Wellfield Botanic Gardens** — ~~English gives 36 acres and 20+ themed
+  gardens; Spanish gives no figures~~ — **resolved.** Spanish now carries both.
+- **Elkhart identity** — ~~English covers band instruments (Conn, 1874),
   Miles Medical/Bayer, Norfolk Southern rail yards, and the historic district;
-  Spanish still leads on RV manufacturers by name.
+  Spanish still leads on RV manufacturers by name~~ — **resolved.** The Spanish
+  "known for" and "industries" articles now drop the manufacturer names and carry
+  the same identity content as English. Goshen's "known for" article keeps its
+  manufacturer names in both languages, because the English Goshen article does
+  too — that asymmetry is deliberate, not drift.
