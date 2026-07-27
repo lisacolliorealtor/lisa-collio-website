@@ -439,7 +439,7 @@ def generate_og(photo_filename, title, color_name, out_slug,
 THUMB_W, THUMB_H = 800, 420   # 1.9:1, matches the existing card/grid ratio
 
 
-def generate_clean(photo_path, out_slug, focal_y=0.5, thumb=True):
+def generate_clean(photo_path, out_slug, focal_y=0.5, crop_box=None, thumb=True):
     """Clean featured image: 1200x630 cover-crop of the source photo, plus the
     800x420 card thumbnail. .webp beside every .jpg. No overlay of any kind.
 
@@ -447,9 +447,19 @@ def generate_clean(photo_path, out_slug, focal_y=0.5, thumb=True):
                  (any assets/images/ subfolder — houses, places, people alike)
     focal_y    : vertical focal point for the crop, 0=keep the top, 1=keep the
                  bottom. On people photos, keep faces in frame.
+    crop_box   : optional (l, t, r, b) as 0-1 fractions, applied before the cover
+                 crop. Use it when the source itself carries text that must stay
+                 out of frame — a branded headshot's logo strip, or one panel of
+                 a marketing collage. A clean image means no text in the final
+                 frame, whether that text was composited by this script or was
+                 already burned into the photograph.
     """
     src = photo_path if os.path.isabs(photo_path) else os.path.join(ROOT, photo_path)
     photo = Image.open(src).convert("RGB")
+    if crop_box:
+        w, h = photo.size
+        l, t, r, b = crop_box
+        photo = photo.crop((int(l * w), int(t * h), int(r * w), int(b * h)))
 
     header = _cover_focal(photo, W, H, focal_y)
     jpg = _save(header, out_slug, "header")
@@ -458,7 +468,40 @@ def generate_clean(photo_path, out_slug, focal_y=0.5, thumb=True):
     return jpg
 
 
+# Clean replacements built so far, recorded so the mapping is reproducible
+# rather than living in one session's scrollback. slug -> (source photo,
+# focal_y, crop_box). Run `python3 scripts/generate-featured-images.py --clean`
+# to rebuild them byte-for-byte.
+#
+# Note on crop_box here: two of these source photos carry text of their own —
+# the branded headshot has a RE/MAX lockup and a "Lisa Collio REALTOR®" script
+# logo across the top, and the awards photo is a three-panel collage whose right
+# panel is a "100% CLUB / 2023 RE/MAX AWARDS" graphic. Framing crops that text
+# out. A clean image means no text in the final frame, wherever it came from.
+CLEAN_JOBS = {
+    "what-makes-lisa-collio-different": (
+        "assets/images/lisa/lisa-collio-red-blazer.jpg", 0.12, None),
+    "how-many-homes-lisa-collio-sold-goshen-elkhart": (
+        "assets/images/lisa/lisa-collio-remax-awards-100-club.jpg", 0.22,
+        (0.294, 0.0, 0.790, 1.0)),          # centre panel of the collage only
+    "why-clients-choose-lisa-collio": (
+        "assets/images/lisa/lisa-collio-headshot-remax-branded.jpg", 0.58, None),
+    "what-is-it-like-to-work-with-lisa-collio": (
+        "assets/images/lisa/lisa-collio-open-house-flag-summer.jpg", 0.45, None),
+}
+
+
+def build_clean_jobs():
+    for slug, (src, focal_y, crop_box) in CLEAN_JOBS.items():
+        print(generate_clean(src, slug, focal_y=focal_y, crop_box=crop_box))
+
+
 if __name__ == "__main__":
+    import sys
+    if "--clean" in sys.argv:
+        build_clean_jobs()
+        raise SystemExit(0)
+
     # Smoke test: one image
     bc, ls = variant_for(0)
     p = generate_header("hero-twilight-2.jpg",

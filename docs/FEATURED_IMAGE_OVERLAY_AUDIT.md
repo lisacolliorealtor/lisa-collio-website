@@ -1,6 +1,8 @@
 # Featured-image text-overlay audit — images outside the Buyers/Sellers exception
 
-**Status: FOR LISA'S REVIEW — nothing has been regenerated or deleted.**
+**Status: FOR LISA'S REVIEW.** Four images have been cleaned at Lisa's explicit
+direction (27 July) and are marked **CLEANED** below. Everything else on this
+list is flagged only — not regenerated, not deleted.
 Produced 27 July 2026 by Claude Code, per step 1 of
 `docs/drafts/V1_0_Claude_Code_Instructions_Text_Overlay_Exception_Lisa_Collio.md`
 and the Featured-Image Standard added in Master Plan v2.10 (§8, Images).
@@ -31,13 +33,14 @@ scope line below is based on, not the folder an article happens to sit in.
 | --- | --- | --- |
 | Every generated featured image in `assets/images/blog-headers/` | 88 | 360 |
 | **In scope — keep the overlay, no action** | 35 | 140 |
-| **Out of scope — needs a clean re-export or reshoot** | **53** | **220** |
+| **Out of scope — cleaned in this PR** | 4 | 16 (+8 `-og` files deleted) |
+| **Out of scope — still needs a clean re-export or reshoot** | **49** | **196** |
 
-Of the 53 out-of-scope slugs, **45 have baked-in title text AND Lisa's cutout
+Of the 49 still outstanding, **45 have baked-in title text AND Lisa's cutout
 portrait** (Template A: house photo, solid RE/MAX Blue or Red band across the
-top, cutout bottom-left or bottom-right), and **8 have baked-in title text
+top, cutout bottom-left or bottom-right), and **4 have baked-in title text
 only, no cutout** (Templates B and C: people photos with a solid color band
-below or a color panel beside them). Five of the 53 are listed in their own
+below or a color panel beside them). Five of the 49 are listed in their own
 table at the end because they need a ruling from you before they're counted
 in or out.
 
@@ -49,9 +52,9 @@ no thumbnail at all today: `living-in-elkhart-guide`, `moving-to-elkhart`,
 `mudarse-a-elkhart`, `viviendo-en-elkhart`. Worth generating theirs from the
 clean replacement photo while you're at it.
 
-Nothing here has been auto-regenerated. Per step 2 of the instructions, these
-are flagged for your sign-off on the replacement photo itself, not silently
-re-exported from the text-bearing versions.
+Apart from the four you named, nothing here has been regenerated. Per step 2 of
+the instructions the rest are flagged for your sign-off on the replacement photo
+itself, not silently re-exported from the text-bearing versions.
 
 ## The audit list
 
@@ -73,16 +76,19 @@ re-exported from the text-bearing versions.
 | `/es/viviendo-en-elkhart/` | `viviendo-en-elkhart-header.jpg` | A | "Vivir en Elkhart, Indiana: Guía local de la ciudad" | Yes |
 | `/es/viviendo-en-goshen/` | `viviendo-en-goshen-header.jpg` | A | "Vivir en Goshen, Indiana: Guía local de la ciudad" | Yes |
 
-### Meet Lisa / brand articles (8)
+### Meet Lisa / brand articles — 4 cleaned, 4 outstanding (8)
+
+The four Lisa named on 27 July are done and are marked **CLEANED** below; the
+other four in this group are unchanged and still need a decision.
 
 | Page | Image file(s) | Template | Baked-in text | Cutout portrait |
 | --- | --- | --- | --- | --- |
 | `/blog/community/does-lisa-collio-speak-spanish/` | `does-lisa-collio-speak-spanish-header.jpg` + `-og.jpg` | B | "Does Lisa Collio Speak Spanish? A Bilingual Real Estate Agent in Goshen and Elkhart, Indiana" | No |
-| `/blog/community/how-many-homes-lisa-collio-sold-goshen-elkhart/` | `how-many-homes-lisa-collio-sold-goshen-elkhart-header.jpg` + `-og.jpg` | C | "How Many Homes Has Lisa Collio Sold in Goshen and Elkhart, Indiana?" | No |
+| `/blog/community/how-many-homes-lisa-collio-sold-goshen-elkhart/` | **CLEANED** — `how-many-homes-lisa-collio-sold-goshen-elkhart-header.jpg` (1200×630) + `-thumb`; `-og` deleted | C | "How Many Homes Has Lisa Collio Sold in Goshen and Elkhart, Indiana?" | No |
 | `/blog/community/lisa-collio-helps-seniors-families-downsize/` | `lisa-collio-helps-seniors-families-downsize-header.jpg` + `-og.jpg` | B | "How Does Lisa Collio Help Seniors and Families Downsize in Goshen and Elkhart, Indiana?" | No |
-| `/blog/community/what-is-it-like-to-work-with-lisa-collio/` | `what-is-it-like-to-work-with-lisa-collio-header.jpg` + `-og.jpg` | B | "What Is It Like to Work with Lisa Collio as a Buyer or Seller in Goshen and Elkhart, Indiana?" | No |
-| `/blog/community/what-makes-lisa-collio-different/` | `what-makes-lisa-collio-different-header.jpg` + `-og.jpg` | C | "What Makes Lisa Collio Different from Other Real Estate Agents in Goshen and Elkhart, Indiana?" | No |
-| `/blog/community/why-clients-choose-lisa-collio/` | `why-clients-choose-lisa-collio-header.jpg` + `-og.jpg` | B | "Why Do Clients Choose Lisa Collio as Their Real Estate Agent in Goshen and Elkhart, Indiana?" | No |
+| `/blog/community/what-is-it-like-to-work-with-lisa-collio/` | **CLEANED** — `what-is-it-like-to-work-with-lisa-collio-header.jpg` (1200×630) + `-thumb`; `-og` deleted | B | "What Is It Like to Work with Lisa Collio as a Buyer or Seller in Goshen and Elkhart, Indiana?" | No |
+| `/blog/community/what-makes-lisa-collio-different/` | **CLEANED** — `what-makes-lisa-collio-different-header.jpg` (1200×630) + `-thumb`; `-og` deleted | C | "What Makes Lisa Collio Different from Other Real Estate Agents in Goshen and Elkhart, Indiana?" | No |
+| `/blog/community/why-clients-choose-lisa-collio/` | **CLEANED** — `why-clients-choose-lisa-collio-header.jpg` (1200×630) + `-thumb`; `-og` deleted | B | "Why Do Clients Choose Lisa Collio as Their Real Estate Agent in Goshen and Elkhart, Indiana?" | No |
 | `/blog/community/why-lisa-collio-became-real-estate-agent/` | `why-lisa-collio-became-real-estate-agent-header.jpg` + `-og.jpg` | C | "Why Did Lisa Collio Become a Real Estate Agent in Goshen and Elkhart, Indiana?" | No |
 | `/blog/relocation/moving-to-goshen-indiana-from-out-of-state/` | `moving-to-goshen-indiana-from-out-of-state-header.jpg` + `-og.jpg` | B | "Moving to Goshen, Indiana from Out of State: A Step-by-Step Timeline" | No |
 
@@ -188,9 +194,32 @@ articles and their four hub pages. The only edit to those functions is a single
 scope-guard call at the top of each. Verified by regenerating an in-scope overlay
 after the change — same templates, same rotation, same output shape.
 
+## What WAS changed (the four you named, 27 July)
+
+Each was rebuilt from its **original source photograph**, never from the
+text-bearing composite. Source, framing, and crop are recorded in `CLEAN_JOBS`
+in `scripts/generate-featured-images.py`, so `--clean` reproduces them exactly.
+
+| Slug | Source photo | Note on framing |
+| --- | --- | --- |
+| `what-makes-lisa-collio-different` | `lisa/lisa-collio-red-blazer.jpg` | Straight cover-crop, framed to keep the blazer in shot |
+| `how-many-homes-lisa-collio-sold-goshen-elkhart` | `lisa/lisa-collio-remax-awards-100-club.jpg` | **Cropped to the centre panel only.** The source is a three-panel collage whose right panel is a "100% CLUB / 2023 RE/MAX AWARDS" graphic — baked-in text in the photo itself. The RE/MAX banner still in frame is real event signage, not an overlay. |
+| `why-clients-choose-lisa-collio` | `lisa/lisa-collio-headshot-remax-branded.jpg` | Framed **below** the source's own RE/MAX lockup and "Lisa Collio REALTOR®" script logo, so neither appears |
+| `what-is-it-like-to-work-with-lisa-collio` | `lisa/lisa-collio-open-house-flag-summer.jpg` | Straight cover-crop |
+
+Two of those four source photos carry text of their own. Framing keeps it out of
+frame — a clean image means no text in the final frame, whether this script put
+it there or the photograph already had it. **Both are worth a proper reshoot
+when you get the chance**; the crops are a correct fix, not an ideal photo.
+
+Each is now a single clean 1200×630 `-header` (plus the 800×420 `-thumb`, plus
+`.webp` beside each). The separate 1200×630 `-og` file the B/C templates needed
+is redundant now that the header is already OG-sized, so the eight `-og` files
+were deleted and `og:image` / `twitter:image` repointed at the header. The
+on-page `<img>` height went 900 → 630 to match.
+
 ## What was NOT changed
 
-- No image regenerated, overwritten, or deleted.
-- No page markup changed — every page still points at the image it pointed at
-  before.
+- No other image regenerated, overwritten, or deleted.
+- No other page markup changed.
 - The Buyers/Sellers/Compradores/Vendedores pipeline is untouched.
