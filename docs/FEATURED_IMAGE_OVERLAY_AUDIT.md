@@ -1,6 +1,9 @@
 # Featured-image text-overlay audit — RESOLVED
 
-**Status: remediation complete, pending Lisa's review of PR #71.**
+**Status: remediation complete. PR #71 merged to `main` 27 July 2026 (commit
+`aac21e5`); the image work is live.** Three follow-ups reached the branch after
+that merge and need their own PR: the `/assets/` caching fix, `npm run
+check:images`, and this document's Section 13 approval records.
 Audit produced 27 July 2026 per step 1 of
 `docs/drafts/V1_0_Claude_Code_Instructions_Text_Overlay_Exception_Lisa_Collio.md`
 and the Featured-Image Standard in Master Plan v2.10 (§8, Images); remediated
