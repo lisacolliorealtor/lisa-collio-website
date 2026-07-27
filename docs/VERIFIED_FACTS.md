@@ -158,8 +158,9 @@ Goshen Chamber of Commerce
 ### Wellfield Botanic Gardens (Elkhart)
 **36 acres, more than 20 themed gardens.**
 · **Source:** Visit Elkhart County
-· ⚠️ The Spanish landmarks pages currently give no figures. When adapted, they
-should carry these.
+· **Appears on:** /blog/community/elkhart-indiana-landmarks-amenities/ ·
+/blog/spanish/lugares-emblematicos-elkhart-indiana/ (both figures carried into
+Spanish in the Wave 1 adaptations, July 2026)
 
 ### The Lerner Theatre (Elkhart)
 Historic downtown performance venue, **restored in 2011 after an $18 million
@@ -169,13 +170,13 @@ renovation**; year-round calendar.
 ### RV/MH Hall of Fame & Museum (Elkhart)
 **Relocated from downtown to a facility along the toll road.**
 · **Source:** Visit Elkhart County · Wikipedia
-· ⚠️ **Contested legacy figures — do not reuse.** "Roughly 40 acres" and "more
-than 15,000 visitors annually" came from the older reference-data lineage. They
-were **removed from all English pages** but **remain live in Spanish body copy and
-FAQs** on both landmarks articles. That contradiction is logged in
-`EN_ES_DIVERGENCE_INVENTORY.md` and resolves when the Spanish pages are adapted.
-Until then the citation stays on /sources/, because the Spanish claims still need
-it. **Do not reintroduce these figures into English copy.**
+· ⚠️ **Withdrawn figures — do not reuse, in either language.** "Roughly 40 acres"
+and "more than 15,000 visitors annually" came from the older reference-data
+lineage (an employer listing). They were removed from English first and from the
+last four Spanish uses in the Wave 1 adaptations (July 2026), so **zero live
+pages state them**. The employer-listing citation they rested on has been retired
+from `/sources/` and `/es/fuentes/`; the museum's relocation is cited from Visit
+Elkhart County and Wikipedia instead. **Do not reintroduce these figures.**
 
 ### Other Elkhart museums
 Ruthmere Museum and the adjoining Havilah Beardsley House · National New York
