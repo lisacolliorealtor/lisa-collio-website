@@ -1,5 +1,13 @@
 # FAQ gap — current content of every page with FAQPage schema and no visible FAQ
 
+> **⚠️ CLOSED — July 2026. Historical record only; do not treat as open work.**
+> Every page listed below now carries a visible FAQ matching its FAQPage schema
+> word for word. Verified across the whole site: 111 pages carry FAQPage schema
+> and **zero** have schema without a visible FAQ (or the reverse). `npm run audit`
+> now hard-fails on any mismatch, so this snapshot cannot silently reopen.
+> Kept because it is the only record of what each page said *before* the gap was
+> closed. The branch it names no longer exists.
+
 Generated from the working tree on branch `claude/faq-schema-sync-review-mem4u9`.
 Each entry below is the **full published body copy** of the page as it exists today,
 plus the single Q&A already sitting in its FAQPage JSON-LD (invisible to readers).

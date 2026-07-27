@@ -211,6 +211,31 @@ const sameText = (a, b) => {
   }
 }
 
+/* 8b. Every article is actually LINKED from its hub ------------------------
+ * The count above was right while seven English Elkhart articles were missing
+ * from the "All articles" list entirely — a correct number over an incomplete
+ * list. Counting is not the same as listing, so check the links themselves.  */
+{
+  const hubs = [
+    { hub: path.join(ROOT, "blog", "index.html"),
+      dirs: ["buyers", "sellers", "community", "relocation", "market-updates"] },
+    { hub: path.join(ROOT, "blog", "spanish", "index.html"), dirs: ["spanish"] },
+  ];
+  for (const { hub, dirs } of hubs) {
+    if (!fs.existsSync(hub)) continue;
+    const s = read(hub);
+    for (const dir of dirs) {
+      const base = path.join(ROOT, "blog", dir);
+      if (!fs.existsSync(base)) continue;
+      for (const e of fs.readdirSync(base, { withFileTypes: true })) {
+        if (!e.isDirectory() || !fs.existsSync(path.join(base, e.name, "index.html"))) continue;
+        if (!s.includes(`/blog/${dir}/${e.name}/`))
+          err("blog-hub", `${rel(hub)} does not link /blog/${dir}/${e.name}/`);
+      }
+    }
+  }
+}
+
 /* 9. Images carry alt text ------------------------------------------------ */
 {
   for (const f of htmlFiles) {
@@ -232,14 +257,10 @@ const sameText = (a, b) => {
     "/blog/relocation/", "/blog/market-updates/",
     // English-only at launch (documented exception)
     "/blog/market-updates/elkhart-county-mid-year-market-update-2026/",
-    // English Elkhart articles awaiting Spanish adaptations
-    "/blog/community/downtown-elkhart-indiana/",
-    "/blog/community/things-to-do-in-elkhart-indiana/",
-    "/blog/community/community-events-in-elkhart-indiana/",
-    "/blog/community/cost-of-living-in-elkhart-indiana/",
-    "/blog/community/moving-to-elkhart-indiana-from-out-of-state/",
-    "/blog/community/buying-an-older-home-in-elkhart-indiana/",
-    "/blog/community/working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana/",
+    // NOTE: the seven English Elkhart articles were exempt here while they had
+    // no Spanish twin. Wave 2 (July 2026) built all seven, so the exemptions
+    // were removed and those pages are now checked for real. An exemption that
+    // outlives its reason silently stops auditing the thing it named.
     // English buyer/seller articles with no Spanish counterpart written
     "/blog/buyers/are-homes-goshen-indiana-competitive-to-buy/",
     "/blog/buyers/elkhart-indiana-good-place-invest-real-estate/",

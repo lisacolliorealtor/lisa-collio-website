@@ -1,5 +1,5 @@
 # CLAUDE.md — lisa-collio-website
-**v1.4 (July 27, 2026)** — see the Revision Log at the end of this file.
+**v1.5 (July 27, 2026)** — see the Revision Log at the end of this file.
 Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
 files. This file defers to the Master Plan; if they ever disagree, the Master Plan
 wins. Deliberately no version number here — hardcoding one let this line go stale
@@ -160,6 +160,14 @@ Each rule below is here because the failure actually happened, more than once.
    ready rather than accumulating several units on a long-lived branch. This was
    missed on PRs #55, #59, #60 and #61, each time leaving finished work invisible
    on a branch whose PR had already merged.
+   **Corollary — a stacked PR must target `main` unless you delete its base.**
+   GitHub only re-targets a PR when its base branch is *deleted* after merging.
+   PR #67 was based on the Wave 1 branch; #66 merged but was not deleted, so #67
+   stayed pointed at it and merged seven finished Spanish articles onto a dead
+   branch instead of onto `main`. Nothing failed and nothing warned. **After
+   merging any PR, delete its branch**, and after merging a stacked PR, verify
+   the work landed with `git ls-tree origin/main <a path the PR created>` rather
+   than trusting the merge notification.
 3. **Approved content is committed the moment it is used.** Any drafted content —
    FAQ blocks, article bodies, source docs — goes into `docs/approved-copy/`
    *before* it is used to build something live, never left as a chat upload. An
@@ -391,7 +399,7 @@ by construction rather than by remembering.
 
 ## REVISION LOG
 
-**v1.4 — July 27, 2026** (Claude, at Lisa's direction)
+**v1.5 — July 27, 2026** (Claude, at Lisa's direction)
 - Mirrors **Master Plan v2.10**, which adds the Featured-Image Standard as a new
   subsection under §8 Images. Text overlay and Lisa's cutout portrait on
   blog/article featured images are now a scoped exception limited to
@@ -400,18 +408,42 @@ by construction rather than by remembering.
   photo with nothing overlaid. Rewrote the Featured image standard section
   accordingly and kept the Template A/B/C detail as a subsection scoped to the
   exception.
+- Also current with **Master Plan v2.11**, which is a §19 registry sync only —
+  two rows for the Spanish Wave 1/2 adaptation documents, added because the
+  image-standard branch that produced v2.10 was cut in parallel with the Wave
+  work and didn't carry the registry addition. CLAUDE.md does not reproduce the
+  §19 registry table, so v2.11 changes nothing visible in this file; recorded
+  here so the mirror is provably current rather than assumed to be.
+- **Numbering note:** this entry was drafted as v1.4 on a branch cut before the
+  session-audit work landed. That work reached `main` first and took v1.4, so
+  this becomes v1.5 — the same parallel-branch drift v2.11 exists to correct,
+  one file down. Both v1.4 bullets below are main's and are unchanged.
 - Recorded the separation from the Tier 1 page-hero component, which also uses
   the cutout but is governed by the hero standard — the two are independently
   scoped and a Buyers/Sellers page may carry the cutout in both.
 - `scripts/generate-featured-images.py` now carries the scope list
   (`OVERLAY_SCOPE`) and refuses to composite an overlay for an out-of-scope slug;
-  added `generate_clean()` for everything else.
-- Retroactive cleanup is flagged, not applied:
-  `docs/FEATURED_IMAGE_OVERLAY_AUDIT.md` lists the 53 out-of-scope slugs (220
-  files) that currently carry baked-in text, 45 of them also carrying the cutout,
-  for Lisa's reshoot/re-export decision. Source instructions committed to
+  added `generate_clean()` for everything else, plus `CLEAN_JOBS` recording the
+  source photo, focal point and crop behind each clean image already built.
+- Retroactive cleanup is flagged, not applied, with one exception:
+  `docs/FEATURED_IMAGE_OVERLAY_AUDIT.md` lists the 53 out-of-scope slugs that
+  carry baked-in text, 45 of them also carrying the cutout. Four Meet Lisa images
+  were cleaned at Lisa's explicit direction (27 July); 49 slugs / 196 files
+  remain flagged for her reshoot/re-export decision. Source instructions
+  committed to
   `docs/drafts/V1_0_Claude_Code_Instructions_Text_Overlay_Exception_Lisa_Collio.md`.
 - No identity, architecture, or compliance-rule changes.
+
+**v1.4 — July 27, 2026** (Claude, at Lisa's direction)
+- Added the stacked-PR corollary to build-procedure rule 2. GitHub re-targets a
+  PR only when its base branch is deleted after merging; because the Wave 1
+  branch survived its own merge, PR #67 merged seven finished Spanish articles
+  onto that dead branch instead of `main`, silently. Delete a branch when its PR
+  merges, and verify stacked work actually landed on `main`.
+- Recorded the Spanish title-case convention: Title Case is correct for English
+  pages and for Spanish page/legal titles; Spanish **article** titles are
+  sentence case. Both Wave docs in `docs/approved-copy/` now carry dated
+  as-built corrections where they diverge from what shipped.
 
 **v1.3 — July 27, 2026** (Claude, at Lisa's direction)
 - Master Plan reference is now self-updating — "the highest-numbered version in

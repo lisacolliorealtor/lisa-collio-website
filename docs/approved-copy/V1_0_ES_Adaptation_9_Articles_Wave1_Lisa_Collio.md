@@ -3,7 +3,24 @@
 *Prepared for Lisa Collio, Real Estate Agent · July 2026*
 *Cultural adaptations per Volume 37 (usted register, not translations) of the 9 English articles rewritten on the approved-copy branch, matching current live English body text supplied in `GOSHEN_3_ARTICLES_FOR_ES_ADAPTATION.md` and `REMAINING_6_ARTICLES_FOR_ES_ADAPTATION.md`. Resolves every live EN/ES factual contradiction flagged in `docs/EN_ES_DIVERGENCE_INVENTORY.md` for this batch — most notably the RV/MH Hall of Fame acreage/visitor figures, which English has dropped and which no longer appear anywhere below.*
 
-**STATUS: APPROVED BY LISA — July 25, 2026. CLEARED TO BUILD NOW.**
+**STATUS: APPROVED BY LISA — July 25, 2026. BUILT AND MERGED July 27, 2026 (PR #66).**
+
+> **⚠️ AS-BUILT CORRECTION — July 27, 2026 (Lisa's decision, recorded so a
+> rebuild from this file cannot regress the live site).**
+>
+> **Every "Title tag" line below is Title Case; the live titles are sentence
+> case.** Measured across the site, Title Case is the English convention and the
+> Spanish page/legal convention, but every Spanish *article* title is sentence
+> case — including the Goshen twins of these very articles. Lisa confirmed
+> sentence case on 27 July 2026 and it shipped in PR #69. Read e.g.
+> "¿Por qué es conocido Elkhart, Indiana? | Lisa Collio", not "¿Por Qué Es
+> Conocido…". H1s, meta descriptions, FAQ blocks, and body copy below are
+> unchanged and correct as written.
+>
+> The orphaned-citation flag below was actioned: the RV/MH Hall of Fame
+> "40 acres / 15,000 visitors" citation is retired from `/sources/` and
+> `/es/fuentes/`, and `docs/VERIFIED_FACTS.md` marks the figures withdrawn in
+> both languages.
 
 Build and deploy to the preview branch immediately. Broker's comprehensive whole-site review still occurs before the final `main` merge/DNS cutover, per Lisa's standing July 2026 workflow — that restriction applies to the final merge/cutover step only, not to building or deploying to preview.
 
