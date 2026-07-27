@@ -11,7 +11,8 @@
     "build:all": "node build.js && node build-reviews.js",
     "audit": "node audit.js",
     "hreflang": "node hreflang.js",
-    "llms": "node llms.js"
+    "llms": "node llms.js",
+    "check:images": "python3 scripts/check-image-scope.py"
   },
   "license": "UNLICENSED"
 }
