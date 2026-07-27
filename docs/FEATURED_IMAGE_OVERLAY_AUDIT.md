@@ -6,9 +6,8 @@ Audit produced 27 July 2026 per step 1 of
 and the Featured-Image Standard in Master Plan v2.10 (§8, Images); remediated
 27 July on Lisa's decisions, recorded below.
 
-**Two items are deliberately left open** — one needing Lisa's copy sign-off
-(decision 2), one a consent-recordkeeping gap unrelated to image styling (last
-section). Neither blocks the image work.
+**One item is deliberately left open** — a consent-recordkeeping gap unrelated to
+image styling (last section). It does not block the image work.
 
 ## The rule
 
@@ -26,12 +25,13 @@ text over a photo and was never a baked-in-text image.
 | | Slugs | Files |
 | --- | --- | --- |
 | Generated featured images in `assets/images/blog-headers/` | 88 | 352 |
-| **In scope — overlay retained** | **36** | 160 |
+| **In scope — overlay retained** | **37** | 164 |
 | **Out of scope — cleaned** | **48** | 192 |
 | Out of scope — outstanding | **0** | 0 |
 
-Scope moved from 35 to 36 slugs: Lisa added `sell-home-elkhart-indiana-best-price`
-to `/sellers/` (decision 2), which brings it into the exception.
+Scope moved from 35 to 37 slugs: Lisa added `sell-home-elkhart-indiana-best-price`
+to `/sellers/` and its Spanish twin `como-vender-casa-elkhart-mejor-precio` to
+`/es/vendedores/` (decision 2), which brings both into the exception.
 
 All 48 cleaned images were verified programmatically after generation: correct
 dimensions (1200×630 header, 800×420 thumbnail, `.webp` beside each `.jpg`), and
@@ -58,26 +58,57 @@ was linked. The link is now added as an eleventh FAQ card, the slug is added to
 `OVERLAY_SCOPE`, and **its overlay image is unchanged** — it keeps Template A
 with the cutout, matching its twin.
 
-> **OPEN — needs your copy sign-off before merge.** Adding that card required new
-> FAQ copy that has not been through the normal approval gate. The question
-> mirrors the article H1 exactly; the answer is drawn from the article's own
-> opening paragraph so every fact in it is traceable to the page, per the §8
-> cluster standard. It reads:
+> **Approved by Lisa, 27 July — no changes.** The card required new FAQ copy.
+> The question mirrors the article H1 exactly; the answer is drawn from the
+> article's own opening paragraph so every fact traces to the page, per the §8
+> cluster standard.
 >
 > **Q.** How do I sell my home in Elkhart, Indiana for the best price?
 > **A.** Price it right the first time, prepare and present it professionally, and
 > market it to the widest possible pool of qualified buyers. Lisa builds that
 > strategy with sellers up front — with data, not guesswork.
->
-> Visible copy and FAQPage schema are word-for-word identical (`npm run audit`
-> verifies this). Reword freely — both copies update together.
 
-> **Spanish gap, flagged not actioned.** `/es/vendedores/` has the mirror-image
-> problem: it links `vender-casa-goshen-mejor-precio` but not the Elkhart twin
-> `como-vender-casa-elkhart-mejor-precio`. Closing it is a bigger job than the
-> English side — that Spanish article has **no featured image at all**, so it
-> would need one generated plus a Spanish FAQ card. Left alone rather than done
-> half-way, but the EN/ES-ship-together rule means it should not stay open long.
+**2b. The Spanish mirror gap is CLOSED — both languages now ship together.**
+`/es/vendedores/` had the same omission: it linked `vender-casa-goshen-mejor-precio`
+but not the Elkhart twin. Closed in full, at parity with the English side:
+
+- **Featured image generated** for `como-vender-casa-elkhart-mejor-precio`, which
+  had none at all. Template A, same source photograph as its English twin
+  (`homes-general/interior-kitchen-dark-cabinets-island.jpg`), continuing the
+  `/es/vendedores/` rotation exactly: the existing ten run a clean four-cycle
+  (red+right → blue+right → red+left → blue+left), so position eleven is
+  **red + cutout left**. Title text matches the Spanish H1 character for
+  character, and the font was checked for every glyph in it — `¿`, `ó` — before
+  compositing. The band does not touch Lisa's face. Header plus 800×420
+  thumbnail, `.webp` beside each.
+- **Article markup added**: `og:image` (+ width/height/alt), `twitter:card` and
+  `twitter:image`, the BlogPosting `image` field, and the on-page
+  `<img class="blog-featured">` — matching its Spanish sibling exactly.
+- **FAQ card added** to `/es/vendedores/` as the eleventh item, same structure as
+  the English card.
+- **Slug added to `OVERLAY_SCOPE`.**
+
+> **Spanish FAQ copy — written natively, not translated.** Per the Volume 37
+> rule, this is a cultural adaptation drafted from the Spanish article's own
+> body, in usted register — not a rendering of the English answer Lisa approved.
+> Its three elements are exactly the three the Spanish article itself sets out
+> ("un precio basado en datos reales", "presentación cuidada", "alcance a más
+> compradores"), so every claim traces to the page it sits on.
+>
+> **P.** ¿Cómo vendo mi casa en Elkhart, Indiana para el mejor precio?
+> **R.** Con tres cosas trabajando juntas: un precio basado en ventas recientes y
+> verificadas de casas similares en su zona, una presentación cuidada que muestre
+> su casa en su mejor forma, y promoción ante compradores que hablan inglés y
+> español. Más interés genuino generalmente se traduce en mejores condiciones
+> para usted.
+
+**Parity verified after the change:** `/sellers/` and `/es/vendedores/` each carry
+11 FAQ cards and 11 schema Questions; each hub links its twin; both articles carry
+`og:image`, the schema `image` field, a `blog-featured` img, three hreflang links
+and a sitemap entry. `npm run hreflang -- --check` reports 67 pairs and 0 pending
+changes. Neither article needs a `/sources/` or `/es/fuentes/` citation — the
+English twin has none either, so the pair stays symmetric. The `/blog/spanish/`
+hub cards carry no thumbnails for any article, so none was added.
 
 **3. The Goshen pillars swap to a decorative photo.** `/moving-to-goshen/` and
 `/es/mudarse-a-goshen/` were the only two out-of-scope images sourced from an

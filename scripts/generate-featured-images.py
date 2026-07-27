@@ -116,6 +116,7 @@ OVERLAY_SCOPE = {
     "errores-evitar-vender-casa-goshen",
     "por-que-casas-elkhart-tardan-venderse",
     "preparar-casa-goshen-para-vender",
+    "como-vender-casa-elkhart-mejor-precio",   # added to /es/vendedores/ 27 Jul (Lisa)
     "vender-casa-elkhart-lisa-collio",
     "vender-casa-goshen-lisa-collio",
     "vender-casa-goshen-mejor-precio",
