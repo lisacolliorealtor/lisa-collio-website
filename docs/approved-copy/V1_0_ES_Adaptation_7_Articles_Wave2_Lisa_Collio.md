@@ -3,7 +3,26 @@
 *Prepared for Lisa Collio, Real Estate Agent · July 2026*
 *Cultural adaptations per Volume 37 of the 7 English articles that have no Spanish twin at all (per `docs/EN_ES_DIVERGENCE_INVENTORY.md`), sourced from the approved `V1_0_Elkhart_Moving_Authority_Articles_1-6_EN_Lisa_Collio.md`, `V1_0_Elkhart_Living_Authority_Articles_1-5_EN_Lisa_Collio.md`, and their respective FAQ block files. Also expands the `/es/mudarse-a-elkhart/` FAQ from 5 to 6 questions to mirror the approved English pillar, which these 7 new articles finally make possible — all six FAQ links can now point to real Spanish content.*
 
-**STATUS: APPROVED BY LISA — July 25, 2026. CLEARED TO BUILD NOW.**
+**STATUS: APPROVED BY LISA — July 25, 2026. BUILT AND MERGED July 27, 2026 (PRs #67/#68).**
+
+> **⚠️ AS-BUILT CORRECTIONS — July 27, 2026 (Lisa's decisions, recorded so a
+> rebuild from this file cannot regress the live site).** Two things below no
+> longer match what is live. The live site is correct; this file is the
+> authoring record, not the verification record.
+>
+> 1. **Article 6's URL is `/blog/spanish/centro-de-elkhart-indiana/`**, not the
+>    `/blog/spanish/downtown-elkhart-indiana/` written in its heading below.
+>    CLAUDE.md locks Spanish URLs to natural Spanish words, and the sibling page
+>    is `centro-de-goshen-indiana`. Lisa confirmed the Spanish slug on
+>    27 July 2026. **Do not rebuild at the English slug.**
+> 2. **Every "Title tag" line below is Title Case; the live titles are sentence
+>    case.** Measured across the site, Title Case is the English convention and
+>    the Spanish page/legal convention, but every Spanish *article* title is
+>    sentence case — including the Goshen twins of these very articles. Lisa
+>    confirmed sentence case on 27 July 2026 and it shipped in PR #69. Read
+>    e.g. "Costo de vida en Elkhart, Indiana | Lisa Collio", not "Costo de
+>    Vida…". H1s, meta descriptions, and body copy below are unchanged and
+>    correct as written.
 
 Build and deploy to the preview branch immediately. Broker's comprehensive whole-site review still occurs before the final `main` merge/DNS cutover, per Lisa's standing July 2026 workflow — that restriction applies to the final merge/cutover step only, not to building or deploying to preview. **Build Wave 2 in the same batch as Wave 1 (`V1_0_ES_Adaptation_9_Articles_Wave1_Lisa_Collio.md`) — the pillar FAQ expansion in this file depends on all 7 Wave 2 articles existing first, and both waves together close out `docs/EN_ES_DIVERGENCE_INVENTORY.md` completely.**
 
