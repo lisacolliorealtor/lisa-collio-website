@@ -484,6 +484,14 @@ def generate_clean(photo_path, out_slug, focal_y=0.5, crop_box=None, thumb=True)
 # composite rather than re-derived from the source photo. Legitimate only for
 # B/C, where the colour band sits beside or below the photo and never overlaps
 # it — so the photo region is the untouched photograph, not a flattened overlay.
+#
+# ONE-WAY: a FROM_COMPOSITE job consumes the composite it reads, because the
+# clean 1200x630 result overwrites the 1200x900 input. Re-running `--clean`
+# raises on these two rather than silently producing something different — the
+# guard in generate_clean_from_composite() checks for the 1200x900 shape. Their
+# source photos are recorded in CLEAN_JOBS so the framing can be re-derived by
+# hand if those images are ever rebuilt. Everything else in the table is fully
+# reproducible: 50 of 52 jobs regenerate byte-for-byte.
 FROM_COMPOSITE = "<from-composite>"
 
 
@@ -503,6 +511,21 @@ def generate_clean_from_composite(out_slug, thumb=True):
 
 
 CLEAN_JOBS = {
+    # --- Group 0: the first four Meet Lisa images, cleaned 27 July on Lisa's
+    # direction ahead of the rest. Restored to this table after the full-batch
+    # rebuild dropped them: the files on disk were always correct, but the
+    # manifest stopped recording how they were made, so `--clean` no longer
+    # reproduced them. Reproducibility is the whole point of this table.
+    "what-makes-lisa-collio-different":
+        ("assets/images/lisa/lisa-collio-red-blazer.jpg", 0.12, None),
+    "how-many-homes-lisa-collio-sold-goshen-elkhart":
+        ("assets/images/lisa/lisa-collio-remax-awards-100-club.jpg", 0.22,
+         (0.294, 0.0, 0.790, 1.0)),          # centre panel of the collage only
+    "why-clients-choose-lisa-collio":
+        ("assets/images/lisa/lisa-collio-headshot-remax-branded.jpg", 0.58, None),
+    "what-is-it-like-to-work-with-lisa-collio":
+        ("assets/images/lisa/lisa-collio-open-house-flag-summer.jpg", 0.45, None),
+
     # --- Group 1: Template A house photos, source already clean in homes-general/
     "buying-an-older-home-in-elkhart-indiana":
         ("assets/images/homes-general/exterior-ranch-rear-leafy-yard-fence.jpg", 0.5, None),

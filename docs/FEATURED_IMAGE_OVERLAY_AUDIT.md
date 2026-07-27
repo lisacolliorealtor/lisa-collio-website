@@ -24,19 +24,34 @@ text over a photo and was never a baked-in-text image.
 
 | | Slugs | Files |
 | --- | --- | --- |
-| Generated featured images in `assets/images/blog-headers/` | 88 | 352 |
-| **In scope — overlay retained** | **37** | 164 |
-| **Out of scope — cleaned** | **48** | 192 |
+| Generated featured images in `assets/images/blog-headers/` | 89 | 356 |
+| **In scope — overlay retained** | **37** | 148 |
+| **Out of scope — cleaned** | **52** | 208 |
 | Out of scope — outstanding | **0** | 0 |
+
+`OVERLAY_SCOPE` (37) and `CLEAN_JOBS` (52) partition all 89 slugs with no overlap
+— asserted, not assumed.
 
 Scope moved from 35 to 37 slugs: Lisa added `sell-home-elkhart-indiana-best-price`
 to `/sellers/` and its Spanish twin `como-vender-casa-elkhart-mejor-precio` to
 `/es/vendedores/` (decision 2), which brings both into the exception.
 
-All 48 cleaned images were verified programmatically after generation: correct
-dimensions (1200×630 header, 800×420 thumbnail, `.webp` beside each `.jpg`), and
-no RE/MAX Blue or Red band at the top, middle, or bottom edge of any file. All 48
-were also reviewed visually on contact sheets for framing.
+**Verified against the pushed branch, not a working tree.** Every one of the 89
+headers was extracted from `origin/claude/website-master-plan-v2-10-4ju9ok` with
+`git cat-file` and scanned for a RE/MAX Blue or Red band at its top, middle and
+bottom edge: 37 in-scope images carry their band, 52 out-of-scope images carry
+none, zero exceptions. Dimensions checked too (1200×630 header, 800×420
+thumbnail, `.webp` beside each `.jpg`), and all were reviewed visually on contact
+sheets for framing.
+
+**Reproducibility: 50 of the 52 cleaned images regenerate byte-for-byte** from
+`CLEAN_JOBS` — verified by regenerating into a scratch directory and comparing
+md5s against the branch blobs. The two exceptions are the `FROM_COMPOSITE` jobs
+(`does-lisa-collio-speak-spanish`, `lisa-collio-helps-seniors-families-downsize`):
+that path is one-way, because the clean output overwrote the composite it read.
+Re-running `--clean` raises on those two rather than silently producing something
+different. Their source photographs are recorded in `CLEAN_JOBS` so the framing
+can be re-derived by hand if they are ever rebuilt.
 
 The separate 1200×630 `-og` files that Templates B and C needed are redundant now
 that every clean header is already OG-sized. **All 12 `-og` files are deleted**,
