@@ -1,5 +1,5 @@
 # CLAUDE.md — lisa-collio-website
-**v1.3 (July 27, 2026)** — see the Revision Log at the end of this file.
+**v1.4 (July 27, 2026)** — see the Revision Log at the end of this file.
 Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
 files. This file defers to the Master Plan; if they ever disagree, the Master Plan
 wins. Deliberately no version number here — hardcoding one let this line go stale
@@ -160,6 +160,14 @@ Each rule below is here because the failure actually happened, more than once.
    ready rather than accumulating several units on a long-lived branch. This was
    missed on PRs #55, #59, #60 and #61, each time leaving finished work invisible
    on a branch whose PR had already merged.
+   **Corollary — a stacked PR must target `main` unless you delete its base.**
+   GitHub only re-targets a PR when its base branch is *deleted* after merging.
+   PR #67 was based on the Wave 1 branch; #66 merged but was not deleted, so #67
+   stayed pointed at it and merged seven finished Spanish articles onto a dead
+   branch instead of onto `main`. Nothing failed and nothing warned. **After
+   merging any PR, delete its branch**, and after merging a stacked PR, verify
+   the work landed with `git ls-tree origin/main <a path the PR created>` rather
+   than trusting the merge notification.
 3. **Approved content is committed the moment it is used.** Any drafted content —
    FAQ blocks, article bodies, source docs — goes into `docs/approved-copy/`
    *before* it is used to build something live, never left as a chat upload. An
@@ -348,6 +356,17 @@ The script picks a template automatically by looking at the source photo
   (accents, ñ, ¿…?). Verify the font renders those glyphs before shipping.
 
 ## REVISION LOG
+
+**v1.4 — July 27, 2026** (Claude, at Lisa's direction)
+- Added the stacked-PR corollary to build-procedure rule 2. GitHub re-targets a
+  PR only when its base branch is deleted after merging; because the Wave 1
+  branch survived its own merge, PR #67 merged seven finished Spanish articles
+  onto that dead branch instead of `main`, silently. Delete a branch when its PR
+  merges, and verify stacked work actually landed on `main`.
+- Recorded the Spanish title-case convention: Title Case is correct for English
+  pages and for Spanish page/legal titles; Spanish **article** titles are
+  sentence case. Both Wave docs in `docs/approved-copy/` now carry dated
+  as-built corrections where they diverge from what shipped.
 
 **v1.3 — July 27, 2026** (Claude, at Lisa's direction)
 - Master Plan reference is now self-updating — "the highest-numbered version in
