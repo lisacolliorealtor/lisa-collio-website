@@ -156,6 +156,10 @@ const sameText = (a, b) => {
     [/Lisa Collio Real Estate\b(?!,)/, 'business name without the locked comma'],
     [/\bREMAX\b/, 'slash-free "REMAX" in prose'],
     [/Alford/i, '"Alford-Collio" name variant'],
+    // Fair Housing: ambulatory-ability phrasing was stripped sitewide (c2b0d9f)
+    // and came back once via FAQ copy, so guard the term itself. Idiomatic
+    // "walking into a negotiation" is fine; "walkable"/"walkability" is not.
+    [/walkab/i, 'ambulatory phrasing ("walkable"/"walkability") — Fair Housing'],
   ];
   // Method brands must always carry the mark.
   const marks = ["Next Chapter Method", "Smart Move Framework", "Tu Próximo Capítulo", "Unlocking Smart Moves"];
