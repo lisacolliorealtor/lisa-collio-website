@@ -4,14 +4,24 @@ Compares the approved-copy branch's work (`eadf3a2` -> `9962dc9`) against each p
 **REWRITTEN/NEW** = the branch changed or created that page's body copy. **unchanged** = body untouched.
 Word counts are of current body text (FAQ, signature, and disclaimer excluded).
 
-> **Status — Wave 1 (July 2026):** the nine "English rewritten, Spanish not
-> updated" pairs are **closed**. Eight Spanish articles were rebuilt from the
-> approved Wave 1 adaptations; the ninth,
+> **Status — CLOSED, July 2026. Zero diverged pairs remain.**
+>
+> **Wave 1** closed the nine "English rewritten, Spanish not updated" pairs.
+> Eight Spanish articles were rebuilt from the approved adaptations; the ninth,
 > `/blog/spanish/distrito-escolar-elkhart-indiana/`, was checked line by line
 > against the English and needed no change — it already carried the three
 > districts, the thirteen elementary schools, the two-campus high school, the
 > 11,000+ enrollment, the Concord/Dunlap caveat, and the Baugo no-boundary-map
-> note. The seven "no Spanish twin" rows remain open until Wave 2.
+> note.
+>
+> **Wave 2** closed the seven "no Spanish twin" rows by building all seven
+> Spanish articles, and closed the FAQ-layer gap by expanding
+> `/es/mudarse-a-elkhart/` from five questions to the approved six — now
+> possible because all six linked Spanish articles exist.
+>
+> This file is kept as the record of what diverged and how it was closed. If a
+> future rewrite touches one language only, re-open the affected row rather than
+> starting a new file.
 
 
 ## Elkhart
@@ -23,13 +33,13 @@ Word counts are of current body text (FAQ, signature, and disclaimer excluded).
 | `/blog/community/elkhart-indiana-industries-employers/` | REWRITTEN | `/blog/spanish/industrias-empleadores-elkhart-indiana/` | unchanged | **CLOSED - Wave 1** | 273 / 204 |
 | `/blog/community/elkhart-indiana-landmarks-amenities/` | NEW | `/blog/spanish/lugares-emblematicos-elkhart-indiana/` | unchanged | **CLOSED - Wave 1** | 263 / 159 |
 | `/blog/community/elkhart-indiana-location-nearby-cities/` | unchanged | `/blog/spanish/ubicacion-elkhart-indiana-ciudades-cercanas/` | unchanged | **in sync (neither changed)** | 128 / 158 |
-| `/blog/community/downtown-elkhart-indiana/` | NEW | — | NO SPANISH PAGE | **DIVERGED - no Spanish twin** | 258 / — |
-| `/blog/community/things-to-do-in-elkhart-indiana/` | NEW | — | NO SPANISH PAGE | **DIVERGED - no Spanish twin** | 488 / — |
-| `/blog/community/community-events-in-elkhart-indiana/` | NEW | — | NO SPANISH PAGE | **DIVERGED - no Spanish twin** | 248 / — |
-| `/blog/community/cost-of-living-in-elkhart-indiana/` | NEW | — | NO SPANISH PAGE | **DIVERGED - no Spanish twin** | 303 / — |
-| `/blog/community/moving-to-elkhart-indiana-from-out-of-state/` | NEW | — | NO SPANISH PAGE | **DIVERGED - no Spanish twin** | 291 / — |
-| `/blog/community/buying-an-older-home-in-elkhart-indiana/` | NEW | — | NO SPANISH PAGE | **DIVERGED - no Spanish twin** | 291 / — |
-| `/blog/community/working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana/` | NEW | — | NO SPANISH PAGE | **DIVERGED - no Spanish twin** | 327 / — |
+| `/blog/community/downtown-elkhart-indiana/` | NEW | `/blog/spanish/centro-de-elkhart-indiana/` | NEW | **CLOSED - Wave 2** | 258 / 284 |
+| `/blog/community/things-to-do-in-elkhart-indiana/` | NEW | `/blog/spanish/que-hacer-en-elkhart-indiana/` | NEW | **CLOSED - Wave 2** | 488 / 539 |
+| `/blog/community/community-events-in-elkhart-indiana/` | NEW | `/blog/spanish/eventos-comunitarios-elkhart-indiana/` | NEW | **CLOSED - Wave 2** | 248 / 284 |
+| `/blog/community/cost-of-living-in-elkhart-indiana/` | NEW | `/blog/spanish/costo-de-vida-elkhart-indiana/` | NEW | **CLOSED - Wave 2** | 303 / 342 |
+| `/blog/community/moving-to-elkhart-indiana-from-out-of-state/` | NEW | `/blog/spanish/mudarse-a-elkhart-indiana-desde-otro-estado/` | NEW | **CLOSED - Wave 2** | 291 / 304 |
+| `/blog/community/buying-an-older-home-in-elkhart-indiana/` | NEW | `/blog/spanish/comprar-casa-antigua-elkhart-indiana/` | NEW | **CLOSED - Wave 2** | 291 / 335 |
+| `/blog/community/working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana/` | NEW | `/blog/spanish/trabajar-en-la-industria-de-rv-y-comprar-casa-en-elkhart-indiana/` | NEW | **CLOSED - Wave 2** | 327 / 416 |
 
 ## Goshen
 
@@ -60,10 +70,10 @@ Word counts are of current body text (FAQ, signature, and disclaimer excluded).
 ## Summary
 
 - Pairs examined: **27**
-- Diverged: **7** (was 16)
+- Diverged: **0** (was 16)
   - English rewritten, Spanish twin not updated: **0** — closed by Wave 1
-  - English new, no Spanish page exists at all: **7** — open until Wave 2
-- In sync: **20**
+  - English new, no Spanish page exists at all: **0** — closed by Wave 2
+- In sync: **27**
 
 ## FAQ-layer divergence on the hub/pillar pages
 
@@ -72,20 +82,23 @@ The table above compares body copy only. The FAQ layer diverged separately:
 | Page pair | EN questions | ES questions | Note |
 |---|---|---|---|
 | `/living-in-elkhart/` ↔ `/es/viviendo-en-elkhart/` | 5 | 5 | counts match; EN set was revised to link the new articles |
-| `/moving-to-elkhart/` ↔ `/es/mudarse-a-elkhart/` | **6** | **5** | EN expanded to the approved 6-topic set; ES still the older 5 |
+| `/moving-to-elkhart/` ↔ `/es/mudarse-a-elkhart/` | **6** | **6** | in sync — ES expanded to the approved 6-topic set in Wave 2 |
 | `/living-in-goshen/` ↔ `/es/viviendo-en-goshen/` | 5 | 5 | in sync |
 | `/moving-to-goshen/` ↔ `/es/mudarse-a-goshen/` | 6 | 6 | in sync |
 
-All six FAQ links on the English `/moving-to-elkhart/` point to Elkhart articles
-with **no Spanish counterpart**, so the Spanish pillar cannot mirror that FAQ
-until those articles are adapted:
+All six FAQ links on the English `/moving-to-elkhart/` used to point at Elkhart
+articles with **no Spanish counterpart**, which is why the Spanish pillar could
+not mirror that FAQ. All six now have Spanish twins, and the Spanish pillar
+links to them:
 
-- `things-to-do-in-elkhart-indiana`
-- `community-events-in-elkhart-indiana`
-- `cost-of-living-in-elkhart-indiana`
-- `moving-to-elkhart-indiana-from-out-of-state`
-- `buying-an-older-home-in-elkhart-indiana`
-- `working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana`
+| English article | Spanish twin |
+|---|---|
+| `things-to-do-in-elkhart-indiana` | `que-hacer-en-elkhart-indiana` |
+| `community-events-in-elkhart-indiana` | `eventos-comunitarios-elkhart-indiana` |
+| `cost-of-living-in-elkhart-indiana` | `costo-de-vida-elkhart-indiana` |
+| `moving-to-elkhart-indiana-from-out-of-state` | `mudarse-a-elkhart-indiana-desde-otro-estado` |
+| `buying-an-older-home-in-elkhart-indiana` | `comprar-casa-antigua-elkhart-indiana` |
+| `working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana` | `trabajar-en-la-industria-de-rv-y-comprar-casa-en-elkhart-indiana` |
 
 ## Known factual contradictions between live twins — RESOLVED (Wave 1)
 
