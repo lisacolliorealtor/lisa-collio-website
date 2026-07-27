@@ -1,5 +1,5 @@
 # CLAUDE.md — lisa-collio-website
-**v1.1 (July 25, 2026)** — see the Revision Log at the end of this file.
+**v1.2 (July 27, 2026)** — see the Revision Log at the end of this file.
 Mirrors Lisa_Collio_Website_Master_Plan_v2_5 (July 2026). This file defers to the
 Master Plan; if they ever disagree, the Master Plan (highest version) wins.
 Regenerate this file whenever the plan version-bumps (one PR touches both).
@@ -137,6 +137,118 @@ runs the Master Plan §8 pre-publish gate before requesting Lisa's review.
 Build order (§14): Homepage EN → /es/ → buyers pair → communities → remaining
 pairs → market-stats → legal pages live before any form.
 
+## BUILD PROCEDURE — FAQ + AUTHORITY ARTICLE CLUSTERS (locked, July 2026)
+Folded in from `docs/approved-copy/V1_0_Bilingual_FAQ_Authority_Article_Playbook_Lisa_Collio.md`,
+which was distilled from the Elkhart/Goshen cluster build. Read that file for the
+worked examples; this section is the binding procedure. It applies to any page
+cluster following the "FAQ + full authority article + matching Spanish twin"
+pattern.
+
+### The five failures this exists to prevent
+Each rule below is here because the failure actually happened, more than once.
+
+1. **One source of truth: whatever is live on `main`.** Approved `.md` files in
+   the repo are the *authoring* record, not the *verification* record. Never
+   assume a source file and the live page agree — check. Content in a chat, a
+   knowledge panel, an unmerged branch, and `main` will silently diverge.
+2. **A merged PR ends its branch.** The moment a PR merges, that branch is done;
+   further work starts on a branch freshly cut from the new `main`. **Adopt
+   one-PR-per-unit-of-work** — open a PR as soon as a discrete piece of work is
+   ready rather than accumulating several units on a long-lived branch. This was
+   missed on PRs #55, #59, #60 and #61, each time leaving finished work invisible
+   on a branch whose PR had already merged.
+3. **Approved content is committed the moment it is used.** Any drafted content —
+   FAQ blocks, article bodies, source docs — goes into `docs/approved-copy/`
+   *before* it is used to build something live, never left as a chat upload. An
+   uncommitted upload is invisible to every future rebuild, audit run, and
+   session. One reintroduced a Fair Housing violation the repo's own approved
+   source had correctly barred. Treat "is this file actually in the repo?" as a
+   standing check whenever drafted content is used to build a live page.
+4. **A repeated fact needs one canonical home.** Correct the canonical source
+   first, then check every page against it — not against each other. The "13 vs
+   14 elementary schools" regression happened because a correction landed on a
+   page that was later retired while the approved source still said the old
+   number, so the wrong figure kept regenerating.
+5. **English and Spanish change together.** Both languages ship in the same PR,
+   or the Spanish adaptation is explicitly tracked before the English PR merges —
+   never an unscoped "we'll get to it." Rebuilding 16 English articles without
+   their twins left the Spanish pages not merely thin but *contradictory*, stating
+   different facts about the same subject. This is the most important rule here.
+6. **Verify, don't report.** For anything visible on a live page — FAQ content,
+   redirects, fact corrections — confirm by direct fetch against the real
+   production URL before calling it done. "I built X" has been wrong often enough
+   that a summary is not evidence.
+
+### The locked procedure, in order
+Do not skip a step because it feels redundant.
+
+1. **Scope and count both languages first.** Lock the FAQ question count per
+   page-type and the article count, and confirm the Spanish set matches 1:1,
+   before any content is written. (Site standard is 5; the Goshen and Elkhart
+   Moving pillars run 6.)
+2. **Gather facts from named sources, citing as you go.** No number enters an
+   article that is not already recorded, with its source, in the canonical facts
+   record.
+3. **Draft the English body.** Roughly 220–350 words for a spoke article,
+   1,500–2,500 for a pillar. Apply the compliance checklist below *while writing*.
+4. **Draft the English FAQ against that body.** Every fact in an answer must be
+   traceable to the body text on the same page.
+5. **Lisa approves the English.**
+6. **Draft the Spanish adaptation immediately, from the English body just
+   written.** Cultural adaptation per Volume 37, never translation. Check
+   neighbouring Spanish pages for house style first (e.g. "intermedia" vs
+   "secundaria" for middle schools). Carry every fact the English states unless
+   there is a specific reason not to — and record the reason.
+7. **Draft the Spanish FAQ against the Spanish body.**
+8. **Lisa approves the Spanish.**
+9. **Build both languages in the same PR.**
+10. **hreflang pair, sitemap entry, and `/sources/` + `/es/fuentes/` citations
+    ship in that same PR.** A page is not done without them. Backfilling these
+    later cost 120 pages of hreflang and 23 citation entries.
+11. **Verify before calling it done:** direct-fetch every changed page in both
+    languages; `npm run audit` (FAQ/schema equality, citation titles, hreflang
+    reciprocity, locked identity, Fair Housing terms); real HTTP status checks on
+    any redirect. `npm run hreflang -- --check` previews pairing without writing.
+12. **Only then move to the next cluster.**
+
+### Compliance checklist — run at drafting time, not at audit time
+- No "walkable," "walking distance," "walk to," or other ambulatory phrasing
+  anywhere (Fair Housing). This has regressed once; `npm run audit` now fails on
+  it. Idiomatic "walking into a negotiation" is fine.
+- No "Northern Indiana" as a standalone service-area descriptor — but do not
+  over-correct: plain geography ("the northern part of the state") is approved
+  per the 25 July 2026 decision recorded above.
+- Service area stated as "Goshen and Elkhart, Indiana" only.
+- ™ on every Method brand; ® on REALTOR®, NAR®, SRES®, RE/MAX®.
+- No specific business, restaurant, or shop names on evergreen pillar pages —
+  acceptable on dated blog articles carrying a verify-current-details disclaimer.
+- No school ranking or steering: name every applicable district, route confirmation
+  to that district's own enrollment office, never rank or recommend.
+- Agent-not-lender RESPA disclaimer present on any page discussing costs or
+  financing.
+- Every MLS or market figure carries its source and date and routes to
+  /market-stats/ as canonical rather than being restated elsewhere.
+- Composite-story disclaimer applies only to actual composites; real reviews stay
+  verbatim.
+- Locked seven-item footer stack intact and in order.
+
+### Track-record claims
+"120+ families · $20M+ closed · Top 20% of Elkhart County agents" is the standing
+site-wide claim. Period-specific rankings (e.g. a numbered mid-year placing)
+belong only on /market-stats/, dated — never as a homepage or footer claim.
+
+### Testing environment
+Until DNS cutover, `lisacolliorealtor.com` does not point at this codebase and
+testing against it returns false 404s. Test against the Netlify production URL
+(`https://lisacolliorealtor.netlify.app`). Deploy previews freeze at the commit
+they were last built from and stop updating once their PR closes — a stale preview
+usually means the PR is closed or the branch moved past what was built.
+
+### Git rename detection on large rewrites
+Do not trust it. Merging a branch that rewrites many articles at once has silently
+paired unrelated files (a cost-of-living article with a school-district page).
+Resolve such merges from an explicit hand-written slug map and verify each pairing.
+
 ## DESIGN & NAMING ADDENDUM (July 2026)
 Foundations shipped in PR 1. The design system lives in `assets/css/tokens.css`
 (tokens + self-hosted @font-face) and `assets/css/site.css` (components); shared
@@ -230,6 +342,27 @@ The script picks a template automatically by looking at the source photo
   (accents, ñ, ¿…?). Verify the font renders those glyphs before shipping.
 
 ## REVISION LOG
+
+**v1.2 — July 27, 2026** (Claude, at Lisa's direction)
+- Added the locked BUILD PROCEDURE section for FAQ + authority-article clusters,
+  folded in from the Bilingual FAQ + Authority Article Build Playbook: the five
+  recurring failures and their rules, the twelve-step procedure, the
+  drafting-time compliance checklist, and the practical notes on test
+  environment, track-record claims, and git rename detection.
+- Two rules from that section change day-to-day practice immediately:
+  **one-PR-per-unit-of-work** (a merged PR ends its branch; further work starts
+  from a fresh branch off the new `main`), and **approved content is committed to
+  `docs/approved-copy/` before it is used to build anything live**.
+- The four source documents used to build the FAQ work are now in
+  `docs/approved-copy/` rather than existing only as chat uploads: the EN and ES
+  FAQ Gap Blocks, the 5-article FAQ Replacement set, and the Playbook itself.
+- Corrected "walkable-feeling" in the newly committed EN FAQ Gap Blocks document
+  to match the live page, with a dated note. That document is the file that
+  reintroduced the phrasing; committing it uncorrected would have left the
+  regression armed.
+- NOT actioned, needs Lisa's decision: the Playbook also recommends bumping the
+  Master Plan to v2.9 with a pointer to it in §8, and creating a canonical
+  `docs/VERIFIED_FACTS.md`. Both are outside this file's scope.
 
 **v1.1 — July 25, 2026** (Claude, at Lisa's direction)
 - Footer stack updated from six to seven locked items: the content reliability
