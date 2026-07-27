@@ -56,6 +56,11 @@ Apart from the four you named, nothing here has been regenerated. Per step 2 of
 the instructions the rest are flagged for your sign-off on the replacement photo
 itself, not silently re-exported from the text-bearing versions.
 
+**The complete 49-slug / 196-file manifest is the appendix at the end of this
+document**, with the source photograph behind every one and a reshoot-vs-
+re-export grouping. Headline: **43 of the 45 need no reshoot** — their source is
+a clean decorative photo already in the repo.
+
 ## The audit list
 
 ### Community & city pillar pages — English (4)
@@ -134,18 +139,39 @@ other four in this group are unchanged and still need a decision.
 | `/blog/spanish/que-hacer-en-goshen-indiana/` | `que-hacer-en-goshen-indiana-header.jpg` | A | "Qué hacer en Goshen, Indiana" | Yes |
 | `/blog/spanish/trabajar-en-la-industria-de-rv-y-comprar-casa-en-elkhart-indiana/` | `trabajar-en-la-industria-de-rv-y-comprar-casa-en-elkhart-indiana-header.jpg` | A | "Trabajar en la industria de RV y comprar casa en Elkhart, Indiana" | Yes |
 
-### Needs your ruling — in a Buy/Sell folder but not linked from a hub (5)
+### The 5 that needed a ruling — now evidenced, confirm rather than decide (5)
 
-These five live under `/blog/buyers/`, `/blog/sellers/` or the Spanish set, but
-none of them is linked from `/buyers/`, `/sellers/`, `/es/compradores/` or
-`/es/vendedores/`. By the "linked from the four hub pages" test they fall
-outside the exception; by folder they look like they're inside it. What they
-actually appear to be: `buying-an-older-home-in-goshen-indiana` and its Spanish
-twin are Goshen relocation-cluster articles (Master Plan §11), and the other
-three are linked from the homepage and the Meet Lisa cluster.
+When this audit was first written these five looked genuinely undecidable: each
+sits in `/blog/buyers/`, `/blog/sellers/` or the Spanish set, but none is linked
+from `/buyers/`, `/sellers/`, `/es/compradores/` or `/es/vendedores/`. Checking
+the hubs' link counts against Master Plan §11 settles all five.
 
-**Default if you don't say otherwise: treat all five as out of scope** and add
-them to the reshoot list. Say the word and they move the other way instead.
+**The counting evidence.** `/blog/buyers/` holds 10 articles but `/buyers/` links
+8 — and §11 says the Buy a Home set is 8. `/blog/sellers/` holds 12 but
+`/sellers/` links 10 — and §11 says the Sell a Home set is 10. Each folder
+carries exactly two articles beyond its set. Those four extras are not orphans:
+**the homepage FAQ links exactly four articles, and three of them are these.**
+§11 describes the Home Page set as "hub FAQ section + 4 articles." The homepage's
+fourth is `what-makes-lisa-collio-different` — one of the four Lisa already
+directed be cleaned as out of scope.
+
+So the folder an article sits in reflects its topic, not its set. All five fall
+outside the Buyers/Sellers exception.
+
+| Page | What it actually belongs to | Question for Lisa |
+| --- | --- | --- |
+| `/blog/buyers/good-time-to-buy-home-goshen-indiana/` | **Home Page set** — one of the homepage FAQ's 4 articles | Confirm out of scope. Its 3 set-mates are already out; leaving this one in would split the homepage FAQ row across two visual styles. |
+| `/blog/sellers/sell-home-elkhart-indiana-best-price/` | **Home Page set** | Same. Note its Goshen twin `sell-home-goshen-indiana-best-price` **is** in scope (linked from `/sellers/`), so the pair will legitimately look different. Confirm that's acceptable, or add the Elkhart one to `/sellers/` and it becomes in-scope. |
+| `/blog/sellers/what-is-an-sres-seniors-real-estate-specialist/` | **Home Page set**, also linked from the Meet Lisa cluster | Confirm out of scope. |
+| `/blog/buyers/buying-an-older-home-in-goshen-indiana/` | **Goshen relocation cluster** — §11 names "Buying an Older Home" as one of its 6. Linked from `/moving-to-goshen/`. | Confirm out of scope. Its Elkhart sibling `buying-an-older-home-in-elkhart-indiana` is already out, as is the Spanish Elkhart twin. |
+| `/blog/spanish/comprar-casa-antigua-goshen-indiana/` | Spanish twin of the row above | Must match whatever the row above gets — English and Spanish change together. |
+
+**Recommendation: all five out of scope.** That is the reading the link counts,
+§11, and the already-cleaned homepage article all point to. The one genuine
+judgement call is the second row: whether `/sellers/` is *missing* a link to
+`sell-home-elkhart-indiana-best-price`. If it should be linked, say so and the
+right fix is to add the link — which changes its scope as a side effect, rather
+than deciding its image style in isolation.
 
 | Page | Image file | Template | Baked-in text | Cutout portrait |
 | --- | --- | --- | --- | --- |
@@ -223,3 +249,120 @@ on-page `<img>` height went 900 → 630 to match.
 - No other image regenerated, overwritten, or deleted.
 - No other page markup changed.
 - The Buyers/Sellers/Compradores/Vendedores pipeline is untouched.
+
+---
+
+# Appendix — the complete file manifest (49 slugs · 196 files)
+
+Every file still carrying baked-in text, with the source photograph each was
+built from. **Source photos were identified by pixel-matching the composite's
+photo region against every image in the repo**, with the cutout area masked out,
+not by guessing from filenames. `exact` means the match scored under 8 mean
+absolute difference per channel against a next-best of ~50 — i.e. the same
+photograph. `likely` (8–25) is the same photograph with a slightly different
+crop or re-encode.
+
+**This is what decides reshoot vs. re-export.** 43 of the 45 Template A images
+were built from clean, decorative photos already in `assets/images/homes-general/`
+— those need no reshoot at all, just a re-export through `generate_clean()`.
+The exceptions are called out in their own group below.
+
+
+## Group 1 — clean re-export, no reshoot needed (43 slugs · 164 files)
+
+Source is a decorative photo already in `assets/images/homes-general/`, with no
+text and no address in it. Re-exporting through `generate_clean()` gives a clean
+image with the same photograph — visually identical to what is live today minus
+the band and the cutout. **No new photography required for any of these.**
+
+| Slug | Page | Source photo | Match | Files |
+| --- | --- | --- | --- | --- |
+| `buying-an-older-home-in-elkhart-indiana` | `/blog/community/buying-an-older-home-in-elkhart-indiana/` | `homes-general/exterior-ranch-rear-leafy-yard-fence.jpg` | exact | `buying-an-older-home-in-elkhart-indiana-header.jpg` · `buying-an-older-home-in-elkhart-indiana-header.webp` · `buying-an-older-home-in-elkhart-indiana-thumb.jpg` · `buying-an-older-home-in-elkhart-indiana-thumb.webp` |
+| `buying-an-older-home-in-goshen-indiana` | `/blog/buyers/buying-an-older-home-in-goshen-indiana/` | `homes-general/exterior-covered-porch-framing-rural-view.jpg` | exact | `buying-an-older-home-in-goshen-indiana-header.jpg` · `buying-an-older-home-in-goshen-indiana-header.webp` · `buying-an-older-home-in-goshen-indiana-thumb.jpg` · `buying-an-older-home-in-goshen-indiana-thumb.webp` |
+| `centro-de-elkhart-indiana` | `/blog/spanish/centro-de-elkhart-indiana/` | `homes-general/twilight-exterior-split-level-green-shutters.jpg` | exact | `centro-de-elkhart-indiana-header.jpg` · `centro-de-elkhart-indiana-header.webp` · `centro-de-elkhart-indiana-thumb.jpg` · `centro-de-elkhart-indiana-thumb.webp` |
+| `community-events-in-elkhart-indiana` | `/blog/community/community-events-in-elkhart-indiana/` | `homes-general/exterior-backyard-privacy-fence-chairs.jpg` | likely | `community-events-in-elkhart-indiana-header.jpg` · `community-events-in-elkhart-indiana-header.webp` · `community-events-in-elkhart-indiana-thumb.jpg` · `community-events-in-elkhart-indiana-thumb.webp` |
+| `community-events-in-goshen-indiana` | `/blog/community/community-events-in-goshen-indiana/` | `homes-general/exterior-two-story-rear-covered-porch.jpg` | likely | `community-events-in-goshen-indiana-header.jpg` · `community-events-in-goshen-indiana-header.webp` · `community-events-in-goshen-indiana-thumb.jpg` · `community-events-in-goshen-indiana-thumb.webp` |
+| `comprar-casa-antigua-elkhart-indiana` | `/blog/spanish/comprar-casa-antigua-elkhart-indiana/` | `homes-general/exterior-ranch-rear-leafy-yard-fence.jpg` | likely | `comprar-casa-antigua-elkhart-indiana-header.jpg` · `comprar-casa-antigua-elkhart-indiana-header.webp` · `comprar-casa-antigua-elkhart-indiana-thumb.jpg` · `comprar-casa-antigua-elkhart-indiana-thumb.webp` |
+| `comprar-casa-antigua-goshen-indiana` | `/blog/spanish/comprar-casa-antigua-goshen-indiana/` | `homes-general/exterior-red-wood-deck-backyard.jpg` | exact | `comprar-casa-antigua-goshen-indiana-header.jpg` · `comprar-casa-antigua-goshen-indiana-header.webp` · `comprar-casa-antigua-goshen-indiana-thumb.jpg` · `comprar-casa-antigua-goshen-indiana-thumb.webp` |
+| `cost-of-living-in-elkhart-indiana` | `/blog/community/cost-of-living-in-elkhart-indiana/` | `homes-general/interior-kitchen-oak-cabinets-open-layout.jpg` | exact | `cost-of-living-in-elkhart-indiana-header.jpg` · `cost-of-living-in-elkhart-indiana-header.webp` · `cost-of-living-in-elkhart-indiana-thumb.jpg` · `cost-of-living-in-elkhart-indiana-thumb.webp` |
+| `cost-of-living-in-goshen-indiana` | `/blog/community/cost-of-living-in-goshen-indiana/` | `homes-general/exterior-single-story-ranch-driveway.jpg` | likely | `cost-of-living-in-goshen-indiana-header.jpg` · `cost-of-living-in-goshen-indiana-header.webp` · `cost-of-living-in-goshen-indiana-thumb.jpg` · `cost-of-living-in-goshen-indiana-thumb.webp` |
+| `costo-de-vida-elkhart-indiana` | `/blog/spanish/costo-de-vida-elkhart-indiana/` | `homes-general/exterior-single-story-ranch-driveway.jpg` | likely | `costo-de-vida-elkhart-indiana-header.jpg` · `costo-de-vida-elkhart-indiana-header.webp` · `costo-de-vida-elkhart-indiana-thumb.jpg` · `costo-de-vida-elkhart-indiana-thumb.webp` |
+| `costo-de-vida-goshen-indiana` | `/blog/spanish/costo-de-vida-goshen-indiana/` | `homes-general/exterior-backyard-playset-shed-winter.jpg` | exact | `costo-de-vida-goshen-indiana-header.jpg` · `costo-de-vida-goshen-indiana-header.webp` · `costo-de-vida-goshen-indiana-thumb.jpg` · `costo-de-vida-goshen-indiana-thumb.webp` |
+| `downtown-elkhart-indiana` | `/blog/community/downtown-elkhart-indiana/` | `homes-general/exterior-home-side-wood-deck-lawn.jpg` | exact | `downtown-elkhart-indiana-header.jpg` · `downtown-elkhart-indiana-header.webp` · `downtown-elkhart-indiana-thumb.jpg` · `downtown-elkhart-indiana-thumb.webp` |
+| `downtown-goshen-indiana` | `/blog/community/downtown-goshen-indiana/` | `homes-general/exterior-wooded-backyard-swing-set-fire-pit.jpg` | exact | `downtown-goshen-indiana-header.jpg` · `downtown-goshen-indiana-header.webp` · `downtown-goshen-indiana-thumb.jpg` · `downtown-goshen-indiana-thumb.webp` |
+| `elkhart-indiana-industries-employers` | `/blog/community/elkhart-indiana-industries-employers/` | `homes-general/exterior-open-acreage-field-trees.jpg` | exact | `elkhart-indiana-industries-employers-header.jpg` · `elkhart-indiana-industries-employers-header.webp` · `elkhart-indiana-industries-employers-thumb.jpg` · `elkhart-indiana-industries-employers-thumb.webp` |
+| `elkhart-indiana-landmarks-amenities` | `/blog/community/elkhart-indiana-landmarks-amenities/` | `homes-general/exterior-backyard-shrub-lawn-trees.jpg` | exact | `elkhart-indiana-landmarks-amenities-header.jpg` · `elkhart-indiana-landmarks-amenities-header.webp` · `elkhart-indiana-landmarks-amenities-thumb.jpg` · `elkhart-indiana-landmarks-amenities-thumb.webp` |
+| `elkhart-indiana-school-districts` | `/blog/community/elkhart-indiana-school-districts/` | `homes-general/exterior-large-lawn-mature-trees.jpg` | exact | `elkhart-indiana-school-districts-header.jpg` · `elkhart-indiana-school-districts-header.webp` · `elkhart-indiana-school-districts-thumb.jpg` · `elkhart-indiana-school-districts-thumb.webp` |
+| `eventos-comunitarios-elkhart-indiana` | `/blog/spanish/eventos-comunitarios-elkhart-indiana/` | `homes-general/exterior-covered-brick-porch-hanging-chair.jpg` | exact | `eventos-comunitarios-elkhart-indiana-header.jpg` · `eventos-comunitarios-elkhart-indiana-header.webp` · `eventos-comunitarios-elkhart-indiana-thumb.jpg` · `eventos-comunitarios-elkhart-indiana-thumb.webp` |
+| `eventos-comunitarios-goshen-indiana` | `/blog/spanish/eventos-comunitarios-goshen-indiana/` | `homes-general/exterior-backyard-privacy-fence-chairs.jpg` | exact | `eventos-comunitarios-goshen-indiana-header.jpg` · `eventos-comunitarios-goshen-indiana-header.webp` · `eventos-comunitarios-goshen-indiana-thumb.jpg` · `eventos-comunitarios-goshen-indiana-thumb.webp` |
+| `good-time-to-buy-home-goshen-indiana` | `/blog/buyers/good-time-to-buy-home-goshen-indiana/` | `homes-general/exterior-covered-brick-porch-hanging-chair.jpg` | exact | `good-time-to-buy-home-goshen-indiana-header.jpg` · `good-time-to-buy-home-goshen-indiana-header.webp` · `good-time-to-buy-home-goshen-indiana-thumb.jpg` · `good-time-to-buy-home-goshen-indiana-thumb.webp` |
+| `goshen-indiana-industries-employers` | `/blog/community/goshen-indiana-industries-employers/` | `homes-general/exterior-red-wood-deck-backyard.jpg` | exact | `goshen-indiana-industries-employers-header.jpg` · `goshen-indiana-industries-employers-header.webp` · `goshen-indiana-industries-employers-thumb.jpg` · `goshen-indiana-industries-employers-thumb.webp` |
+| `goshen-indiana-landmarks-amenities` | `/blog/community/goshen-indiana-landmarks-amenities/` | `homes-general/interior-living-room-stone-fireplace-wall.jpg` | exact | `goshen-indiana-landmarks-amenities-header.jpg` · `goshen-indiana-landmarks-amenities-header.webp` · `goshen-indiana-landmarks-amenities-thumb.jpg` · `goshen-indiana-landmarks-amenities-thumb.webp` |
+| `goshen-indiana-school-district` | `/blog/community/goshen-indiana-school-district/` | `homes-general/exterior-home-rear-deck-stairs-fenced.jpg` | likely | `goshen-indiana-school-district-header.jpg` · `goshen-indiana-school-district-header.webp` · `goshen-indiana-school-district-thumb.jpg` · `goshen-indiana-school-district-thumb.webp` |
+| `industria-rv-comprar-casa-goshen-indiana` | `/blog/spanish/industria-rv-comprar-casa-goshen-indiana/` | `homes-general/exterior-backyard-deck-fenced-trees.jpg` | exact | `industria-rv-comprar-casa-goshen-indiana-header.jpg` · `industria-rv-comprar-casa-goshen-indiana-header.webp` · `industria-rv-comprar-casa-goshen-indiana-thumb.jpg` · `industria-rv-comprar-casa-goshen-indiana-thumb.webp` |
+| `living-in-elkhart-guide` | `/living-in-elkhart/` | `homes-general/exterior-covered-brick-porch-hanging-chair.jpg` | exact | `living-in-elkhart-guide-header.jpg` · `living-in-elkhart-guide-header.webp` |
+| `living-in-goshen-guide` | `/living-in-goshen/` | `homes-general/hero-twilight-1.jpg` | exact | `living-in-goshen-guide-header.jpg` · `living-in-goshen-guide-header.webp` · `living-in-goshen-guide-thumb.jpg` · `living-in-goshen-guide-thumb.webp` |
+| `moving-to-elkhart` | `/moving-to-elkhart/` | `homes-general/twilight-exterior-two-story-brick-garage.jpg` | exact | `moving-to-elkhart-header.jpg` · `moving-to-elkhart-header.webp` |
+| `moving-to-elkhart-indiana-from-out-of-state` | `/blog/community/moving-to-elkhart-indiana-from-out-of-state/` | `homes-general/hero-twilight-2.jpg` | exact | `moving-to-elkhart-indiana-from-out-of-state-header.jpg` · `moving-to-elkhart-indiana-from-out-of-state-header.webp` · `moving-to-elkhart-indiana-from-out-of-state-thumb.jpg` · `moving-to-elkhart-indiana-from-out-of-state-thumb.webp` |
+| `mudarse-a-elkhart` | `/es/mudarse-a-elkhart/` | `homes-general/twilight-exterior-two-story-brick-garage.jpg` | exact | `mudarse-a-elkhart-header.jpg` · `mudarse-a-elkhart-header.webp` |
+| `mudarse-a-elkhart-indiana-desde-otro-estado` | `/blog/spanish/mudarse-a-elkhart-indiana-desde-otro-estado/` | `homes-general/twilight-exterior-two-story-brick-garage.jpg` | exact | `mudarse-a-elkhart-indiana-desde-otro-estado-header.jpg` · `mudarse-a-elkhart-indiana-desde-otro-estado-header.webp` · `mudarse-a-elkhart-indiana-desde-otro-estado-thumb.jpg` · `mudarse-a-elkhart-indiana-desde-otro-estado-thumb.webp` |
+| `mudarse-a-goshen-desde-otro-estado` | `/blog/spanish/mudarse-a-goshen-desde-otro-estado/` | `homes-general/exterior-home-rear-deck-stairs-fenced.jpg` | exact | `mudarse-a-goshen-desde-otro-estado-header.jpg` · `mudarse-a-goshen-desde-otro-estado-header.webp` · `mudarse-a-goshen-desde-otro-estado-thumb.jpg` · `mudarse-a-goshen-desde-otro-estado-thumb.webp` |
+| `que-hacer-en-elkhart-indiana` | `/blog/spanish/que-hacer-en-elkhart-indiana/` | `homes-general/exterior-large-lawn-mature-trees.jpg` | exact | `que-hacer-en-elkhart-indiana-header.jpg` · `que-hacer-en-elkhart-indiana-header.webp` · `que-hacer-en-elkhart-indiana-thumb.jpg` · `que-hacer-en-elkhart-indiana-thumb.webp` |
+| `que-hacer-en-goshen-indiana` | `/blog/spanish/que-hacer-en-goshen-indiana/` | `homes-general/exterior-backyard-shrub-lawn-trees.jpg` | exact | `que-hacer-en-goshen-indiana-header.jpg` · `que-hacer-en-goshen-indiana-header.webp` · `que-hacer-en-goshen-indiana-thumb.jpg` · `que-hacer-en-goshen-indiana-thumb.webp` |
+| `rv-industry-buying-a-home-goshen-indiana` | `/blog/relocation/rv-industry-buying-a-home-goshen-indiana/` | `homes-general/exterior-ranch-rear-leafy-yard-fence.jpg` | exact | `rv-industry-buying-a-home-goshen-indiana-header.jpg` · `rv-industry-buying-a-home-goshen-indiana-header.webp` · `rv-industry-buying-a-home-goshen-indiana-thumb.jpg` · `rv-industry-buying-a-home-goshen-indiana-thumb.webp` |
+| `sell-home-elkhart-indiana-best-price` | `/blog/sellers/sell-home-elkhart-indiana-best-price/` | `homes-general/interior-kitchen-dark-cabinets-island.jpg` | exact | `sell-home-elkhart-indiana-best-price-header.jpg` · `sell-home-elkhart-indiana-best-price-header.webp` · `sell-home-elkhart-indiana-best-price-thumb.jpg` · `sell-home-elkhart-indiana-best-price-thumb.webp` |
+| `things-to-do-in-elkhart-indiana` | `/blog/community/things-to-do-in-elkhart-indiana/` | `homes-general/exterior-backyard-deck-fenced-trees.jpg` | exact | `things-to-do-in-elkhart-indiana-header.jpg` · `things-to-do-in-elkhart-indiana-header.webp` · `things-to-do-in-elkhart-indiana-thumb.jpg` · `things-to-do-in-elkhart-indiana-thumb.webp` |
+| `things-to-do-in-goshen-indiana` | `/blog/community/things-to-do-in-goshen-indiana/` | `homes-general/exterior-large-lawn-mature-trees.jpg` | exact | `things-to-do-in-goshen-indiana-header.jpg` · `things-to-do-in-goshen-indiana-header.webp` · `things-to-do-in-goshen-indiana-thumb.jpg` · `things-to-do-in-goshen-indiana-thumb.webp` |
+| `trabajar-en-la-industria-de-rv-y-comprar-casa-en-elkhart-indiana` | `/blog/spanish/trabajar-en-la-industria-de-rv-y-comprar-casa-en-elkhart-indiana/` | `homes-general/exterior-home-side-wood-deck-lawn.jpg` | exact | `trabajar-en-la-industria-de-rv-y-comprar-casa-en-elkhart-indiana-header.jpg` · `trabajar-en-la-industria-de-rv-y-comprar-casa-en-elkhart-indiana-header.webp` · `trabajar-en-la-industria-de-rv-y-comprar-casa-en-elkhart-indiana-thumb.jpg` · `trabajar-en-la-industria-de-rv-y-comprar-casa-en-elkhart-indiana-thumb.webp` |
+| `viviendo-en-elkhart` | `/es/viviendo-en-elkhart/` | `homes-general/exterior-covered-brick-porch-hanging-chair.jpg` | exact | `viviendo-en-elkhart-header.jpg` · `viviendo-en-elkhart-header.webp` |
+| `viviendo-en-goshen` | `/es/viviendo-en-goshen/` | `homes-general/hero-twilight-1.jpg` | exact | `viviendo-en-goshen-header.jpg` · `viviendo-en-goshen-header.webp` · `viviendo-en-goshen-thumb.jpg` · `viviendo-en-goshen-thumb.webp` |
+| `what-is-an-sres-seniors-real-estate-specialist` | `/blog/sellers/what-is-an-sres-seniors-real-estate-specialist/` | `homes-general/interior-kitchen-cherry-cabinets-stainless.jpg` | exact | `what-is-an-sres-seniors-real-estate-specialist-header.jpg` · `what-is-an-sres-seniors-real-estate-specialist-header.webp` · `what-is-an-sres-seniors-real-estate-specialist-thumb.jpg` · `what-is-an-sres-seniors-real-estate-specialist-thumb.webp` |
+| `what-is-elkhart-indiana-known-for` | `/blog/community/what-is-elkhart-indiana-known-for/` | `homes-general/exterior-two-story-rear-covered-porch.jpg` | exact | `what-is-elkhart-indiana-known-for-header.jpg` · `what-is-elkhart-indiana-known-for-header.webp` · `what-is-elkhart-indiana-known-for-thumb.jpg` · `what-is-elkhart-indiana-known-for-thumb.webp` |
+| `what-is-goshen-indiana-known-for` | `/blog/community/what-is-goshen-indiana-known-for/` | `homes-general/exterior-backyard-playset-shed-winter.jpg` | exact | `what-is-goshen-indiana-known-for-header.jpg` · `what-is-goshen-indiana-known-for-header.webp` · `what-is-goshen-indiana-known-for-thumb.jpg` · `what-is-goshen-indiana-known-for-thumb.webp` |
+| `working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana` | `/blog/community/working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana/` | `homes-general/exterior-backyard-lawn-metal-shed.jpg` | exact | `working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana-header.jpg` · `working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana-header.webp` · `working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana-thumb.jpg` · `working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana-thumb.webp` |
+
+## Group 2 — people photos, re-export with framing to check (4 slugs · 24 files)
+
+The rest of the Meet Lisa / brand group. Same treatment as the four already
+cleaned: re-export from the source photo, but the framing needs a look because
+these are people photos and two of the four sources were matched only
+approximately (the original composites used a manual crop that has to be
+re-derived).
+
+| Slug | Page | Source photo | Match | Files |
+| --- | --- | --- | --- | --- |
+| `does-lisa-collio-speak-spanish` | `/blog/community/does-lisa-collio-speak-spanish/` | `lisa/lisa-collio-headshot-red-top.jpg` | likely | `does-lisa-collio-speak-spanish-header.jpg` · `does-lisa-collio-speak-spanish-header.webp` · `does-lisa-collio-speak-spanish-og.jpg` · `does-lisa-collio-speak-spanish-og.webp` · `does-lisa-collio-speak-spanish-thumb.jpg` · `does-lisa-collio-speak-spanish-thumb.webp` |
+| `lisa-collio-helps-seniors-families-downsize` | `/blog/community/lisa-collio-helps-seniors-families-downsize/` | `client-general/clients-new-home-keys-newborn.jpg` | uncertain | `lisa-collio-helps-seniors-families-downsize-header.jpg` · `lisa-collio-helps-seniors-families-downsize-header.webp` · `lisa-collio-helps-seniors-families-downsize-og.jpg` · `lisa-collio-helps-seniors-families-downsize-og.webp` · `lisa-collio-helps-seniors-families-downsize-thumb.jpg` · `lisa-collio-helps-seniors-families-downsize-thumb.webp` |
+| `moving-to-goshen-indiana-from-out-of-state` | `/blog/relocation/moving-to-goshen-indiana-from-out-of-state/` | `lisa/lisa-collio-for-sale-sign-summer.jpg` | exact | `moving-to-goshen-indiana-from-out-of-state-header.jpg` · `moving-to-goshen-indiana-from-out-of-state-header.webp` · `moving-to-goshen-indiana-from-out-of-state-og.jpg` · `moving-to-goshen-indiana-from-out-of-state-og.webp` · `moving-to-goshen-indiana-from-out-of-state-thumb.jpg` · `moving-to-goshen-indiana-from-out-of-state-thumb.webp` |
+| `why-lisa-collio-became-real-estate-agent` | `/blog/community/why-lisa-collio-became-real-estate-agent/` | `lisa/lisa-collio-holiday-lights-portrait-2.jpg` | exact | `why-lisa-collio-became-real-estate-agent-header.jpg` · `why-lisa-collio-became-real-estate-agent-header.webp` · `why-lisa-collio-became-real-estate-agent-og.jpg` · `why-lisa-collio-became-real-estate-agent-og.webp` · `why-lisa-collio-became-real-estate-agent-thumb.jpg` · `why-lisa-collio-became-real-estate-agent-thumb.webp` |
+
+## Group 3 — needs your decision on the photograph itself (2 slugs · 8 files)
+
+**These two are the only ones that may need a different photo, and there are two
+separate issues.**
+
+1. **They are the only two out-of-scope images not built from
+   `homes-general/`.** Their source sits in `assets/images/homes-goshen/` — an
+   address folder, i.e. a real identifiable sold property. The folder README
+   records seller consent and broker approval on file, and the pages use plain
+   decorative framing with no address and no "sold" claim, which is the
+   conservative reading CLAUDE.md asks for. It is still worth your eye, because
+   876 IAC 8-1-8(f) governs presenting a specific property, and a city pillar
+   page is a more prominent placement than a decorative slot.
+
+2. **The same file is filed under two different addresses.** Byte-identical
+   (md5 `499fdb0f…`) in both
+   `homes-goshen/22893-county-road-42-goshen-in-46526/` and
+   `homes-goshen/715-lincolnway-e-goshen-in-46526/`. One of those is wrong, and
+   since the folder name *is* the consent record, it is not currently possible
+   to say which seller's consent covers this photo. Worth resolving on its own
+   merits, separately from the image standard.
+
+The simplest fix for both pages is to re-export from a `homes-general/` photo
+instead, which sidesteps the question entirely — but that is a change of
+photograph, so it is your call, not mine.
+
+| Slug | Page | Source photo | Match | Files |
+| --- | --- | --- | --- | --- |
+| `moving-to-goshen` | `/moving-to-goshen/` | `homes-goshen/<address>/001_dsc02300.jpg-twilight_551.jpg` | exact | `moving-to-goshen-header.jpg` · `moving-to-goshen-header.webp` · `moving-to-goshen-thumb.jpg` · `moving-to-goshen-thumb.webp` |
+| `mudarse-a-goshen` | `/es/mudarse-a-goshen/` | `homes-goshen/<address>/001_dsc02300.jpg-twilight_551.jpg` | exact | `mudarse-a-goshen-header.jpg` · `mudarse-a-goshen-header.webp` · `mudarse-a-goshen-thumb.jpg` · `mudarse-a-goshen-thumb.webp` |
