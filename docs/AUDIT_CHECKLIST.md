@@ -552,3 +552,20 @@ with HTML entities decoded (`&amp;` vs `&`) and with the space that tag-strippin
 leaves before punctuation removed, and treat one side being a prefix of the other
 as a match — schema answers carry no links, so they sometimes spell out a URL the
 visible copy renders as an anchor.
+
+### hreflang pairing — `npm run hreflang`
+
+The EN/ES pair map lives in `content/hreflang-pairs.json` and is applied by
+`hreflang.js`, which writes the three-tag block (en, es, x-default → EN) onto
+both halves of every pair. It is idempotent; `--check` reports without writing.
+
+Pairs are data, not inference — derived from the tags already live on the site
+plus the approved source documents that carry the same article set in both
+languages (`communities-*.md`, `sell-set*.md`, `meet-lisa-set*.md`).
+
+`npm run audit` enforces three things as hard errors: every page in the map
+carries its tags, both halves agree (a one-sided annotation is ignored by
+Google), and every page is either in the map or in the audit's exemption list.
+**Adding a page without a twin means adding it to that list** — the exemption is
+a deliberate, reviewable entry, never a silent omission. When a Spanish
+adaptation is written, move the page from the exemption list into the pair map.

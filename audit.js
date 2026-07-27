@@ -62,6 +62,8 @@ const decode = (s) =>
    .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, " ");
 // Stripping an inline <a> leaves a space before punctuation ("livability , not"),
 // so tidy that before comparing.
+const fileFor2 = (url) =>
+  path.join(ROOT, url === "/" ? "index.html" : path.join(url.replace(/^\/|\/$/g, ""), "index.html"));
 const strip = (s) =>
   decode(s.replace(/<[^>]+>/g, " "))
     .replace(/\s+/g, " ")
@@ -214,13 +216,68 @@ const sameText = (a, b) => {
   }
 }
 
-/* 10. hreflang pairing (warn) --------------------------------------------- */
+/* 10. hreflang pairing (hard) -------------------------------------------- */
 {
+  // Pages with no twin in the other language. Each is here because the twin does
+  // not exist, not because the tag was forgotten — see
+  // docs/EN_ES_DIVERGENCE_INVENTORY.md for the ones that are meant to gain one.
+  const exempt = new Set([
+    "/404/",
+    // Section indexes with no per-language counterpart
+    "/blog/buyers/", "/blog/sellers/", "/blog/community/",
+    "/blog/relocation/", "/blog/market-updates/",
+    // English-only at launch (documented exception)
+    "/blog/market-updates/elkhart-county-mid-year-market-update-2026/",
+    // English Elkhart articles awaiting Spanish adaptations
+    "/blog/community/downtown-elkhart-indiana/",
+    "/blog/community/things-to-do-in-elkhart-indiana/",
+    "/blog/community/community-events-in-elkhart-indiana/",
+    "/blog/community/cost-of-living-in-elkhart-indiana/",
+    "/blog/community/moving-to-elkhart-indiana-from-out-of-state/",
+    "/blog/community/buying-an-older-home-in-elkhart-indiana/",
+    "/blog/community/working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana/",
+    // English buyer/seller articles with no Spanish counterpart written
+    "/blog/buyers/are-homes-goshen-indiana-competitive-to-buy/",
+    "/blog/buyers/elkhart-indiana-good-place-invest-real-estate/",
+    "/blog/buyers/how-to-compete-with-other-buyers-elkhart-indiana/",
+    "/blog/buyers/what-makes-goshen-indiana-desirable-place-to-live/",
+    "/blog/buyers/what-to-look-for-buying-home-elkhart-indiana/",
+    "/blog/buyers/what-to-prioritize-buying-house-goshen-indiana/",
+    "/blog/buyers/why-buy-home-elkhart-indiana-lisa-collio/",
+    "/blog/buyers/why-buy-home-goshen-indiana-lisa-collio/",
+    // Spanish-only buyer cluster (cluster-1-compradores), no English twin
+    "/blog/spanish/como-comprar-una-casa-en-indiana/",
+    "/blog/spanish/costos-de-cierre-que-son/",
+    "/blog/spanish/cuanto-dinero-necesito-para-comprar-una-casa/",
+    "/blog/spanish/errores-comunes-al-comprar-casa/",
+    "/blog/spanish/no-se-si-califico-credito-y-preaprobacion/",
+    "/blog/spanish/prestamos-fha-y-usda-en-espanol/",
+    "/blog/spanish/renta-o-compra-como-decidir/",
+  ]);
+  const pairs = JSON.parse(fs.readFileSync(path.join(ROOT, "content", "hreflang-pairs.json"), "utf8"));
+  const paired = new Set(pairs.flatMap((p) => [p.en, p.es]));
   for (const f of pageFiles) {
+    const u = urlOf(f);
     const s = read(f);
-    const isEs = /<html lang="es"/.test(s);
-    const has = /rel="alternate" hreflang="(en|es)"/.test(s);
-    if (!has) warn("hreflang", `${urlOf(f)} has no hreflang pair (${isEs ? "ES" : "EN"})`);
+    const has = /rel="alternate" hreflang="es"/.test(s) && /rel="alternate" hreflang="en"/.test(s);
+    if (paired.has(u)) {
+      if (!has) err("hreflang", `${u} is in the pair map but carries no alternate tags (run npm run hreflang)`);
+    } else if (!exempt.has(u)) {
+      err("hreflang", `${u} is neither paired nor listed as exempt — add a pair or document why it has no twin`);
+    }
+  }
+  // Both halves of a pair must agree, or Google ignores the annotation.
+  for (const { en, es } of pairs) {
+    for (const url of [en, es]) {
+      const f = fileFor2(url);
+      if (!fs.existsSync(f)) continue;
+      const s = read(f);
+      const e = s.match(/hreflang="en" href="https:\/\/lisacolliorealtor\.com([^"]+)"/);
+      const p = s.match(/hreflang="es" href="https:\/\/lisacolliorealtor\.com([^"]+)"/);
+      if (!e || !p) continue;
+      if (e[1] !== en || p[1] !== es)
+        err("hreflang", `${url} points at ${e[1]} / ${p[1]}, expected ${en} / ${es} (not reciprocal)`);
+    }
   }
 }
 

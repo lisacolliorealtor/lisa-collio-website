@@ -9,7 +9,8 @@
     "check": "node build.js --check",
     "build:reviews": "node build-reviews.js",
     "build:all": "node build.js && node build-reviews.js",
-    "audit": "node audit.js"
+    "audit": "node audit.js",
+    "hreflang": "node hreflang.js"
   },
   "license": "UNLICENSED"
 }
