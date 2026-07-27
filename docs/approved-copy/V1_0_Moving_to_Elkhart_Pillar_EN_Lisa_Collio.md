@@ -94,7 +94,7 @@ Worth knowing honestly: the RV industry's strength is also a form of exposure. I
 
 Three public school districts serve sections of Elkhart, and which one applies to a given address is not something a city or county boundary tells you on its own.
 
-**Elkhart Community Schools** is the largest, covering most of the city and the more populated northwest part of the county — Elkhart High School and its Freshman Division, three middle schools, and fourteen elementary schools.
+**Elkhart Community Schools** is the largest, covering most of the city and the more populated northwest part of the county — Elkhart High School and its Freshman Division, three middle schools, and thirteen elementary schools.
 
 **Concord Community Schools** serves the southeast side of the city, and its boundary also reaches into northwest Goshen — Dunlap sits between the two cities, and the district line doesn't follow the city line.
 

@@ -11,7 +11,7 @@
 Elkhart es la ciudad más grande del condado de Elkhart y se encuentra en el centro de la industria de fabricación de casas rodantes (RV) de Estados Unidos — frecuentemente llamada la Capital Mundial de las RV. Varios fabricantes importantes tienen su sede aquí. → Lea el artículo completo
 
 **2. ¿Qué distrito escolar sirve a Elkhart, Indiana?**
-Elkhart Community Schools atiende a la ciudad, con 13 escuelas primarias, 3 escuelas secundarias, y Elkhart High School, que opera como un sistema de dos campus. El distrito también atiende a Bristol y Simonton Lake. → Lea el artículo completo
+Tres distritos sirven distintas secciones de la ciudad — Elkhart Community Schools, Concord Community Schools y Baugo Community Schools. Una dirección postal de Elkhart no determina cuál corresponde; la asignación depende de la dirección específica y debe confirmarse con la oficina de inscripciones de ese distrito. → Lea el artículo completo
 
 **3. ¿Qué industrias y empleadores hay en Elkhart?**
 Elkhart es hogar de fabricantes importantes de RV, incluyendo Thor Industries, Forest River, y Lippert Components. El condado de Elkhart produce la mayoría de las RV fabricadas en Estados Unidos. → Lea el artículo completo
@@ -40,13 +40,19 @@ Para cualquier persona que se reubique por trabajo en la industria de RV, o simp
 
 # ARTÍCULO 2: ¿Qué distrito escolar sirve a Elkhart, Indiana?
 
-Elkhart está atendida por Elkhart Community Schools, uno de los distritos escolares más grandes de la región.
+*Corregido en julio de 2026 — sincronizado con la versión publicada. El borrador original nombraba a Elkhart Community Schools como el único distrito que sirve a Elkhart, lo cual contradecía el dato de los tres distritos publicado en /es/mudarse-a-elkhart/ y documentado en /es/fuentes/. El número de primarias se corrigió de 13 a trece, verificado con elkhart.k12.in.us y contrastado con la página del distrito en Wikipedia. "Intermedias" es el término estándar para middle schools en el contenido en español.*
 
-El distrito incluye 13 escuelas primarias, 3 escuelas secundarias, y Elkhart High School — que opera como un sistema de dos campus, con un Campus Principal y una División de Primer Año separada. El distrito también incluye campus alternativos y de carrera técnica. La matrícula total supera los 11,000 estudiantes.
+Tres distritos escolares públicos sirven distintas secciones de Elkhart, Indiana — y saber cuál corresponde a una dirección específica no es algo que el límite de la ciudad le diga por sí solo.
 
-Elkhart Community Schools atiende no solamente a la ciudad de Elkhart, sino también a las comunidades cercanas de Bristol y Simonton Lake.
+**Elkhart Community Schools** es el más grande, y cubre la mayor parte de la ciudad y la zona noroeste más poblada del condado. Opera Elkhart High School — que funciona como un sistema de dos campus, con un Campus Principal y una División de Primer Año separada — además de tres escuelas intermedias, trece escuelas primarias, y campus alternativos y de carrera técnica. La matrícula total supera los 11,000 estudiantes, y el distrito también atiende a las comunidades cercanas de Bristol y Simonton Lake.
 
-Como con cualquier búsqueda escolar, la opción correcta depende de las necesidades y prioridades de su propia familia. Los recursos del distrito son el mejor punto de partida para límites de inscripción actuales y detalles de programas — este artículo busca ayudarle a saber qué existe, no recomendar una escuela sobre otra.
+**Concord Community Schools** sirve el lado sureste de la ciudad, y su límite también llega hasta el noroeste de Goshen — Dunlap queda entre las dos ciudades, y la línea del distrito no sigue la línea de la ciudad.
+
+**Baugo Community Schools**, con oficinas justo a las afueras de la ciudad en 29125 County Road 22 West, sirve el lado suroeste de Elkhart y parte del centro-oeste del condado, y alimenta las escuelas Jimtown — primaria, intermedia, secundaria y preparatoria. Esto es fácil de pasar por alto, porque los materiales del propio Baugo no publican un mapa público de límites — pero es real: cada año, familias con dirección postal de Elkhart quedan asignadas a las escuelas Jimtown.
+
+En otras palabras, una dirección postal de Elkhart le dice muy poco sobre cuál de los tres distritos le corresponde. El servicio de autobús agrega otra capa — no está garantizado para cada dirección, incluso dentro de un distrito ya asignado, y las rutas cambian de un año a otro.
+
+Como con cualquier búsqueda escolar, la opción correcta depende de las necesidades y prioridades de su propia familia. Lisa no clasifica escuelas ni recomienda una zona sobre otra, y ningún agente debería. Lo que sí hace es confirmar a cuál de los tres límites corresponde una dirección específica antes de que usted haga una oferta, y dirigirlo a la oficina de inscripciones de ese distrito para confirmar tanto la asignación como el servicio de autobús directamente — esa confirmación siempre debe venir del distrito, no de un agente ni de un sitio web.
 
 ---
 

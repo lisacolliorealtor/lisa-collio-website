@@ -69,7 +69,7 @@ An Elkhart mailing address tells you less than you'd think about which school di
 
 ## Elkhart Community Schools
 
-The largest of the three, covering most of the city and the more populated northwest part of the county. It includes Elkhart High School and its Freshman Division, three middle schools, and fourteen elementary schools.
+The largest of the three, covering most of the city and the more populated northwest part of the county. It includes Elkhart High School and its Freshman Division, three middle schools, and thirteen elementary schools.
 
 ## Concord Community Schools
 

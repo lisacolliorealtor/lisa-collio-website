@@ -11,7 +11,7 @@
 Elkhart is the largest city in Elkhart County and sits at the center of the U.S. RV manufacturing industry — often called the RV Capital of the World. Several major RV manufacturers are headquartered here. → Read the full article
 
 **2. What school district serves Elkhart, Indiana?**
-Elkhart Community Schools serves the city, with 13 elementary schools, 3 middle schools, and Elkhart High School, which operates as a two-campus system. The district also serves Bristol and Simonton Lake. → Read the full article
+Three districts serve sections of the city — Elkhart Community Schools, Concord Community Schools, and Baugo Community Schools. An Elkhart mailing address does not determine which one applies; the assignment depends on the specific address and should be confirmed with that district's enrollment office. → Read the full article
 
 **3. What industries and employers are in Elkhart?**
 Elkhart is home to major RV manufacturers including Thor Industries, Forest River, and Lippert Components. Elkhart County produces the majority of RVs built in the United States. → Read the full article
@@ -20,7 +20,7 @@ Elkhart is home to major RV manufacturers including Thor Industries, Forest Rive
 Elkhart is home to the historic Lerner Theatre, Wellfield Botanic Gardens, and the RV/MH Hall of Fame & Museum, which draws more than 15,000 visitors a year. → Read the full article
 
 **5. Where is Elkhart located relative to nearby cities?**
-Elkhart sits in the northern part of Indiana, just east of South Bend and Mishawaka, and about 25 minutes northeast of Goshen. → Read the full article
+Elkhart sits just east of South Bend and Mishawaka, near the Indiana–Michigan state line, and about 25 minutes northeast of Goshen. → Read the full article
 
 ---
 
@@ -40,13 +40,19 @@ For anyone relocating for work in the RV industry, or simply curious what define
 
 # ARTICLE 2: What School District Serves Elkhart, Indiana?
 
-Elkhart is served by Elkhart Community Schools, one of the larger school districts in the region.
+*Corrected July 2026 — synced to live. The original draft named Elkhart Community Schools as the single district serving Elkhart, which contradicted the three-district fact published on /moving-to-elkhart/ and sourced on /sources/. Elementary count corrected 13 → thirteen, verified against elkhart.k12.in.us and cross-checked against Wikipedia's district page.*
 
-The district includes 13 elementary schools, 3 middle schools, and Elkhart High School — which operates as a two-campus system, with a Main Campus and a separate Freshman Division. The district also includes alternative and career-center campuses. Total enrollment runs above 11,000 students.
+Three public school districts serve sections of Elkhart, Indiana — and which one applies to a given address is not something a city boundary tells you on its own.
 
-Elkhart Community Schools serves not only the city of Elkhart itself but also the nearby communities of Bristol and Simonton Lake.
+**Elkhart Community Schools** is the largest, covering most of the city and the more populated northwest part of the county. It runs Elkhart High School — which operates as a two-campus system, with a Main Campus and a separate Freshman Division — along with three middle schools, thirteen elementary schools, and alternative and career-center campuses. Total enrollment runs above 11,000 students, and the district also serves the nearby communities of Bristol and Simonton Lake.
 
-As with any school search, the right fit depends on your own family's needs and priorities. The district's own resources are the best starting point for current enrollment boundaries and program details — this article is meant to help you know what exists, not to recommend one school over another.
+**Concord Community Schools** serves the southeast side of the city, and its boundary also reaches into northwest Goshen — Dunlap sits between the two cities, and the district line doesn't follow the city line.
+
+**Baugo Community Schools**, based just outside the city at 29125 County Road 22 West, serves the southwest side of Elkhart and part of the west-central county, feeding Jimtown Elementary, Intermediate, Junior High, and High School. This is easy to miss, because Baugo's own materials don't publish a public boundary map — but it's real: families with Elkhart mailing addresses are assigned to Jimtown schools every year.
+
+An Elkhart mailing address, in other words, tells you very little about which of the three districts an address falls in. Bus service adds another layer — it isn't guaranteed for every address even within an assigned district, and routes shift year to year.
+
+As with any school search, the right fit depends on your own family's needs and priorities. Lisa doesn't rank schools or steer anyone toward a particular attendance area, and no agent should. What she will do is confirm which of the three boundaries a given address actually falls in before you write an offer, and point you to that district's own enrollment office to confirm both the assignment and bus eligibility directly — that confirmation should always come from the district, not from an agent or a website.
 
 ---
 
@@ -78,7 +84,7 @@ Together, these landmarks give Elkhart a combination of historic arts and cultur
 
 For anyone relocating to the area, understanding Elkhart's location relative to nearby cities is a practical part of planning a move.
 
-Elkhart sits in the northern part of Indiana, just east of South Bend and Mishawaka — meaning residents have relatively easy access to the amenities and airport of the greater South Bend area while living in a smaller city. Within Elkhart County itself, Elkhart is located about 25 minutes northeast of Goshen, the county seat, making it easy to move between the two cities for work, shopping, or visiting family.
+Elkhart sits just east of South Bend and Mishawaka, near the Indiana–Michigan state line — meaning residents have relatively easy access to the amenities and airport of the greater South Bend area while living in a smaller city. Within Elkhart County itself, Elkhart is located about 25 minutes northeast of Goshen, the county seat, making it easy to move between the two cities for work, shopping, or visiting family.
 
 This geography is one reason many buyers compare Elkhart and Goshen directly when deciding where to settle — both cities sit within a short drive of each other, while each offers its own distinct character and housing options.
 
