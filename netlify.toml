@@ -57,11 +57,36 @@
     # Self-hosted everything: no external script/style/font/img/connect sources.
     Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
 
-# Long-cache immutable assets (fonts, images, CSS are content-addressed by path).
+# Asset caching. NOTE: nothing under /assets/ is content-addressed — site.css,
+# tokens.css, the woff2 fonts and every blog-headers image have stable filenames
+# whose CONTENTS change. The previous rule here was
+#   for = "/assets/*"  ->  "public, max-age=31536000, immutable"
+# on the stated assumption that these paths were content-addressed. They are not,
+# and `immutable` tells the browser never to revalidate — so a corrected image or
+# a CSS fix would not reach a returning visitor for up to a year, and a hard
+# refresh would not dislodge it either (Chrome honours `immutable` on reload).
+# Found 27 July 2026: cleaned featured images kept serving their old bytes on
+# deploy-preview-71 under unchanged filenames.
+#
+# Revalidation is cheap here — Netlify serves ETags, so an unchanged asset costs
+# a 304, not a re-download. The durable fix is content-hashed filenames; until
+# that exists, keep max-age short enough that a correction lands in hours.
 [[headers]]
-  for = "/assets/*"
+  for = "/assets/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, must-revalidate"
+
+# Fonts genuinely do not change in practice, but they are not hashed either, so
+# a week bounds how long a replacement would take to propagate.
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
 
 # Standard caching for HTML (always revalidate so content updates land immediately).
 [[headers]]
