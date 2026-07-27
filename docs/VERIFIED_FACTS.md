@@ -163,9 +163,57 @@ Goshen Chamber of Commerce
 Spanish in the Wave 1 adaptations, July 2026)
 
 ### The Lerner Theatre (Elkhart)
-Historic downtown performance venue, **restored in 2011 after an $18 million
-renovation**; year-round calendar.
-· **Source:** Visit Elkhart County
+Historic downtown performance venue, **opened 1924**, **restored in 2011 after an
+$18 million renovation**; year-round calendar of concerts, comedy, and community
+events.
+· **Sources:** Visit Elkhart County · City of Elkhart
+· **Appears on:** /blog/community/downtown-elkhart-indiana/ ·
+/blog/community/things-to-do-in-elkhart-indiana/ ·
+/blog/spanish/centro-de-elkhart-indiana/ ·
+/blog/spanish/que-hacer-en-elkhart-indiana/ · both landmarks articles
+
+### Downtown Elkhart — DORA and ASPIRE
+The city operates a **DORA** (designated outdoor refreshment area) covering
+participating downtown businesses. **ASPIRE** is the city's broader
+infrastructure, public-safety, neighbourhood, and quality-of-life initiative
+**under Mayor Rod Roberson**, with downtown as one of its focus areas. A monthly
+**Art Walk** and a weekly **farmers market** also run downtown.
+· **Sources:** City of Elkhart · Greater Elkhart Chamber of Commerce
+· **Appears on:** /blog/community/downtown-elkhart-indiana/ ·
+/blog/community/things-to-do-in-elkhart-indiana/ ·
+/blog/spanish/centro-de-elkhart-indiana/ ·
+/blog/spanish/que-hacer-en-elkhart-indiana/
+· ⚠️ **A named sitting official dates this content.** If the mayor changes, both
+languages need the same edit on the same day.
+
+### Elkhart — city size
+About **15 square miles**.
+· **Source:** U.S. Census Bureau QuickFacts
+· **Appears on:** /blog/community/things-to-do-in-elkhart-indiana/ ·
+/blog/spanish/que-hacer-en-elkhart-indiana/
+
+### Elkhart — annual events
+**Elkhart Jazz Festival** each **June**, on the Elkhart riverfront. **Quilt
+Gardens** season from **late spring**, shared with Goshen and nearby towns. The
+**Heritage Trail** is a regional driving route through Amish farmland and small
+towns, starting near Elkhart County — a regional route, not an Elkhart
+attraction.
+· **Sources:** Visit Elkhart County · City of Elkhart
+· **Appears on:** /blog/community/community-events-in-elkhart-indiana/ ·
+/blog/community/things-to-do-in-elkhart-indiana/ and their Spanish twins
+· **Never publish fixed dates.** Dates move yearly; route readers to the
+organisers' own current listings.
+
+### Indiana — property tax and BMV rules
+Indiana's property-tax structure includes a **homestead deduction** and
+**constitutional caps** on the rate applied to owner-occupied homes. Parcel-level
+rates and assessments come from the **Elkhart County Assessor**, never a rule of
+thumb. New residents must register a vehicle and driver's licence with the
+**Indiana BMV within 60 days** of establishing residency.
+· **Sources:** Indiana BMV · Elkhart County Assessor
+· **Appears on:** /blog/community/cost-of-living-in-elkhart-indiana/ ·
+/blog/community/moving-to-elkhart-indiana-from-out-of-state/ and their Spanish
+twins
 
 ### RV/MH Hall of Fame & Museum (Elkhart)
 **Relocated from downtown to a facility along the toll road.**
