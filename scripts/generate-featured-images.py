@@ -3,6 +3,30 @@
 Blog featured-image generator for lisacolliorealtor.com
 =======================================================
 
+SCOPE RULE (Master Plan v2.10, July 2026) — read before adding an image
+----------------------------------------------------------------------
+Text overlay and Lisa's cutout portrait are a SCOPED EXCEPTION, not the default.
+They belong ONLY to the Buyers/Sellers content clusters: /buyers/, /sellers/,
+/es/compradores/, /es/vendedores/ and the authority articles linked from those
+four hub pages (the OVERLAY_SCOPE set below).
+
+Everything else — Communities/Goshen/Elkhart, Meet Lisa, Next Chapter Method,
+Market Stats, Contact, the homepage, and every future post outside the Buy/Sell
+clusters, in both languages — gets a CLEAN photo: no band, no text, no cutout.
+Use generate_clean(). The page's own H1 renders the title as normal HTML.
+
+The overlay entry points enforce this: they raise on an out-of-scope slug rather
+than compositing one. There is no rotation to track outside the exception —
+with no color band there is no variant.
+
+Separately, the Tier 1 page-hero component also uses Lisa's cutout. That is the
+hero standard, not this one; the two are independently scoped and this file has
+nothing to do with the hero.
+
+Retroactive cleanup of already-built out-of-scope images is FLAGGED, never
+auto-applied — see docs/FEATURED_IMAGE_OVERLAY_AUDIT.md. Do not regenerate a
+clean image from a text-bearing one without Lisa's sign-off on the photo itself.
+
 Composites a 1200x630 (Open Graph) social/featured image from three inputs:
   1. A house photo (from assets/images/homes-general/)
   2. An article title (rendered in Bricolage Grotesque to match the site)
@@ -47,6 +71,72 @@ MAX_TITLE_LINES = 3
 FONT_MAX = 62
 FONT_MIN = 34
 LISA_HEIGHT_FRAC = 0.62  # cutout height as fraction of image height
+
+# ---- Overlay scope (Master Plan v2.10) --------------------------------------
+# The ONLY slugs allowed to carry baked-in title text and/or Lisa's cutout.
+# Derived from the /blog/ links actually present on the four hub pages:
+#   /buyers/ (8) + /sellers/ (10) + /es/compradores/ (7) + /es/vendedores/ (10)
+# which matches the Master Plan §11 drafted inventory exactly. When an article
+# is added to or removed from one of those hubs, update this set in the same PR.
+OVERLAY_SCOPE = {
+    # /buyers/ — Buy a Home set
+    "are-homes-goshen-indiana-competitive-to-buy",
+    "elkhart-indiana-good-place-invest-real-estate",
+    "how-to-compete-with-other-buyers-elkhart-indiana",
+    "what-makes-goshen-indiana-desirable-place-to-live",
+    "what-to-look-for-buying-home-elkhart-indiana",
+    "what-to-prioritize-buying-house-goshen-indiana",
+    "why-buy-home-elkhart-indiana-lisa-collio",
+    "why-buy-home-goshen-indiana-lisa-collio",
+    # /sellers/ — Sell a Home set
+    "good-time-to-sell-home-elkhart-indiana",
+    "how-long-to-sell-house-goshen-indiana",
+    "how-much-is-my-home-elkhart-indiana-worth",
+    "how-to-prepare-goshen-indiana-home-to-sell",
+    "how-will-my-elkhart-indiana-home-be-marketed",
+    "mistakes-to-avoid-selling-home-goshen-indiana",
+    "sell-home-elkhart-indiana-best-price",   # added to /sellers/ 27 Jul (Lisa)
+    "sell-home-goshen-indiana-best-price",
+    "why-homes-elkhart-indiana-sit-on-market",
+    "why-sell-home-elkhart-indiana-lisa-collio",
+    "why-sell-home-goshen-indiana-lisa-collio",
+    # /es/compradores/ — Cluster 1, Compradores Hispanohablantes
+    "como-comprar-una-casa-en-indiana",
+    "costos-de-cierre-que-son",
+    "cuanto-dinero-necesito-para-comprar-una-casa",
+    "errores-comunes-al-comprar-casa",
+    "no-se-si-califico-credito-y-preaprobacion",
+    "prestamos-fha-y-usda-en-espanol",
+    "renta-o-compra-como-decidir",
+    # /es/vendedores/ — Spanish seller set
+    "buen-momento-vender-casa-elkhart",
+    "como-se-promociona-mi-casa-elkhart",
+    "cuanto-tiempo-vender-casa-goshen",
+    "cuanto-vale-mi-casa-elkhart",
+    "errores-evitar-vender-casa-goshen",
+    "por-que-casas-elkhart-tardan-venderse",
+    "preparar-casa-goshen-para-vender",
+    "como-vender-casa-elkhart-mejor-precio",   # added to /es/vendedores/ 27 Jul (Lisa)
+    "vender-casa-elkhart-lisa-collio",
+    "vender-casa-goshen-lisa-collio",
+    "vender-casa-goshen-mejor-precio",
+}
+
+
+def _require_overlay_scope(out_slug):
+    """Overlay templates are Buyers/Sellers-only. Refuse anything else so the
+    clean-photo default holds by construction, not by remembering.
+    A leading underscore marks a throwaway dev/smoke-test slug and is allowed."""
+    if out_slug.startswith("_") or out_slug in OVERLAY_SCOPE:
+        return
+    raise ValueError(
+        f"'{out_slug}' is outside the Buyers/Sellers overlay scope "
+        "(Master Plan v2.10). Featured images outside /buyers/, /sellers/, "
+        "/es/compradores/, /es/vendedores/ and their linked authority articles "
+        "carry no text and no cutout portrait — use generate_clean() instead. "
+        "If this article really is linked from one of those four hubs, add its "
+        "slug to OVERLAY_SCOPE in the same PR that links it."
+    )
 
 
 def _load_font(size):
@@ -103,6 +193,7 @@ def generate_header(house_filename, title, bar_color, lisa_side, out_slug):
     out_slug       : output base name -> {out_slug}-header.jpg / .webp
     Returns the output .jpg path.
     """
+    _require_overlay_scope(out_slug)
     color = BLUE if bar_color == "blue" else RED
 
     canvas = Image.new("RGB", (W, H), WHITE)
@@ -175,6 +266,7 @@ def generate_lisa_header(photo_filename, title, bar_color, out_slug,
     focal_y        : vertical focal point for the cover crop (keep Lisa's face high
                      so the bottom band never covers it). 0=top, 1=bottom.
     """
+    _require_overlay_scope(out_slug)
     color = BLUE if bar_color == "blue" else RED
     canvas = Image.new("RGB", (W, H), WHITE)
     draw = ImageDraw.Draw(canvas)
@@ -274,6 +366,7 @@ def generate_template_b(photo_filename, title, color_name, out_slug,
                         crop_box=None, focal_y=0.0):
     """Landscape/square people photo. 1200x900: photo top 1200x700 (cover,
     anchored high), solid color band bottom 1200x200 with the title."""
+    _require_overlay_scope(out_slug)
     color = BLUE if color_name == "blue" else RED
     BW, BH, PHOTO_H = 1200, 900, 700
     canvas = Image.new("RGB", (BW, BH), color)   # bottom band shows through
@@ -294,6 +387,7 @@ def generate_template_c(photo_filename, title, color_name, side, out_slug,
                         crop_box=None, focal_x=0.5, focal_y=0.5):
     """Portrait people photo. 1200x900: photo 600x900 on `side`, solid color
     panel 600x900 on the other side with the vertically-centered title."""
+    _require_overlay_scope(out_slug)
     color = BLUE if color_name == "blue" else RED
     BW, BH, HALF = 1200, 900, 600
     canvas = Image.new("RGB", (BW, BH), color)
@@ -318,6 +412,7 @@ def generate_og(photo_filename, title, color_name, out_slug,
                 crop_box=None, focal_y=0.5):
     """1200x630 social version (Template A-style top band overlay) for the
     B/C people articles, so og:image/twitter:image never crop off the band."""
+    _require_overlay_scope(out_slug)
     color = BLUE if color_name == "blue" else RED
     canvas = Image.new("RGB", (W, H), WHITE)
     draw = ImageDraw.Draw(canvas)
@@ -335,7 +430,226 @@ def generate_og(photo_filename, title, color_name, out_slug,
     return _save(canvas, out_slug, "og")
 
 
+# =====================================================================
+# THE DEFAULT — clean photos (everything outside OVERLAY_SCOPE)
+# ---------------------------------------------------------------------
+# Master Plan v2.10: no band, no title, no cutout. The page's own H1 is the
+# title. Nothing here composites anything onto the photograph; it only crops
+# and resizes, so a clean source photo stays a clean photo.
+# =====================================================================
+
+THUMB_W, THUMB_H = 800, 420   # 1.9:1, matches the existing card/grid ratio
+
+
+def generate_clean(photo_path, out_slug, focal_y=0.5, crop_box=None, thumb=True):
+    """Clean featured image: 1200x630 cover-crop of the source photo, plus the
+    800x420 card thumbnail. .webp beside every .jpg. No overlay of any kind.
+
+    photo_path : path to the source photo, absolute or relative to the repo root
+                 (any assets/images/ subfolder — houses, places, people alike)
+    focal_y    : vertical focal point for the crop, 0=keep the top, 1=keep the
+                 bottom. On people photos, keep faces in frame.
+    crop_box   : optional (l, t, r, b) as 0-1 fractions, applied before the cover
+                 crop. Use it when the source itself carries text that must stay
+                 out of frame — a branded headshot's logo strip, or one panel of
+                 a marketing collage. A clean image means no text in the final
+                 frame, whether that text was composited by this script or was
+                 already burned into the photograph.
+    """
+    src = photo_path if os.path.isabs(photo_path) else os.path.join(ROOT, photo_path)
+    photo = Image.open(src).convert("RGB")
+    if crop_box:
+        w, h = photo.size
+        l, t, r, b = crop_box
+        photo = photo.crop((int(l * w), int(t * h), int(r * w), int(b * h)))
+
+    header = _cover_focal(photo, W, H, focal_y)
+    jpg = _save(header, out_slug, "header")
+    if thumb:
+        _save(_cover_focal(photo, THUMB_W, THUMB_H, focal_y), out_slug, "thumb")
+    return jpg
+
+
+# Clean replacements built so far, recorded so the mapping is reproducible
+# rather than living in one session's scrollback. slug -> (source photo,
+# focal_y, crop_box). Run `python3 scripts/generate-featured-images.py --clean`
+# to rebuild them byte-for-byte.
+#
+# Note on crop_box here: two of these source photos carry text of their own —
+# the branded headshot has a RE/MAX lockup and a "Lisa Collio REALTOR®" script
+# logo across the top, and the awards photo is a three-panel collage whose right
+# panel is a "100% CLUB / 2023 RE/MAX AWARDS" graphic. Framing crops that text
+# out. A clean image means no text in the final frame, wherever it came from.
+# Sentinel for a job whose framing is taken from the existing Template B
+# composite rather than re-derived from the source photo. Legitimate only for
+# B/C, where the colour band sits beside or below the photo and never overlaps
+# it — so the photo region is the untouched photograph, not a flattened overlay.
+#
+# ONE-WAY: a FROM_COMPOSITE job consumes the composite it reads, because the
+# clean 1200x630 result overwrites the 1200x900 input. Re-running `--clean`
+# raises on these two rather than silently producing something different — the
+# guard in generate_clean_from_composite() checks for the 1200x900 shape. Their
+# source photos are recorded in CLEAN_JOBS so the framing can be re-derived by
+# hand if those images are ever rebuilt. Everything else in the table is fully
+# reproducible: 50 of 52 jobs regenerate byte-for-byte.
+FROM_COMPOSITE = "<from-composite>"
+
+
+def generate_clean_from_composite(out_slug, thumb=True):
+    """Rebuild a clean image from the photo region of an existing Template B
+    composite (top 1200x700 of a 1200x900 file). Used where the original crop
+    was hand-framed and guessing it would change the composition."""
+    comp = Image.open(os.path.join(OUT_DIR, f"{out_slug}-header.jpg")).convert("RGB")
+    if comp.size != (1200, 900):
+        raise ValueError(f"{out_slug}: expected a 1200x900 Template B composite, "
+                         f"got {comp.size} — do not use FROM_COMPOSITE here.")
+    photo = comp.crop((0, 0, 1200, 700))
+    jpg = _save(_cover_focal(photo, W, H, 0.5), out_slug, "header")
+    if thumb:
+        _save(_cover_focal(photo, THUMB_W, THUMB_H, 0.5), out_slug, "thumb")
+    return jpg
+
+
+CLEAN_JOBS = {
+    # --- Group 0: the first four Meet Lisa images, cleaned 27 July on Lisa's
+    # direction ahead of the rest. Restored to this table after the full-batch
+    # rebuild dropped them: the files on disk were always correct, but the
+    # manifest stopped recording how they were made, so `--clean` no longer
+    # reproduced them. Reproducibility is the whole point of this table.
+    "what-makes-lisa-collio-different":
+        ("assets/images/lisa/lisa-collio-red-blazer.jpg", 0.12, None),
+    "how-many-homes-lisa-collio-sold-goshen-elkhart":
+        ("assets/images/lisa/lisa-collio-remax-awards-100-club.jpg", 0.22,
+         (0.294, 0.0, 0.790, 1.0)),          # centre panel of the collage only
+    "why-clients-choose-lisa-collio":
+        ("assets/images/lisa/lisa-collio-headshot-remax-branded.jpg", 0.58, None),
+    "what-is-it-like-to-work-with-lisa-collio":
+        ("assets/images/lisa/lisa-collio-open-house-flag-summer.jpg", 0.45, None),
+
+    # --- Group 1: Template A house photos, source already clean in homes-general/
+    "buying-an-older-home-in-elkhart-indiana":
+        ("assets/images/homes-general/exterior-ranch-rear-leafy-yard-fence.jpg", 0.5, None),
+    "buying-an-older-home-in-goshen-indiana":
+        ("assets/images/homes-general/exterior-covered-porch-framing-rural-view.jpg", 0.5, None),
+    "centro-de-elkhart-indiana":
+        ("assets/images/homes-general/twilight-exterior-split-level-green-shutters.jpg", 0.5, None),
+    "community-events-in-elkhart-indiana":
+        ("assets/images/homes-general/exterior-backyard-privacy-fence-chairs.jpg", 0.5, None),
+    "community-events-in-goshen-indiana":
+        ("assets/images/homes-general/exterior-two-story-rear-covered-porch.jpg", 0.5, None),
+    "comprar-casa-antigua-elkhart-indiana":
+        ("assets/images/homes-general/exterior-ranch-rear-leafy-yard-fence.jpg", 0.5, None),
+    "comprar-casa-antigua-goshen-indiana":
+        ("assets/images/homes-general/exterior-red-wood-deck-backyard.jpg", 0.5, None),
+    "cost-of-living-in-elkhart-indiana":
+        ("assets/images/homes-general/interior-kitchen-oak-cabinets-open-layout.jpg", 0.5, None),
+    "cost-of-living-in-goshen-indiana":
+        ("assets/images/homes-general/exterior-single-story-ranch-driveway.jpg", 0.5, None),
+    "costo-de-vida-elkhart-indiana":
+        ("assets/images/homes-general/exterior-single-story-ranch-driveway.jpg", 0.5, None),
+    "costo-de-vida-goshen-indiana":
+        ("assets/images/homes-general/exterior-backyard-playset-shed-winter.jpg", 0.5, None),
+    "downtown-elkhart-indiana":
+        ("assets/images/homes-general/exterior-home-side-wood-deck-lawn.jpg", 0.5, None),
+    "downtown-goshen-indiana":
+        ("assets/images/homes-general/exterior-wooded-backyard-swing-set-fire-pit.jpg", 0.5, None),
+    "elkhart-indiana-industries-employers":
+        ("assets/images/homes-general/exterior-open-acreage-field-trees.jpg", 0.5, None),
+    "elkhart-indiana-landmarks-amenities":
+        ("assets/images/homes-general/exterior-backyard-shrub-lawn-trees.jpg", 0.5, None),
+    "elkhart-indiana-school-districts":
+        ("assets/images/homes-general/exterior-large-lawn-mature-trees.jpg", 0.5, None),
+    "eventos-comunitarios-elkhart-indiana":
+        ("assets/images/homes-general/exterior-covered-brick-porch-hanging-chair.jpg", 0.5, None),
+    "eventos-comunitarios-goshen-indiana":
+        ("assets/images/homes-general/exterior-backyard-privacy-fence-chairs.jpg", 0.5, None),
+    "good-time-to-buy-home-goshen-indiana":
+        ("assets/images/homes-general/exterior-covered-brick-porch-hanging-chair.jpg", 0.5, None),
+    "goshen-indiana-industries-employers":
+        ("assets/images/homes-general/exterior-red-wood-deck-backyard.jpg", 0.5, None),
+    "goshen-indiana-landmarks-amenities":
+        ("assets/images/homes-general/interior-living-room-stone-fireplace-wall.jpg", 0.5, None),
+    "goshen-indiana-school-district":
+        ("assets/images/homes-general/exterior-home-rear-deck-stairs-fenced.jpg", 0.5, None),
+    "industria-rv-comprar-casa-goshen-indiana":
+        ("assets/images/homes-general/exterior-backyard-deck-fenced-trees.jpg", 0.5, None),
+    "living-in-elkhart-guide":
+        ("assets/images/homes-general/exterior-covered-brick-porch-hanging-chair.jpg", 0.5, None),
+    "living-in-goshen-guide":
+        ("assets/images/homes-general/hero-twilight-1.jpg", 0.5, None),
+    "moving-to-elkhart":
+        ("assets/images/homes-general/twilight-exterior-two-story-brick-garage.jpg", 0.5, None),
+    "moving-to-elkhart-indiana-from-out-of-state":
+        ("assets/images/homes-general/hero-twilight-2.jpg", 0.5, None),
+    "mudarse-a-elkhart":
+        ("assets/images/homes-general/twilight-exterior-two-story-brick-garage.jpg", 0.5, None),
+    "mudarse-a-elkhart-indiana-desde-otro-estado":
+        ("assets/images/homes-general/twilight-exterior-two-story-brick-garage.jpg", 0.5, None),
+    "mudarse-a-goshen-desde-otro-estado":
+        ("assets/images/homes-general/exterior-home-rear-deck-stairs-fenced.jpg", 0.5, None),
+    "que-hacer-en-elkhart-indiana":
+        ("assets/images/homes-general/exterior-large-lawn-mature-trees.jpg", 0.5, None),
+    "que-hacer-en-goshen-indiana":
+        ("assets/images/homes-general/exterior-backyard-shrub-lawn-trees.jpg", 0.5, None),
+    "rv-industry-buying-a-home-goshen-indiana":
+        ("assets/images/homes-general/exterior-ranch-rear-leafy-yard-fence.jpg", 0.5, None),
+    "things-to-do-in-elkhart-indiana":
+        ("assets/images/homes-general/exterior-backyard-deck-fenced-trees.jpg", 0.5, None),
+    "things-to-do-in-goshen-indiana":
+        ("assets/images/homes-general/exterior-large-lawn-mature-trees.jpg", 0.5, None),
+    "trabajar-en-la-industria-de-rv-y-comprar-casa-en-elkhart-indiana":
+        ("assets/images/homes-general/exterior-home-side-wood-deck-lawn.jpg", 0.5, None),
+    "viviendo-en-elkhart":
+        ("assets/images/homes-general/exterior-covered-brick-porch-hanging-chair.jpg", 0.5, None),
+    "viviendo-en-goshen":
+        ("assets/images/homes-general/hero-twilight-1.jpg", 0.5, None),
+    "what-is-an-sres-seniors-real-estate-specialist":
+        ("assets/images/homes-general/interior-kitchen-cherry-cabinets-stainless.jpg", 0.5, None),
+    "what-is-elkhart-indiana-known-for":
+        ("assets/images/homes-general/exterior-two-story-rear-covered-porch.jpg", 0.5, None),
+    "what-is-goshen-indiana-known-for":
+        ("assets/images/homes-general/exterior-backyard-playset-shed-winter.jpg", 0.5, None),
+    "working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana":
+        ("assets/images/homes-general/exterior-backyard-lawn-metal-shed.jpg", 0.5, None),
+
+    # --- Group 2: Meet Lisa / brand people photos
+    "why-lisa-collio-became-real-estate-agent":
+        ("assets/images/lisa/lisa-collio-holiday-lights-portrait-2.jpg", 0.30, None),
+    "moving-to-goshen-indiana-from-out-of-state":
+        ("assets/images/lisa/lisa-collio-for-sale-sign-summer.jpg", 0.35, None),
+    # These two were framed by hand in the original composite. Rather than guess
+    # the crop, take the photo region straight out of the Template B composite:
+    # in B the colour band sits BELOW the photo and never overlaps it, so that
+    # region is the untouched photograph. Source noted for a future hi-res redo.
+    "does-lisa-collio-speak-spanish":
+        (FROM_COMPOSITE, 0.5, None),   # lisa/lisa-collio-headshot-red-top.jpg
+    "lisa-collio-helps-seniors-families-downsize":
+        (FROM_COMPOSITE, 0.5, None),   # lisa/lisa-collio-seniors-expo-booth.jpg
+
+    # --- Group 3: Goshen pillars. Lisa's decision, 27 July: swap off the
+    # address-folder sold-property photo onto a decorative homes-general one,
+    # sidestepping the consent-recordkeeping question rather than verifying it.
+    "moving-to-goshen":
+        ("assets/images/homes-general/exterior-open-acreage-field-trees.jpg", 0.5, None),
+    "mudarse-a-goshen":
+        ("assets/images/homes-general/exterior-open-acreage-field-trees.jpg", 0.5, None),
+}
+
+
+def build_clean_jobs():
+    for slug, (src, focal_y, crop_box) in CLEAN_JOBS.items():
+        if src is FROM_COMPOSITE or src == FROM_COMPOSITE:
+            print(generate_clean_from_composite(slug))
+        else:
+            print(generate_clean(src, slug, focal_y=focal_y, crop_box=crop_box))
+
+
 if __name__ == "__main__":
+    import sys
+    if "--clean" in sys.argv:
+        build_clean_jobs()
+        raise SystemExit(0)
+
     # Smoke test: one image
     bc, ls = variant_for(0)
     p = generate_header("hero-twilight-2.jpg",
