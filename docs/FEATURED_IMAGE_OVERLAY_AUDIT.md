@@ -1,6 +1,9 @@
 # Featured-image text-overlay audit — RESOLVED
 
-**Status: remediation complete, pending Lisa's review of PR #71.**
+**Status: remediation complete. PR #71 merged to `main` 27 July 2026 (commit
+`aac21e5`); the image work is live.** Three follow-ups reached the branch after
+that merge and need their own PR: the `/assets/` caching fix, `npm run
+check:images`, and this document's Section 13 approval records.
 Audit produced 27 July 2026 per step 1 of
 `docs/drafts/V1_0_Claude_Code_Instructions_Text_Overlay_Exception_Lisa_Collio.md`
 and the Featured-Image Standard in Master Plan v2.10 (§8, Images); remediated
@@ -36,13 +39,37 @@ Scope moved from 35 to 37 slugs: Lisa added `sell-home-elkhart-indiana-best-pric
 to `/sellers/` and its Spanish twin `como-vender-casa-elkhart-mejor-precio` to
 `/es/vendedores/` (decision 2), which brings both into the exception.
 
-**Verified against the pushed branch, not a working tree.** Every one of the 89
-headers was extracted from `origin/claude/website-master-plan-v2-10-4ju9ok` with
-`git cat-file` and scanned for a RE/MAX Blue or Red band at its top, middle and
-bottom edge: 37 in-scope images carry their band, 52 out-of-scope images carry
-none, zero exceptions. Dimensions checked too (1200×630 header, 800×420
-thumbnail, `.webp` beside each `.jpg`), and all were reviewed visually on contact
-sheets for framing.
+**Verified against the pushed branch, not a working tree, over every file
+variant.** All 178 `.jpg` files — `-header`, `-thumb`, and any `-og` — were
+extracted from `origin/claude/website-master-plan-v2-10-4ju9ok` with
+`git cat-file` and scanned for a RE/MAX Blue or Red band at their top, middle and
+bottom edge: **37 in-scope slugs carry their band, 52 out-of-scope slugs carry
+none, zero exceptions.** All 187 distinct blog-headers references across the 162
+HTML files resolve to a file that exists. Dimensions checked too (1200×630
+header, 800×420 thumbnail, `.webp` beside each `.jpg`), and all were reviewed
+visually on contact sheets for framing.
+
+> **Why "every variant" is called out.** An earlier verification pass scanned
+> only `-header.jpg` and reported "0 outstanding" on that basis, leaving the
+> `-thumb.jpg` files — the ones hub-page FAQ cards actually render — unverified.
+> The thumbnails were in fact clean, because `generate_clean()` writes header and
+> thumbnail in the same call from the same source photo, so they could not
+> diverge. But the evidence offered didn't cover them, which is a fair thing to
+> have been challenged on. `npm run check:images` now asserts this mechanically
+> over every variant so the claim is checkable rather than asserted.
+
+**The two asset variants, since they are easy to confuse:**
+
+| File | Size | Where it is used |
+| --- | --- | --- |
+| `{slug}-header.jpg` | 1200×630 | The article's own hero image, plus `og:image`, `twitter:image` and the schema `image` field |
+| `{slug}-thumb.jpg` | 800×420 | Hub-page FAQ cards and blog-hub cards only — never in social or schema metadata |
+
+Nine pages render thumbnails: `/`, `/about/`, `/buyers/`, `/sellers/`,
+`/es/compradores/`, `/es/vendedores/`, `/blog/buyers/`, `/blog/sellers/`,
+`/blog/relocation/`. They are not two pipelines — one `generate_clean()` call
+produces both from the same photograph, and `CLEAN_JOBS` / `OVERLAY_SCOPE` key on
+the slug, so both variants are always covered together.
 
 **Reproducibility: 50 of the 52 cleaned images regenerate byte-for-byte** from
 `CLEAN_JOBS` — verified by regenerating into a scratch directory and comparing
@@ -73,7 +100,10 @@ was linked. The link is now added as an eleventh FAQ card, the slug is added to
 `OVERLAY_SCOPE`, and **its overlay image is unchanged** — it keeps Template A
 with the cutout, matching its twin.
 
-> **Approved by Lisa, 27 July — no changes.** The card required new FAQ copy.
+> **Approved by Lisa, 27 July — no changes.** Section 13 status: **Lisa
+> (licensed agent) approved; managing-broker sign-off still pending** — per her
+> standing workflow the broker signs off once at the end of the whole site
+> build, not per PR. The card required new FAQ copy.
 > The question mirrors the article H1 exactly; the answer is drawn from the
 > article's own opening paragraph so every fact traces to the page, per the §8
 > cluster standard.
@@ -103,9 +133,17 @@ but not the Elkhart twin. Closed in full, at parity with the English side:
   the English card.
 - **Slug added to `OVERLAY_SCOPE`.**
 
-> **Spanish FAQ copy — written natively, not translated.** Per the Volume 37
-> rule, this is a cultural adaptation drafted from the Spanish article's own
-> body, in usted register — not a rendering of the English answer Lisa approved.
+> **Approved by Lisa, 27 July — no changes.** Reviewed and approved separately
+> from the English card, as its own piece of copy rather than as a translation
+> of an already-approved answer. Section 13 status: **Lisa (licensed agent)
+> approved; managing-broker sign-off still pending**, per her standing workflow
+> in which the broker signs off once, comprehensively, at the end of the whole
+> site build — so neither this card nor the English one carries broker approval
+> yet, and neither claims to.
+>
+> **Written natively, not translated.** Per the Volume 37 rule, this is a
+> cultural adaptation drafted from the Spanish article's own body, in usted
+> register — not a rendering of the English answer.
 > Its three elements are exactly the three the Spanish article itself sets out
 > ("un precio basado en datos reales", "presentación cuidada", "alcance a más
 > compradores"), so every claim traces to the page it sits on.
