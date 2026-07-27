@@ -95,6 +95,7 @@ OVERLAY_SCOPE = {
     "how-to-prepare-goshen-indiana-home-to-sell",
     "how-will-my-elkhart-indiana-home-be-marketed",
     "mistakes-to-avoid-selling-home-goshen-indiana",
+    "sell-home-elkhart-indiana-best-price",   # added to /sellers/ 27 Jul (Lisa)
     "sell-home-goshen-indiana-best-price",
     "why-homes-elkhart-indiana-sit-on-market",
     "why-sell-home-elkhart-indiana-lisa-collio",
@@ -478,22 +479,145 @@ def generate_clean(photo_path, out_slug, focal_y=0.5, crop_box=None, thumb=True)
 # logo across the top, and the awards photo is a three-panel collage whose right
 # panel is a "100% CLUB / 2023 RE/MAX AWARDS" graphic. Framing crops that text
 # out. A clean image means no text in the final frame, wherever it came from.
+# Sentinel for a job whose framing is taken from the existing Template B
+# composite rather than re-derived from the source photo. Legitimate only for
+# B/C, where the colour band sits beside or below the photo and never overlaps
+# it — so the photo region is the untouched photograph, not a flattened overlay.
+FROM_COMPOSITE = "<from-composite>"
+
+
+def generate_clean_from_composite(out_slug, thumb=True):
+    """Rebuild a clean image from the photo region of an existing Template B
+    composite (top 1200x700 of a 1200x900 file). Used where the original crop
+    was hand-framed and guessing it would change the composition."""
+    comp = Image.open(os.path.join(OUT_DIR, f"{out_slug}-header.jpg")).convert("RGB")
+    if comp.size != (1200, 900):
+        raise ValueError(f"{out_slug}: expected a 1200x900 Template B composite, "
+                         f"got {comp.size} — do not use FROM_COMPOSITE here.")
+    photo = comp.crop((0, 0, 1200, 700))
+    jpg = _save(_cover_focal(photo, W, H, 0.5), out_slug, "header")
+    if thumb:
+        _save(_cover_focal(photo, THUMB_W, THUMB_H, 0.5), out_slug, "thumb")
+    return jpg
+
+
 CLEAN_JOBS = {
-    "what-makes-lisa-collio-different": (
-        "assets/images/lisa/lisa-collio-red-blazer.jpg", 0.12, None),
-    "how-many-homes-lisa-collio-sold-goshen-elkhart": (
-        "assets/images/lisa/lisa-collio-remax-awards-100-club.jpg", 0.22,
-        (0.294, 0.0, 0.790, 1.0)),          # centre panel of the collage only
-    "why-clients-choose-lisa-collio": (
-        "assets/images/lisa/lisa-collio-headshot-remax-branded.jpg", 0.58, None),
-    "what-is-it-like-to-work-with-lisa-collio": (
-        "assets/images/lisa/lisa-collio-open-house-flag-summer.jpg", 0.45, None),
+    # --- Group 1: Template A house photos, source already clean in homes-general/
+    "buying-an-older-home-in-elkhart-indiana":
+        ("assets/images/homes-general/exterior-ranch-rear-leafy-yard-fence.jpg", 0.5, None),
+    "buying-an-older-home-in-goshen-indiana":
+        ("assets/images/homes-general/exterior-covered-porch-framing-rural-view.jpg", 0.5, None),
+    "centro-de-elkhart-indiana":
+        ("assets/images/homes-general/twilight-exterior-split-level-green-shutters.jpg", 0.5, None),
+    "community-events-in-elkhart-indiana":
+        ("assets/images/homes-general/exterior-backyard-privacy-fence-chairs.jpg", 0.5, None),
+    "community-events-in-goshen-indiana":
+        ("assets/images/homes-general/exterior-two-story-rear-covered-porch.jpg", 0.5, None),
+    "comprar-casa-antigua-elkhart-indiana":
+        ("assets/images/homes-general/exterior-ranch-rear-leafy-yard-fence.jpg", 0.5, None),
+    "comprar-casa-antigua-goshen-indiana":
+        ("assets/images/homes-general/exterior-red-wood-deck-backyard.jpg", 0.5, None),
+    "cost-of-living-in-elkhart-indiana":
+        ("assets/images/homes-general/interior-kitchen-oak-cabinets-open-layout.jpg", 0.5, None),
+    "cost-of-living-in-goshen-indiana":
+        ("assets/images/homes-general/exterior-single-story-ranch-driveway.jpg", 0.5, None),
+    "costo-de-vida-elkhart-indiana":
+        ("assets/images/homes-general/exterior-single-story-ranch-driveway.jpg", 0.5, None),
+    "costo-de-vida-goshen-indiana":
+        ("assets/images/homes-general/exterior-backyard-playset-shed-winter.jpg", 0.5, None),
+    "downtown-elkhart-indiana":
+        ("assets/images/homes-general/exterior-home-side-wood-deck-lawn.jpg", 0.5, None),
+    "downtown-goshen-indiana":
+        ("assets/images/homes-general/exterior-wooded-backyard-swing-set-fire-pit.jpg", 0.5, None),
+    "elkhart-indiana-industries-employers":
+        ("assets/images/homes-general/exterior-open-acreage-field-trees.jpg", 0.5, None),
+    "elkhart-indiana-landmarks-amenities":
+        ("assets/images/homes-general/exterior-backyard-shrub-lawn-trees.jpg", 0.5, None),
+    "elkhart-indiana-school-districts":
+        ("assets/images/homes-general/exterior-large-lawn-mature-trees.jpg", 0.5, None),
+    "eventos-comunitarios-elkhart-indiana":
+        ("assets/images/homes-general/exterior-covered-brick-porch-hanging-chair.jpg", 0.5, None),
+    "eventos-comunitarios-goshen-indiana":
+        ("assets/images/homes-general/exterior-backyard-privacy-fence-chairs.jpg", 0.5, None),
+    "good-time-to-buy-home-goshen-indiana":
+        ("assets/images/homes-general/exterior-covered-brick-porch-hanging-chair.jpg", 0.5, None),
+    "goshen-indiana-industries-employers":
+        ("assets/images/homes-general/exterior-red-wood-deck-backyard.jpg", 0.5, None),
+    "goshen-indiana-landmarks-amenities":
+        ("assets/images/homes-general/interior-living-room-stone-fireplace-wall.jpg", 0.5, None),
+    "goshen-indiana-school-district":
+        ("assets/images/homes-general/exterior-home-rear-deck-stairs-fenced.jpg", 0.5, None),
+    "industria-rv-comprar-casa-goshen-indiana":
+        ("assets/images/homes-general/exterior-backyard-deck-fenced-trees.jpg", 0.5, None),
+    "living-in-elkhart-guide":
+        ("assets/images/homes-general/exterior-covered-brick-porch-hanging-chair.jpg", 0.5, None),
+    "living-in-goshen-guide":
+        ("assets/images/homes-general/hero-twilight-1.jpg", 0.5, None),
+    "moving-to-elkhart":
+        ("assets/images/homes-general/twilight-exterior-two-story-brick-garage.jpg", 0.5, None),
+    "moving-to-elkhart-indiana-from-out-of-state":
+        ("assets/images/homes-general/hero-twilight-2.jpg", 0.5, None),
+    "mudarse-a-elkhart":
+        ("assets/images/homes-general/twilight-exterior-two-story-brick-garage.jpg", 0.5, None),
+    "mudarse-a-elkhart-indiana-desde-otro-estado":
+        ("assets/images/homes-general/twilight-exterior-two-story-brick-garage.jpg", 0.5, None),
+    "mudarse-a-goshen-desde-otro-estado":
+        ("assets/images/homes-general/exterior-home-rear-deck-stairs-fenced.jpg", 0.5, None),
+    "que-hacer-en-elkhart-indiana":
+        ("assets/images/homes-general/exterior-large-lawn-mature-trees.jpg", 0.5, None),
+    "que-hacer-en-goshen-indiana":
+        ("assets/images/homes-general/exterior-backyard-shrub-lawn-trees.jpg", 0.5, None),
+    "rv-industry-buying-a-home-goshen-indiana":
+        ("assets/images/homes-general/exterior-ranch-rear-leafy-yard-fence.jpg", 0.5, None),
+    "things-to-do-in-elkhart-indiana":
+        ("assets/images/homes-general/exterior-backyard-deck-fenced-trees.jpg", 0.5, None),
+    "things-to-do-in-goshen-indiana":
+        ("assets/images/homes-general/exterior-large-lawn-mature-trees.jpg", 0.5, None),
+    "trabajar-en-la-industria-de-rv-y-comprar-casa-en-elkhart-indiana":
+        ("assets/images/homes-general/exterior-home-side-wood-deck-lawn.jpg", 0.5, None),
+    "viviendo-en-elkhart":
+        ("assets/images/homes-general/exterior-covered-brick-porch-hanging-chair.jpg", 0.5, None),
+    "viviendo-en-goshen":
+        ("assets/images/homes-general/hero-twilight-1.jpg", 0.5, None),
+    "what-is-an-sres-seniors-real-estate-specialist":
+        ("assets/images/homes-general/interior-kitchen-cherry-cabinets-stainless.jpg", 0.5, None),
+    "what-is-elkhart-indiana-known-for":
+        ("assets/images/homes-general/exterior-two-story-rear-covered-porch.jpg", 0.5, None),
+    "what-is-goshen-indiana-known-for":
+        ("assets/images/homes-general/exterior-backyard-playset-shed-winter.jpg", 0.5, None),
+    "working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana":
+        ("assets/images/homes-general/exterior-backyard-lawn-metal-shed.jpg", 0.5, None),
+
+    # --- Group 2: Meet Lisa / brand people photos
+    "why-lisa-collio-became-real-estate-agent":
+        ("assets/images/lisa/lisa-collio-holiday-lights-portrait-2.jpg", 0.30, None),
+    "moving-to-goshen-indiana-from-out-of-state":
+        ("assets/images/lisa/lisa-collio-for-sale-sign-summer.jpg", 0.35, None),
+    # These two were framed by hand in the original composite. Rather than guess
+    # the crop, take the photo region straight out of the Template B composite:
+    # in B the colour band sits BELOW the photo and never overlaps it, so that
+    # region is the untouched photograph. Source noted for a future hi-res redo.
+    "does-lisa-collio-speak-spanish":
+        (FROM_COMPOSITE, 0.5, None),   # lisa/lisa-collio-headshot-red-top.jpg
+    "lisa-collio-helps-seniors-families-downsize":
+        (FROM_COMPOSITE, 0.5, None),   # lisa/lisa-collio-seniors-expo-booth.jpg
+
+    # --- Group 3: Goshen pillars. Lisa's decision, 27 July: swap off the
+    # address-folder sold-property photo onto a decorative homes-general one,
+    # sidestepping the consent-recordkeeping question rather than verifying it.
+    "moving-to-goshen":
+        ("assets/images/homes-general/exterior-open-acreage-field-trees.jpg", 0.5, None),
+    "mudarse-a-goshen":
+        ("assets/images/homes-general/exterior-open-acreage-field-trees.jpg", 0.5, None),
 }
 
 
 def build_clean_jobs():
     for slug, (src, focal_y, crop_box) in CLEAN_JOBS.items():
-        print(generate_clean(src, slug, focal_y=focal_y, crop_box=crop_box))
+        if src is FROM_COMPOSITE or src == FROM_COMPOSITE:
+            print(generate_clean_from_composite(slug))
+        else:
+            print(generate_clean(src, slug, focal_y=focal_y, crop_box=crop_box))
 
 
 if __name__ == "__main__":
