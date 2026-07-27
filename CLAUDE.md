@@ -1,8 +1,10 @@
 # CLAUDE.md — lisa-collio-website
-**v1.2 (July 27, 2026)** — see the Revision Log at the end of this file.
-Mirrors Lisa_Collio_Website_Master_Plan_v2_5 (July 2026). This file defers to the
-Master Plan; if they ever disagree, the Master Plan (highest version) wins.
-Regenerate this file whenever the plan version-bumps (one PR touches both).
+**v1.3 (July 27, 2026)** — see the Revision Log at the end of this file.
+Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
+files. This file defers to the Master Plan; if they ever disagree, the Master Plan
+wins. Deliberately no version number here — hardcoding one let this line go stale
+while the plan moved on. Regenerate this file whenever the plan version-bumps (one
+PR touches both).
 
 ## WHO / WHAT
 Website for Lisa Collio, Real Estate Agent — RE/MAX Results, The Viruez Team —
@@ -122,7 +124,8 @@ folder context; Lisa reviews all picks in the page PR.
 
 ## COMPLIANCE & PRECEDENCE (absolute)
 1. Compliance gates: RESPA, Fair Housing/IREC/NAR, MLS data rules.
-2. Master Plan v2.5 + Brand Cheat Sheet v3.0 (locked decisions).
+2. Master Plan (highest-numbered version in Project files) + Brand Cheat
+   Sheet (highest version) — locked decisions.
 3. AI Business Brain Vols I–XXXVII (voice, psychology, avatar depth).
 4. General knowledge.
 Avatars/Life Chapters guide empathy and voice ONLY — never published targeting;
@@ -164,11 +167,14 @@ Each rule below is here because the failure actually happened, more than once.
    session. One reintroduced a Fair Housing violation the repo's own approved
    source had correctly barred. Treat "is this file actually in the repo?" as a
    standing check whenever drafted content is used to build a live page.
-4. **A repeated fact needs one canonical home.** Correct the canonical source
-   first, then check every page against it — not against each other. The "13 vs
-   14 elementary schools" regression happened because a correction landed on a
-   page that was later retired while the approved source still said the old
-   number, so the wrong figure kept regenerating.
+4. **A repeated fact needs one canonical home: `docs/VERIFIED_FACTS.md`.**
+   Every claim appearing on more than one page lives there once, with its source
+   and the pages that state it. Correct that file first, then check each listed
+   page against it — never against each other. The "13 vs 14 elementary schools"
+   regression happened because a correction landed on a page later retired while
+   an approved source still said the old number, so the wrong figure kept
+   regenerating. The file also records disagreements between sources rather than
+   silently picking a winner, and flags figures that are contested or withdrawn.
 5. **English and Spanish change together.** Both languages ship in the same PR,
    or the Spanish adaptation is explicitly tracked before the English PR merges —
    never an unscoped "we'll get to it." Rebuilding 16 English articles without
@@ -186,9 +192,9 @@ Do not skip a step because it feels redundant.
    page-type and the article count, and confirm the Spanish set matches 1:1,
    before any content is written. (Site standard is 5; the Goshen and Elkhart
    Moving pillars run 6.)
-2. **Gather facts from named sources, citing as you go.** No number enters an
-   article that is not already recorded, with its source, in the canonical facts
-   record.
+2. **Gather facts from named sources, citing as you go.** No number, date, name,
+   or count enters an article unless it is already in `docs/VERIFIED_FACTS.md`
+   with its source. If it is not there, verify it and add it there *first*.
 3. **Draft the English body.** Roughly 220–350 words for a spoke article,
    1,500–2,500 for a pillar. Apply the compliance checklist below *while writing*.
 4. **Draft the English FAQ against that body.** Every fact in an answer must be
@@ -342,6 +348,16 @@ The script picks a template automatically by looking at the source photo
   (accents, ñ, ¿…?). Verify the font renders those glyphs before shipping.
 
 ## REVISION LOG
+
+**v1.3 — July 27, 2026** (Claude, at Lisa's direction)
+- Master Plan reference is now self-updating — "the highest-numbered version in
+  Project files" rather than a hardcoded v2.5, in both the header and the
+  precedence hierarchy. The pinned number had gone stale while approved docs
+  moved to v2.8; the rest of the hierarchy already used this rule.
+- Added `docs/VERIFIED_FACTS.md` as the canonical record for any fact stated on
+  more than one page, and made consulting it binding in the build procedure:
+  no number, date, name, or count enters an article unless it is already there
+  with its source.
 
 **v1.2 — July 27, 2026** (Claude, at Lisa's direction)
 - Added the locked BUILD PROCEDURE section for FAQ + authority-article clusters,
