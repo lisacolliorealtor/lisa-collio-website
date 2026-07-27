@@ -10,7 +10,8 @@
     "build:reviews": "node build-reviews.js",
     "build:all": "node build.js && node build-reviews.js",
     "audit": "node audit.js",
-    "hreflang": "node hreflang.js"
+    "hreflang": "node hreflang.js",
+    "llms": "node llms.js"
   },
   "license": "UNLICENSED"
 }
