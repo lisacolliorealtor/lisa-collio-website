@@ -12,6 +12,8 @@ file variant rather than a sample:
   3. Every out-of-scope slug's images do NOT — checked on the header, the
      thumbnail, and any og variant, not just the header.
   4. Every blog-headers file referenced by any page actually exists.
+  5. Every file in assets/images/sections/ is clean (section images are always
+     clean under v2.10) and is accounted for by a SECTION_JOBS entry.
 
 Point 3 exists because of a real gap: a verification pass reported "0
 outstanding" after scanning only `-header.jpg`, leaving the `-thumb.jpg` files
@@ -30,6 +32,7 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HEADERS = os.path.join(ROOT, "assets", "images", "blog-headers")
+SECTIONS = os.path.join(ROOT, "assets", "images", "sections")
 
 _spec = importlib.util.spec_from_file_location(
     "gen", os.path.join(ROOT, "scripts", "generate-featured-images.py"))
@@ -89,6 +92,18 @@ def main():
             if not in_scope and band:
                 errors.append(f"OUT-OF-SCOPE image still carries a band: {name}")
 
+    # 5. section images: a separate class, always clean, tracked by SECTION_JOBS
+    sec_checked = 0
+    if os.path.isdir(SECTIONS):
+        for path in sorted(glob.glob(os.path.join(SECTIONS, "*.jpg"))):
+            sec_checked += 1
+            base = os.path.basename(path)
+            name = re.sub(r"-thumb$", "", base[:-len(".jpg")])
+            if name not in gen.SECTION_JOBS:
+                errors.append(f"section image not recorded in SECTION_JOBS: {base}")
+            if has_band(path):
+                errors.append(f"section image carries a band (must be clean): {base}")
+
     # 4. no page may reference a blog-headers file that does not exist
     referenced = set()
     for dirpath, dirnames, filenames in os.walk(ROOT):
@@ -108,6 +123,7 @@ def main():
           f"{len(referenced)} distinct references resolved")
     print(f"  in scope (band expected):  {len(gen.OVERLAY_SCOPE)}")
     print(f"  out of scope (clean):      {len(gen.CLEAN_JOBS)}")
+    print(f"{len(gen.SECTION_JOBS)} section image(s) · {sec_checked} file(s) checked — separate class, always clean")
     if errors:
         print(f"\nFAILED — {len(errors)} problem(s):")
         for e in errors:
