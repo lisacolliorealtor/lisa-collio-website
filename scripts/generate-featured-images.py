@@ -48,7 +48,9 @@ Usage:
   Called programmatically via generate_header(...) from the batch driver
   (see the __main__ block for a single-image smoke test).
 """
+import io
 import os
+import subprocess
 from PIL import Image, ImageDraw, ImageFont
 
 # ---- Paths ------------------------------------------------------------------
@@ -644,10 +646,113 @@ def build_clean_jobs():
             print(generate_clean(src, slug, focal_y=focal_y, crop_box=crop_box))
 
 
+# =====================================================================
+# SECTION / FAQ images — Goshen and Elkhart community pages
+# ---------------------------------------------------------------------
+# The in-body illustrations beside each section heading and FAQ answer on the
+# Moving-to / Living-in pages, named by
+# docs/approved-copy/V1_0_Goshen_Elkhart_Image_Filenames_Lisa_Collio.md.
+# Outside OVERLAY_SCOPE, so they are clean photos: no band, no title, no
+# cutout (Master Plan v2.10). Same geometry and encoder settings as every
+# other image on the site: 1200x630, JPEG q88 progressive, WebP q85.
+#
+# Unlike CLEAN_JOBS, these are written back over their own manifest filenames
+# in assets/images/goshen/ — the manifest filename IS the name the page
+# references, so there is no separate output slug. That would normally make
+# the job one-way (the 1200x630 result overwrites its own source). It does
+# not, because the source of truth here is the ORIGINAL camera file's git
+# blob, read straight out of history by SHA. A re-run always starts from the
+# untouched original and produces identical bytes regardless of what is
+# currently on disk, so `--sections` is safely repeatable.
+#
+# The originals are the ~110 MB of camera files Lisa uploaded, committed in
+# PR #75 and permanently recoverable at the SHAs below:
+#     git cat-file blob <sha> > original.jpg
+# =====================================================================
+
+SECTION_JPG_QUALITY = 88      # matches _save()
+SECTION_WEBP_QUALITY = 85
+
+
+def _blob_bytes(sha):
+    """Read a blob straight out of git history by SHA."""
+    return subprocess.run(["git", "-C", ROOT, "cat-file", "blob", sha],
+                          capture_output=True, check=True).stdout
+
+
+def generate_section_clean(folder, name, blob_sha, focal_y=0.5):
+    """Web-ready section/FAQ image: a 1200x630 cover-crop of the ORIGINAL
+    camera file, written over its manifest filename with a .webp beside it.
+
+    folder   : 'goshen' or 'elkhart' under assets/images/
+    name     : the exact manifest filename, e.g. 'goshen-living-downtown.jpg'
+    blob_sha : git blob of the untouched original (see the note above)
+    focal_y  : vertical focal point, 0=keep the top, 1=keep the bottom. Matters
+               most on the portrait sources, where a 1.9:1 band keeps only
+               about a third of the frame height.
+    """
+    photo = Image.open(io.BytesIO(_blob_bytes(blob_sha))).convert("RGB")
+    jpg = os.path.join(ROOT, "assets", "images", folder, name)
+    canvas = _cover_focal(photo, W, H, focal_y)
+    canvas.save(jpg, "JPEG", quality=SECTION_JPG_QUALITY, optimize=True,
+                progressive=True)
+    canvas.save(os.path.splitext(jpg)[0] + ".webp", "WEBP",
+                quality=SECTION_WEBP_QUALITY, method=6)
+    return jpg
+
+
+# name -> (original blob SHA, focal_y). focal_y is 0.5 unless the source is
+# portrait, where it was chosen by eye to hold the subject in the 1.9:1 band.
+SECTION_JOBS_GOSHEN = {
+    # --- landscape sources: the default centre band keeps the subject
+    "goshen-living-city-resources.jpg":              ("3eb3058173e251e7aa65542b1c2fe0888e23711e", 0.5),
+    "goshen-living-faq-downtown.jpg":                ("678b9d28c319e7f532a8ecb5e72c3df1dc9c0cf8", 0.5),
+    "goshen-living-faq-employers.jpg":               ("0ee5ad7c9d39d1b9497b8d3123fba8635a8d5e83", 0.5),
+    "goshen-living-faq-landmarks.jpg":               ("7e78f42e1c66bc498485f9e81a14e39020d7eda1", 0.5),
+    "goshen-living-faq-school-district.jpg":         ("2e2b5cc29653290d4613458b3480cf4e2c24f709", 0.5),
+    "goshen-living-housing-by-zip.jpg":              ("1e668f9041e21b6b0fd4435a26efdc4db7eb0275", 0.5),
+    "goshen-living-parks-outdoors.jpg":              ("64dffe54e97aafca1c45f20707548d1da633b19e", 0.5),
+    "goshen-living-schools.jpg":                     ("83e3e09bdb78dadf98dd21fa035f9e9c4847658e", 0.5),
+    "goshen-living-why-lisa.jpg":                    ("5c13828c403b0e09fc956de4e759ad70c1662ae7", 0.5),
+    "goshen-moving-buying-from-distance.jpg":        ("6bec1f8d799311bc2862a2f9ec91c738530e4e5f", 0.5),
+    "goshen-moving-cost-of-living.jpg":              ("06bea88804a48e35a340ff75163e70a56f03c61c", 0.5),
+    "goshen-moving-cta-closing.jpg":                 ("0d923d1ac926e8ab9d4e1bc93f0435f99f50591c", 0.5),
+    "goshen-moving-daily-life.jpg":                  ("57b567fa8fbc395bcfa489c1a59b8f82fef6cb70", 0.5),
+    "goshen-moving-employers.jpg":                   ("45e60fac994302e0b35eef0a3f28603ea578cf66", 0.5),
+    "goshen-moving-faq-community-events.jpg":        ("4d10bde3284a394a4d028fd60266103fd06783f6", 0.5),
+    "goshen-moving-faq-moving-from-out-of-state.jpg":("fa747ac457e67a349d97036acca17f86120f71b9", 0.5),
+    "goshen-moving-faq-older-home-checklist.jpg":    ("b32b618400d4e7049115022939aa93a2e267dd56", 0.5),
+    "goshen-moving-faq-rv-industry-job.jpg":         ("5ecc95880b2493a68319a97ad5830a7a9c0f9a31", 0.5),
+    "goshen-moving-faq-things-to-do.jpg":            ("12c6559335b8d312d3dea55ac08d9f335d64c346", 0.5),
+    "goshen-moving-goshen-or-elkhart.jpg":           ("420ac281d314e1ba2c596d7bac8df77fbb37685f", 0.5),
+    "goshen-moving-housing-stock.jpg":               ("214d1201a0dfce4a3e8e42854038439ed90d34a2", 0.5),
+    "goshen-moving-location-commute.jpg":            ("4a082122b29c43303a66a73fb56051b4fa812e74", 0.5),
+    "goshen-moving-schools.jpg":                     ("1e8b8b1ac081c6fb73bdaa24729272601b195b22", 0.5),
+    "goshen-moving-trade-offs.jpg":                  ("23be387961c3deb8aad1b43ca37dfba7ce39f0cf", 0.5),
+
+    # --- portrait sources: focal_y chosen by eye, see FEATURED_IMAGE notes
+    "goshen-living-arts-culture.jpg":                ("ec17ab15416d14a59215b60614f752e608809d99", 0.47),
+    "goshen-living-cta-closing.jpg":                 ("b5faf5515c8ebdc3cff87663d07ad07bfb212761", 0.62),
+    "goshen-living-downtown.jpg":                    ("2a0473e06cd381bb9f6d186ee22940c4b1dca6cd", 0.60),
+    "goshen-living-faq-known-for.jpg":               ("0de49f093c6b5dc61c30097802423a5a39c2fae3", 0.50),
+    "goshen-living-known-for.jpg":                   ("ce53f5ca10f9b21013c3902ea3de685a407fce84", 0.62),
+    "goshen-living-water-weather.jpg":               ("ef924edeed33313095578a122d16f04b82612ae7", 0.55),
+    "goshen-moving-faq-cost-of-living.jpg":          ("63cf4cf54dfe388596709304848b3857eef64ab0", 0.50),
+}
+
+
+def build_section_jobs():
+    for name, (sha, focal_y) in SECTION_JOBS_GOSHEN.items():
+        print(generate_section_clean("goshen", name, sha, focal_y=focal_y))
+
+
 if __name__ == "__main__":
     import sys
     if "--clean" in sys.argv:
         build_clean_jobs()
+        raise SystemExit(0)
+    if "--sections" in sys.argv:
+        build_section_jobs()
         raise SystemExit(0)
 
     # Smoke test: one image
