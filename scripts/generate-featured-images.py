@@ -470,6 +470,72 @@ def generate_clean(photo_path, out_slug, focal_y=0.5, crop_box=None, thumb=True)
     return jpg
 
 
+# =====================================================================
+# SECTION IMAGES — a different class from featured images
+# ---------------------------------------------------------------------
+# In-body illustrations that sit inside a page's FAQ or section blocks.
+# NOT featured images: they never appear in og:image, twitter:image, the
+# schema `image` field, or a page hero, and they are not keyed by page slug.
+#
+# They live in their own directory so the blog-headers/ scope guard stays
+# meaningful — every slug in blog-headers/ must be classified as overlay or
+# clean, and a section image is neither.
+#
+#   source library : assets/images/goshen/, assets/images/elkhart/
+#                    (camera originals, any size, uploaded by Lisa)
+#   derived output : assets/images/sections/   <- page-ready, this file
+#
+# Section images are ALWAYS clean under Master Plan v2.10 — Communities pages
+# are outside the Buyers/Sellers overlay exception, so there is no overlay
+# variant of this function and no rotation to track.
+#
+# Two sizes, matching the site's existing conventions:
+#   {name}.jpg        1200x630  full-width in-body use
+#   {name}-thumb.jpg   800x420  the faq-item--media slot, same as hub cards
+# =====================================================================
+
+SECTIONS_DIR = os.path.join(ROOT, "assets", "images", "sections")
+
+# name -> (source photo, focal_y, crop_box). Same shape as CLEAN_JOBS so the
+# two read alike. Rebuild with `--sections`.
+SECTION_JOBS = {
+    # /living-in-goshen/ FAQ: "What is Goshen, Indiana known for?"
+    # focal_y 0.68 chosen by Lisa, 29 July: at 1.9:1 the medallion's two arcs
+    # cannot both be fully intact, and 0.68 keeps "THE MAPLE CITY" complete
+    # with "GOSHEN" still legible across the top.
+    "goshen-living-faq-known-for":
+        ("assets/images/goshen/goshen-living-faq-known-for.jpg", 0.68, None),
+}
+
+
+def generate_section(photo_path, out_name, focal_y=0.5, crop_box=None):
+    """Clean in-body section image: 1200x630 plus the 800x420 media-slot size,
+    .webp beside each .jpg. No band, no title, no cutout — same treatment as
+    generate_clean(), different output directory and no page-slug coupling."""
+    src = photo_path if os.path.isabs(photo_path) else os.path.join(ROOT, photo_path)
+    photo = Image.open(src).convert("RGB")
+    if crop_box:
+        w, h = photo.size
+        l, t, r, b = crop_box
+        photo = photo.crop((int(l * w), int(t * h), int(r * w), int(b * h)))
+
+    os.makedirs(SECTIONS_DIR, exist_ok=True)
+    out = []
+    for suffix, (bw, bh) in (("", (W, H)), ("-thumb", (THUMB_W, THUMB_H))):
+        canvas = _cover_focal(photo, bw, bh, focal_y)
+        jpg = os.path.join(SECTIONS_DIR, f"{out_name}{suffix}.jpg")
+        canvas.save(jpg, "JPEG", quality=88, optimize=True, progressive=True)
+        canvas.save(os.path.join(SECTIONS_DIR, f"{out_name}{suffix}.webp"),
+                    "WEBP", quality=85, method=6)
+        out.append(jpg)
+    return out[0]
+
+
+def build_section_jobs():
+    for name, (src, focal_y, crop_box) in SECTION_JOBS.items():
+        print(generate_section(src, name, focal_y=focal_y, crop_box=crop_box))
+
+
 # Clean replacements built so far, recorded so the mapping is reproducible
 # rather than living in one session's scrollback. slug -> (source photo,
 # focal_y, crop_box). Run `python3 scripts/generate-featured-images.py --clean`
@@ -648,6 +714,9 @@ if __name__ == "__main__":
     import sys
     if "--clean" in sys.argv:
         build_clean_jobs()
+        raise SystemExit(0)
+    if "--sections" in sys.argv:
+        build_section_jobs()
         raise SystemExit(0)
 
     # Smoke test: one image
