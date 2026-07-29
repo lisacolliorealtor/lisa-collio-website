@@ -265,7 +265,7 @@ const sameText = (a, b) => {
     "/blog/buyers/are-homes-goshen-indiana-competitive-to-buy/",
     "/blog/buyers/elkhart-indiana-good-place-invest-real-estate/",
     "/blog/buyers/how-to-compete-with-other-buyers-elkhart-indiana/",
-    "/blog/buyers/what-makes-goshen-indiana-desirable-place-to-live/",
+    "/blog/buyers/is-goshen-indiana-good-place-to-buy-home/",
     "/blog/buyers/what-to-look-for-buying-home-elkhart-indiana/",
     "/blog/buyers/what-to-prioritize-buying-house-goshen-indiana/",
     "/blog/buyers/why-buy-home-elkhart-indiana-lisa-collio/",
