@@ -1,0 +1,76 @@
+# Fair Housing banned terms — English and Spanish.
+#
+# Used by audit.js (check 17), which FAILS the run if any of these appears in
+# an ALT ATTRIBUTE on any page, in either language.
+#
+# Why alt text specifically: alt attributes have been missed by every previous
+# Fair Housing sweep on this site. They are copy — a screen-reader user hears
+# them — but they sit inside a tag, so prose-level greps and human read-throughs
+# both skip them. "una calle tranquila de Goshen" and its English twin "a quiet
+# Goshen street" both shipped to production this way.
+#
+# The existing check 5 already guards "walkab" across the whole page. This list
+# is broader and deliberately scoped tighter, to alt text, because several of
+# these terms are legitimate in other contexts and would fire constantly on body
+# copy. "Tranquilidad" describing peace of mind about a transaction is fine;
+# "una calle tranquila" describing a street is not. Scoping to alt keeps the
+# check hard-failing instead of noisy.
+#
+# Format: CATEGORY | term
+# Matching is case-insensitive, accent-sensitive, on word boundaries.
+
+# --- movement / ambulatory ability ---
+ambulatory | walkable
+ambulatory | walkability
+ambulatory | walking distance
+ambulatory | walk to
+ambulatory | strolling
+ambulatory | bike-friendly
+ambulatory | bikeable
+ambulatory | caminable
+ambulatory | a poca distancia a pie
+ambulatory | a pie de
+ambulatory | paseo a pie
+
+# --- coded qualitative judgments about a place ---
+coded | quiet
+coded | tranquila
+coded | tranquilo
+coded | tranquilas
+coded | tranquilos
+coded | safe neighborhood
+coded | safe area
+coded | barrio seguro
+coded | zona segura
+coded | exclusive
+coded | exclusivo
+coded | exclusiva
+coded | prestigious
+coded | prestigioso
+coded | desirable
+coded | deseable
+coded | integrated neighborhood
+coded | barrio integrado
+
+# --- familial status ---
+familial | family-friendly
+familial | perfect for families
+familial | ideal for families
+familial | kid-friendly
+familial | ideal para familias
+familial | perfecto para familias
+familial | apto para niños
+
+# --- age ---
+age | perfect for retirees
+age | ideal for seniors
+age | ideal para jubilados
+age | perfecto para jubilados
+age | empty nesters
+
+# --- religion / national origin ---
+religion | near churches
+religion | christian community
+religion | church community
+religion | iglesias cercanas
+religion | comunidad cristiana

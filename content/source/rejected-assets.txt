@@ -1,0 +1,26 @@
+# Rejected image assets — must never be referenced by a page.
+#
+# Used by audit.js (check 15), which FAILS the run if any page references one
+# of these filenames in any variant (.jpg, .webp, -thumb, -header).
+#
+# RULING (Lisa, 29 July 2026): these four files are NOT Lisa's original
+# photography. They are composite graphics with circular photo insets, supplied
+# with the July 2026 Goshen batch. They must not appear on any page in either
+# language until Lisa uploads real replacement photographs.
+#
+# The slots they were meant to fill therefore stay EMPTY ON PURPOSE. A future
+# session finding "a missing FAQ image" or "a section without a photo" on these
+# four is looking at a deliberate gap, not an oversight — do not helpfully fill
+# it. This file exists because that exact mistake was about to be made: the
+# missing sixth FAQ image on /moving-to-goshen/ was reported as a manifest gap
+# worth closing, one day before Lisa caught it.
+#
+# When a replacement photo arrives, Lisa uploads it under the SAME manifest
+# filename; delete the line here, process it, and wire it normally.
+#
+# One slug per line, without extension or -thumb/-header suffix.
+
+goshen-living-why-lisa
+goshen-moving-cta-closing
+goshen-moving-location-commute
+goshen-moving-faq-moving-from-out-of-state

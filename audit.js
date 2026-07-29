@@ -378,6 +378,167 @@ const sameText = (a, b) => {
   }
 }
 
+/* 14. EN/ES image parity ---------------------------------------------------
+ * Spanish twins share the English page's image FILES (Master Plan §7) — only
+ * the alt text differs. So a difference in image count between a pair is
+ * always a gap, never a design choice.
+ *
+ * This has now surfaced three times, each caught only because someone looked
+ * at the page: the Spanish community pages shipped with no section images at
+ * all, and then with body images but no FAQ images. Counting by one class and
+ * calling it "images" is exactly how the second one hid — so this counts every
+ * content <img>, and reports the per-class split when it fails.
+ *
+ * Chrome (header, footer, logos, review photos) is identical on both sides of
+ * a pair, so a raw <img> count is comparable without excluding it.
+ */
+{
+  const pairPath = path.join(ROOT, "content", "hreflang-pairs.json");
+  const basePath = path.join(ROOT, "content", "image-parity-baseline.json");
+  if (fs.existsSync(pairPath)) {
+    const pairs = JSON.parse(read(pairPath));
+    // Known pre-existing gaps, recorded with their exact counts when the check
+    // was introduced. They are a worklist, not an exemption: a baselined pair
+    // errors if its gap CHANGES in either direction — worse means a regression,
+    // better means the entry is stale and should be deleted. The baseline can
+    // only shrink.
+    const baseline = new Map(
+      (fs.existsSync(basePath) ? JSON.parse(read(basePath)) : []).map((r) => [r.en, r])
+    );
+    const countImgs = (s) => (s.match(/<img\b/g) || []).length;
+    const countClass = (s, c) => (s.match(new RegExp(c, "g")) || []).length;
+    for (const { en, es } of pairs) {
+      const fe = fileFor2(en), fs_ = fileFor2(es);
+      if (!fe || !fs_ || !fs.existsSync(fe) || !fs.existsSync(fs_)) continue;
+      const a = read(fe), b = read(fs_);
+      const na = countImgs(a), nb = countImgs(b);
+      const known = baseline.get(en);
+      if (na === nb) {
+        if (known)
+          err("image-parity",
+            `${en} / ${es} now match at ${na} images — the gap is resolved. ` +
+            `Delete this pair from content/image-parity-baseline.json.`);
+        continue;
+      }
+      const split = (s) =>
+        `section-figure ${countClass(s, "section-figure")}, ` +
+        `faq-item--media ${countClass(s, "faq-item--media")}`;
+      if (known && known.enImages === na && known.esImages === nb) continue; // unchanged known gap
+      err("image-parity",
+        `${en} has ${na} images, ${es} has ${nb} — twins share image files, so this is a gap. ` +
+        `EN: ${split(a)}. ES: ${split(b)}.` +
+        (known ? ` (baselined at ${known.enImages}/${known.esImages} — this changed.)` : ""));
+    }
+  }
+}
+
+/* 15. Rejected image assets ------------------------------------------------
+ * Four files in the July 2026 Goshen batch are composite graphics with
+ * circular photo insets, not Lisa's original photography (her ruling,
+ * 29 July 2026). They must not appear on any page until she supplies real
+ * replacements.
+ *
+ * The point of this check is the FALSE NEGATIVE it prevents. The slots those
+ * files were meant to fill are legitimately empty, so they read as oversights
+ * — one was already written up as a manifest gap worth closing. Without a
+ * mechanical guard, some future session helpfully "fixes" it and puts a
+ * rejected asset on a live page.
+ *
+ * List: content/source/rejected-assets.txt.
+ */
+{
+  const listPath = path.join(ROOT, "content", "source", "rejected-assets.txt");
+  if (!fs.existsSync(listPath)) {
+    err("rejected-assets", "content/source/rejected-assets.txt is missing — check 15 cannot run");
+  } else {
+    const slugs = read(listPath)
+      .split("\n")
+      .map((l) => l.trim())
+      .filter((l) => l && !l.startsWith("#"));
+    for (const f of htmlFiles) {
+      const s = read(f);
+      for (const slug of slugs) {
+        // any variant: slug.jpg, slug.webp, slug-thumb.jpg, slug-header.webp …
+        if (new RegExp(`${slug}(-thumb|-header)?\\.(jpg|jpeg|png|webp)`).test(s))
+          err("rejected-assets",
+            `${rel(f)} references ${slug} — not Lisa's photography (ruling 29 Jul 2026). ` +
+            `This slot stays empty until she supplies a replacement; see content/source/rejected-assets.txt.`);
+      }
+    }
+  }
+}
+
+/* 16. FAQ image must match its own question -------------------------------
+ * An FAQ block with an image has two links: the decorative image wrapper and
+ * the "Read the full article" link in the body. They must point at the same
+ * article — otherwise the image illustrates a different question than the one
+ * it sits beside, and its alt text describes the wrong thing to a screen
+ * reader.
+ *
+ * This exists because it happened: a block-spanning regex attached two Spanish
+ * FAQ images to the wrong questions, and it was caught only by listing every
+ * alt string by hand for review. Nothing else would have flagged it — counts
+ * matched, both languages had five images, every file existed.
+ */
+{
+  for (const f of pageFiles) {
+    const s = read(f);
+    const blocks = s.match(/<div class="faq-item faq-item--media[\s\S]*?\n      <\/div>/g) || [];
+    for (const blk of blocks) {
+      const media = blk.match(/faq-item__media" href="([^"]+)"/);
+      const body = blk.match(/faq-more"><a href="([^"]+)"/);
+      if (!media || !body) continue;
+      if (media[1] !== body[1]) {
+        const q = (blk.match(/<h3>([\s\S]*?)<\/h3>/) || [, "?"])[1].trim();
+        err("faq-pairing",
+          `${urlOf(f)}: FAQ image links to ${media[1]} but the question "${q}" links to ${body[1]} — ` +
+          `the image belongs to a different question`);
+      }
+    }
+  }
+}
+
+/* 17. Fair Housing terms in alt text --------------------------------------
+ * Alt attributes are copy, but they sit inside a tag — so prose greps and
+ * human read-throughs both skip them, and every previous Fair Housing sweep
+ * on this site missed them. "a quiet Goshen street" and "una calle tranquila
+ * de Goshen" both reached production that way.
+ *
+ * Terms: content/source/fair-housing-terms.txt, English and Spanish. Scoped to
+ * alt text rather than whole pages on purpose — several terms are legitimate
+ * elsewhere ("tranquilidad" about peace of mind is fine, "una calle tranquila"
+ * is not), and a noisy check gets switched off. Check 5 still guards
+ * "walkab" sitewide.
+ */
+{
+  const listPath = path.join(ROOT, "content", "source", "fair-housing-terms.txt");
+  if (!fs.existsSync(listPath)) {
+    err("fair-housing-alt", "content/source/fair-housing-terms.txt is missing — check 17 cannot run");
+  } else {
+    const terms = read(listPath)
+      .split("\n")
+      .map((l) => l.trim())
+      .filter((l) => l && !l.startsWith("#"))
+      .map((l) => {
+        const [cat, term] = l.split("|").map((x) => x.trim());
+        return { cat, term };
+      });
+    for (const f of htmlFiles) {
+      const s = read(f);
+      for (const m of s.matchAll(/\balt="([^"]*)"/g)) {
+        const alt = decode(m[1]);
+        if (!alt.trim()) continue;
+        for (const { cat, term } of terms) {
+          const re = new RegExp(`(^|[^\\p{L}])${term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}([^\\p{L}]|$)`, "iu");
+          if (re.test(alt))
+            err("fair-housing-alt",
+              `${rel(f)}: alt text contains "${term}" (${cat}) — "${alt.slice(0, 80)}"`);
+        }
+      }
+    }
+  }
+}
+
 /* ------------------------------------------------------------------------- */
 const group = (list) => {
   const by = {};
