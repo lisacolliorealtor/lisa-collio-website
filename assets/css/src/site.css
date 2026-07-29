@@ -45,6 +45,17 @@ picture { max-width: 100%; display: block; }
   margin: var(--space-4) 0 0;
 }
 
+/* In-body section illustration — a section image, not a featured image.
+   Same visual treatment as .blog-featured; separate class so the two uses
+   stay distinguishable in markup and can diverge later without a rewrite. */
+.section-figure {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  margin: var(--space-4) 0 0;
+}
+
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-optical-sizing: auto;
