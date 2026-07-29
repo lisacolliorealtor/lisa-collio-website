@@ -26,7 +26,7 @@ git cat-file blob <sha> > original.jpg
 
 ---
 
-## Flag 1 — one portrait crop clips its subject
+## Flag 1 — one portrait crop clips its subject — STILL OPEN
 
 `goshen-living-faq-known-for.jpg` is the carved "GOSHEN — THE MAPLE CITY"
 emblem, shot in portrait. The 1.9:1 band keeps the maple leaves but **clips
@@ -34,13 +34,29 @@ both words**: the top of "GOSHEN" and the bottom of "THE MAPLE CITY" are cut
 off, so the emblem reads as fragments.
 
 No focal point fixes this — the words sit at opposite ends of a tall circular
-emblem, and the band is only about 46% of the source height. Options, all
-needing Lisa's call:
+emblem, and the band is only about 46% of the source height. At `focal_y` 0.5
+the band spans 27%–73% of the source, and the two words sit outside that range
+at roughly 12%–28% and 72%–88%.
 
-1. Reshoot or re-crop the emblem in landscape so the full circle fits.
+**Re-upload attempt, 29 July — no change.** A replacement "uncropped version"
+was uploaded to `main` (commit `9a588b3`). That commit is **empty**: its tree
+is identical to its parent's, and the file at that path is still blob
+`0de49f09…`, byte-identical to the original already in `SECTION_JOBS_GOSHEN`.
+The same 3583×4048 portrait went in, so the same fragmented crop came out —
+confirmed by re-running `--sections` and diffing (output hash unchanged).
+
+Worth knowing for the next attempt: `main` never held a cropped version. The
+crop exists only on the PR branch, so the file on `main` *was* already the
+uncropped original — re-uploading it changes nothing. A genuinely different
+photo is needed.
+
+Options, all still needing Lisa's call:
+
+1. Shoot or supply the emblem **in landscape**, framed so the full circle
+   fits within a 1.9:1 band.
 2. Use a different photo for the "What is Goshen known for?" FAQ slot.
-3. Accept the leaves-only crop as a decorative texture, knowing the wordmark
-   is not legible.
+3. Accept the leaves-only crop as decorative texture, knowing the wordmark is
+   not legible.
 
 The other six portrait sources crop cleanly and need no action.
 
@@ -58,19 +74,65 @@ verify-current-details disclaimer. `/living-in-goshen/` and
 | `goshen-living-arts-culture.jpg` | "Goshen Historical Museum", "LUGGAGE", "JEWELRY" |
 | `goshen-living-known-for.jpg` | "Electric Brew", "Goshen's Original Coffee House" |
 
-The rule as written governs copy, and it is Lisa's and the managing broker's
-call whether a photograph of a public streetscape falls under it. Two things
-make it worth deciding before these go live rather than after:
+**Decision (Lisa, 29 July 2026): keep all three photos, no swap. Alt text is
+written generically, without naming the business.** That closes the image
+question. The alt text below is locked for these three and must be used
+verbatim when the images are wired into a page:
 
-- **Alt text is unambiguously copy.** Describing these images accurately will
-  put the business name into page text unless the alt text is written to avoid
-  it. Alt text should be drafted with this decision already made.
-- **A named business can close or rebrand,** which is the reason the evergreen
-  rule exists at all.
+| image | approved EN alt text |
+|---|---|
+| `goshen-living-downtown.jpg` | `A restored downtown storefront with large display windows in Goshen, Indiana.` |
+| `goshen-living-arts-culture.jpg` | `A historic museum building with an awning on a downtown street in Goshen, Indiana.` |
+| `goshen-living-known-for.jpg` | `Lisa Collio standing on a downtown street corner in Goshen, Indiana, with a coffee shop exterior behind her.` |
 
-If the photos are approved as-is, the safe pattern is alt text that describes
-the scene generically — "A restored storefront on Main Street in downtown
-Goshen, Indiana" — rather than naming the tenant.
+Spanish twins share the same image files but take their own alt text per Master
+Plan §7; adapt these culturally rather than translating them, and keep them
+equally generic. Alt text for the other 28 images is drafted at wiring time,
+against the page each one lands on.
+
+No business name may appear in a caption, `title` attribute, `figcaption`, or
+surrounding sentence for these three either.
+
+---
+
+## Flag 3 — the pillar pages already name businesses in body copy — NEW, NEEDS A DECISION
+
+Checking that no *other* copy on these pages names the three businesses turned
+up something larger: **`/living-in-goshen/` already names eleven businesses in
+a single paragraph of body copy**, including two of the three in question.
+
+`living-in-goshen/index.html:231` and its Spanish twin
+`es/viviendo-en-goshen/index.html:232` name: The Nut Shoppe, Olympia Candy
+Kitchen, Woldruff's Footwear, Fables Books, The Electric Brew, Found, Ten
+Thousand Villages, The Soapy Gnome, Jules Boutique, and Twice as Nice.
+
+Under the compliance checklist as written — "no specific business, restaurant,
+or shop names on evergreen pillar pages" — this is the exact pattern the rule
+bars, and it is far more prominent than a business name appearing incidentally
+in a photograph. Generic alt text on three images sits oddly beside a paragraph
+that names ten shops outright.
+
+**Not actioned.** This is broker-approved page copy, and rewriting it is a
+content change requiring Lisa's approval and broker sign-off, not an image-batch
+side effect. Recorded here for a decision.
+
+Two related observations, offered as facts rather than conclusions:
+
+- **Other named entities on these pages are arguably a different category.**
+  `/moving-to-goshen/` names employers (Jayco, Thor Industries, Lippert
+  Components, Keystone RV, Forest River), public institutions (Goshen College,
+  IU Health Goshen Hospital, Goshen Community Schools), parks, and events. The
+  rule's wording — "business, restaurant, or shop" — reads as aimed at retail
+  and dining recommendations that go stale, not at naming an employer in an
+  employment context. Worth confirming that reading.
+- **The blog exemption's condition may not be met.** The rule permits business
+  names on "dated blog articles carrying a verify-current-details disclaimer."
+  `/blog/community/things-to-do-in-goshen-indiana/` names businesses and
+  carries only the standard site-wide footer stack — there is no distinct
+  verify-current-details snippet anywhere in the repo. Either the content
+  reliability disclaimer in the footer is intended to serve that purpose, in
+  which case it is on the pillar pages too and the exemption does not
+  distinguish them, or the snippet the rule anticipates was never built.
 
 ## Not a flag — orientation
 
