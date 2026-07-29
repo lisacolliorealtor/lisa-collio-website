@@ -336,6 +336,48 @@ const sameText = (a, b) => {
   }
 }
 
+/* 13. Retail/dining business names -----------------------------------------
+ * The compliance checklist bars specific business, restaurant, and shop names
+ * on evergreen pillar pages, allowing them ONLY on dated blog articles that
+ * carry the verify-current-details disclaimer.
+ *
+ * That exemption sat unenforced for months: the disclaimer did not exist, and
+ * a pillar page named ten businesses in one paragraph without anything
+ * catching it. Both halves are mechanical, so both are checked here.
+ *
+ * Names live in content/source/retail-business-names.txt so the list can be
+ * edited without touching this file. A few real businesses are deliberately
+ * absent because their names are ordinary words — see the header of that file.
+ * The check therefore reduces the human-review surface; it does not remove it.
+ */
+{
+  const listPath = path.join(ROOT, "content", "source", "retail-business-names.txt");
+  if (!fs.existsSync(listPath)) {
+    err("business-names", "content/source/retail-business-names.txt is missing — check 13 cannot run");
+  } else {
+    const names = read(listPath)
+      .split("\n")
+      .map((l) => l.trim())
+      .filter((l) => l && !l.startsWith("#"));
+    const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    for (const f of pageFiles) {
+      const s = read(f);
+      const text = strip(s);
+      const hits = names.filter((n) => new RegExp(`(^|[^\\w])${esc(n)}([^\\w]|$)`).test(text));
+      if (!hits.length) continue;
+      const url = urlOf(f);
+      const isBlogArticle = url.startsWith("/blog/") && url !== "/blog/";
+      if (!isBlogArticle) {
+        err("business-names",
+          `${url} is an evergreen page naming: ${hits.join(", ")} — these belong only on dated blog articles`);
+      } else if (!/build:verify-details(-es)?[\s{]/.test(s)) {
+        err("business-names",
+          `${url} names ${hits.join(", ")} without the verify-current-details disclaimer — add the build:verify-details marker`);
+      }
+    }
+  }
+}
+
 /* ------------------------------------------------------------------------- */
 const group = (list) => {
   const by = {};
