@@ -8,6 +8,11 @@
 # Community pages renamed July 2026 (Batch 2f): permanent redirects from the
 # old /communities/ paths. These must stay ABOVE the /* 404 rule (first match wins).
 [[redirects]]
+  from = "/blog/buyers/what-makes-goshen-indiana-desirable-place-to-live/"
+  to = "/blog/buyers/is-goshen-indiana-good-place-to-buy-home/"
+  status = 301
+
+[[redirects]]
   from = "/communities/goshen/"
   to = "/living-in-goshen/"
   status = 301

@@ -83,7 +83,7 @@ OVERLAY_SCOPE = {
     "are-homes-goshen-indiana-competitive-to-buy",
     "elkhart-indiana-good-place-invest-real-estate",
     "how-to-compete-with-other-buyers-elkhart-indiana",
-    "what-makes-goshen-indiana-desirable-place-to-live",
+    "is-goshen-indiana-good-place-to-buy-home",
     "what-to-look-for-buying-home-elkhart-indiana",
     "what-to-prioritize-buying-house-goshen-indiana",
     "why-buy-home-elkhart-indiana-lisa-collio",
@@ -250,6 +250,35 @@ def generate_header(house_filename, title, bar_color, lisa_side, out_slug):
     canvas.save(jpg_path, "JPEG", quality=88, optimize=True, progressive=True)
     canvas.save(webp_path, "WEBP", quality=85, method=6)
     return jpg_path
+
+
+# ---- Template A reproducibility ---------------------------------------------
+# generate_header() emits only the 1200x630 "-header" pair. The 800x420 "-thumb"
+# used by blog cards and FAQ media slots is a straight downscale of it, produced
+# by generate_header_thumb() below.
+#
+# OVERLAY_JOBS records how a Template A image was actually built, because
+# nothing else did. Renaming one article in July 2026 meant reverse-engineering
+# its source photo and colour variant by regenerating candidates and comparing
+# hashes — recoverable, but only because the inputs happened to be guessable.
+# Add a row whenever you build or rebuild a Template A image.
+#   slug -> (house photo in homes-general/, VARIANTS index)
+OVERLAY_JOBS = {
+    "is-goshen-indiana-good-place-to-buy-home":
+        ("twilight-exterior-split-level-green-shutters.jpg", 0),   # blue / right
+}
+
+
+def generate_header_thumb(out_slug):
+    """800x420 card thumbnail for a Template A slug: a downscale of the
+    1200x630 header, so the band and the title stay in proportion. Same encoder
+    settings as everything else on the site."""
+    src = os.path.join(OUT_DIR, f"{out_slug}-header.jpg")
+    im = Image.open(src).convert("RGB").resize((THUMB_W, THUMB_H), Image.LANCZOS)
+    jpg = os.path.join(OUT_DIR, f"{out_slug}-thumb.jpg")
+    im.save(jpg, "JPEG", quality=88, optimize=True, progressive=True)
+    im.save(os.path.join(OUT_DIR, f"{out_slug}-thumb.webp"), "WEBP", quality=85, method=6)
+    return jpg
 
 
 LISA_DIR = os.path.join(ROOT, "assets", "images", "lisa")
