@@ -432,6 +432,42 @@ const sameText = (a, b) => {
   }
 }
 
+/* 15. Rejected image assets ------------------------------------------------
+ * Four files in the July 2026 Goshen batch are composite graphics with
+ * circular photo insets, not Lisa's original photography (her ruling,
+ * 29 July 2026). They must not appear on any page until she supplies real
+ * replacements.
+ *
+ * The point of this check is the FALSE NEGATIVE it prevents. The slots those
+ * files were meant to fill are legitimately empty, so they read as oversights
+ * — one was already written up as a manifest gap worth closing. Without a
+ * mechanical guard, some future session helpfully "fixes" it and puts a
+ * rejected asset on a live page.
+ *
+ * List: content/source/rejected-assets.txt.
+ */
+{
+  const listPath = path.join(ROOT, "content", "source", "rejected-assets.txt");
+  if (!fs.existsSync(listPath)) {
+    err("rejected-assets", "content/source/rejected-assets.txt is missing — check 15 cannot run");
+  } else {
+    const slugs = read(listPath)
+      .split("\n")
+      .map((l) => l.trim())
+      .filter((l) => l && !l.startsWith("#"));
+    for (const f of htmlFiles) {
+      const s = read(f);
+      for (const slug of slugs) {
+        // any variant: slug.jpg, slug.webp, slug-thumb.jpg, slug-header.webp …
+        if (new RegExp(`${slug}(-thumb|-header)?\\.(jpg|jpeg|png|webp)`).test(s))
+          err("rejected-assets",
+            `${rel(f)} references ${slug} — not Lisa's photography (ruling 29 Jul 2026). ` +
+            `This slot stays empty until she supplies a replacement; see content/source/rejected-assets.txt.`);
+      }
+    }
+  }
+}
+
 /* ------------------------------------------------------------------------- */
 const group = (list) => {
   const by = {};
