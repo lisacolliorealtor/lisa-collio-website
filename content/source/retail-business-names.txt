@@ -1,0 +1,66 @@
+# Retail and dining business names appearing in site content.
+#
+# Used by audit.js (check 13). Two rules are enforced against this list:
+#   1. An evergreen pillar page naming any of these FAILS the audit outright.
+#      Those names belong only on dated blog articles.
+#   2. A blog article naming any of these must carry the verify-current-details
+#      disclaimer marker (build:verify-details / build:verify-details-es).
+#
+# One name per line. Matching is case-sensitive and whole-word, against the
+# rendered text of the page. Blank lines and #-comments are ignored.
+#
+# TO ADD A BUSINESS: add the line, run `npm run audit`. If the article naming it
+# lacks the disclaimer marker, the audit tells you which file to fix.
+#
+# DELIBERATELY EXCLUDED — names that are ordinary English or Spanish words and
+# would fire constantly on innocent prose. These are real businesses in the
+# content and still subject to both rules; they simply cannot be caught
+# mechanically, so they stay a human-review item:
+#   Found          (the verb, on nearly every page)
+#   Artisan        (used as an adjective throughout — "artisan retail")
+#   Sprocket       (appears in trail and bike context)
+#   The Depot      (also a generic place noun in rail history copy)
+
+# --- Goshen ---
+The Nut Shoppe
+Olympia Candy Kitchen
+Woldruff's Footwear
+Fables Books
+The Electric Brew
+Ten Thousand Villages
+The Soapy Gnome
+Jules Boutique
+Twice as Nice
+Embassy Coffee
+Goshen Brewing Company
+Maple City Market
+Jojo's Pretzels
+Shirley's Popcorn
+South Side Soda Shop
+Anna's Bread
+Miso Japan
+Noodlelicious
+Los Primos Mexican Grill
+Tacos El Portal
+Universal Tamal
+Which Craft Brewery
+Kercher's Sunrise Orchard
+Linton's Enchanted Gardens
+Flowers by Phoebe
+GoDance Studio
+Spacious Heart Yoga
+Maple Indian
+Blue Gate Theatre
+Das Dutchman Essenhaus
+Swartzendruber Hardwood Creations
+Stutsman Ballooning
+
+# --- Elkhart ---
+Chubby Trout
+Coco and Common
+Gigi's on Main
+High Note Rooftop Bar
+Iechyd Da Brewing Company
+Stephenson's of Elkhart
+Twisted String
+Vanilla Bean Creamery

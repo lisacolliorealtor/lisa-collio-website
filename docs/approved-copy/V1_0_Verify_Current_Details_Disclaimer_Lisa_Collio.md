@@ -2,14 +2,12 @@
 
 *Prepared for Lisa Collio, Real Estate Agent · 29 July 2026*
 
-**STATUS: DRAFT — awaiting Lisa's approval.**
+**STATUS: APPROVED BY LISA — 29 July 2026.**
 **Managing Broker sign-off: deferred to the end-of-phase batch, per Lisa's
 standing workflow. Not sought for this item.**
 
-> Note on the stamp: Lisa asked that this be stamped "Approved by Lisa" only.
-> It is recorded as DRAFT here because the approval has not happened yet — the
-> line flips to **APPROVED BY LISA — <date>** on her word, and the broker line
-> stays as-is.
+Lisa confirmed on approval that the "no business has paid to appear" line is
+factually accurate.
 
 ---
 
@@ -94,7 +92,23 @@ dated articles only.
 
 "Future articles inherit it" holds for the *wording* automatically: one edit to
 the component updates every article carrying it. It does not hold for
-*placement* — a new article still needs its marker pair added. Worth considering
-a check in `audit.js` that fails when an article names a known business without
-the marker, so the requirement is enforced rather than remembered. Flagged, not
-built.
+*placement* — a new article still needs its marker pair added.
+
+**That gap is now closed mechanically** (Lisa's decision, 29 July 2026).
+`audit.js` check 13 enforces both halves of the rule and fails the run on either:
+
+- an **evergreen page** naming any listed business — those names belong only on
+  dated blog articles;
+- a **blog article** naming one **without** the `build:verify-details` marker.
+
+The name list lives in `content/source/retail-business-names.txt`, editable
+without touching JavaScript. Adding a business is one line plus `npm run audit`,
+which then names the file that needs the marker.
+
+**The check narrows human review; it does not replace it.** Four real business
+names are deliberately absent from the list because they are ordinary words that
+would fire on innocent prose — "Found" (the verb), "Artisan" (used
+adjectivally), "Sprocket", and "The Depot". They remain subject to both rules and
+remain a human-review item. The exclusions and the reason for each are recorded
+in the header of the list file, so the next reader does not mistake absence for
+oversight.
