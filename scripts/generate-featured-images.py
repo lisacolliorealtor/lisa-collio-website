@@ -517,6 +517,68 @@ SECTION_JOBS = {
     # with "GOSHEN" still legible across the top.
     "goshen-living-faq-known-for":
         ("assets/images/goshen/goshen-living-faq-known-for.jpg", 0.68, None),
+
+    # Goshen batch, 29 July 2026. Slots derived from filename against the live
+    # page structure; counts reconcile 1:1 (living 5 FAQ + 9 section + CTA,
+    # moving 6 FAQ + 9 section + CTA). Four slots are deliberately empty —
+    # Lisa confirmed those four source images are not her photography.
+    "goshen-living-known-for":
+        ("assets/images/goshen/goshen-living-known-for.jpg", 0.5, None),
+    "goshen-living-downtown":
+        ("assets/images/goshen/goshen-living-downtown.jpg", 0.5, None),
+    "goshen-living-arts-culture":
+        ("assets/images/goshen/goshen-living-arts-culture.jpg", 0.5, None),
+    "goshen-living-parks-outdoors":
+        ("assets/images/goshen/goshen-living-parks-outdoors.jpg", 0.5, None),
+    "goshen-living-schools":
+        ("assets/images/goshen/goshen-living-schools.jpg", 0.5, None),
+    "goshen-living-housing-by-zip":
+        ("assets/images/goshen/goshen-living-housing-by-zip.jpg", 0.5, None),
+    "goshen-living-water-weather":
+        ("assets/images/goshen/goshen-living-water-weather.jpg", 0.5, None),
+    "goshen-living-city-resources":
+        ("assets/images/goshen/goshen-living-city-resources.jpg", 0.5, None),
+    # 0.75: the selfie sits low-right in a portrait frame; anything higher
+    # clips Lisa's face at the bottom edge.
+    "goshen-living-cta-closing":
+        ("assets/images/goshen/goshen-living-cta-closing.jpg", 0.75, None),
+    "goshen-living-faq-school-district":
+        ("assets/images/goshen/goshen-living-faq-school-district.jpg", 0.5, None),
+    "goshen-living-faq-downtown":
+        ("assets/images/goshen/goshen-living-faq-downtown.jpg", 0.5, None),
+    "goshen-living-faq-employers":
+        ("assets/images/goshen/goshen-living-faq-employers.jpg", 0.5, None),
+    "goshen-living-faq-landmarks":
+        ("assets/images/goshen/goshen-living-faq-landmarks.jpg", 0.5, None),
+    "goshen-moving-daily-life":
+        ("assets/images/goshen/goshen-moving-daily-life.jpg", 0.5, None),
+    "goshen-moving-employers":
+        ("assets/images/goshen/goshen-moving-employers.jpg", 0.5, None),
+    "goshen-moving-schools":
+        ("assets/images/goshen/goshen-moving-schools.jpg", 0.5, None),
+    "goshen-moving-housing-stock":
+        ("assets/images/goshen/goshen-moving-housing-stock.jpg", 0.5, None),
+    "goshen-moving-cost-of-living":
+        ("assets/images/goshen/goshen-moving-cost-of-living.jpg", 0.5, None),
+    # crop to the left 62%: at full width the 1.9:1 window cuts Lisa's face at
+    # the left edge. This keeps her and the RE/MAX sign, dropping empty siding.
+    "goshen-moving-trade-offs":
+        ("assets/images/goshen/goshen-moving-trade-offs.jpg", 0.5, (0.0, 0.0, 0.62, 1.0)),
+    "goshen-moving-goshen-or-elkhart":
+        ("assets/images/goshen/goshen-moving-goshen-or-elkhart.jpg", 0.5, None),
+    "goshen-moving-buying-from-distance":
+        ("assets/images/goshen/goshen-moving-buying-from-distance.jpg", 0.5, None),
+    "goshen-moving-faq-things-to-do":
+        ("assets/images/goshen/goshen-moving-faq-things-to-do.jpg", 0.5, None),
+    "goshen-moving-faq-community-events":
+        ("assets/images/goshen/goshen-moving-faq-community-events.jpg", 0.5, None),
+    # 0.35: keeps Lisa's face clear of the bottom edge in a portrait source.
+    "goshen-moving-faq-cost-of-living":
+        ("assets/images/goshen/goshen-moving-faq-cost-of-living.jpg", 0.35, None),
+    "goshen-moving-faq-older-home-checklist":
+        ("assets/images/goshen/goshen-moving-faq-older-home-checklist.jpg", 0.5, None),
+    "goshen-moving-faq-rv-industry-job":
+        ("assets/images/goshen/goshen-moving-faq-rv-industry-job.jpg", 0.5, None),
 }
 
 
