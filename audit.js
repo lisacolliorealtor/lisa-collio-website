@@ -539,6 +539,72 @@ const sameText = (a, b) => {
   }
 }
 
+/* 18. Locked identity rules in description fields --------------------------
+ * Meta and schema descriptions are advertising copy: they render in search
+ * results and, because this site sets no og:description or twitter:description
+ * anywhere, they are also what Facebook and LinkedIn display when a page is
+ * shared. Four buyer articles ran "Realtor Lisa Collio" in that slot — REALTOR®
+ * without the mark, and leading with the designation instead of "Lisa Collio,
+ * Real Estate Agent" — until July 2026.
+ *
+ * SCOPED TO DESCRIPTION FIELDS ON PURPOSE, not sitewide. Measured before
+ * building: the same REALTOR-® rule applied to whole pages produces 238 hits
+ * across 93 pages, and essentially none are real —
+ *   222 are lowercase "realtor" inside VERBATIM client reviews, which must
+ *       never be edited (reviews ship as written, typos and all); and
+ *    16 are "REALTOR®" in JSON-LD, where the mark is correctly escaped.
+ * Scoped to descriptions the same rule found exactly the four real ones, with
+ * no noise. A check that cries wolf gets switched off — same reasoning that
+ * scoped check 17 to alt text.
+ *
+ * Check 5 already scans whole files for its own banned list; these rules are
+ * additions to the ruleset, not a second pass over the same ground.
+ */
+{
+  // "Elkhart County" is barred as a service-area descriptor but is correct
+  // inside proper names. Allow those explicitly rather than dropping the rule.
+  const COUNTY_OK = [
+    "Elkhart County 4-H Fair",
+    "Elkhart County Board of REALTORS®",
+  ];
+  const RULES = [
+    [/\bREALTORS?\b(?!®)/i, "REALTOR® without the ® mark"],
+    [/\b(Realtor|REALTOR)\s+Lisa Collio\b/,
+     'leads with the designation — use "Lisa Collio, Real Estate Agent"'],
+    [/Lisa Collio,\s*Realtor\b/i,
+     'wrong title form — use "Lisa Collio, Real Estate Agent"'],
+    [/\bREMAX\b/, 'slash-free "REMAX"'],
+    [/RE\/MAX(?!\s*(?:Results,\s*The Viruez Team|®))/,
+     'brokerage not written in full ("RE/MAX Results, The Viruez Team")'],
+    [/Northern Indiana/i, '"Northern Indiana" as a service-area descriptor'],
+    [/Elkhart County/i, '"Elkhart County" as a service-area descriptor'],
+    [/Lisa Collio Real Estate\b(?!,)/, "business name without the locked comma"],
+    [/574[.\-\s]?975[.\-\s]?0141/, "superseded phone number"],
+  ];
+  const FIELDS = [
+    [/<meta name="description" content="([^"]*)"/g, "meta description"],
+    [/<meta property="og:description" content="([^"]*)"/g, "og:description"],
+    [/<meta name="twitter:description" content="([^"]*)"/g, "twitter:description"],
+    [/"description":\s*"((?:[^"\\]|\\.)*)"/g, "schema description"],
+  ];
+  for (const f of htmlFiles) {
+    const s = read(f);
+    for (const [re, field] of FIELDS) {
+      for (const m of s.matchAll(re)) {
+        // The domain contains "realtor"; so does Lisa's email. Neither is the term.
+        let v = decode(m[1])
+          .replace(/lisacolliorealtor\.com/gi, " ")
+          .replace(/lisacolliorealtor@[\w.]+/gi, " ");
+        for (const ok of COUNTY_OK) v = v.split(ok).join(" ");
+        for (const [rule, label] of RULES)
+          if (rule.test(v))
+            err("identity-descriptions",
+              `${rel(f)} [${field}]: ${label} — "${decode(m[1]).slice(0, 90)}"`);
+      }
+    }
+  }
+}
+
 /* ------------------------------------------------------------------------- */
 const group = (list) => {
   const by = {};
