@@ -468,6 +468,77 @@ const sameText = (a, b) => {
   }
 }
 
+/* 16. FAQ image must match its own question -------------------------------
+ * An FAQ block with an image has two links: the decorative image wrapper and
+ * the "Read the full article" link in the body. They must point at the same
+ * article — otherwise the image illustrates a different question than the one
+ * it sits beside, and its alt text describes the wrong thing to a screen
+ * reader.
+ *
+ * This exists because it happened: a block-spanning regex attached two Spanish
+ * FAQ images to the wrong questions, and it was caught only by listing every
+ * alt string by hand for review. Nothing else would have flagged it — counts
+ * matched, both languages had five images, every file existed.
+ */
+{
+  for (const f of pageFiles) {
+    const s = read(f);
+    const blocks = s.match(/<div class="faq-item faq-item--media[\s\S]*?\n      <\/div>/g) || [];
+    for (const blk of blocks) {
+      const media = blk.match(/faq-item__media" href="([^"]+)"/);
+      const body = blk.match(/faq-more"><a href="([^"]+)"/);
+      if (!media || !body) continue;
+      if (media[1] !== body[1]) {
+        const q = (blk.match(/<h3>([\s\S]*?)<\/h3>/) || [, "?"])[1].trim();
+        err("faq-pairing",
+          `${urlOf(f)}: FAQ image links to ${media[1]} but the question "${q}" links to ${body[1]} — ` +
+          `the image belongs to a different question`);
+      }
+    }
+  }
+}
+
+/* 17. Fair Housing terms in alt text --------------------------------------
+ * Alt attributes are copy, but they sit inside a tag — so prose greps and
+ * human read-throughs both skip them, and every previous Fair Housing sweep
+ * on this site missed them. "a quiet Goshen street" and "una calle tranquila
+ * de Goshen" both reached production that way.
+ *
+ * Terms: content/source/fair-housing-terms.txt, English and Spanish. Scoped to
+ * alt text rather than whole pages on purpose — several terms are legitimate
+ * elsewhere ("tranquilidad" about peace of mind is fine, "una calle tranquila"
+ * is not), and a noisy check gets switched off. Check 5 still guards
+ * "walkab" sitewide.
+ */
+{
+  const listPath = path.join(ROOT, "content", "source", "fair-housing-terms.txt");
+  if (!fs.existsSync(listPath)) {
+    err("fair-housing-alt", "content/source/fair-housing-terms.txt is missing — check 17 cannot run");
+  } else {
+    const terms = read(listPath)
+      .split("\n")
+      .map((l) => l.trim())
+      .filter((l) => l && !l.startsWith("#"))
+      .map((l) => {
+        const [cat, term] = l.split("|").map((x) => x.trim());
+        return { cat, term };
+      });
+    for (const f of htmlFiles) {
+      const s = read(f);
+      for (const m of s.matchAll(/\balt="([^"]*)"/g)) {
+        const alt = decode(m[1]);
+        if (!alt.trim()) continue;
+        for (const { cat, term } of terms) {
+          const re = new RegExp(`(^|[^\\p{L}])${term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}([^\\p{L}]|$)`, "iu");
+          if (re.test(alt))
+            err("fair-housing-alt",
+              `${rel(f)}: alt text contains "${term}" (${cat}) — "${alt.slice(0, 80)}"`);
+        }
+      }
+    }
+  }
+}
+
 /* ------------------------------------------------------------------------- */
 const group = (list) => {
   const by = {};
