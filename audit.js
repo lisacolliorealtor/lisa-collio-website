@@ -378,6 +378,60 @@ const sameText = (a, b) => {
   }
 }
 
+/* 14. EN/ES image parity ---------------------------------------------------
+ * Spanish twins share the English page's image FILES (Master Plan §7) — only
+ * the alt text differs. So a difference in image count between a pair is
+ * always a gap, never a design choice.
+ *
+ * This has now surfaced three times, each caught only because someone looked
+ * at the page: the Spanish community pages shipped with no section images at
+ * all, and then with body images but no FAQ images. Counting by one class and
+ * calling it "images" is exactly how the second one hid — so this counts every
+ * content <img>, and reports the per-class split when it fails.
+ *
+ * Chrome (header, footer, logos, review photos) is identical on both sides of
+ * a pair, so a raw <img> count is comparable without excluding it.
+ */
+{
+  const pairPath = path.join(ROOT, "content", "hreflang-pairs.json");
+  const basePath = path.join(ROOT, "content", "image-parity-baseline.json");
+  if (fs.existsSync(pairPath)) {
+    const pairs = JSON.parse(read(pairPath));
+    // Known pre-existing gaps, recorded with their exact counts when the check
+    // was introduced. They are a worklist, not an exemption: a baselined pair
+    // errors if its gap CHANGES in either direction — worse means a regression,
+    // better means the entry is stale and should be deleted. The baseline can
+    // only shrink.
+    const baseline = new Map(
+      (fs.existsSync(basePath) ? JSON.parse(read(basePath)) : []).map((r) => [r.en, r])
+    );
+    const countImgs = (s) => (s.match(/<img\b/g) || []).length;
+    const countClass = (s, c) => (s.match(new RegExp(c, "g")) || []).length;
+    for (const { en, es } of pairs) {
+      const fe = fileFor2(en), fs_ = fileFor2(es);
+      if (!fe || !fs_ || !fs.existsSync(fe) || !fs.existsSync(fs_)) continue;
+      const a = read(fe), b = read(fs_);
+      const na = countImgs(a), nb = countImgs(b);
+      const known = baseline.get(en);
+      if (na === nb) {
+        if (known)
+          err("image-parity",
+            `${en} / ${es} now match at ${na} images — the gap is resolved. ` +
+            `Delete this pair from content/image-parity-baseline.json.`);
+        continue;
+      }
+      const split = (s) =>
+        `section-figure ${countClass(s, "section-figure")}, ` +
+        `faq-item--media ${countClass(s, "faq-item--media")}`;
+      if (known && known.enImages === na && known.esImages === nb) continue; // unchanged known gap
+      err("image-parity",
+        `${en} has ${na} images, ${es} has ${nb} — twins share image files, so this is a gap. ` +
+        `EN: ${split(a)}. ES: ${split(b)}.` +
+        (known ? ` (baselined at ${known.enImages}/${known.esImages} — this changed.)` : ""));
+    }
+  }
+}
+
 /* ------------------------------------------------------------------------- */
 const group = (list) => {
   const by = {};
