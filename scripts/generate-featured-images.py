@@ -49,7 +49,7 @@ Usage:
   (see the __main__ block for a single-image smoke test).
 """
 import os
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 # ---- Paths ------------------------------------------------------------------
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -139,6 +139,18 @@ def _require_overlay_scope(out_slug):
     )
 
 
+def _open_oriented(path):
+    """Open a photo with its EXIF Orientation applied.
+
+    Camera originals routinely carry Orientation 3/6/8 — the sensor was
+    sideways and the viewer is expected to rotate. Pillow does NOT do this on
+    open, so a plain Image.open() silently produces a rotated crop. Caught on
+    goshen-living-faq-downtown (Orientation 6, stored 3088x2316): the default
+    path rendered a person lying on their side.
+    """
+    return ImageOps.exif_transpose(Image.open(path)).convert("RGB")
+
+
 def _load_font(size):
     return ImageFont.truetype(FONT_PATH, size)
 
@@ -206,7 +218,7 @@ def generate_header(house_filename, title, bar_color, lisa_side, out_slug):
     bar_h = 2 * BAR_PAD_Y + line_h * len(lines)
 
     # --- House photo fills area below the bar (cover) ---
-    house = Image.open(os.path.join(HOMES_DIR, house_filename)).convert("RGB")
+    house = _open_oriented(os.path.join(HOMES_DIR, house_filename))
     photo_h = H - bar_h
     house = _cover(house, W, photo_h)
     canvas.paste(house, (0, bar_h))
@@ -276,7 +288,7 @@ def generate_lisa_header(photo_filename, title, bar_color, out_slug,
     line_h = int(size * LINE_SPACING)
     band_h = 2 * BAR_PAD_Y + line_h * len(lines)
 
-    photo = Image.open(os.path.join(LISA_DIR, photo_filename)).convert("RGB")
+    photo = _open_oriented(os.path.join(LISA_DIR, photo_filename))
     if crop_box:
         w, h = photo.size
         l, t, r, b = crop_box
@@ -346,7 +358,7 @@ def _fit_box(draw, title, max_w, max_h, size_max=FONT_MAX, size_min=26):
 
 
 def _load_people(photo_filename, crop_box):
-    photo = Image.open(os.path.join(LISA_DIR, photo_filename)).convert("RGB")
+    photo = _open_oriented(os.path.join(LISA_DIR, photo_filename))
     if crop_box:
         w, h = photo.size
         l, t, r, b = crop_box
@@ -457,7 +469,7 @@ def generate_clean(photo_path, out_slug, focal_y=0.5, crop_box=None, thumb=True)
                  already burned into the photograph.
     """
     src = photo_path if os.path.isabs(photo_path) else os.path.join(ROOT, photo_path)
-    photo = Image.open(src).convert("RGB")
+    photo = _open_oriented(src)
     if crop_box:
         w, h = photo.size
         l, t, r, b = crop_box
@@ -513,7 +525,7 @@ def generate_section(photo_path, out_name, focal_y=0.5, crop_box=None):
     .webp beside each .jpg. No band, no title, no cutout — same treatment as
     generate_clean(), different output directory and no page-slug coupling."""
     src = photo_path if os.path.isabs(photo_path) else os.path.join(ROOT, photo_path)
-    photo = Image.open(src).convert("RGB")
+    photo = _open_oriented(src)
     if crop_box:
         w, h = photo.size
         l, t, r, b = crop_box
