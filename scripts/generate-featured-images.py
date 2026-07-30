@@ -263,9 +263,97 @@ def generate_header(house_filename, title, bar_color, lisa_side, out_slug):
 # hashes — recoverable, but only because the inputs happened to be guessable.
 # Add a row whenever you build or rebuild a Template A image.
 #   slug -> (house photo in homes-general/, VARIANTS index)
+#
+# The 36 rows below (all but is-goshen-indiana-good-place-to-buy-home) were
+# backfilled 30 July 2026 by a calibrated hash-matching search over
+# homes-general/ (72 candidates x 4 variants per slug), rather than recovered
+# from any record — none existed. Confirmed by regenerating each and comparing
+# pixels; every row below reproduces its committed -header.jpg with the photo
+# region at 0.00 mean abs difference (encoder/font-rendering noise aside, which
+# is why the check is pixel similarity, not byte-identical hash).
+#
+# FOUR ROWS carry a title that no longer matches the article's live H1:
+# costos-de-cierre-que-son, no-se-si-califico-credito-y-preaprobacion,
+# prestamos-fha-y-usda-en-espanol, and cuanto-vale-mi-casa-elkhart. Their
+# featured images were never regenerated after their H1s were revised, so
+# regenerating from the CURRENT H1 will change the image, not reproduce it.
+# See docs/V2.3 Pre Launch Punch List Lisa Collio.md, section E, for the
+# baked-vs-live title text and the open decision on whether to realign them.
 OVERLAY_JOBS = {
     "is-goshen-indiana-good-place-to-buy-home":
         ("twilight-exterior-split-level-green-shutters.jpg", 0),   # blue / right
+    "are-homes-goshen-indiana-competitive-to-buy":
+        ("twilight-exterior-two-story-brick-garage.jpg", 0),   # blue / right
+    "elkhart-indiana-good-place-invest-real-estate":
+        ("exterior-single-story-ranch-driveway.jpg", 1),   # red / left
+    "how-to-compete-with-other-buyers-elkhart-indiana":
+        ("interior-empty-living-room-arched-window.jpg", 3),   # red / right
+    "what-to-look-for-buying-home-elkhart-indiana":
+        ("exterior-home-side-wood-deck-lawn.jpg", 1),   # red / left
+    "what-to-prioritize-buying-house-goshen-indiana":
+        ("interior-empty-bonus-room-built-in-shelves.jpg", 2),   # blue / left
+    "why-buy-home-elkhart-indiana-lisa-collio":
+        ("interior-empty-bedroom-lavender-walls.jpg", 3),   # red / right
+    "why-buy-home-goshen-indiana-lisa-collio":
+        ("exterior-wooded-backyard-swing-set-fire-pit.jpg", 0),   # blue / right
+    "good-time-to-sell-home-elkhart-indiana":
+        ("interior-staged-living-room-gray-sofas-fireplace.jpg", 1),   # red / left
+    "how-long-to-sell-house-goshen-indiana":
+        ("interior-staged-living-room-gray-sofa-coffee-table.jpg", 2),   # blue / left
+    "how-much-is-my-home-elkhart-indiana-worth":
+        ("interior-kitchen-subway-tile-stainless-steel.jpg", 3),   # red / right
+    "how-to-prepare-goshen-indiana-home-to-sell":
+        ("interior-staged-dining-room-green-walls.jpg", 0),   # blue / right
+    "how-will-my-elkhart-indiana-home-be-marketed":
+        ("interior-kitchen-white-cabinets-gas-range.jpg", 1),   # red / left
+    "mistakes-to-avoid-selling-home-goshen-indiana":
+        ("interior-staged-bedroom-gray-upholstered.jpg", 2),   # blue / left
+    "sell-home-elkhart-indiana-best-price":
+        ("interior-kitchen-dark-cabinets-island.jpg", 3),   # red / right
+    "sell-home-goshen-indiana-best-price":
+        ("interior-staged-living-room-gray-sofas-shelves.jpg", 0),   # blue / right
+    "why-homes-elkhart-indiana-sit-on-market":
+        ("interior-staged-bedroom-yellow-walls-teal-bedding.jpg", 2),   # blue / left
+    "why-sell-home-elkhart-indiana-lisa-collio":
+        ("interior-dining-kitchen-modern-light-sliding-door.jpg", 3),   # red / right
+    "why-sell-home-goshen-indiana-lisa-collio":
+        ("interior-staged-bedroom-beige-glass-table.jpg", 0),   # blue / right
+    "como-comprar-una-casa-en-indiana":
+        ("exterior-two-story-rear-covered-porch.jpg", 0),   # blue / right
+    "costos-de-cierre-que-son":
+        ("interior-home-office-nook-wood-desk.jpg", 0),   # blue / right — baked title predates live H1, see note above
+    "cuanto-dinero-necesito-para-comprar-una-casa":
+        ("interior-kitchen-white-cabinets-island-tile.jpg", 1),   # red / left
+    "errores-comunes-al-comprar-casa":
+        ("interior-living-room-red-accent-fireplace.jpg", 2),   # blue / left
+    "no-se-si-califico-credito-y-preaprobacion":
+        ("interior-living-room-stone-fireplace-wall.jpg", 2),   # blue / left — baked title predates live H1, see note above
+    "prestamos-fha-y-usda-en-espanol":
+        ("exterior-open-acreage-field-trees.jpg", 1),   # red / left — baked title predates live H1, see note above
+    "renta-o-compra-como-decidir":
+        ("exterior-covered-porch-framing-rural-view.jpg", 3),   # red / right
+    "buen-momento-vender-casa-elkhart":
+        ("interior-staged-living-room-gray-sofas-fireplace.jpg", 1),   # red / left
+    "como-se-promociona-mi-casa-elkhart":
+        ("interior-kitchen-white-cabinets-gas-range.jpg", 3),   # red / right
+    "cuanto-tiempo-vender-casa-goshen":
+        ("interior-staged-living-room-gray-sofa-coffee-table.jpg", 3),   # red / right
+    "cuanto-vale-mi-casa-elkhart":
+        ("interior-kitchen-subway-tile-stainless-steel.jpg", 0),   # blue / right — baked title predates live H1, see note above
+    "errores-evitar-vender-casa-goshen":
+        ("interior-staged-bedroom-gray-upholstered.jpg", 0),   # blue / right
+    "por-que-casas-elkhart-tardan-venderse":
+        ("interior-staged-bedroom-yellow-walls-teal-bedding.jpg", 2),   # blue / left
+    "preparar-casa-goshen-para-vender":
+        ("interior-staged-dining-room-green-walls.jpg", 2),   # blue / left
+    "como-vender-casa-elkhart-mejor-precio":
+        ("interior-kitchen-dark-cabinets-island.jpg", 1),   # red / left
+    "vender-casa-elkhart-lisa-collio":
+        ("interior-dining-kitchen-modern-light-sliding-door.jpg", 3),   # red / right
+    "vender-casa-goshen-lisa-collio":
+        ("interior-staged-bedroom-beige-glass-table.jpg", 0),   # blue / right
+    "vender-casa-goshen-mejor-precio":
+        ("interior-staged-living-room-gray-sofas-shelves.jpg", 1),   # red / left
 }
 
 
