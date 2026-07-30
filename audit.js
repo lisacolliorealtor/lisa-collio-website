@@ -310,11 +310,17 @@ const sameText = (a, b) => {
 {
   for (const f of pageFiles) {
     const s = read(f);
+    // Measure what a search engine RENDERS, not the raw markup. "&amp;" is one
+    // character on screen and five in the source, so counting the raw string
+    // overstated six titles by four characters each and flagged them as
+    // over-length when they were not. Same decode() the identity checks use.
     const t = s.match(/<title>(.*?)<\/title>/s);
     const d = s.match(/name="description" content="(.*?)"/s);
-    if (t && t[1].length > 60) warn("seo", `${urlOf(f)} title ${t[1].length} chars (target <=60)`);
-    if (d && (d[1].length < 145 || d[1].length > 160))
-      warn("seo", `${urlOf(f)} meta description ${d[1].length} chars (target 145-160)`);
+    const tLen = t ? decode(t[1]).length : 0;
+    const dLen = d ? decode(d[1]).length : 0;
+    if (t && tLen > 60) warn("seo", `${urlOf(f)} title ${tLen} chars (target <=60)`);
+    if (d && (dLen < 145 || dLen > 160))
+      warn("seo", `${urlOf(f)} meta description ${dLen} chars (target 145-160)`);
   }
 }
 
