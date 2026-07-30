@@ -286,6 +286,16 @@ Each rule below is here because the failure actually happened, more than once.
    production URL before calling it done. "I built X" has been wrong often enough
    that a summary is not evidence.
 
+### Draft-approval verification (folded from the Audit Checklist, July 2026)
+Two checks beyond what's already covered above by failure 3 (commit-before-use)
+and the stacked-PR corollary:
+- Confirm no page whose source is still in `docs/drafts/` (unapproved) has been
+  merged to `main` — cross-check `docs/drafts/` contents against what's
+  actually live.
+- PRs touching legal/compliance-sensitive text list every diff in the PR
+  description, so Lisa can review efficiently rather than re-reading the
+  whole file.
+
 ### The locked procedure, in order
 Do not skip a step because it feels redundant.
 
@@ -514,6 +524,15 @@ by construction rather than by remembering.
   under its own name — `docs/AUDIT_CHECKLIST.md` is a separate, older,
   differently-structured document, not a stale copy of the same file. Left
   for Lisa's decision on `docs/AUDIT_CHECKLIST.md`'s disposition before acting.
+  **Resolved, same day:** Lisa's call was fold-then-retire, not keep-both.
+  `docs/AUDIT_CHECKLIST.md`'s unique content (pre-audit inventory, five whole
+  Part B sections, the report-format and automated-checks appendices, plus
+  more granular detail folded into the sections that already overlapped) is
+  now in `docs/approved-copy/V1.4_Audit_Checklist_Lisa_Collio.md`, and the old
+  file is deleted. Its remaining §18 content split off into this file's own
+  Build Procedure section instead (see the new "Draft-approval verification"
+  subsection above) rather than the Audit Checklist, since that's where this
+  project's other PR/branch/draft discipline rules already live.
 
 **v1.6 — July 30, 2026** (Claude, at Lisa's direction)
 - Mirrors **Master Plan v2.12** (Build Record, Verification, and EN/ES Parity
