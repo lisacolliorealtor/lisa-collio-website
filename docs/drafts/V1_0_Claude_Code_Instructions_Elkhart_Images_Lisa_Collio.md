@@ -2,7 +2,27 @@
 
 *Lisa Collio, Real Estate Agent · 29 July 2026 · v1.0*
 
-**Read first:** `V1_0_Goshen_Elkhart_Image_Filenames_Lisa_Collio.md` (the manifest), Master Plan v2.11 §8, `content/source/rejected-assets.txt`, `docs/SPANISH_STYLE_DECISIONS.md`, `V2.0 Pre Launch Punch List Lisa Collio.md`.
+**Read first:** `V1_0_Goshen_Elkhart_Image_Filenames_Lisa_Collio.md` (the manifest), Master Plan v2.11 §8, `content/source/rejected-assets.txt`, `docs/SPANISH_STYLE_DECISIONS.md`, `V2.1 Pre Launch Punch List Lisa Collio.md`.
+
+> **As-built corrections, 30 July 2026** (Claude, at Lisa's direction — recorded
+> here rather than rewritten into the body copy above, per the standing
+> convention):
+>
+> - The "Read first" punch-list reference read **v2.0**; corrected to **v2.1**,
+>   which is the version committed at `docs/V2.1 Pre Launch Punch List Lisa
+>   Collio.md`. No v2.0 exists in the repo.
+> - Repo paths for the other "Read first" items, verified present on `main`:
+>   `docs/approved-copy/V1_0_Goshen_Elkhart_Image_Filenames_Lisa_Collio.md` ·
+>   `content/source/rejected-assets.txt` · `docs/SPANISH_STYLE_DECISIONS.md`.
+> - **Scope line (`26 images`) is wrong: the measured figure is 27.** One live
+>   FAQ slot — "What is downtown Elkhart like?" on `/living-in-elkhart/` — has no
+>   filename in the manifest. See `docs/ELKHART_IMAGE_PHASE_0_RECONCILIATION.md`
+>   for the measurement and the proposed manifest row.
+> - This file was uploaded to `docs/` and moved to `docs/drafts/` with its name
+>   normalised to the repo's underscore convention (matching the sibling
+>   `V1_0_Claude_Code_Instructions_Text_Overlay_Exception_Lisa_Collio.md`).
+>   Content is otherwise byte-identical to Lisa's upload apart from the two
+>   edits above.
 
 **Workflow:** commit this file to `docs/drafts/` as your first step. Build on a PR branch. Lisa approves at merge; the managing broker signs off once, comprehensively, before launch — not per PR. Lisa's merge is the only publish trigger.
 
