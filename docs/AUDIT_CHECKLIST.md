@@ -179,7 +179,12 @@ Reference: `CLAUDE.md` → COMPLIANCE & PRECEDENCE; RESPA/Fair Housing/876 IAC
       new pages against `assets/images/homes-goshen/` and
       `homes-elkhart/`'s consent-gated address folders vs. the
       decorative-only `homes-general/` folder (§9 has the image-folder
-      detail).
+      detail). `npm run audit` (check 21) mechanically enforces the copy side
+      of this — any "Sold by Lisa Collio" / "Vendida por Lisa Collio" / "Sold:
+      `<address>`" claim must have its address listed in
+      `content/source/sold-listing-consent.txt` — but adding an address to
+      that file is not itself consent verification; confirm consent is on
+      file before adding it.
 - [ ] Legal-page **effective dates** match their language-pair counterpart
       exactly (same date, not independently set) — re-check any time either
       language's legal page is touched.
@@ -538,10 +543,32 @@ FAQPage schema word for word · all JSON-LD parses · locked identity rules
 (superseded phone, "100+", "Northern Indiana", comma-less business name,
 slash-free REMAX, the Alford variant, method brands without ™) · footer
 signature on every page · no Spanish page injecting the English CTA band ·
-blog index counts match the article directories · every `<img>` has alt text.
+blog index counts match the article directories, and every article is actually
+linked from its hub · every `<img>` has alt text · hreflang pairing and
+reciprocity · llms.txt coverage · retail/dining business names barred off
+evergreen pages, gated by the verify-current-details disclaimer on blog
+articles · EN/ES image-file parity per hreflang pair · rejected image assets
+never referenced · FAQ image links match their own question · Fair Housing
+banned terms in alt text · locked identity + REALTOR®/RE-MAX rules in every
+description field (meta, og, twitter, schema — check 18) **and in `<title>`**
+(check 19, added July 2026 after three pages carried unmarked "Realtor" in
+`<title>` past the check-18 fix, which never scanned that field) · every
+schema `headline` matches its page's `<h1>` (check 20) · every "Sold by Lisa
+Collio" / "Vendida por Lisa Collio" / "Sold: `<address>`" claim has its address
+in `content/source/sold-listing-consent.txt` (check 21, 876 IAC 8-1-8(f) —
+previously enforced only by manual read-through, see the 8-1-8(f) item below).
 
-**Warnings (report, do not fail):** hreflang pairing, title and meta-description
-lengths, llms.txt coverage. These need a judgement call rather than a fix.
+**Warnings (report, do not fail):** title and meta-description lengths. These
+need a judgement call rather than a fix.
+
+Checks 18–21 exist because the identity/Fair Housing rules were being applied
+to some copy-field classes and not others with no inventory of which — see the
+July 2026 copy-field-gap sweep. `<title>`, schema `headline`, and sold-listing
+address claims were the three gaps worth gating; `aria-label`, figcaption
+review-attribution text, button/CTA text, and form labels/placeholders were
+swept too and found clean with low-cardinality, template-generated content —
+not worth a dedicated check yet, but worth re-checking if that content stops
+being template-generated.
 
 Deliberately NOT automated: anything requiring approval, Fair Housing tone,
 photo-pairing rules, review verbatimness, or market-data provenance. A green run
