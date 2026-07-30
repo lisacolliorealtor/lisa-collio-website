@@ -1,10 +1,14 @@
 # CLAUDE.md — lisa-collio-website
-**v1.6 (July 30, 2026)** — see the Revision Log at the end of this file.
+**v1.7 (July 30, 2026)** — see the Revision Log at the end of this file.
 Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
 files. This file defers to the Master Plan; if they ever disagree, the Master Plan
 wins. Deliberately no version number here — hardcoding one let this line go stale
-while the plan moved on. Regenerate this file whenever the plan version-bumps (one
-PR touches both).
+while the plan moved on. **Bundled-bump rule (Audit Checklist v1.3):** every Master
+Plan version bump is one unit of work — commit the new version to the repo, delete
+the superseded version, and update CLAUDE.md's citations and mirrored content to
+match, all in the same change. CLAUDE.md going two full versions (v2.12, v2.13)
+without being updated is exactly the gap this closes; a "sync CLAUDE.md later" step
+is not an acceptable outcome of a version bump.
 
 ## WHO / WHAT
 Website for Lisa Collio, Real Estate Agent — RE/MAX Results, The Viruez Team —
@@ -105,8 +109,9 @@ URL rules: lowercase, hyphens, no dates, consistent trailing slash.
 ## LOCKED STANDARDS (Master Plan §8, locked July 2026)
 Durable rules distilled from this project's actual incidents — codified in the
 Master Plan (v2.12 introduced the first three; v2.14 added the rest, plus
-amendments to two of them) so a lesson only has to be learned once. CLAUDE.md
-had not mirrored v2.12's three before this entry; all are folded in together.
+amendments to two of them; v2.15 clarified the Single Open-Items Record
+Standard's scope) so a lesson only has to be learned once. CLAUDE.md had not
+mirrored v2.12's three before this entry; all are folded in together.
 
 ### Technical — description-length priority
 When a required element (e.g. the phone number) would push a meta description
@@ -159,6 +164,13 @@ tracking document, even temporarily. Diff any edit to it against its
 last-known-good version before committing: a bad string-replace can silently
 delete a section without raising an error, which already happened once to
 this file.
+**Scope, clarified (v2.15):** covers repo-trackable, Claude-Code-actionable
+items only — anything with a PR, a file, or a build check behind it. It does
+not extend to the Claude Project's knowledge-base panel, which Claude Code
+has no tool access to check or edit. Project-panel hygiene (catching
+duplicate or superseded files in the Project, confirming the Project's copy
+of a governing document matches the highest version anywhere) is covered
+separately by the Audit Checklist's Part C1, run by Claude in chat.
 
 ### Rejected-Asset Standard
 When an asset is ruled out, that ruling is recorded as durably as a Build
@@ -479,6 +491,29 @@ overlay functions refuse an out-of-scope slug outright, so the default is clean
 by construction rather than by remembering.
 
 ## REVISION LOG
+
+**v1.7 — July 30, 2026** (Claude, at Lisa's direction)
+- Added the **bundled-bump rule** to the header, per the Audit Checklist v1.3
+  ("Master Plan bundled-bump rule," added 30 July 2026): every future Master
+  Plan version bump commits the new version, deletes the superseded version,
+  and updates CLAUDE.md's citations, all in the same change. Written down
+  specifically because it wasn't previously a standing rule anywhere in this
+  file — CLAUDE.md going two full versions (v2.12, v2.13) without being
+  updated happened with no rule in place to have prevented it.
+- **Mirrors Master Plan v2.15**, applied as this same bundled change: the
+  repo's Master Plan copy moves from v2.14 to v2.15 (v2.14 deleted, not left
+  alongside it), and the Pre-Launch Punch List's governing-documents line
+  updated to match. v2.15 itself is a scope clarification, not a new
+  standard: the Single Open-Items Record Standard now explicitly states it
+  covers repo-trackable, Claude-Code-actionable items only, with Project-panel
+  hygiene handled separately by the Audit Checklist's Part C1. Added that
+  clarification to this file's own copy of the standard.
+- Prompted by a Part C2 (repo-side) run of the newly-arrived Audit Checklist
+  v1.3, which also surfaced a second, still-open finding not actioned in this
+  entry: the canonical Audit Checklist has never been committed to the repo
+  under its own name — `docs/AUDIT_CHECKLIST.md` is a separate, older,
+  differently-structured document, not a stale copy of the same file. Left
+  for Lisa's decision on `docs/AUDIT_CHECKLIST.md`'s disposition before acting.
 
 **v1.6 — July 30, 2026** (Claude, at Lisa's direction)
 - Mirrors **Master Plan v2.12** (Build Record, Verification, and EN/ES Parity
