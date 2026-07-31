@@ -1,0 +1,40 @@
+# Sold-listing address consent manifest — 876 IAC 8-1-8(f).
+#
+# Used by audit.js (check 21), which FAILS the run if any page claims a
+# specific property was "Sold by Lisa Collio" / "Vendida por Lisa Collio", or
+# labels a photo "Sold: <address>", for an address that is NOT listed here.
+#
+# 876 IAC 8-1-8(f) bars presenting an image as a specific advertised/sold
+# listing without written seller consent on file. That rule previously lived
+# only as a line in docs/AUDIT_CHECKLIST.md, checked by a human read-through —
+# nothing stopped a future page from adding a new "Sold by Lisa Collio, <new
+# address>" caption without anyone confirming consent exists for it.
+#
+# This file does not itself certify that consent is on file — it is the
+# mechanical gate that forces a deliberate decision before a new address can
+# ship in "sold" framing. The 14 addresses below are the ones already live in
+# production (sellers/ + es/vendedores/) as of the July 2026 audit-gap sweep;
+# they are recorded here as a starting inventory, not yet independently
+# re-verified against Lisa's consent records. Confirm consent is on file for
+# each before treating this list as a compliance clearance.
+#
+# Adding a new address here is a decision, not a formality: confirm written
+# seller consent is on file first.
+#
+# One address per line, exactly as it appears in the page copy (street
+# address, comma, city — no state/zip, no trailing punctuation).
+
+117 N 6th Street, Goshen
+1029 W Lexington Ave, Elkhart
+1765 N Bay Drive, Elkhart
+2116 Roys Ave, Elkhart
+23204 1st Street, Elkhart
+23371 Marydale Dr, Elkhart
+23549 River Manor, Elkhart
+23900 Broadway Blvd, Elkhart
+2806 Oakland Ave, Elkhart
+28880 Starner Ave, Elkhart
+30545 County Road 20, Elkhart
+3110 Burr Oak Avenue, Elkhart
+501 Danbury Dr, Goshen
+58038 Morgan St, Elkhart
