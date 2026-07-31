@@ -367,9 +367,11 @@ paired unrelated files (a cost-of-living article with a school-district page).
 Resolve such merges from an explicit hand-written slug map and verify each pairing.
 
 ## DESIGN & NAMING ADDENDUM (July 2026)
-Foundations shipped in PR 1. The design system lives in `assets/css/tokens.css`
-(tokens + self-hosted @font-face) and `assets/css/site.css` (components); shared
-chrome lives in `components/header.html` and `components/footer.html`, injected by
+Foundations shipped in PR 1. The design system's editable sources live in
+`assets/css/src/`; `npm run css` (or `npm run build`) minifies them into the
+served files, `assets/css/tokens.css` (tokens + self-hosted @font-face) and
+`assets/css/site.css` (components) — edit `src/`, never the generated output.
+Shared chrome lives in `components/header.html` and `components/footer.html`, injected by
 `build.js` (`npm run build`). See README for the workflow.
 
 ### Color tokens and roles (authoritative)
