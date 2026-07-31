@@ -160,5 +160,11 @@
     "es": "/es/compradores/",
     "enImages": 17,
     "esImages": 15
+  },
+  {
+    "en": "/sellers/",
+    "es": "/es/vendedores/",
+    "enImages": 31,
+    "esImages": 32
   }
 ]

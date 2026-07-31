@@ -546,6 +546,42 @@ const sameText = (a, b) => {
   }
 }
 
+/* Shared identity ruleset — used by checks 18 and 19. Hoisted out of check 18
+ * so the <title> check (19) can apply the exact same rules instead of drifting
+ * into its own near-duplicate list. */
+// "Elkhart County" is barred as a service-area descriptor but is correct
+// inside proper names, or the one dated market-update page that reports
+// county-level MLS stats. Allow those explicitly rather than dropping the rule.
+const IDENTITY_COUNTY_OK = [
+  "Elkhart County 4-H Fair",
+  "Elkhart County Board of REALTORS®",
+  "Elkhart County Mid-Year Market Update",
+];
+const IDENTITY_RULES = [
+  [/\bREALTORS?\b(?!®)/i, "REALTOR® without the ® mark"],
+  [/\b(Realtor|REALTOR)\s+Lisa Collio\b/,
+   'leads with the designation — use "Lisa Collio, Real Estate Agent"'],
+  [/Lisa Collio,\s*Realtor\b/i,
+   'wrong title form — use "Lisa Collio, Real Estate Agent"'],
+  [/\bREMAX\b/, 'slash-free "REMAX"'],
+  [/RE\/MAX(?!\s*(?:Results,\s*The Viruez Team|®))/,
+   'brokerage not written in full ("RE/MAX Results, The Viruez Team")'],
+  [/Northern Indiana/i, '"Northern Indiana" as a service-area descriptor'],
+  [/Elkhart County/i, '"Elkhart County" as a service-area descriptor'],
+  [/Lisa Collio Real Estate\b(?!,)/, "business name without the locked comma"],
+  [/574[.\-\s]?975[.\-\s]?0141/, "superseded phone number"],
+];
+// The domain contains "realtor"; so does Lisa's email. Neither is the term.
+function checkIdentityText(raw, f, field, checkName) {
+  let v = decode(raw)
+    .replace(/lisacolliorealtor\.com/gi, " ")
+    .replace(/lisacolliorealtor@[\w.]+/gi, " ");
+  for (const ok of IDENTITY_COUNTY_OK) v = v.split(ok).join(" ");
+  for (const [rule, label] of IDENTITY_RULES)
+    if (rule.test(v))
+      err(checkName, `${rel(f)} [${field}]: ${label} — "${decode(raw).slice(0, 90)}"`);
+}
+
 /* 18. Locked identity rules in description fields --------------------------
  * Meta and schema descriptions are advertising copy: they render in search
  * results and, because this site sets no og:description or twitter:description
@@ -568,26 +604,6 @@ const sameText = (a, b) => {
  * additions to the ruleset, not a second pass over the same ground.
  */
 {
-  // "Elkhart County" is barred as a service-area descriptor but is correct
-  // inside proper names. Allow those explicitly rather than dropping the rule.
-  const COUNTY_OK = [
-    "Elkhart County 4-H Fair",
-    "Elkhart County Board of REALTORS®",
-  ];
-  const RULES = [
-    [/\bREALTORS?\b(?!®)/i, "REALTOR® without the ® mark"],
-    [/\b(Realtor|REALTOR)\s+Lisa Collio\b/,
-     'leads with the designation — use "Lisa Collio, Real Estate Agent"'],
-    [/Lisa Collio,\s*Realtor\b/i,
-     'wrong title form — use "Lisa Collio, Real Estate Agent"'],
-    [/\bREMAX\b/, 'slash-free "REMAX"'],
-    [/RE\/MAX(?!\s*(?:Results,\s*The Viruez Team|®))/,
-     'brokerage not written in full ("RE/MAX Results, The Viruez Team")'],
-    [/Northern Indiana/i, '"Northern Indiana" as a service-area descriptor'],
-    [/Elkhart County/i, '"Elkhart County" as a service-area descriptor'],
-    [/Lisa Collio Real Estate\b(?!,)/, "business name without the locked comma"],
-    [/574[.\-\s]?975[.\-\s]?0141/, "superseded phone number"],
-  ];
   const FIELDS = [
     [/<meta name="description" content="([^"]*)"/g, "meta description"],
     [/<meta property="og:description" content="([^"]*)"/g, "og:description"],
@@ -596,17 +612,89 @@ const sameText = (a, b) => {
   ];
   for (const f of htmlFiles) {
     const s = read(f);
-    for (const [re, field] of FIELDS) {
-      for (const m of s.matchAll(re)) {
-        // The domain contains "realtor"; so does Lisa's email. Neither is the term.
-        let v = decode(m[1])
-          .replace(/lisacolliorealtor\.com/gi, " ")
-          .replace(/lisacolliorealtor@[\w.]+/gi, " ");
-        for (const ok of COUNTY_OK) v = v.split(ok).join(" ");
-        for (const [rule, label] of RULES)
-          if (rule.test(v))
-            err("identity-descriptions",
-              `${rel(f)} [${field}]: ${label} — "${decode(m[1]).slice(0, 90)}"`);
+    for (const [re, field] of FIELDS)
+      for (const m of s.matchAll(re)) checkIdentityText(m[1], f, field, "identity-descriptions");
+  }
+}
+
+/* 19. Locked identity rules in the <title> tag ------------------------------
+ * <title> is a sibling of the description fields check 18 guards — same
+ * search-result / social-share exposure — but check 18 never looked at it.
+ * Result: three pages still carried "Realtor" unmarked or "Lisa Collio,
+ * Realtor" in <title> after the July 2026 description-field fix, because the
+ * fix touched only the field it was scoped to. Found during the July 2026
+ * copy-field-gap sweep (see docs/AUDIT_CHECKLIST.md).
+ *
+ * og:title / twitter:title do not exist anywhere on this site (verified: 0
+ * instances) — nothing to scope a check to there.
+ */
+{
+  for (const f of htmlFiles) {
+    const s = read(f);
+    const m = s.match(/<title>(.*?)<\/title>/s);
+    if (m) checkIdentityText(m[1], f, "title", "identity-title");
+  }
+}
+
+/* 20. headline field must match the on-page <h1> ---------------------------
+ * BlogPosting/Article `headline` is what search results and any script that
+ * reads JSON-LD (not just Google) treat as the page's title — but nothing
+ * compared it to the actual page. Found during the July 2026 copy-field-gap
+ * sweep: currently in sync everywhere (124 headline fields checked, 0 real
+ * mismatches), so this is a regression guard, not a fix for existing drift.
+ */
+{
+  for (const f of pageFiles) {
+    const s = read(f);
+    const h1 = s.match(/<h1[^>]*>(.*?)<\/h1>/s);
+    if (!h1) continue;
+    const h1Text = strip(h1[1]);
+    for (const m of s.matchAll(/"headline":\s*"((?:[^"\\]|\\.)*)"/g)) {
+      let headline;
+      try { headline = JSON.parse(`"${m[1]}"`); } catch { continue; }
+      headline = strip(headline);
+      if (headline !== h1Text)
+        err("headline-sync",
+          `${rel(f)}: headline "${headline}" does not match <h1> "${h1Text}"`);
+    }
+  }
+}
+
+/* 21. Sold-listing address consent manifest --------------------------------
+ * 876 IAC 8-1-8(f) bars presenting a photo as a specific advertised/sold
+ * listing without written seller consent on file. Two page patterns make that
+ * claim — a figcaption reading "<address> — Sold by Lisa Collio" / "Vendida
+ * por Lisa Collio", and a sold-quote-card's "Sold: <address>" span — and until
+ * now nothing enforced that every address named that way has consent recorded
+ * anywhere in the repo; docs/AUDIT_CHECKLIST.md carries the rule as a manual
+ * read-through item only. Found during the July 2026 copy-field-gap sweep.
+ *
+ * The manifest does not itself certify consent — it forces a deliberate edit
+ * (and, going forward, a deliberate confirmation) before a new address can
+ * ship in "sold" framing. See content/source/sold-listing-consent.txt.
+ */
+{
+  const listPath = path.join(ROOT, "content", "source", "sold-listing-consent.txt");
+  if (!fs.existsSync(listPath)) {
+    err("sold-listing-consent", "content/source/sold-listing-consent.txt is missing — check 21 cannot run");
+  } else {
+    const allowed = new Set(
+      read(listPath).split("\n").map((l) => l.trim()).filter((l) => l && !l.startsWith("#"))
+    );
+    const PATTERNS = [
+      /<figcaption>([^—<]+?)\s*—\s*(?:Sold by Lisa Collio|Vendida por Lisa Collio)<\/figcaption>/g,
+      /sold-(?:quote-)?card__addr">\s*(?:Sold|Vendida):\s*([^<]+?)\s*<\/span>/g,
+    ];
+    for (const f of htmlFiles) {
+      const s = read(f);
+      for (const re of PATTERNS) {
+        for (const m of s.matchAll(re)) {
+          const addr = decode(m[1]).trim();
+          if (!allowed.has(addr))
+            err("sold-listing-consent",
+              `${rel(f)}: "${addr}" claimed as sold by Lisa Collio but not in ` +
+              `content/source/sold-listing-consent.txt — confirm written seller consent is on file, then add it`);
+        }
       }
     }
   }
