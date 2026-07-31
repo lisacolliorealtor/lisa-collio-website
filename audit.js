@@ -2,7 +2,8 @@
 /*
  * audit.js — standing site audit, run with `npm run audit`.
  *
- * Codifies the checks in docs/AUDIT_CHECKLIST.md that a machine can settle, so
+ * Codifies the checks in docs/approved-copy/V1.4_Audit_Checklist_Lisa_Collio.md
+ * (Parts B and the automated-checks appendix) that a machine can settle, so
  * regressions are caught before review instead of during it. Every check here
  * exists because something actually slipped through: a school-count that said
  * "fourteen" on one page and "thirteen" on five others, blog-card blurbs left
@@ -310,11 +311,17 @@ const sameText = (a, b) => {
 {
   for (const f of pageFiles) {
     const s = read(f);
+    // Measure what a search engine RENDERS, not the raw markup. "&amp;" is one
+    // character on screen and five in the source, so counting the raw string
+    // overstated six titles by four characters each and flagged them as
+    // over-length when they were not. Same decode() the identity checks use.
     const t = s.match(/<title>(.*?)<\/title>/s);
     const d = s.match(/name="description" content="(.*?)"/s);
-    if (t && t[1].length > 60) warn("seo", `${urlOf(f)} title ${t[1].length} chars (target <=60)`);
-    if (d && (d[1].length < 145 || d[1].length > 160))
-      warn("seo", `${urlOf(f)} meta description ${d[1].length} chars (target 145-160)`);
+    const tLen = t ? decode(t[1]).length : 0;
+    const dLen = d ? decode(d[1]).length : 0;
+    if (t && tLen > 60) warn("seo", `${urlOf(f)} title ${tLen} chars (target <=60)`);
+    if (d && (dLen < 145 || dLen > 160))
+      warn("seo", `${urlOf(f)} meta description ${dLen} chars (target 145-160)`);
   }
 }
 

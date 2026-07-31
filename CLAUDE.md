@@ -1,10 +1,14 @@
 # CLAUDE.md — lisa-collio-website
-**v1.5 (July 27, 2026)** — see the Revision Log at the end of this file.
+**v1.7 (July 30, 2026)** — see the Revision Log at the end of this file.
 Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
 files. This file defers to the Master Plan; if they ever disagree, the Master Plan
 wins. Deliberately no version number here — hardcoding one let this line go stale
-while the plan moved on. Regenerate this file whenever the plan version-bumps (one
-PR touches both).
+while the plan moved on. **Bundled-bump rule (Audit Checklist v1.3):** every Master
+Plan version bump is one unit of work — commit the new version to the repo, delete
+the superseded version, and update CLAUDE.md's citations and mirrored content to
+match, all in the same change. CLAUDE.md going two full versions (v2.12, v2.13)
+without being updated is exactly the gap this closes; a "sync CLAUDE.md later" step
+is not an acceptable outcome of a version bump.
 
 ## WHO / WHAT
 Website for Lisa Collio, Real Estate Agent — RE/MAX Results, The Viruez Team —
@@ -102,6 +106,95 @@ URL rules: lowercase, hyphens, no dates, consistent trailing slash.
   composites, covered by the site-wide footer disclaimer — never invent new ones.
 - Schema per Master Plan §9; AggregateRating 5.0/39 (Google only).
 
+## LOCKED STANDARDS (Master Plan §8, locked July 2026)
+Durable rules distilled from this project's actual incidents — codified in the
+Master Plan (v2.12 introduced the first three; v2.14 added the rest, plus
+amendments to two of them; v2.15 clarified the Single Open-Items Record
+Standard's scope) so a lesson only has to be learned once. CLAUDE.md had not
+mirrored v2.12's three before this entry; all are folded in together.
+
+### Technical — description-length priority
+When a required element (e.g. the phone number) would push a meta description
+over its length ceiling, content wins: drop the element rather than cut
+substance. Anything placed at the very end of a description is also what
+search engines truncate first, so place required elements last, deliberately,
+not as the description's payload.
+
+### Build Record Standard
+Every generated artifact — every processed image, every regenerated featured
+image, every derived file — has a recorded build job stating its source,
+parameters, and how to reproduce it exactly (`SECTION_JOBS`, `OVERLAY_JOBS`,
+or any successor table). No asset ships without its build record.
+
+### Verification Standard
+- State which field/class/scope a check actually covers.
+- Verify a check against known cases in both directions (true positive and
+  true negative).
+- Prove a new check catches real problems with a deliberately-broken test case.
+- Confirm the gap against the actual check artifact before reporting a
+  finding — not from memory of what the check should do.
+- **Prototype, then scale (added v2.13):** run a new technique on a small
+  sample first, report the real hit rate, then decide whether to run it
+  across the full set. Honest partial coverage beats a promised 100% that
+  quietly under-delivers.
+
+### EN/ES Parity Standard
+Both languages ship in the same PR, verified by a measured count, not an
+assumption. **Count parity is necessary but not sufficient (added v2.13):** a
+Spanish page can match its English twin's item count while carrying thinner
+content per item — found in this project as alt text with equal image counts
+but noticeably less descriptive Spanish strings. When verifying parity,
+compare substance between paired items, not only counts.
+
+### Field-Class Compliance Coverage Standard
+A compliance rule is not enforced project-wide until it has been checked
+against every field class that can render user-facing text. The Fair Housing
+term sweep found violations in alt text (missed for months), then body copy,
+then meta descriptions — three separate passes because each field class was
+checked only after the last one turned up a hit. Enumerate every applicable
+field class before declaring a rule "done": H1, body copy, alt text, meta
+description, og/twitter tags, schema fields, captions, button/CTA text, and
+form labels.
+
+### Single Open-Items Record Standard
+Exactly one open-items/punch-list record exists for this project, lives in
+the repo (`docs/V2.3 Pre Launch Punch List Lisa Collio.md`, or its successor
+filename), and every session updates it in place — no parallel or competing
+tracking document, even temporarily. Diff any edit to it against its
+last-known-good version before committing: a bad string-replace can silently
+delete a section without raising an error, which already happened once to
+this file.
+**Scope, clarified (v2.15):** covers repo-trackable, Claude-Code-actionable
+items only — anything with a PR, a file, or a build check behind it. It does
+not extend to the Claude Project's knowledge-base panel, which Claude Code
+has no tool access to check or edit. Project-panel hygiene (catching
+duplicate or superseded files in the Project, confirming the Project's copy
+of a governing document matches the highest version anywhere) is covered
+separately by the Audit Checklist's Part C1, run by Claude in chat.
+
+### Rejected-Asset Standard
+When an asset is ruled out, that ruling is recorded as durably as a Build
+Record and mechanically enforced so it cannot be silently reversed. This
+project records rejected images in `content/source/rejected-assets.txt`,
+marks them inline in the relevant manifest, and fails the build (`audit.js`
+check 15) if any page references one — the same pattern applies to any future
+class of rejected asset.
+
+### Title/Identity-Text Consistency Sweep Standard
+Any change to a page's canonical title or H1 is verified by a full-text
+search for the old string returning zero hits sitewide — not by enumerating
+the fields believed to reference it. The old string has needed updating in
+five to nine separate representations each time (title tag, H1, schema,
+cards, sitemap, `llms.txt`, featured-image text, etc.). The search returning
+zero hits is the actual completion criterion; a remembered checklist is not.
+
+### PR Description Currency Standard
+A pull request's title and description are re-verified against its actual
+current diff immediately before merge — never trusted from when they were
+first written. Approval attaches to what is actually in the diff at merge
+time, not to an earlier summary of intent, since mid-PR corrections can leave
+a description describing a decision that was later reversed.
+
 ## ASSETS
 Photos live in assets/images/{lisa, logos, client-reviews, client-general,
 homes-elkhart, homes-goshen, goshen, elkhart}. Claude Code selects images by
@@ -192,6 +285,16 @@ Each rule below is here because the failure actually happened, more than once.
    redirects, fact corrections — confirm by direct fetch against the real
    production URL before calling it done. "I built X" has been wrong often enough
    that a summary is not evidence.
+
+### Draft-approval verification (folded from the Audit Checklist, July 2026)
+Two checks beyond what's already covered above by failure 3 (commit-before-use)
+and the stacked-PR corollary:
+- Confirm no page whose source is still in `docs/drafts/` (unapproved) has been
+  merged to `main` — cross-check `docs/drafts/` contents against what's
+  actually live.
+- PRs touching legal/compliance-sensitive text list every diff in the PR
+  description, so Lisa can review efficiently rather than re-reading the
+  whole file.
 
 ### The locked procedure, in order
 Do not skip a step because it feels redundant.
@@ -326,7 +429,7 @@ client-side tracking).
    7. Links to /terms/, /privacy/, /accessibility/, /fair-housing/,
       /disclaimers/, /sources/ (plus the Blog link per the launch nav plan).
 
-### Featured image standard (locked — Master Plan v2.10; supersedes the PR 24 site-wide default)
+### Featured image standard (locked; supersedes the PR 24 site-wide default)
 
 **Text overlay AND Lisa's cutout portrait on blog/article featured images are a
 SCOPED EXCEPTION, not the default.** This reverses the earlier rule that put the
@@ -398,6 +501,60 @@ overlay functions refuse an out-of-scope slug outright, so the default is clean
 by construction rather than by remembering.
 
 ## REVISION LOG
+
+**v1.7 — July 30, 2026** (Claude, at Lisa's direction)
+- Added the **bundled-bump rule** to the header, per the Audit Checklist v1.3
+  ("Master Plan bundled-bump rule," added 30 July 2026): every future Master
+  Plan version bump commits the new version, deletes the superseded version,
+  and updates CLAUDE.md's citations, all in the same change. Written down
+  specifically because it wasn't previously a standing rule anywhere in this
+  file — CLAUDE.md going two full versions (v2.12, v2.13) without being
+  updated happened with no rule in place to have prevented it.
+- **Mirrors Master Plan v2.15**, applied as this same bundled change: the
+  repo's Master Plan copy moves from v2.14 to v2.15 (v2.14 deleted, not left
+  alongside it), and the Pre-Launch Punch List's governing-documents line
+  updated to match. v2.15 itself is a scope clarification, not a new
+  standard: the Single Open-Items Record Standard now explicitly states it
+  covers repo-trackable, Claude-Code-actionable items only, with Project-panel
+  hygiene handled separately by the Audit Checklist's Part C1. Added that
+  clarification to this file's own copy of the standard.
+- Prompted by a Part C2 (repo-side) run of the newly-arrived Audit Checklist
+  v1.3, which also surfaced a second, still-open finding not actioned in this
+  entry: the canonical Audit Checklist has never been committed to the repo
+  under its own name — `docs/AUDIT_CHECKLIST.md` is a separate, older,
+  differently-structured document, not a stale copy of the same file. Left
+  for Lisa's decision on `docs/AUDIT_CHECKLIST.md`'s disposition before acting.
+  **Resolved, same day:** Lisa's call was fold-then-retire, not keep-both.
+  `docs/AUDIT_CHECKLIST.md`'s unique content (pre-audit inventory, five whole
+  Part B sections, the report-format and automated-checks appendices, plus
+  more granular detail folded into the sections that already overlapped) is
+  now in `docs/approved-copy/V1.4_Audit_Checklist_Lisa_Collio.md`, and the old
+  file is deleted. Its remaining §18 content split off into this file's own
+  Build Procedure section instead (see the new "Draft-approval verification"
+  subsection above) rather than the Audit Checklist, since that's where this
+  project's other PR/branch/draft discipline rules already live.
+
+**v1.6 — July 30, 2026** (Claude, at Lisa's direction)
+- Mirrors **Master Plan v2.12** (Build Record, Verification, and EN/ES Parity
+  Standards — never previously folded into this file) together with **Master
+  Plan v2.14** (Field-Class Compliance Coverage, Single Open-Items Record,
+  Rejected-Asset, Title/Identity-Text Consistency Sweep, and PR Description
+  Currency Standards, plus amendments to Verification and EN/ES Parity, plus
+  a Technical addition on description-length priority). Added the new
+  `## LOCKED STANDARDS` section (Master Plan §8 order) between PAGE STANDARDS
+  and ASSETS, covering all eight standards.
+- **v2.13→v2.14 note:** v2.13's own changelog bullet said "four new locked
+  standards," but its document body held five — PR Description Currency
+  Standard was undercounted in its own summary. Flagged to Lisa during this
+  regeneration; she confirmed it as genuine and corrected it at the source in
+  Master Plan v2.14 rather than leaving CLAUDE.md to carry a discrepancy the
+  Master Plan itself hadn't resolved. CLAUDE.md mirrors v2.14, not v2.13.
+- Removed the hardcoded "Master Plan v2.10" citation from the Featured image
+  standard heading (Design & Naming Addendum) — the same stale-pointer
+  pattern this file's own header already avoids by design. The two
+  v2.10/v2.11 citations inside the v1.5 log entry below are left untouched as
+  historical record of that sync, per this file's own practice of never
+  rewriting past entries.
 
 **v1.5 — July 27, 2026** (Claude, at Lisa's direction)
 - Mirrors **Master Plan v2.10**, which adds the Featured-Image Standard as a new
