@@ -79,12 +79,33 @@ Word counts are of current body text (FAQ, signature, and disclaimer excluded).
 
 The table above compares body copy only. The FAQ layer diverged separately:
 
+> **This section previously reported a false positive.** The `/living-in-elkhart/`
+> ↔ `/es/viviendo-en-elkhart/` row said "counts match" (5 and 5) and left it at
+> that — but matching counts is not the same claim as matching topics. The two
+> pages shared only 1 of 5 questions: EN carried school-district, downtown,
+> employers, and landmarks; ES independently carried parks, museums, and
+> history, none of which had an English counterpart on that page. **Caught by
+> the Elkhart Phase 0 reconciliation report** (PR #99), which checked topic
+> identity per question against the live English page rather than trusting a
+> word/row count. Closed 30 July 2026: `/es/viviendo-en-elkhart/`'s FAQ
+> section (visible copy and FAQPage schema) replaced with five Spanish
+> questions matching the English page's five topics exactly, each linking to
+> its real, already-published Spanish twin article — no new article created.
+>
+> **This means every other row below verified only on count, the same
+> insufficient test that missed the Elkhart error.** None has had its
+> individual questions checked for topic agreement against its English
+> counterpart, and none has had its FAQ links checked for resolving to a
+> live page. Treat the other three rows as unverified on that basis, not as
+> confirmed in sync, until each gets the same per-question, per-link check
+> this row just got.
+
 | Page pair | EN questions | ES questions | Note |
 |---|---|---|---|
-| `/living-in-elkhart/` ↔ `/es/viviendo-en-elkhart/` | 5 | 5 | counts match; EN set was revised to link the new articles |
-| `/moving-to-elkhart/` ↔ `/es/mudarse-a-elkhart/` | **6** | **6** | in sync — ES expanded to the approved 6-topic set in Wave 2 |
-| `/living-in-goshen/` ↔ `/es/viviendo-en-goshen/` | 5 | 5 | in sync |
-| `/moving-to-goshen/` ↔ `/es/mudarse-a-goshen/` | 6 | 6 | in sync |
+| `/living-in-elkhart/` ↔ `/es/viviendo-en-elkhart/` | 5 | 5 | **CLOSED 30 July 2026** — topics now match 1:1 (known-for, school district, downtown, employers, landmarks), all 5 links verified resolving to live Spanish articles, visible copy and FAQPage schema verified word-for-word identical. See flag above: this row previously showed "counts match" as if that settled it. |
+| `/moving-to-elkhart/` ↔ `/es/mudarse-a-elkhart/` | **6** | **6** | counts match — **topic and link parity not yet individually verified, see flag above** |
+| `/living-in-goshen/` ↔ `/es/viviendo-en-goshen/` | 5 | 5 | counts match — **topic and link parity not yet individually verified, see flag above** |
+| `/moving-to-goshen/` ↔ `/es/mudarse-a-goshen/` | 6 | 6 | counts match — **topic and link parity not yet individually verified, see flag above** |
 
 All six FAQ links on the English `/moving-to-elkhart/` used to point at Elkhart
 articles with **no Spanish counterpart**, which is why the Spanish pillar could
