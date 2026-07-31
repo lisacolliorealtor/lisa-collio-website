@@ -4,7 +4,7 @@ Governing law: Title VIII of the Civil Rights Act of 1968, as amended ("Fair Hou
 
 > Companion to **IREC-Website-Compliance-Reference.md** (Indiana state law) and the current Website Master Plan (always the highest-numbered version in the repo). That file already covers Indiana's Fair Housing statute (IC 22-9.5) and advertising rules (876 IAC 8-1-8). This file summarizes the *federal* FHA specifically, since federal and state protected classes aren't identical and federal advertising rules apply regardless of state. Keep both files in Project Knowledge. Not legal advice — for anything ambiguous, confirm with Lisa's managing broker or a fair housing attorney.
 >
-> **[Repo audit note, 31 July 2026, updated same day.]** This line originally hardcoded `Lisa_Collio_Website_Master_Plan_v2_1.docx`. Reworded to a version-agnostic reference (per Lisa, 31 July 2026) so this citation can't go stale again as the Master Plan bumps — mirrors the pattern CLAUDE.md's own header already uses for the same reason.
+> **[Repo audit note, 31 July 2026, updated same day.]** This line originally hardcoded `Lisa_Collio_Website_Master_Plan_v2_1.docx`. Reworded to a version-agnostic reference (per Lisa, 31 July 2026) so this citation can't go stale again as the Master Plan bumps — mirrors the pattern CLAUDE.md's own header already uses for the same reason. Separately, the EHO checklist item below cited "Master Plan §2/§18" — verified against the current Master Plan (v2.15): §2 (Identity Block) contains no Equal Housing content at all; the locked footer stack's EHO line actually lives in §8, and §18 (the approved legal set) is correctly cited per the Master Plan's own §19 retirement note. Corrected to §8/§18.
 
 ---
 
@@ -78,7 +78,7 @@ Run this in addition to the Indiana checklist already in IREC-Website-Compliance
 - [ ] Does any neighborhood/market content reference demographic change or composition? (Remove — blockbusting risk.)
 - [ ] Do photos/captions represent a range of people rather than implying a target demographic?
 - [ ] If the content touches accessibility, is it factual and neutral rather than framed as an exclusion?
-- [ ] Is an Equal Housing Opportunity statement/logo present in the site footer? *(Recommended — implemented via the approved legal set and locked footer stack: `Lisa_Collio_Legal_Pages_APPROVED_2026.docx` + Master Plan §2/§18. The legacy `disclamers.docx` is retired.)*
+- [ ] Is an Equal Housing Opportunity statement/logo present in the site footer? *(Recommended — implemented via the approved legal set and locked footer stack: `Lisa_Collio_Legal_Pages_APPROVED_2026.docx` + Master Plan §8/§18. The legacy `disclamers.docx` is retired.)*
 
 ---
 

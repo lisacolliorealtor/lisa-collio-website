@@ -2,7 +2,7 @@
 /*
  * audit.js — standing site audit, run with `npm run audit`.
  *
- * Codifies the checks in docs/approved-copy/V1.4_Audit_Checklist_Lisa_Collio.md
+ * Codifies the checks in docs/approved-copy/V1_4_Audit_Checklist_Lisa_Collio.md
  * (Parts B and the automated-checks appendix) that a machine can settle, so
  * regressions are caught before review instead of during it. Every check here
  * exists because something actually slipped through: a school-count that said

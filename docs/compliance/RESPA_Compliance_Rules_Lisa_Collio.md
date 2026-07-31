@@ -4,7 +4,7 @@ RESPA & Lending-Content Compliance Rules
 
 *Companion to the current Website Master Plan (always the highest-numbered version in the repo) — keep this file in Project Knowledge as a locked-rule source. This version folds in practical guidance from NAR's "RESPA: A Guide to Complying with the Real Estate Settlement Procedures Act" (2005), condensed and paraphrased into Lisa's operating rules below.*
 
-<!-- Repo audit note, 31 July 2026, updated same day: this line and the Section 9 checklist row both originally hardcoded "Master Plan v2.1". Both reworded to a version-agnostic reference (per Lisa, 31 July 2026) so this citation can't go stale again as the Master Plan bumps. -->
+<!-- Repo audit note, 31 July 2026, updated same day: this line and the Section 9 checklist row both originally hardcoded "Master Plan v2.1". Both reworded to a version-agnostic reference (per Lisa, 31 July 2026) so this citation can't go stale again as the Master Plan bumps. Separately, Section 5's "Master Plan §18–19" citation (disclamers.docx retirement) was checked against the current Master Plan (v2.15) and is still accurate — §18 is the approved legal set, §19's registry explicitly records disclamers.docx as "superseded by §18 legal set." No change needed there. -->
 
 | **READ THIS FIRST — the two absolute rules** 1. Every page that touches financing must make it unmistakably clear that Lisa Collio is a real estate agent, not a lender, loan officer, or mortgage broker, and does not originate, underwrite, or fund loans. 2. The site must never state, imply, quote, compare, or estimate an interest rate — Lisa's, a lender's, or a general market rate — in any page, article, FAQ, or generated content. |
 | --- |
