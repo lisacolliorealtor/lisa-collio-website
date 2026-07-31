@@ -2,9 +2,9 @@
 **For use by Claude Code when building/editing lisacolliorealtor.com and drafting articles**
 Governing law: Title VIII of the Civil Rights Act of 1968, as amended ("Fair Housing Act," 42 U.S.C. § 3601 et seq.)
 
-> Companion to **IREC-Website-Compliance-Reference.md** (Indiana state law) and **Lisa_Collio_Website_Master_Plan_v2_1.docx**. That file already covers Indiana's Fair Housing statute (IC 22-9.5) and advertising rules (876 IAC 8-1-8). This file summarizes the *federal* FHA specifically, since federal and state protected classes aren't identical and federal advertising rules apply regardless of state. Keep both files in Project Knowledge. Not legal advice — for anything ambiguous, confirm with Lisa's managing broker or a fair housing attorney.
+> Companion to **IREC-Website-Compliance-Reference.md** (Indiana state law) and the current Website Master Plan (always the highest-numbered version in the repo). That file already covers Indiana's Fair Housing statute (IC 22-9.5) and advertising rules (876 IAC 8-1-8). This file summarizes the *federal* FHA specifically, since federal and state protected classes aren't identical and federal advertising rules apply regardless of state. Keep both files in Project Knowledge. Not legal advice — for anything ambiguous, confirm with Lisa's managing broker or a fair housing attorney.
 >
-> **[Repo audit note, 31 July 2026 — not part of the original document, flagged not corrected.]** This line cites `Lisa_Collio_Website_Master_Plan_v2_1.docx`. The Master Plan is now at v2.15 (`docs/approved-copy/V2.15_Website_Master_Plan_Lisa_Collio.md`). Left as-is pending Lisa's confirmation — the citation is not auto-corrected.
+> **[Repo audit note, 31 July 2026, updated same day.]** This line originally hardcoded `Lisa_Collio_Website_Master_Plan_v2_1.docx`. Reworded to a version-agnostic reference (per Lisa, 31 July 2026) so this citation can't go stale again as the Master Plan bumps — mirrors the pattern CLAUDE.md's own header already uses for the same reason.
 
 ---
 

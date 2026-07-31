@@ -2,9 +2,9 @@ RESPA & Lending-Content Compliance Rules
 
 *For Lisa Collio, Real Estate Agent — Website, Content & Business-Practice Instructions*
 
-*Companion to Lisa Collio Website Master Plan v2.1 — keep this file in Project Knowledge as a locked-rule source. This version folds in practical guidance from NAR's "RESPA: A Guide to Complying with the Real Estate Settlement Procedures Act" (2005), condensed and paraphrased into Lisa's operating rules below.*
+*Companion to the current Website Master Plan (always the highest-numbered version in the repo) — keep this file in Project Knowledge as a locked-rule source. This version folds in practical guidance from NAR's "RESPA: A Guide to Complying with the Real Estate Settlement Procedures Act" (2005), condensed and paraphrased into Lisa's operating rules below.*
 
-<!-- Repo audit note, 31 July 2026 — not part of the original document, flagged not corrected: this line and the "Master Plan v2.1" row in Section 9's checklist table both cite Master Plan v2.1. Current version is v2.15 (docs/approved-copy/V2.15_Website_Master_Plan_Lisa_Collio.md). Left as-is pending Lisa's confirmation. -->
+<!-- Repo audit note, 31 July 2026, updated same day: this line and the Section 9 checklist row both originally hardcoded "Master Plan v2.1". Both reworded to a version-agnostic reference (per Lisa, 31 July 2026) so this citation can't go stale again as the Master Plan bumps. -->
 
 | **READ THIS FIRST — the two absolute rules** 1. Every page that touches financing must make it unmistakably clear that Lisa Collio is a real estate agent, not a lender, loan officer, or mortgage broker, and does not originate, underwrite, or fund loans. 2. The site must never state, imply, quote, compare, or estimate an interest rate — Lisa's, a lender's, or a general market rate — in any page, article, FAQ, or generated content. |
 | --- |
@@ -194,7 +194,7 @@ These plain-language scenarios are adapted from NAR's RESPA compliance guide. Th
 | No language implies a benefit, sponsorship, or perk was exchanged for referring a specific provider. | Section 5 |
 | No Affiliated Business Arrangement is referenced on the site (legacy disclamers.docx mortgage-partner line retired; approved legal pages contain none). If an ABA ever exists in practice, a proper written disclosure must be on file. | Section 5 |
 | No specific closing cost figures, qualification odds, or approval guarantees. | Section 6 |
-| Site-wide footer disclaimer is present and unedited by page-level content. | Master Plan v2.1 <!-- Repo audit note, 31 July 2026: current version is v2.15. Flagged, not auto-corrected. --> |
+| Site-wide footer disclaimer is present and unedited by page-level content. | The current Website Master Plan |
 
 # 10. Sources
 
