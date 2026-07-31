@@ -530,7 +530,7 @@ by construction rather than by remembering.
   `docs/AUDIT_CHECKLIST.md`'s unique content (pre-audit inventory, five whole
   Part B sections, the report-format and automated-checks appendices, plus
   more granular detail folded into the sections that already overlapped) is
-  now in `docs/approved-copy/V1.4_Audit_Checklist_Lisa_Collio.md`, and the old
+  now in `docs/approved-copy/V1_4_Audit_Checklist_Lisa_Collio.md`, and the old
   file is deleted. Its remaining §18 content split off into this file's own
   Build Procedure section instead (see the new "Draft-approval verification"
   subsection above) rather than the Audit Checklist, since that's where this
