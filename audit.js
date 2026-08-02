@@ -713,6 +713,66 @@ function checkIdentityText(raw, f, field, checkName) {
   }
 }
 
+/* 22. Section-image batch reconciliation ------------------------------------
+ * SOURCE FILES - REJECTED must equal SECTION_JOBS entries must equal names
+ * built in assets/images/sections/. Differenced set against set, per source
+ * folder — never a running total.
+ *
+ * This exists because a running total hid a real gap. The Elkhart batch was
+ * reported as "27 uploaded, 25 processed, 1 rejected" across several rounds and
+ * merged that way (PR #104). 27 - 1 is 26, not 25: elkhart-moving-cta-closing
+ * was never added to SECTION_JOBS and never processed, so the closing-CTA slot
+ * on /moving-to-elkhart/ and its Spanish twin would have rendered with no image
+ * and read as another deliberate gap. Nobody subtracted; every report repeated
+ * the same two numbers without differencing them.
+ *
+ * A missing image is invisible by construction — there is no broken link and no
+ * failing build, just an absent picture that looks like a decision. That is the
+ * same false negative check 15 exists for, from the opposite direction.
+ */
+{
+  const srcRoots = ["goshen", "elkhart"];
+  const jobsPath = path.join(ROOT, "scripts", "generate-featured-images.py");
+  const sectionsDir = path.join(ROOT, "assets", "images", "sections");
+  const rejPath = path.join(ROOT, "content", "source", "rejected-assets.txt");
+  if (!fs.existsSync(jobsPath) || !fs.existsSync(sectionsDir)) {
+    err("section-reconcile", "generate-featured-images.py or assets/images/sections/ is missing — check 22 cannot run");
+  } else {
+    const py = read(jobsPath);
+    const block = py.slice(py.indexOf("SECTION_JOBS = {"));
+    const jobs = new Set(
+      [...block.slice(0, block.indexOf("\ndef ")).matchAll(/^\s{4}"([a-z0-9-]+)":/gm)].map((m) => m[1])
+    );
+    const rejected = new Set(
+      (fs.existsSync(rejPath) ? read(rejPath) : "")
+        .split("\n").map((l) => l.trim()).filter((l) => l && !l.startsWith("#"))
+        .map((l) => l.split("|")[0].trim())
+    );
+    const built = new Set(
+      fs.readdirSync(sectionsDir).map((f) => f.replace(/(-thumb)?\.(jpg|webp)$/, ""))
+    );
+    for (const root of srcRoots) {
+      const dir = path.join(ROOT, "assets", "images", root);
+      if (!fs.existsSync(dir)) continue;
+      const sources = fs.readdirSync(dir).filter((f) => /\.jpe?g$/i.test(f)).map((f) => f.replace(/\.jpe?g$/i, ""));
+      const expected = sources.filter((n) => !rejected.has(n));
+      const noJob = expected.filter((n) => !jobs.has(n));
+      const noFile = expected.filter((n) => !built.has(n));
+      const orphanJob = [...jobs].filter((n) => n.startsWith(root + "-") && !sources.includes(n));
+      if (noJob.length)
+        err("section-reconcile",
+          `assets/images/${root}/: ${sources.length} source file(s), ${rejected.size ? sources.length - expected.length : 0} rejected, ` +
+          `so ${expected.length} must be processed — but ${noJob.length} have no SECTION_JOBS entry: ${noJob.join(", ")}`);
+      if (noFile.length)
+        err("section-reconcile",
+          `assets/images/${root}/: ${noFile.length} cleared source(s) have no built file in assets/images/sections/: ${noFile.join(", ")}`);
+      if (orphanJob.length)
+        err("section-reconcile",
+          `SECTION_JOBS references ${orphanJob.length} ${root} name(s) with no source photo: ${orphanJob.join(", ")}`);
+    }
+  }
+}
+
 /* ------------------------------------------------------------------------- */
 const group = (list) => {
   const by = {};
