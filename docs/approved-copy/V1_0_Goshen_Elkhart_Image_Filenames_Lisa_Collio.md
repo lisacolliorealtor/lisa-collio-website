@@ -81,7 +81,7 @@
 
 ---
 
-> ## ⏸ THIRD RULING (2 August 2026) — two reversals and one new hold
+> ## ⛔ THIRD RULING (2 August 2026) — two reversals and one final rejection
 >
 > **1. `elkhart-living-rivers-parks-outdoors.jpg` — REINSTATED.** Lisa's
 > "do not use" message crossed with her decision to keep it. Removed from
@@ -95,7 +95,7 @@
 > Processed and wired normally. It was never on the rejected list and must not
 > be added to it.
 >
-> **3. `elkhart-moving-elkhart-or-goshen.jpg` — NEW PHOTO, NEW HOLD.** Lisa
+> **3. `elkhart-moving-elkhart-or-goshen.jpg` — NEW PHOTO, REJECTED (final).** Lisa
 > replaced the church-signage streetscape with a playground photo (blob
 > `054ec148` → `72383bc5`), same filename. Re-validated in full: it passes
 > filename, provenance (Apple iPhone 16 Pro, 2026:07:24 20:59:12, 49 EXIF tags,
@@ -116,11 +116,21 @@
 > `(0, 0, 1, 0.60)` — returns tree canopy and sky with a sliver of equipment,
 > which does not illustrate the section.
 >
-> **This is a guard, not a ruling.** Lisa asked for the frame to be checked
-> before clearing and the check found this. Her call: accept with consent for
-> the minors, supply a third photo, or leave the section image-free. The slug
-> stays in `rejected-assets.txt` under Ruling 3 meanwhile so the slot cannot be
-> filled by accident.
+> **Lisa's decision, 2 August 2026: do not use it. The "Elkhart or Goshen?"
+> section is image-free in both languages**, following the "Where people work"
+> precedent on `/living-in-goshen/`. The title is an abstract comparison that no
+> literal photograph fits — it was on the Phase 0 list of such titles before any
+> of this arose.
+>
+> This is the **same category as the church-signage rejection above, not** the
+> Goshen "not Lisa's photography" ruling. It is also the same standard that
+> permanently excludes all Jordi B photos and the Yaquelin Lozano pair for
+> showing minors without permission — and strangers are a weaker position than
+> family, not a stronger one.
+>
+> A replacement, if ever wanted, must be a place with **no people and no legible
+> signage**. Same filename; delete the line from `rejected-assets.txt`, process
+> it, wire it normally.
 
 ---
 
@@ -198,7 +208,7 @@
 | The housing stock | `elkhart-moving-housing-stock.jpg` |
 | What it costs to live here | `elkhart-moving-cost-of-living.jpg` |
 | The honest trade-offs | `elkhart-moving-trade-offs.jpg` |
-| Elkhart or Goshen? | `elkhart-moving-elkhart-or-goshen.jpg` ⏸ HELD — replacement photo, see Ruling 3 |
+| Elkhart or Goshen? | `elkhart-moving-elkhart-or-goshen.jpg` ⛔ REJECTED — see Ruling 3 |
 | FAQ: What is there to do in Elkhart, Indiana? | `elkhart-moving-faq-things-to-do.jpg` |
 | FAQ: What community events happen in Elkhart during the year? | `elkhart-moving-faq-community-events.jpg` |
 | FAQ: What does it cost to live in Elkhart, Indiana? | `elkhart-moving-faq-cost-of-living.jpg` |

@@ -709,3 +709,107 @@ the Fair Housing checklist and must not travel from a source note into the copy.
 3. **Drive time** — inventory of 42 occurrences held, awaiting the number.
 4. **The stale Capitol Limited reference** on both live pages, whether or not it
    rides along with the ¶2 rewrite.
+
+---
+
+# Addendum 3 — 2 August 2026: copy applied, rejection finalised
+
+## ¶2 replaced, both languages. ¶3 untouched.
+
+`moving-to-elkhart/index.html:215` and `es/mudarse-a-elkhart/index.html:233` —
+**one line changed in each file, nothing else.** Verified by diffing both against
+their pre-edit copies: a single `215c215` / `233c233` hunk, so ¶1, ¶3, the
+trade-offs paragraph and every other line are byte-identical to before.
+
+Compliance-checked on the inserted text itself, both languages:
+
+| Check | EN | ES |
+|---|---|---|
+| Ambulatory / proximity-by-foot (incl. "within walking distance", "a pie", "caminando") | none | none |
+| Parking claim | none | none |
+| Route names (Capitol Limited, Lake Shore Limited, Floridian, Silver Star) | none | none |
+| National New York Central Railroad Museum retained | yes | yes |
+| Tyler Avenue | yes | yes |
+
+The Spanish went in exactly as supplied — usted register (`Consulte el sitio
+web…`), `trenes de cercanías`, `visitar familia` — with no drift toward the
+English. `npm run audit` passes all hard checks, including check 5 (`walkab`
+sitewide) and check 17 (Fair Housing terms in alt text).
+
+**One factual note, not a change.** The approved text names Chicago and New York
+and stops there. The earlier instruction had asked to restore southbound service
+toward Washington DC; the final approved copy does not include it. That service
+does exist — as the Floridian, which continues to Miami — so the copy is accurate
+as written and simply narrower. Recorded so the omission is visibly a decision.
+
+## Ruling 3 — now final, not pending
+
+`elkhart-moving-elkhart-or-goshen` is a **final rejection** in
+`content/source/rejected-assets.txt`, the manifest, and the punch list. The
+recorded grounds, per Lisa: her own photography, rejected for **identifiable
+minors with no release on file** and for **familial status appearing as the
+illustration on a where-should-I-live comparison page** — the same category as
+the church-signage rejection, explicitly **not** the Goshen "not Lisa's
+photography" ruling.
+
+Lisa's supporting point is recorded with it: this is the same standard that
+permanently excludes all Jordi B photos and the Yaquelin Lozano pair for showing
+minors without permission, and strangers are a weaker position than family, not a
+stronger one.
+
+**The "Elkhart or Goshen?" section is image-free in both languages**, following
+"Where people work" on `/living-in-goshen/`. The per-slug reason in
+`rejected-assets.txt` means `audit.js` check 15 now reports the correct grounds
+for this slug rather than Ruling 1's.
+
+Final Elkhart tally: **27 uploaded · 26 cleared · 25 processed · 1 rejected.**
+(The 26th cleared file is `elkhart-living-faq-downtown`, which is processed; the
+count differs from 25 only because `elkhart-moving-elkhart-or-goshen` is the one
+rejection.)
+
+## Capitol Limited — full sweep, both languages
+
+Searched every `.html`, `.md`, `.txt` and `.json` in the repo for both route
+names.
+
+### Live pages — **now zero**
+
+| Page | Before | After |
+|---|---|---|
+| `/moving-to-elkhart/`:215 | "Amtrak's **Capitol Limited** and Lake Shore Limited both stop at the Elkhart station" | fixed by this PR — names no route |
+| `/es/mudarse-a-elkhart/`:233 | "Los trenes Amtrak **Capitol Limited** y Lake Shore Limited paran en la estación de Elkhart" | fixed by this PR — names no route |
+
+Those were the **only two live pages** naming it. Verified after the edit by
+grepping every HTML file: **no live page names the Capitol Limited.** Nothing in
+`llms.txt`, no hub card, no schema field, no meta description carried it.
+
+### Authoring sources — **two, deliberately not fixed**
+
+| File | Line | Content |
+|---|---|---|
+| `docs/approved-copy/V1_0_Moving_to_Elkhart_Pillar_EN_Lisa_Collio.md` | 81 | the pre-rewrite English ¶2 |
+| `docs/approved-copy/V1_0_ES_Mudarse_a_Elkhart_Page_Lisa_Collio.md` | 67 | the pre-rewrite Spanish ¶2 |
+
+Left alone as instructed — reported first, and they may fold into the drive-time
+PR. Worth being blunt about the risk while they sit there: **this is
+build-procedure failure 4 exactly.** A correction lands on the page while the
+approved source still holds the retired fact, and the next rebuild from that
+source reintroduces it. That is how the "13 vs 14 elementary schools" regression
+happened.
+
+Two other pages mention Amtrak without naming a route and need no change:
+`/moving-to-goshen/`:291 and `/es/mudarse-a-goshen/`:294, both describing trolley
+connections "onward toward Elkhart's Amtrak station".
+
+## Drive-time numbers — untouched
+
+Not a single one of the 42 occurrences was modified in this PR. The inventory
+stands as recorded above, awaiting Lisa's number and its own PR.
+
+## Open after this PR
+
+1. **Drive time** — the number, then one PR across live pages, authoring sources
+   and `VERIFIED_FACTS.md`, including the "all within about 20 minutes" grouping.
+2. **The two authoring sources still naming the Capitol Limited.**
+3. **`--clean` cannot complete** — pre-existing, unrelated to Elkhart.
+4. **PRs 2–4** — wiring, with alt text to Lisa in both languages before merge.

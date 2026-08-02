@@ -40,32 +40,44 @@
 #       different reason and the slug stays on this list meanwhile.
 #
 # ---------------------------------------------------------------------------
-# RULING 3 — PENDING (raised by Claude Code, 2 August 2026)
+# RULING 3 (Lisa, 2 August 2026) — FINAL. Not pending.
 #
-#   elkhart-moving-elkhart-or-goshen   THE REPLACEMENT PHOTO. A playground at
-#       dusk. It passes filename, provenance (Apple iPhone 16 Pro,
-#       2026:07:24 20:59:12, 49 EXIF tags) and integrity (5712x4284 landscape,
-#       clean full decode), and it carries NO legible business or religious
-#       signage — the two signs in frame are illegible at output size. But it
-#       contains AT LEAST FIVE CHILDREN AND ONE ADULT, several recognisable at
-#       the delivered crop, verified at 6x zoom.
+#   elkhart-moving-elkhart-or-goshen   THE REPLACEMENT PHOTO — a playground at
+#       dusk, uploaded 2 Aug after the church-signage frame was rejected.
+#       REJECTED. This is Lisa's own photography and it passes filename,
+#       provenance (Apple iPhone 16 Pro, 2026:07:24 20:59:12, 49 EXIF tags) and
+#       integrity (5712x4284 landscape, clean full decode). It carries NO
+#       legible business or religious signage.
 #
-#       Two separate problems, neither curable by alt text:
-#         1. Identifiable minors with no release on file.
-#         2. Familial status is a Fair Housing protected class, and this frame
-#            illustrates a where-should-I-live comparison — the same category
-#            of risk the church signage was rejected for.
+#       Rejected on two grounds, neither curable by alt text:
+#         1. IDENTIFIABLE MINORS WITH NO RELEASE ON FILE. At least five
+#            children and one adult, several recognisable at the delivered
+#            1200x630 crop, verified at 6x zoom. This is the same standard that
+#            permanently excludes all Jordi B photos and the Yaquelin Lozano
+#            pair — and strangers are a weaker position than family, not a
+#            stronger one.
+#         2. FAMILIAL STATUS — a Fair Housing protected class — appearing as
+#            the illustration on a where-should-I-live comparison page.
 #
-#       No crop fixes it. Verified by rendering, not assumed: _cover_focal
-#       crops vertically only, and the people and the play equipment occupy the
-#       same horizontal band. The only crop_box that excludes everyone —
-#       (0, 0, 1, 0.60) — yields tree canopy and sky with a sliver of
-#       equipment, which does not illustrate the section.
+#       SAME CATEGORY AS THE CHURCH-SIGNAGE REJECTION ABOVE, NOT THE GOSHEN
+#       "not Lisa's photography" RULING. Do not conflate them. Both Ruling 2
+#       and Ruling 3 concern what a genuine Lisa photograph shows on an
+#       evergreen page.
 #
-#       THIS ENTRY IS A GUARD, NOT A RULING. Lisa asked for the frame to be
-#       checked before clearing; the check found this. She decides: accept with
-#       consent for the minors, supply a third photo, or leave the section
-#       image-free. Delete this line the moment she clears it.
+#       No crop fixes it, verified by rendering rather than assumed:
+#       _cover_focal crops these sources vertically only, the people and the
+#       play equipment occupy the same horizontal band, and the only crop_box
+#       that excludes everyone — (0, 0, 1, 0.60) — yields tree canopy and sky.
+#
+#       THE SLOT IS IMAGE-FREE ON PURPOSE, both languages: "Elkhart or Goshen?"
+#       on /moving-to-elkhart/ and /es/mudarse-a-elkhart/. Precedent: "Where
+#       people work" on /living-in-goshen/. The title is also an abstract
+#       comparison that no literal photograph fits — it was on the Phase 0 list
+#       of such titles before any of this arose.
+#
+#       A replacement, if Lisa ever wants one, must be a place with NO PEOPLE
+#       and NO LEGIBLE SIGNAGE. Same filename; delete the line below, process
+#       it, wire it normally.
 #
 # ---------------------------------------------------------------------------
 # One slug per line, without extension or -thumb/-header suffix.
@@ -77,4 +89,4 @@ goshen-living-why-lisa | ruling 1, 29 Jul 2026: not Lisa's photography
 goshen-moving-cta-closing | ruling 1, 29 Jul 2026: not Lisa's photography
 goshen-moving-location-commute | ruling 1, 29 Jul 2026: not Lisa's photography
 goshen-moving-faq-moving-from-out-of-state | ruling 1, 29 Jul 2026: not Lisa's photography
-elkhart-moving-elkhart-or-goshen | ruling 3 PENDING, 2 Aug 2026: replacement photo shows identifiable children — awaiting Lisa's decision, not a final rejection
+elkhart-moving-elkhart-or-goshen | ruling 3, 2 Aug 2026: Lisa's photo, rejected for identifiable minors with no release and for familial status on a where-should-I-live comparison page
