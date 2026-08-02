@@ -41,6 +41,99 @@
 
 ---
 
+> ## ⛔ REJECTED ASSETS — SECOND RULING (Lisa, 2 August 2026)
+>
+> **Two Elkhart filenames must NOT be wired to any page, in either language:**
+>
+> - `elkhart-moving-elkhart-or-goshen.jpg`
+> - `elkhart-living-rivers-parks-outdoors.jpg`
+>
+> **Different reason from the Goshen four above — do not conflate them.** These
+> two ARE Lisa's original photography and both pass provenance and integrity.
+> Each carries text that is legible in the delivered 1200×630 crop: the first
+> shows **"NEW LIFE COMMUNITY CHURCH"** on a building face, and it sits on a
+> where-should-I-live comparison section — religion is a Fair Housing protected
+> class, and Lisa's ruling is that this is a steering risk alt text cannot cure.
+> The second shows **"BRASS ELK BREWING"** on a storefront; retail and dining
+> names come off evergreen pillar pages, and a legible sign is the same
+> violation as naming the business in copy.
+>
+> A re-crop fixes neither. `_cover_focal()` crops these sources vertically only,
+> so `focal_y` cannot move text sideways out of frame, and on the first the
+> church sign sits immediately beside the brick turret that anchors the
+> composition.
+>
+> **The two sections they were meant to fill are therefore image-free ON
+> PURPOSE** — "Elkhart or Goshen?" on `/moving-to-elkhart/` + `/es/mudarse-a-elkhart/`,
+> and "Rivers, parks, and outdoor spaces" on `/living-in-elkhart/` +
+> `/es/viviendo-en-elkhart/`. Precedent already exists for an intentionally
+> image-free section: "Where people work" on `/living-in-goshen/`.
+>
+> **Enforced mechanically** by `audit.js` check 15, against
+> `content/source/rejected-assets.txt`, which carries both rulings separately.
+>
+> When a replacement arrives it needs to be a **different photograph of the same
+> subject with no legible business or religious signage in frame** — not a
+> replacement for a non-photograph. Same filename; delete the line from
+> `rejected-assets.txt`, process it, wire it normally.
+>
+> **SUPERSEDED IN PART — see the third ruling below.**
+
+---
+
+> ## ⛔ THIRD RULING (2 August 2026) — two reversals and one final rejection
+>
+> **1. `elkhart-living-rivers-parks-outdoors.jpg` — REINSTATED.** Lisa's
+> "do not use" message crossed with her decision to keep it. Removed from
+> `content/source/rejected-assets.txt`; the "Rivers, parks, and outdoor spaces"
+> section is wired normally in both languages. **The alt-text constraint
+> stands:** name neither the brewery nor any other business visible in frame.
+>
+> **2. `elkhart-moving-faq-older-home-checklist.jpg` — HOLD RELEASED.** Lisa
+> confirmed on 2 Aug that she holds **written consent to publish**, which
+> answers the 876 IAC 8-1-8(f) question about the legible house number "916".
+> Processed and wired normally. It was never on the rejected list and must not
+> be added to it.
+>
+> **3. `elkhart-moving-elkhart-or-goshen.jpg` — NEW PHOTO, REJECTED (final).** Lisa
+> replaced the church-signage streetscape with a playground photo (blob
+> `054ec148` → `72383bc5`), same filename. Re-validated in full: it passes
+> filename, provenance (Apple iPhone 16 Pro, 2026:07:24 20:59:12, 49 EXIF tags,
+> Orientation 1) and integrity (5712×4284 landscape, clean full decode, 4.76×
+> the target width), and **it carries no legible business or religious
+> signage** — both signs in frame are illegible at output size.
+>
+> **But it contains at least five children and one adult**, several recognisable
+> in the delivered 1200×630 crop, confirmed at 6× zoom. Two problems alt text
+> cannot cure: identifiable minors with no release on file, and familial status
+> — a Fair Housing protected class — illustrating a where-should-I-live
+> comparison, which is the same category of risk the church signage was rejected
+> for.
+>
+> **No crop fixes it**, verified by rendering: `_cover_focal()` crops these
+> sources vertically only, the people and the play equipment share the same
+> horizontal band, and the only `crop_box` that excludes everyone —
+> `(0, 0, 1, 0.60)` — returns tree canopy and sky with a sliver of equipment,
+> which does not illustrate the section.
+>
+> **Lisa's decision, 2 August 2026: do not use it. The "Elkhart or Goshen?"
+> section is image-free in both languages**, following the "Where people work"
+> precedent on `/living-in-goshen/`. The title is an abstract comparison that no
+> literal photograph fits — it was on the Phase 0 list of such titles before any
+> of this arose.
+>
+> This is the **same category as the church-signage rejection above, not** the
+> Goshen "not Lisa's photography" ruling. It is also the same standard that
+> permanently excludes all Jordi B photos and the Yaquelin Lozano pair for
+> showing minors without permission — and strangers are a weaker position than
+> family, not a stronger one.
+>
+> A replacement, if ever wanted, must be a place with **no people and no legible
+> signage**. Same filename; delete the line from `rejected-assets.txt`, process
+> it, wire it normally.
+
+---
+
 ## ⚠️ UPDATED INSTRUCTION (July 2026) — NO TEXT ON BLOG/ARTICLE IMAGES
 
 **Lisa has reversed her earlier instruction.** She previously wanted the article title/headline placed as text directly on each image. **This is now cancelled** — the words were getting cut off in practice, so **no article title, headline, or any other text should ever be baked into these images.**
@@ -115,7 +208,7 @@
 | The housing stock | `elkhart-moving-housing-stock.jpg` |
 | What it costs to live here | `elkhart-moving-cost-of-living.jpg` |
 | The honest trade-offs | `elkhart-moving-trade-offs.jpg` |
-| Elkhart or Goshen? | `elkhart-moving-elkhart-or-goshen.jpg` |
+| Elkhart or Goshen? | `elkhart-moving-elkhart-or-goshen.jpg` ⛔ REJECTED — see Ruling 3 |
 | FAQ: What is there to do in Elkhart, Indiana? | `elkhart-moving-faq-things-to-do.jpg` |
 | FAQ: What community events happen in Elkhart during the year? | `elkhart-moving-faq-community-events.jpg` |
 | FAQ: What does it cost to live in Elkhart, Indiana? | `elkhart-moving-faq-cost-of-living.jpg` |
@@ -137,23 +230,39 @@
 | What Lisa sees working this market | `elkhart-living-why-lisa.jpg` |
 | FAQ: What is Elkhart, Indiana known for? | `elkhart-living-faq-known-for.jpg` |
 | FAQ: What school district serves Elkhart, Indiana? | `elkhart-living-faq-school-district.jpg` |
+| FAQ: What is downtown Elkhart like? | `elkhart-living-faq-downtown.jpg` ★ ADDED 2 Aug 2026 |
 | FAQ: What industries and employers are in Elkhart? | `elkhart-living-faq-employers.jpg` |
 | FAQ: What landmarks and amenities does Elkhart have? | `elkhart-living-faq-landmarks.jpg` |
 | Thinking about Elkhart? (closing CTA) | `elkhart-living-cta-closing.jpg` |
 
 ---
 
-## Total: 57 images (16 + 15 + 14 + 12)
+## Total: 58 images (16 + 15 + 14 + 13)
 
 **Note:** the Moving to Goshen FAQ list above now includes "I'm moving to Goshen for an RV industry job..." — this title wasn't in the original source document (only the Elkhart version was) but was found live on the page. Worth double-checking with Claude Code whether any other titles have drifted from this list since it was built, before finalizing the full photo shoot.
 
 > **As-built note, 29 July 2026:** the "56 unique shoots" figure in upload
-> instruction 3 below is inconsistent with the 57 total above; 57 is correct.
-> Of the 31 Goshen images, 27 are wired to pages and 4 are rejected per the
-> ruling at the top of this file. The 26 Elkhart images have not been uploaded.
+> instruction 3 below was inconsistent with the total above. Corrected 2 Aug
+> 2026 — both now read 58.
+>
+> **As-built note, 2 August 2026.** Two corrections and a status update:
+>
+> - **`elkhart-living-faq-downtown.jpg` added** to section 4. The FAQ "What is
+>   downtown Elkhart like?" is live on `/living-in-elkhart/` and its Spanish
+>   twin and always had been, but the Elkhart half of this manifest listed only
+>   four FAQ rows and skipped it — while the Goshen half correctly carries
+>   `goshen-living-faq-downtown.jpg` for the identical question. Found in the
+>   Phase 0 reconciliation, approved by Lisa, photographed in the July batch.
+>   **This is why the total moves 57 → 58**, not because a new slot was
+>   invented.
+> - **The Elkhart batch has been uploaded.** All 27 Elkhart files are in
+>   `assets/images/elkhart/` on `main` and pass filename, EXIF-provenance and
+>   full-decode integrity checks. Of the 27: **24 cleared**, 2 rejected per the
+>   second ruling above, 1 held pending a consent check.
+> - **Of the 31 Goshen images, 27 are wired and 4 are rejected**, unchanged.
 
 ## Upload instructions for Lisa
 1. Name each photo exactly as shown above before uploading (case-sensitive, hyphens not underscores or spaces).
 2. Upload to the matching folder: `assets/images/goshen/` or `assets/images/elkhart/` in the repo (or hand off to Claude Code with a note on which filename is which — per your standing workflow rule, Claude Code should commit these into the repo itself, you shouldn't have to upload to GitHub manually).
-3. One photo can honestly serve double duty in a few spots (e.g., the same downtown streetscape could work for both "Downtown Goshen" and "What Goshen is known for") — you don't need 56 *unique* shoots if a photo genuinely fits two slots. Just don't reuse the same file back-to-back on the same page (breaks the visual rhythm) or as two different articles' featured image (that's the separate rotation rule).
+3. One photo can honestly serve double duty in a few spots (e.g., the same downtown streetscape could work for both "Downtown Goshen" and "What Goshen is known for") — you don't need 58 *unique* shoots if a photo genuinely fits two slots. Just don't reuse the same file back-to-back on the same page (breaks the visual rhythm) or as two different articles' featured image (that's the separate rotation rule).
 4. Fair Housing note carries over here too: avoid images that suggest who "belongs" in a neighborhood — landscapes, buildings, and public spaces are always safe; be thoughtful with any people-inclusive shots.

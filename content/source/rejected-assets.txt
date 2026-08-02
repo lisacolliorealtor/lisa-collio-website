@@ -3,7 +3,13 @@
 # Used by audit.js (check 15), which FAILS the run if any page references one
 # of these filenames in any variant (.jpg, .webp, -thumb, -header).
 #
-# RULING (Lisa, 29 July 2026): these four files are NOT Lisa's original
+# There are now TWO rulings here, for TWO DIFFERENT REASONS. Read both before
+# assuming why a slug is on this list — the Goshen four are not Lisa's
+# photography, and the Elkhart two are hers and were rejected for what is
+# legible inside the frame. The remedy differs accordingly.
+#
+# ---------------------------------------------------------------------------
+# RULING 1 (Lisa, 29 July 2026) — the four GOSHEN slugs: NOT Lisa's original
 # photography. They are composite graphics with circular photo insets, supplied
 # with the July 2026 Goshen batch. They must not appear on any page in either
 # language until Lisa uploads real replacement photographs.
@@ -18,9 +24,69 @@
 # When a replacement photo arrives, Lisa uploads it under the SAME manifest
 # filename; delete the line here, process it, and wire it normally.
 #
+# ---------------------------------------------------------------------------
+# RULING 2 (Lisa, 2 August 2026) — signage legible in the delivered 1200x630
+# crop, on an evergreen pillar page. Both photos ARE Lisa's original work;
+# provenance was never the issue.
+#
+#   elkhart-living-rivers-parks-outdoors   REINSTATED 2 Aug 2026. Lisa's
+#       rejection message crossed with her decision to keep it. Removed from
+#       this list; the section is wired normally. Alt text must not name the
+#       brewery or any other business in frame — that constraint stands.
+#   elkhart-moving-elkhart-or-goshen   Rejected for "NEW LIFE COMMUNITY CHURCH"
+#       legible on a building face, on a where-should-I-live comparison
+#       section. Lisa REPLACED the photo on 2 Aug (blob 054ec148 -> 72383bc5).
+#       The church is gone. See Ruling 3 — the replacement is held for a
+#       different reason and the slug stays on this list meanwhile.
+#
+# ---------------------------------------------------------------------------
+# RULING 3 (Lisa, 2 August 2026) — FINAL. Not pending.
+#
+#   elkhart-moving-elkhart-or-goshen   THE REPLACEMENT PHOTO — a playground at
+#       dusk, uploaded 2 Aug after the church-signage frame was rejected.
+#       REJECTED. This is Lisa's own photography and it passes filename,
+#       provenance (Apple iPhone 16 Pro, 2026:07:24 20:59:12, 49 EXIF tags) and
+#       integrity (5712x4284 landscape, clean full decode). It carries NO
+#       legible business or religious signage.
+#
+#       Rejected on two grounds, neither curable by alt text:
+#         1. IDENTIFIABLE MINORS WITH NO RELEASE ON FILE. At least five
+#            children and one adult, several recognisable at the delivered
+#            1200x630 crop, verified at 6x zoom. This is the same standard that
+#            permanently excludes all Jordi B photos and the Yaquelin Lozano
+#            pair — and strangers are a weaker position than family, not a
+#            stronger one.
+#         2. FAMILIAL STATUS — a Fair Housing protected class — appearing as
+#            the illustration on a where-should-I-live comparison page.
+#
+#       SAME CATEGORY AS THE CHURCH-SIGNAGE REJECTION ABOVE, NOT THE GOSHEN
+#       "not Lisa's photography" RULING. Do not conflate them. Both Ruling 2
+#       and Ruling 3 concern what a genuine Lisa photograph shows on an
+#       evergreen page.
+#
+#       No crop fixes it, verified by rendering rather than assumed:
+#       _cover_focal crops these sources vertically only, the people and the
+#       play equipment occupy the same horizontal band, and the only crop_box
+#       that excludes everyone — (0, 0, 1, 0.60) — yields tree canopy and sky.
+#
+#       THE SLOT IS IMAGE-FREE ON PURPOSE, both languages: "Elkhart or Goshen?"
+#       on /moving-to-elkhart/ and /es/mudarse-a-elkhart/. Precedent: "Where
+#       people work" on /living-in-goshen/. The title is also an abstract
+#       comparison that no literal photograph fits — it was on the Phase 0 list
+#       of such titles before any of this arose.
+#
+#       A replacement, if Lisa ever wants one, must be a place with NO PEOPLE
+#       and NO LEGIBLE SIGNAGE. Same filename; delete the line below, process
+#       it, wire it normally.
+#
+# ---------------------------------------------------------------------------
 # One slug per line, without extension or -thumb/-header suffix.
+# Optional short reason after a pipe: `slug | reason`. audit.js check 15 quotes
+# it verbatim, so the failure message states THIS slug's grounds rather than
+# one ruling's rationale applied to every entry.
 
-goshen-living-why-lisa
-goshen-moving-cta-closing
-goshen-moving-location-commute
-goshen-moving-faq-moving-from-out-of-state
+goshen-living-why-lisa | ruling 1, 29 Jul 2026: not Lisa's photography
+goshen-moving-cta-closing | ruling 1, 29 Jul 2026: not Lisa's photography
+goshen-moving-location-commute | ruling 1, 29 Jul 2026: not Lisa's photography
+goshen-moving-faq-moving-from-out-of-state | ruling 1, 29 Jul 2026: not Lisa's photography
+elkhart-moving-elkhart-or-goshen | ruling 3, 2 Aug 2026: Lisa's photo, rejected for identifiable minors with no release and for familial status on a where-should-I-live comparison page
