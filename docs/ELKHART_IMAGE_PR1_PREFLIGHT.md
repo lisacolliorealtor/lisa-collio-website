@@ -905,3 +905,103 @@ and it is Lisa's action, not something this PR can complete.
 Next: PR 2 wires `/moving-to-elkhart/` + `/es/mudarse-a-elkhart/` — 12 section
 images and their alt text, **28 strings** across the pair, to Lisa for approval
 in both languages before merge under the Section 13 gate.
+
+---
+
+# Addendum 5 — 2 August 2026: two swaps and one crop change
+
+Nothing else in PR 1 changed. Three slugs, re-rendered; the other 46 image names
+are untouched.
+
+## Phase 2 re-validation — both swapped files
+
+| | `elkhart-living-faq-downtown` | `elkhart-living-museums-arts` |
+|---|---|---|
+| Blob | `cb744a81` → **`7966c5f21088`** | `c6d3fc55` → **`a1b7285193e5`** |
+| Filename defects | none | none |
+| Make / Model | **Apple iPhone 16 Pro** | **Apple iPhone 16 Pro** |
+| DateTimeOriginal | **2026:07:23 17:37:45** | **2026:07:23 19:41:47** |
+| EXIF tags · Orientation | 49 · 1 | 49 · 1 |
+| Full pixel decode | **OK** | **OK** |
+| Size (stored = oriented) | **5712 × 4284**, 1.333, landscape | **5712 × 4284**, 1.333, landscape |
+| Clears 1200 × 630 | **YES** — 4.76× wide, 6.80× tall | **YES** — 4.76× wide, 6.80× tall |
+
+Both from the same 23 July shoot as the rest of the batch. **No holds.**
+
+### Signage and identifiable-people check, at delivered output size
+
+Run the same way as the park photo — on the delivered crop at 5–6× zoom, not on
+the original, because legibility changes with the crop.
+
+- **`elkhart-living-faq-downtown`** — one storefront blade sign on the left
+  corner building is legible. **Kept, per the Brass Elk ruling**; alt text names
+  no business. One distant pedestrian, walking away, face not resolvable — no
+  concern, exactly as described. **One thing to carry into PR 3's alt text:** a
+  blue "P" wayfinding sign is legible. It is a directional sign in a photograph,
+  not a claim — but alt text must not turn it into one, per the standing
+  no-parking-claim rule.
+- **`elkhart-living-museums-arts`** — the **RUTHMERE** plaque is crisply legible.
+  Named landmark, permitted and desirable. Nothing else legible; no people.
+- **`elkhart-living-history`** (unchanged photo) — **NEW YORK CENTRAL** and
+  **CITY OF ELKHART** both read clearly in the new crop. The faint Crystal Bar
+  sign is kept per the Brass Elk ruling; alt text names nothing. The billboard at
+  frame left is gone entirely.
+
+## Focal points — proposed, each from rendered candidates
+
+### `elkhart-living-faq-downtown` → **`focal_y` 0.30**
+
+Rendered 0.30 / 0.40 / 0.50. Lisa's read of the problem was right — the default
+does spend the bottom third on asphalt — **but the fix runs the other way.**
+`focal_y` 0 keeps the *top*, so a **lower** value lifts the window off the
+foreground, and a higher one buries it further. At 0.30 the storefronts, awnings
+and the Lexington Avenue signal fill the frame with a thin grounding strip of
+pavement.
+
+### `elkhart-living-museums-arts` → **`focal_y` 0.75**
+
+**The plaque survives at every value tested — 0.50, 0.75 and 0.88 — so there is
+nothing to warn about.** Checked by rendering before choosing, so it could not
+ship cut. 0.75 keeps both pillar caps and the full mansion façade while spending
+no frame on empty sky; 0.50 wastes a band of sky, 0.88 crowds the top.
+
+### `elkhart-living-history` → **`crop_box (0, 0.30, 1, 0.78)` + `focal_y` 0.5**
+
+**This is a departure from the 0.70–0.75 that was suggested, and it is
+deliberate.** Rendered 0.72 and 0.85 first: neither does what was asked. The
+railcar band is about **7% of the source height**, so sliding the crop window
+only trades empty sky for empty grass — the train stays small either way.
+`_cover_focal()` slides; it does not zoom.
+
+The `crop_box` is the zoom. It drops the top 30% of sky and the bottom 22% of
+grass, and because the pre-cropped frame is then wider than 1.905 the cover step
+also crops left and right — which is what removes the billboard at frame left.
+The result is the railcar, tracks, signal tower and depot filling the frame, with
+the lettering legible.
+
+Both alternatives are in `docs/CROP-OPTIONS-elkhart-living-history.png`. If the
+zoom is not wanted, `focal_y` 0.85 with no `crop_box` is the closest pure-slide
+option — but it will not make the train large.
+
+## Rebuilt
+
+| | Files |
+|---|---|
+| `sections/` — 3 names × jpg/webp × full/thumb | **12** |
+| `blog-headers/` — `downtown-elkhart-indiana` + `centro-de-elkhart-indiana` | **8** |
+
+**Correction to the brief:** `elkhart-living-museums-arts` does **not** drive any
+article featured image, and neither does `elkhart-living-history` — both are body
+section images only. Checked against `CLEAN_JOBS` rather than assumed. Only
+`elkhart-living-faq-downtown` feeds articles, and it feeds exactly two. So the
+featured-image rebuild is 2 slugs, not 4.
+
+Verified after rebuild: every variant present at 1200×630 / 800×420; the EN and
+ES downtown headers byte-identical; and the `faq-downtown` section file
+byte-identical to the `downtown-elkhart-indiana` header, since they share a
+source and a focal point. Totals unchanged — **100 section files, 24 article
+slugs**. `npm run audit` and `npm run check:images` both pass.
+
+Contact sheets 2, 3, 4, 5 and 6 regenerated so the reviewed set matches what is
+on disk. New: `docs/CONTACT-7-three-changed-slugs.png` (all three at both sizes)
+and `docs/CONTACT-8-downtown-articles.png`.

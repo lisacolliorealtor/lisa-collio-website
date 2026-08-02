@@ -792,20 +792,32 @@ SECTION_JOBS = {
     "elkhart-living-rivers-parks-outdoors":
         ("assets/images/elkhart/elkhart-living-rivers-parks-outdoors.jpg", 0.5, None),
 
-    # Ruthmere's full facade sits inside; overhanging branches frame the top.
-    # Source blob c6d3fc559d65.
+    # SWAP 2 Aug 2026 (blob c6d3fc55 -> a1b7285193e5). The tree-obscured frame is retired;
+    # this is a straight-on view of the Ruthmere gate with the mansion behind.
+    # The RUTHMERE plaque is a named landmark and is kept deliberately. It
+    # survives the crop at EVERY value tested (0.50, 0.75, 0.88) — verified by
+    # rendering before choosing, so it is never shipped cut. 0.75 keeps the pillar
+    # caps and the full facade while spending no frame on empty sky.
     "elkhart-living-museums-arts":
-        ("assets/images/elkhart/elkhart-living-museums-arts.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-living-museums-arts.jpg", 0.75, None),
 
     # A hair down so the flower bed is not clipped at the bottom edge. Source
     # blob 33a846dc9cd8.
     "elkhart-living-annual-events":
         ("assets/images/elkhart/elkhart-living-annual-events.jpg", 0.52, None),
 
-    # Rail cars and signal gantry sit just below centre; 0.55 puts them on the
-    # middle line. Source blob 2b27b038ac41.
+    # CROP CHANGE 2 Aug 2026 — same photo, blob 2b27b038ac41. focal_y ALONE CANNOT DO WHAT
+    # WAS ASKED HERE. The railcar band is about 7% of the source height, so
+    # sliding the window (0.72, 0.85 both rendered) only trades empty sky for
+    # empty grass and leaves the train small. _cover_focal slides; it does not
+    # zoom. The crop_box is the zoom: it drops the top 30% of sky and the bottom
+    # 22% of grass, and because the result is wider than 1.905 the cover step then
+    # crops left and right, which removes the billboard at frame left. NEW YORK
+    # CENTRAL / CITY OF ELKHART reads clearly in the delivered file — verified at
+    # output size. A faint Crystal Bar sign behind is kept per the Brass Elk
+    # ruling; alt text names nothing.
     "elkhart-living-history":
-        ("assets/images/elkhart/elkhart-living-history.jpg", 0.55, None),
+        ("assets/images/elkhart/elkhart-living-history.jpg", 0.5, (0, 0.30, 1, 0.78)),
 
     # LISA'S DECISION, 2 Aug: option B. 0.50 cut Lisa mid-thigh over a large
     # empty foreground; 0.66 carries her to below the knee with the streetscape
@@ -828,10 +840,18 @@ SECTION_JOBS = {
     "elkhart-living-faq-school-district":
         ("assets/images/elkhart/elkhart-living-faq-school-district.jpg", 0.3, None),
 
-    # Up from centre to favour the skyline and flags over the asphalt apron.
-    # Source blob cb744a81621b.
+    # SWAP 2 Aug 2026 (blob cb744a81 -> 7966c5f21088). The parking-structure frame is
+    # retired; this is a street-level view of the Lexington Avenue intersection,
+    # which matches the approved copy. focal_y 0.30, NOT the 0.5 default and not
+    # higher: focal_y 0 keeps the TOP, so a lower value is what lifts the window
+    # off the foreground pavement. At 0.30 the storefronts and the signal fill the
+    # frame with a thin grounding strip of pavement; at 0.50 the bottom third is
+    # asphalt. One storefront sign is legible — kept per the Brass Elk ruling, alt
+    # text names no business. One distant pedestrian, walking away, not
+    # identifiable. A blue P wayfinding sign is visible: alt text must not turn it
+    # into a parking claim.
     "elkhart-living-faq-downtown":
-        ("assets/images/elkhart/elkhart-living-faq-downtown.jpg", 0.42, None),
+        ("assets/images/elkhart/elkhart-living-faq-downtown.jpg", 0.30, None),
 
     # Keeps the fence line and the full row of coaches; the default spends the
     # top on cloud. Source blob 4ba8e0db553f.
@@ -935,7 +955,7 @@ CLEAN_JOBS = {
     "buying-an-older-home-in-goshen-indiana":
         ("assets/images/homes-general/exterior-covered-porch-framing-rural-view.jpg", 0.5, None),
     "centro-de-elkhart-indiana":
-        ("assets/images/elkhart/elkhart-living-faq-downtown.jpg", 0.42, None),   # Elkhart batch 2 Aug 2026, blob cb744a81621b
+        ("assets/images/elkhart/elkhart-living-faq-downtown.jpg", 0.30, None),   # swapped photo 2 Aug 2026, blob 7966c5f21088
     "community-events-in-elkhart-indiana":
         ("assets/images/elkhart/elkhart-moving-faq-community-events.jpg", 0.58, None),   # Elkhart batch 2 Aug 2026, blob 667f14b488e3
     "community-events-in-goshen-indiana":
@@ -953,7 +973,7 @@ CLEAN_JOBS = {
     "costo-de-vida-goshen-indiana":
         ("assets/images/homes-general/exterior-backyard-playset-shed-winter.jpg", 0.5, None),
     "downtown-elkhart-indiana":
-        ("assets/images/elkhart/elkhart-living-faq-downtown.jpg", 0.42, None),   # Elkhart batch 2 Aug 2026, blob cb744a81621b
+        ("assets/images/elkhart/elkhart-living-faq-downtown.jpg", 0.30, None),   # swapped photo 2 Aug 2026, blob 7966c5f21088
     "downtown-goshen-indiana":
         ("assets/images/homes-general/exterior-wooded-backyard-swing-set-fire-pit.jpg", 0.5, None),
     "elkhart-indiana-industries-employers":
