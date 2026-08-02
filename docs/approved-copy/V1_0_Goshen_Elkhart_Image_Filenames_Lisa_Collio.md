@@ -77,9 +77,50 @@
 > replacement for a non-photograph. Same filename; delete the line from
 > `rejected-assets.txt`, process it, wire it normally.
 >
-> **Held, not rejected — do not add to `rejected-assets.txt`:**
-> `elkhart-moving-faq-older-home-checklist.jpg`, pending Lisa's consent check on
-> the legible house number "916". Tracked in the Pre-Launch Punch List.
+> **SUPERSEDED IN PART — see the third ruling below.**
+
+---
+
+> ## ⏸ THIRD RULING (2 August 2026) — two reversals and one new hold
+>
+> **1. `elkhart-living-rivers-parks-outdoors.jpg` — REINSTATED.** Lisa's
+> "do not use" message crossed with her decision to keep it. Removed from
+> `content/source/rejected-assets.txt`; the "Rivers, parks, and outdoor spaces"
+> section is wired normally in both languages. **The alt-text constraint
+> stands:** name neither the brewery nor any other business visible in frame.
+>
+> **2. `elkhart-moving-faq-older-home-checklist.jpg` — HOLD RELEASED.** Lisa
+> confirmed on 2 Aug that she holds **written consent to publish**, which
+> answers the 876 IAC 8-1-8(f) question about the legible house number "916".
+> Processed and wired normally. It was never on the rejected list and must not
+> be added to it.
+>
+> **3. `elkhart-moving-elkhart-or-goshen.jpg` — NEW PHOTO, NEW HOLD.** Lisa
+> replaced the church-signage streetscape with a playground photo (blob
+> `054ec148` → `72383bc5`), same filename. Re-validated in full: it passes
+> filename, provenance (Apple iPhone 16 Pro, 2026:07:24 20:59:12, 49 EXIF tags,
+> Orientation 1) and integrity (5712×4284 landscape, clean full decode, 4.76×
+> the target width), and **it carries no legible business or religious
+> signage** — both signs in frame are illegible at output size.
+>
+> **But it contains at least five children and one adult**, several recognisable
+> in the delivered 1200×630 crop, confirmed at 6× zoom. Two problems alt text
+> cannot cure: identifiable minors with no release on file, and familial status
+> — a Fair Housing protected class — illustrating a where-should-I-live
+> comparison, which is the same category of risk the church signage was rejected
+> for.
+>
+> **No crop fixes it**, verified by rendering: `_cover_focal()` crops these
+> sources vertically only, the people and the play equipment share the same
+> horizontal band, and the only `crop_box` that excludes everyone —
+> `(0, 0, 1, 0.60)` — returns tree canopy and sky with a sliver of equipment,
+> which does not illustrate the section.
+>
+> **This is a guard, not a ruling.** Lisa asked for the frame to be checked
+> before clearing and the check found this. Her call: accept with consent for
+> the minors, supply a third photo, or leave the section image-free. The slug
+> stays in `rejected-assets.txt` under Ruling 3 meanwhile so the slot cannot be
+> filled by accident.
 
 ---
 
@@ -157,12 +198,12 @@
 | The housing stock | `elkhart-moving-housing-stock.jpg` |
 | What it costs to live here | `elkhart-moving-cost-of-living.jpg` |
 | The honest trade-offs | `elkhart-moving-trade-offs.jpg` |
-| Elkhart or Goshen? | `elkhart-moving-elkhart-or-goshen.jpg` ⛔ REJECTED |
+| Elkhart or Goshen? | `elkhart-moving-elkhart-or-goshen.jpg` ⏸ HELD — replacement photo, see Ruling 3 |
 | FAQ: What is there to do in Elkhart, Indiana? | `elkhart-moving-faq-things-to-do.jpg` |
 | FAQ: What community events happen in Elkhart during the year? | `elkhart-moving-faq-community-events.jpg` |
 | FAQ: What does it cost to live in Elkhart, Indiana? | `elkhart-moving-faq-cost-of-living.jpg` |
 | FAQ: How do I move to Elkhart from another state? | `elkhart-moving-faq-moving-from-out-of-state.jpg` |
-| FAQ: What should I check before buying an older home in Elkhart? | `elkhart-moving-faq-older-home-checklist.jpg` ⏸ HELD |
+| FAQ: What should I check before buying an older home in Elkhart? | `elkhart-moving-faq-older-home-checklist.jpg` |
 | FAQ: I'm moving to Elkhart for an RV industry job. What should I know before buying? | `elkhart-moving-faq-rv-industry-job.jpg` |
 | Thinking about a move to Elkhart? (closing CTA) | `elkhart-moving-cta-closing.jpg` |
 
@@ -172,7 +213,7 @@
 |---|---|
 | The city at a glance | `elkhart-living-city-at-a-glance.jpg` |
 | Downtown Elkhart | `elkhart-living-downtown.jpg` |
-| Rivers, parks, and outdoor spaces | `elkhart-living-rivers-parks-outdoors.jpg` ⛔ REJECTED |
+| Rivers, parks, and outdoor spaces | `elkhart-living-rivers-parks-outdoors.jpg` |
 | Museums and the arts | `elkhart-living-museums-arts.jpg` |
 | Annual events | `elkhart-living-annual-events.jpg` |
 | A brief history | `elkhart-living-history.jpg` |

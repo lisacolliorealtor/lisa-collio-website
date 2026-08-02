@@ -25,40 +25,49 @@
 # filename; delete the line here, process it, and wire it normally.
 #
 # ---------------------------------------------------------------------------
-# RULING 2 (Lisa, 2 August 2026) — the two ELKHART slugs: these ARE Lisa's
-# original photography, and provenance is not the issue. Each carries text that
-# is LEGIBLE IN THE DELIVERED 1200x630 CROP, on an evergreen pillar page:
+# RULING 2 (Lisa, 2 August 2026) — signage legible in the delivered 1200x630
+# crop, on an evergreen pillar page. Both photos ARE Lisa's original work;
+# provenance was never the issue.
 #
-#   elkhart-moving-elkhart-or-goshen   "NEW LIFE COMMUNITY CHURCH" on a
-#       building face. Religion is a Fair Housing protected class, and this
-#       photo sits on a where-should-I-live comparison section — Lisa's ruling:
-#       a steering risk that alt text cannot cure.
-#   elkhart-living-rivers-parks-outdoors   "BRASS ELK BREWING" on a storefront.
-#       Retail and dining names come off evergreen pillar pages; a legible sign
-#       is the same violation as naming the business in copy.
+#   elkhart-living-rivers-parks-outdoors   REINSTATED 2 Aug 2026. Lisa's
+#       rejection message crossed with her decision to keep it. Removed from
+#       this list; the section is wired normally. Alt text must not name the
+#       brewery or any other business in frame — that constraint stands.
+#   elkhart-moving-elkhart-or-goshen   Rejected for "NEW LIFE COMMUNITY CHURCH"
+#       legible on a building face, on a where-should-I-live comparison
+#       section. Lisa REPLACED the photo on 2 Aug (blob 054ec148 -> 72383bc5).
+#       The church is gone. See Ruling 3 — the replacement is held for a
+#       different reason and the slug stays on this list meanwhile.
 #
-# A re-crop does NOT fix either one. Verified before the ruling: on the first,
-# the church sign sits immediately left of the brick turret that anchors the
-# frame, so a crop_box removing one removes the other; _cover_focal crops
-# vertically only on these sources, so focal_y cannot move text sideways out of
-# frame at all.
+# ---------------------------------------------------------------------------
+# RULING 3 — PENDING (raised by Claude Code, 2 August 2026)
 #
-# The slots stay EMPTY ON PURPOSE, exactly like the Goshen four:
-#   /moving-to-elkhart/ + /es/mudarse-a-elkhart/  — "Elkhart or Goshen?"
-#   /living-in-elkhart/ + /es/viviendo-en-elkhart/ — "Rivers, parks, and
-#       outdoor spaces"
-# Both sections render with no image. That is the decision, not an oversight.
+#   elkhart-moving-elkhart-or-goshen   THE REPLACEMENT PHOTO. A playground at
+#       dusk. It passes filename, provenance (Apple iPhone 16 Pro,
+#       2026:07:24 20:59:12, 49 EXIF tags) and integrity (5712x4284 landscape,
+#       clean full decode), and it carries NO legible business or religious
+#       signage — the two signs in frame are illegible at output size. But it
+#       contains AT LEAST FIVE CHILDREN AND ONE ADULT, several recognisable at
+#       the delivered crop, verified at 6x zoom.
 #
-# Remedy differs from Ruling 1: these need a DIFFERENT PHOTOGRAPH of the same
-# subject with no legible business or religious signage in frame — not a
-# replacement for a non-photograph. Same filename when it arrives; delete the
-# line here, process it, wire it normally.
+#       Two separate problems, neither curable by alt text:
+#         1. Identifiable minors with no release on file.
+#         2. Familial status is a Fair Housing protected class, and this frame
+#            illustrates a where-should-I-live comparison — the same category
+#            of risk the church signage was rejected for.
 #
-# NOT on this list, and must not be added to it:
-#   elkhart-moving-faq-older-home-checklist — HELD, not rejected, pending
-#       Lisa's consent check on the legible house number "916". A hold is not a
-#       ruling; it is tracked in the Pre-Launch Punch List, not here.
+#       No crop fixes it. Verified by rendering, not assumed: _cover_focal
+#       crops vertically only, and the people and the play equipment occupy the
+#       same horizontal band. The only crop_box that excludes everyone —
+#       (0, 0, 1, 0.60) — yields tree canopy and sky with a sliver of
+#       equipment, which does not illustrate the section.
 #
+#       THIS ENTRY IS A GUARD, NOT A RULING. Lisa asked for the frame to be
+#       checked before clearing; the check found this. She decides: accept with
+#       consent for the minors, supply a third photo, or leave the section
+#       image-free. Delete this line the moment she clears it.
+#
+# ---------------------------------------------------------------------------
 # One slug per line, without extension or -thumb/-header suffix.
 # Optional short reason after a pipe: `slug | reason`. audit.js check 15 quotes
 # it verbatim, so the failure message states THIS slug's grounds rather than
@@ -68,5 +77,4 @@ goshen-living-why-lisa | ruling 1, 29 Jul 2026: not Lisa's photography
 goshen-moving-cta-closing | ruling 1, 29 Jul 2026: not Lisa's photography
 goshen-moving-location-commute | ruling 1, 29 Jul 2026: not Lisa's photography
 goshen-moving-faq-moving-from-out-of-state | ruling 1, 29 Jul 2026: not Lisa's photography
-elkhart-moving-elkhart-or-goshen | ruling 2, 2 Aug 2026: Lisa's photo, but legible religious signage in the delivered crop
-elkhart-living-rivers-parks-outdoors | ruling 2, 2 Aug 2026: Lisa's photo, but legible dining/retail signage in the delivered crop
+elkhart-moving-elkhart-or-goshen | ruling 3 PENDING, 2 Aug 2026: replacement photo shows identifiable children — awaiting Lisa's decision, not a final rejection

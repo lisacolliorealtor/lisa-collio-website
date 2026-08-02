@@ -696,6 +696,152 @@ SECTION_JOBS = {
         ("assets/images/goshen/goshen-moving-faq-older-home-checklist.jpg", 0.5, None),
     "goshen-moving-faq-rv-industry-job":
         ("assets/images/goshen/goshen-moving-faq-rv-industry-job.jpg", 0.5, None),
+
+    # ===================================================================
+    # Elkhart batch, 2 August 2026. 25 of the 27 uploaded files.
+    # Focal points derived by rendering each source at the delivered
+    # 1200x630 window and inspecting what falls outside it; 0.50 held
+    # unless the default lost content or spent the frame on empty sky or
+    # asphalt. Four were Lisa's explicit choices from side-by-side
+    # renders. Every source is 1.333 or 1.500 against a 1.905 target, so
+    # _cover_focal scales by width and left is always 0 — these crops are
+    # vertical only and no crop_box is needed anywhere in this block.
+    #
+    # NOT HERE, deliberately:
+    #   elkhart-moving-elkhart-or-goshen — held under Ruling 3, see
+    #       content/source/rejected-assets.txt. Its section is image-free
+    #       in both languages until Lisa rules on the replacement photo.
+    # ===================================================================
+
+    # Station roofline and the ELKHART canopy lettering both inside the default
+    # window; below it is only road. Source blob 37d06d102e84.
+    "elkhart-moving-location-commute":
+        ("assets/images/elkhart/elkhart-moving-location-commute.jpg", 0.5, None),
+
+    # Lisa's face centred; default keeps the full head with headroom. Source
+    # blob e3fc81edffb0.
+    "elkhart-moving-employers":
+        ("assets/images/elkhart/elkhart-moving-employers.jpg", 0.5, None),
+
+    # Default spends the top half on empty sky; 0.65 centres the field and
+    # bleachers. Source blob 71c72b333b15.
+    "elkhart-moving-schools":
+        ("assets/images/elkhart/elkhart-moving-schools.jpg", 0.65, None),
+
+    # 1.500 source, 79% of height retained; house sits fully inside. Source blob
+    # a45103101966.
+    "elkhart-moving-housing-stock":
+        ("assets/images/elkhart/elkhart-moving-housing-stock.jpg", 0.5, None),
+
+    # LISA'S DECISION, 2 Aug: keep the antlers. The wire deer is taller than a
+    # 1.9:1 window allows — 0.50 clipped the antler tips, 0.28 keeps the full
+    # rack and loses the pedestal. No value keeps both. Source blob
+    # 5b7ab3cbd2b3.
+    "elkhart-moving-cost-of-living":
+        ("assets/images/elkhart/elkhart-moving-cost-of-living.jpg", 0.28, None),
+
+    # LERNER blade sign fully inside; only the building cornice and a street
+    # sign fall out. Source blob 4a2d33ac1d66.
+    "elkhart-moving-trade-offs":
+        ("assets/images/elkhart/elkhart-moving-trade-offs.jpg", 0.5, None),
+
+    # Trades empty upper sky for the river reflection, which is the subject.
+    # Source blob 8036d7763ab2.
+    "elkhart-moving-faq-things-to-do":
+        ("assets/images/elkhart/elkhart-moving-faq-things-to-do.jpg", 0.58, None),
+
+    # Keeps the planters at the mural base, which the default clips. Source blob
+    # 667f14b488e3.
+    "elkhart-moving-faq-community-events":
+        ("assets/images/elkhart/elkhart-moving-faq-community-events.jpg", 0.58, None),
+
+    # Pavilion and lawn both inside; nothing gained by moving. Source blob
+    # 60b36325bd1b.
+    "elkhart-moving-faq-cost-of-living":
+        ("assets/images/elkhart/elkhart-moving-faq-cost-of-living.jpg", 0.5, None),
+
+    # Building, flag and entrance sign all inside. Source blob dcec8a76b62d.
+    "elkhart-moving-faq-moving-from-out-of-state":
+        ("assets/images/elkhart/elkhart-moving-faq-moving-from-out-of-state.jpg", 0.5, None),
+
+    # 1.500 source; house fully inside. House number '916' is legible — Lisa
+    # confirmed written consent to publish, 2 Aug 2026. Alt text describes the
+    # house, never the address. Source blob 687b8c35be01.
+    "elkhart-moving-faq-older-home-checklist":
+        ("assets/images/elkhart/elkhart-moving-faq-older-home-checklist.jpg", 0.5, None),
+
+    # Coach centred; the FOREST RIVER brand mark stays legible (employer,
+    # employment context). Source blob 5ecc95880b24.
+    "elkhart-moving-faq-rv-industry-job":
+        ("assets/images/elkhart/elkhart-moving-faq-rv-industry-job.jpg", 0.5, None),
+
+    # Full block of storefronts and the rooflines behind fit as-is. Source blob
+    # 0f728f807214.
+    "elkhart-living-city-at-a-glance":
+        ("assets/images/elkhart/elkhart-living-city-at-a-glance.jpg", 0.5, None),
+
+    # LISA'S DECISION, 2 Aug: option B. 0.50 clipped the green spire cap off the
+    # clock tower, which is the signature element; 0.15 keeps the whole tower
+    # and the LERNER blade stays legible. Source blob ddf54ff7bc61.
+    "elkhart-living-downtown":
+        ("assets/images/elkhart/elkhart-living-downtown.jpg", 0.15, None),
+
+    # Riverwalk railing leads in from the bottom; default keeps it. REINSTATED 2
+    # Aug after a crossed message — alt text must name no business in frame.
+    # Source blob 46af5e70e4c9.
+    "elkhart-living-rivers-parks-outdoors":
+        ("assets/images/elkhart/elkhart-living-rivers-parks-outdoors.jpg", 0.5, None),
+
+    # Ruthmere's full facade sits inside; overhanging branches frame the top.
+    # Source blob c6d3fc559d65.
+    "elkhart-living-museums-arts":
+        ("assets/images/elkhart/elkhart-living-museums-arts.jpg", 0.5, None),
+
+    # A hair down so the flower bed is not clipped at the bottom edge. Source
+    # blob 33a846dc9cd8.
+    "elkhart-living-annual-events":
+        ("assets/images/elkhart/elkhart-living-annual-events.jpg", 0.52, None),
+
+    # Rail cars and signal gantry sit just below centre; 0.55 puts them on the
+    # middle line. Source blob 2b27b038ac41.
+    "elkhart-living-history":
+        ("assets/images/elkhart/elkhart-living-history.jpg", 0.55, None),
+
+    # LISA'S DECISION, 2 Aug: option B. 0.50 cut Lisa mid-thigh over a large
+    # empty foreground; 0.66 carries her to below the knee with the streetscape
+    # intact. Source blob f79c13dcca52.
+    "elkhart-living-why-lisa":
+        ("assets/images/elkhart/elkhart-living-why-lisa.jpg", 0.66, None),
+
+    # Portrait; face well inside with headroom. Source blob 16dfd72bd425.
+    "elkhart-living-cta-closing":
+        ("assets/images/elkhart/elkhart-living-cta-closing.jpg", 0.5, None),
+
+    # Fair midway and rides inside. Lisa approved the crowd, 2 Aug; alt text
+    # describes the midway, not the people. Source blob 20673bb0f1a2.
+    "elkhart-living-faq-known-for":
+        ("assets/images/elkhart/elkhart-living-faq-known-for.jpg", 0.5, None),
+
+    # LISA'S DECISION, 2 Aug: option B. 0.50 gave half the frame to parking lot;
+    # 0.30 fills it with the building and the ELKHART HIGH SCHOOL sign stays
+    # legible. Source blob b0044a547314.
+    "elkhart-living-faq-school-district":
+        ("assets/images/elkhart/elkhart-living-faq-school-district.jpg", 0.3, None),
+
+    # Up from centre to favour the skyline and flags over the asphalt apron.
+    # Source blob cb744a81621b.
+    "elkhart-living-faq-downtown":
+        ("assets/images/elkhart/elkhart-living-faq-downtown.jpg", 0.42, None),
+
+    # Keeps the fence line and the full row of coaches; the default spends the
+    # top on cloud. Source blob 4ba8e0db553f.
+    "elkhart-living-faq-employers":
+        ("assets/images/elkhart/elkhart-living-faq-employers.jpg", 0.58, None),
+
+    # Bridge deck, lamps and both riverbanks all inside. Source blob
+    # d73a1e396423.
+    "elkhart-living-faq-landmarks":
+        ("assets/images/elkhart/elkhart-living-faq-landmarks.jpg", 0.5, None),
 }
 
 
@@ -785,39 +931,39 @@ CLEAN_JOBS = {
 
     # --- Group 1: Template A house photos, source already clean in homes-general/
     "buying-an-older-home-in-elkhart-indiana":
-        ("assets/images/homes-general/exterior-ranch-rear-leafy-yard-fence.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-moving-faq-older-home-checklist.jpg", 0.5, None),   # Elkhart batch 2 Aug 2026, blob 687b8c35be01
     "buying-an-older-home-in-goshen-indiana":
         ("assets/images/homes-general/exterior-covered-porch-framing-rural-view.jpg", 0.5, None),
     "centro-de-elkhart-indiana":
-        ("assets/images/homes-general/twilight-exterior-split-level-green-shutters.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-living-faq-downtown.jpg", 0.42, None),   # Elkhart batch 2 Aug 2026, blob cb744a81621b
     "community-events-in-elkhart-indiana":
-        ("assets/images/homes-general/exterior-backyard-privacy-fence-chairs.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-moving-faq-community-events.jpg", 0.58, None),   # Elkhart batch 2 Aug 2026, blob 667f14b488e3
     "community-events-in-goshen-indiana":
         ("assets/images/homes-general/exterior-two-story-rear-covered-porch.jpg", 0.5, None),
     "comprar-casa-antigua-elkhart-indiana":
-        ("assets/images/homes-general/exterior-ranch-rear-leafy-yard-fence.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-moving-faq-older-home-checklist.jpg", 0.5, None),   # Elkhart batch 2 Aug 2026, blob 687b8c35be01
     "comprar-casa-antigua-goshen-indiana":
         ("assets/images/homes-general/exterior-red-wood-deck-backyard.jpg", 0.5, None),
     "cost-of-living-in-elkhart-indiana":
-        ("assets/images/homes-general/interior-kitchen-oak-cabinets-open-layout.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-moving-faq-cost-of-living.jpg", 0.5, None),   # Elkhart batch 2 Aug 2026, blob 60b36325bd1b
     "cost-of-living-in-goshen-indiana":
         ("assets/images/homes-general/exterior-single-story-ranch-driveway.jpg", 0.5, None),
     "costo-de-vida-elkhart-indiana":
-        ("assets/images/homes-general/exterior-single-story-ranch-driveway.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-moving-faq-cost-of-living.jpg", 0.5, None),   # Elkhart batch 2 Aug 2026, blob 60b36325bd1b
     "costo-de-vida-goshen-indiana":
         ("assets/images/homes-general/exterior-backyard-playset-shed-winter.jpg", 0.5, None),
     "downtown-elkhart-indiana":
-        ("assets/images/homes-general/exterior-home-side-wood-deck-lawn.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-living-faq-downtown.jpg", 0.42, None),   # Elkhart batch 2 Aug 2026, blob cb744a81621b
     "downtown-goshen-indiana":
         ("assets/images/homes-general/exterior-wooded-backyard-swing-set-fire-pit.jpg", 0.5, None),
     "elkhart-indiana-industries-employers":
-        ("assets/images/homes-general/exterior-open-acreage-field-trees.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-living-faq-employers.jpg", 0.58, None),   # Elkhart batch 2 Aug 2026, blob 4ba8e0db553f
     "elkhart-indiana-landmarks-amenities":
-        ("assets/images/homes-general/exterior-backyard-shrub-lawn-trees.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-living-faq-landmarks.jpg", 0.5, None),   # Elkhart batch 2 Aug 2026, blob d73a1e396423
     "elkhart-indiana-school-districts":
-        ("assets/images/homes-general/exterior-large-lawn-mature-trees.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-living-faq-school-district.jpg", 0.3, None),   # Elkhart batch 2 Aug 2026, blob b0044a547314
     "eventos-comunitarios-elkhart-indiana":
-        ("assets/images/homes-general/exterior-covered-brick-porch-hanging-chair.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-moving-faq-community-events.jpg", 0.58, None),   # Elkhart batch 2 Aug 2026, blob 667f14b488e3
     "eventos-comunitarios-goshen-indiana":
         ("assets/images/homes-general/exterior-backyard-privacy-fence-chairs.jpg", 0.5, None),
     "good-time-to-buy-home-goshen-indiana":
@@ -837,25 +983,25 @@ CLEAN_JOBS = {
     "moving-to-elkhart":
         ("assets/images/homes-general/twilight-exterior-two-story-brick-garage.jpg", 0.5, None),
     "moving-to-elkhart-indiana-from-out-of-state":
-        ("assets/images/homes-general/hero-twilight-2.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-moving-faq-moving-from-out-of-state.jpg", 0.5, None),   # Elkhart batch 2 Aug 2026, blob dcec8a76b62d
     "mudarse-a-elkhart":
         ("assets/images/homes-general/twilight-exterior-two-story-brick-garage.jpg", 0.5, None),
     "mudarse-a-elkhart-indiana-desde-otro-estado":
-        ("assets/images/homes-general/twilight-exterior-two-story-brick-garage.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-moving-faq-moving-from-out-of-state.jpg", 0.5, None),   # Elkhart batch 2 Aug 2026, blob dcec8a76b62d
     "mudarse-a-goshen-desde-otro-estado":
         ("assets/images/homes-general/exterior-home-rear-deck-stairs-fenced.jpg", 0.5, None),
     "que-hacer-en-elkhart-indiana":
-        ("assets/images/homes-general/exterior-large-lawn-mature-trees.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-moving-faq-things-to-do.jpg", 0.58, None),   # Elkhart batch 2 Aug 2026, blob 8036d7763ab2
     "que-hacer-en-goshen-indiana":
         ("assets/images/homes-general/exterior-backyard-shrub-lawn-trees.jpg", 0.5, None),
     "rv-industry-buying-a-home-goshen-indiana":
         ("assets/images/homes-general/exterior-ranch-rear-leafy-yard-fence.jpg", 0.5, None),
     "things-to-do-in-elkhart-indiana":
-        ("assets/images/homes-general/exterior-backyard-deck-fenced-trees.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-moving-faq-things-to-do.jpg", 0.58, None),   # Elkhart batch 2 Aug 2026, blob 8036d7763ab2
     "things-to-do-in-goshen-indiana":
         ("assets/images/homes-general/exterior-large-lawn-mature-trees.jpg", 0.5, None),
     "trabajar-en-la-industria-de-rv-y-comprar-casa-en-elkhart-indiana":
-        ("assets/images/homes-general/exterior-home-side-wood-deck-lawn.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-moving-faq-rv-industry-job.jpg", 0.5, None),   # Elkhart batch 2 Aug 2026, blob 5ecc95880b24
     "viviendo-en-elkhart":
         ("assets/images/homes-general/exterior-covered-brick-porch-hanging-chair.jpg", 0.5, None),
     "viviendo-en-goshen":
@@ -863,11 +1009,9 @@ CLEAN_JOBS = {
     "what-is-an-sres-seniors-real-estate-specialist":
         ("assets/images/homes-general/interior-kitchen-cherry-cabinets-stainless.jpg", 0.5, None),
     "what-is-elkhart-indiana-known-for":
-        ("assets/images/homes-general/exterior-two-story-rear-covered-porch.jpg", 0.5, None),
+        ("assets/images/elkhart/elkhart-living-faq-known-for.jpg", 0.5, None),   # Elkhart batch 2 Aug 2026, blob 20673bb0f1a2
     "what-is-goshen-indiana-known-for":
         ("assets/images/homes-general/exterior-backyard-playset-shed-winter.jpg", 0.5, None),
-    "working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana":
-        ("assets/images/homes-general/exterior-backyard-lawn-metal-shed.jpg", 0.5, None),
 
     # --- Group 2: Meet Lisa / brand people photos
     "why-lisa-collio-became-real-estate-agent":
@@ -890,7 +1034,22 @@ CLEAN_JOBS = {
         ("assets/images/homes-general/exterior-open-acreage-field-trees.jpg", 0.5, None),
     "mudarse-a-goshen":
         ("assets/images/homes-general/exterior-open-acreage-field-trees.jpg", 0.5, None),
+    "working-in-the-rv-industry-and-buying-a-home-in-elkhart-indiana":
+        ("assets/images/elkhart/elkhart-moving-faq-rv-industry-job.jpg", 0.5, None),   # Elkhart batch 2 Aug 2026, blob 5ecc95880b24
+    "por-que-es-conocido-elkhart-indiana":
+        ("assets/images/elkhart/elkhart-living-faq-known-for.jpg", 0.5, None),   # Elkhart batch 2 Aug 2026, blob 20673bb0f1a2
+    "distrito-escolar-elkhart-indiana":
+        ("assets/images/elkhart/elkhart-living-faq-school-district.jpg", 0.3, None),   # Elkhart batch 2 Aug 2026, blob b0044a547314
+    "industrias-empleadores-elkhart-indiana":
+        ("assets/images/elkhart/elkhart-living-faq-employers.jpg", 0.58, None),   # Elkhart batch 2 Aug 2026, blob 4ba8e0db553f
+    "lugares-emblematicos-elkhart-indiana":
+        ("assets/images/elkhart/elkhart-living-faq-landmarks.jpg", 0.5, None),   # Elkhart batch 2 Aug 2026, blob d73a1e396423
+    "elkhart-indiana-location-nearby-cities":
+        ("assets/images/elkhart/elkhart-moving-location-commute.jpg", 0.5, None),   # Elkhart batch 2 Aug 2026, blob 37d06d102e84
+    "ubicacion-elkhart-indiana-ciudades-cercanas":
+        ("assets/images/elkhart/elkhart-moving-location-commute.jpg", 0.5, None),   # Elkhart batch 2 Aug 2026, blob 37d06d102e84
 }
+
 
 
 def build_clean_jobs():

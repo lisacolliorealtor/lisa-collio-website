@@ -576,3 +576,136 @@ The four Wave 1 baseline deletions in PR 4 are unchanged.
 3. **The "916" consent check.**
 4. **The drive-time number** — 20, 25, or a different figure, and whether the
    "all within about 20 minutes" grouping stands.
+
+---
+
+# Addendum 2 — 2 August 2026: decisions applied, images processed
+
+## The image swap — re-validated, and NOT cleared
+
+`elkhart-moving-elkhart-or-goshen.jpg`, blob `054ec148` → `72383bc5`.
+
+| Check | Result |
+|---|---|
+| Filename | exact manifest match; no space, `.jpeg`, double dot, uppercase or underscore |
+| Make / Model | **Apple / iPhone 16 Pro** |
+| DateTimeOriginal | **2026:07:24 20:59:12** · 49 EXIF tags · Orientation 1 |
+| Full pixel decode | **OK** |
+| Size (stored = oriented) | **5712 × 4284**, aspect 1.333, **landscape** |
+| Clears 1200 × 630 | **YES** — 4.76× wide, 6.80× tall |
+| Legible business or religious signage | **NONE.** Both signs in frame are illegible at output size — verified at 6× zoom on the delivered crop, not on the original |
+| **Identifiable people** | **AT LEAST FIVE CHILDREN AND ONE ADULT**, several recognisable |
+
+The church problem is solved. **A different one replaced it.** Two issues alt
+text cannot cure: identifiable minors with no release on file, and familial
+status — a Fair Housing protected class — as the illustration for a
+where-should-I-live comparison, which is the same category of risk the church
+signage was rejected for.
+
+**No crop fixes it**, verified by rendering three candidates rather than assumed:
+`_cover_focal()` crops these sources vertically only, and the people and the play
+equipment occupy the same horizontal band. The only `crop_box` that excludes
+everyone — `(0, 0, 1, 0.60)` — returns tree canopy and sky with a sliver of
+equipment, which does not illustrate the section.
+
+The slug therefore stays in `rejected-assets.txt` under a **Ruling 3 marked
+PENDING** — a guard so the slot cannot be filled by accident, not a ruling.
+Lisa's call: accept with consent for the minors, supply a third photo, or leave
+the section image-free.
+
+## Applied without qualification
+
+| Decision | State |
+|---|---|
+| Brass Elk reinstated | Removed from `rejected-assets.txt`, un-marked in the manifest, processed. Alt-text constraint recorded in all three places: name no business in frame |
+| "916" cleared | Hold released, processed. Kept **out** of `rejected-assets.txt`; consent noted in the `SECTION_JOBS` build record |
+| Deer crop | `focal_y` **0.28** — full antlers, pedestal lost |
+| Clock tower / portrait / school | `focal_y` **0.15 / 0.66 / 0.30** |
+
+**On "restore that section's image slot in both languages":** there was nothing
+to restore in the HTML. No Elkhart section or FAQ image has ever been wired —
+all four pages still sit at 0 `section-figure` and 0 `faq-item--media`. The
+rejections only ever blocked the build plan, so reinstating means removing the
+guard and processing the file, which is done. Wiring is PRs 2–4.
+
+## Processing — done
+
+| Output | Files | Verified |
+|---|---|---|
+| `assets/images/sections/elkhart-*` | **100** (25 names × jpg/webp × full/thumb) | every variant present at 1200×630 / 800×420 |
+| `assets/images/blog-headers/` for the 24 article slugs | **96** | every variant present at 1200×630 / 800×420 |
+| `SECTION_JOBS` | +25 entries | source, focal point, crop (`None` throughout), blob SHA |
+| `CLEAN_JOBS` | 18 repointed, 6 added | all 24 confirmed pointing at `assets/images/elkhart/` |
+
+`npm run audit` all hard checks pass · `npm run check:images` "every variant
+matches its scope" (95 slugs, 37 in scope, 58 clean, 52 section images) ·
+**re-running `--sections` reproduces all 100 files byte-for-byte.**
+
+EN/ES twins are now byte-identical files under two names — spot-checked on three
+pairs. That is new: the old headers differed because each baked in its own
+language's title.
+
+**Contact sheets:** `docs/CONTACT-1-moving.png`, `-2-living.png`,
+`-3-faq-thumbs.png`, `-4-articles-en.png`, `-5-articles-es.png`.
+
+### One pre-existing defect found, not introduced and not fixed
+
+`python3 scripts/generate-featured-images.py --clean` **cannot complete**, and
+could not before this work either. `generate_clean_from_composite("does-lisa-collio-speak-spanish")`
+raises: it expects a 1200×900 Template B composite and the file on disk is the
+derived 1200×630, so its true source no longer exists. Verified pre-existing by
+running the unmodified pre-Elkhart script from the repo root and getting the
+identical error. The 24 Elkhart slugs were built by iterating their own
+`CLEAN_JOBS` entries through `generate_clean()` — same function, same
+convention, scoped past the broken row. Recorded in the punch list.
+
+## The copy edit — BLOCKED, the replacement text did not arrive
+
+The instruction reads "[paste the two revised ¶2 paragraphs above]". **That
+placeholder was never filled in** — no revised English or Spanish paragraph came
+through. Nothing was changed on either page; both still carry the original ¶2 and
+¶3 quoted earlier in this report.
+
+Everything else about the copy edit is settled and recorded: revise ¶2 only, ¶3
+unchanged in both languages, trolley stays in ¶2, trade-offs paragraph untouched,
+US-20 / SR-19 / US-33 and South Bend International retained.
+
+## Amtrak — verified, and the live pages are wrong today
+
+Lisa's suspicion is correct, and it is worse than a staleness risk.
+
+- **The Capitol Limited no longer exists.** It was merged with the Silver Star
+  into the **Floridian** on **10 November 2024**.
+- **Elkhart station (EKH) is at 131 Tyler Avenue** — the Tyler Avenue detail
+  checks out.
+- Today it is served by the **Lake Shore Limited** (Chicago ↔ New York
+  City / Boston) and the **Floridian** (Chicago ↔ Miami, running via
+  Washington DC).
+- The station sits **across the tracks** from the National New York Central
+  Railroad Museum — so "across from" is defensible; "across the street" would
+  not be.
+
+Sources: Amtrak's EKH station page, Wikipedia "Elkhart station" and
+"Floridian (train)", plus the November 2024 Floridian timetable.
+
+**No route name has been put back into the copy.** Two things follow:
+
+1. **Both live pages currently name a train that has not run since November
+   2024**, in both languages. That is independent of the ¶2 rewrite and is now
+   on the punch list.
+2. **Daily southbound service toward Washington DC does still exist** — as the
+   Floridian, which continues on to Miami. Describing it as reaching Washington
+   DC is accurate but stops short of where the train actually goes.
+
+**One phrasing warning.** Sources describing the museum's proximity to the
+station use "within walking distance". That is banned ambulatory phrasing under
+the Fair Housing checklist and must not travel from a source note into the copy.
+
+## Open
+
+1. **The revised ¶2 text**, both languages — the placeholder was empty.
+2. **`elkhart-moving-elkhart-or-goshen`** — accept with consent, third photo, or
+   image-free.
+3. **Drive time** — inventory of 42 occurrences held, awaiting the number.
+4. **The stale Capitol Limited reference** on both live pages, whether or not it
+   rides along with the ¶2 rewrite.
