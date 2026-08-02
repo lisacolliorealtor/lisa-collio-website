@@ -458,18 +458,31 @@ const sameText = (a, b) => {
   if (!fs.existsSync(listPath)) {
     err("rejected-assets", "content/source/rejected-assets.txt is missing — check 15 cannot run");
   } else {
+    // Line format: "slug" or "slug | short reason". The reason is optional and
+    // exists because this list now carries TWO rulings with different grounds —
+    // the Goshen four are not Lisa's photography, the Elkhart two are hers and
+    // were rejected for signage legible in the delivered crop. A single
+    // hardcoded message asserted the first reason about every slug, which would
+    // have told a future reader that one of Lisa's own photographs was not hers.
     const slugs = read(listPath)
       .split("\n")
       .map((l) => l.trim())
-      .filter((l) => l && !l.startsWith("#"));
+      .filter((l) => l && !l.startsWith("#"))
+      .map((l) => {
+        const [slug, ...rest] = l.split("|");
+        return { slug: slug.trim(), reason: rest.join("|").trim() };
+      })
+      .filter((r) => r.slug);
     for (const f of htmlFiles) {
       const s = read(f);
-      for (const slug of slugs) {
+      for (const { slug, reason } of slugs) {
         // any variant: slug.jpg, slug.webp, slug-thumb.jpg, slug-header.webp …
         if (new RegExp(`${slug}(-thumb|-header)?\\.(jpg|jpeg|png|webp)`).test(s))
           err("rejected-assets",
-            `${rel(f)} references ${slug} — not Lisa's photography (ruling 29 Jul 2026). ` +
-            `This slot stays empty until she supplies a replacement; see content/source/rejected-assets.txt.`);
+            `${rel(f)} references ${slug} — a rejected asset` +
+            (reason ? ` (${reason})` : "") + `. ` +
+            `This slot stays empty on purpose until Lisa supplies a replacement; ` +
+            `see content/source/rejected-assets.txt for the ruling and its grounds.`);
       }
     }
   }

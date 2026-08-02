@@ -3,7 +3,13 @@
 # Used by audit.js (check 15), which FAILS the run if any page references one
 # of these filenames in any variant (.jpg, .webp, -thumb, -header).
 #
-# RULING (Lisa, 29 July 2026): these four files are NOT Lisa's original
+# There are now TWO rulings here, for TWO DIFFERENT REASONS. Read both before
+# assuming why a slug is on this list — the Goshen four are not Lisa's
+# photography, and the Elkhart two are hers and were rejected for what is
+# legible inside the frame. The remedy differs accordingly.
+#
+# ---------------------------------------------------------------------------
+# RULING 1 (Lisa, 29 July 2026) — the four GOSHEN slugs: NOT Lisa's original
 # photography. They are composite graphics with circular photo insets, supplied
 # with the July 2026 Goshen batch. They must not appear on any page in either
 # language until Lisa uploads real replacement photographs.
@@ -18,9 +24,49 @@
 # When a replacement photo arrives, Lisa uploads it under the SAME manifest
 # filename; delete the line here, process it, and wire it normally.
 #
+# ---------------------------------------------------------------------------
+# RULING 2 (Lisa, 2 August 2026) — the two ELKHART slugs: these ARE Lisa's
+# original photography, and provenance is not the issue. Each carries text that
+# is LEGIBLE IN THE DELIVERED 1200x630 CROP, on an evergreen pillar page:
+#
+#   elkhart-moving-elkhart-or-goshen   "NEW LIFE COMMUNITY CHURCH" on a
+#       building face. Religion is a Fair Housing protected class, and this
+#       photo sits on a where-should-I-live comparison section — Lisa's ruling:
+#       a steering risk that alt text cannot cure.
+#   elkhart-living-rivers-parks-outdoors   "BRASS ELK BREWING" on a storefront.
+#       Retail and dining names come off evergreen pillar pages; a legible sign
+#       is the same violation as naming the business in copy.
+#
+# A re-crop does NOT fix either one. Verified before the ruling: on the first,
+# the church sign sits immediately left of the brick turret that anchors the
+# frame, so a crop_box removing one removes the other; _cover_focal crops
+# vertically only on these sources, so focal_y cannot move text sideways out of
+# frame at all.
+#
+# The slots stay EMPTY ON PURPOSE, exactly like the Goshen four:
+#   /moving-to-elkhart/ + /es/mudarse-a-elkhart/  — "Elkhart or Goshen?"
+#   /living-in-elkhart/ + /es/viviendo-en-elkhart/ — "Rivers, parks, and
+#       outdoor spaces"
+# Both sections render with no image. That is the decision, not an oversight.
+#
+# Remedy differs from Ruling 1: these need a DIFFERENT PHOTOGRAPH of the same
+# subject with no legible business or religious signage in frame — not a
+# replacement for a non-photograph. Same filename when it arrives; delete the
+# line here, process it, wire it normally.
+#
+# NOT on this list, and must not be added to it:
+#   elkhart-moving-faq-older-home-checklist — HELD, not rejected, pending
+#       Lisa's consent check on the legible house number "916". A hold is not a
+#       ruling; it is tracked in the Pre-Launch Punch List, not here.
+#
 # One slug per line, without extension or -thumb/-header suffix.
+# Optional short reason after a pipe: `slug | reason`. audit.js check 15 quotes
+# it verbatim, so the failure message states THIS slug's grounds rather than
+# one ruling's rationale applied to every entry.
 
-goshen-living-why-lisa
-goshen-moving-cta-closing
-goshen-moving-location-commute
-goshen-moving-faq-moving-from-out-of-state
+goshen-living-why-lisa | ruling 1, 29 Jul 2026: not Lisa's photography
+goshen-moving-cta-closing | ruling 1, 29 Jul 2026: not Lisa's photography
+goshen-moving-location-commute | ruling 1, 29 Jul 2026: not Lisa's photography
+goshen-moving-faq-moving-from-out-of-state | ruling 1, 29 Jul 2026: not Lisa's photography
+elkhart-moving-elkhart-or-goshen | ruling 2, 2 Aug 2026: Lisa's photo, but legible religious signage in the delivered crop
+elkhart-living-rivers-parks-outdoors | ruling 2, 2 Aug 2026: Lisa's photo, but legible dining/retail signage in the delivered crop

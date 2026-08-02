@@ -414,3 +414,165 @@ No image is wired to any page in PR 1.
 1. **Transportation copy — A, B or C** (§b).
 2. **Four crop decisions** — (d)-1 through (d)-4.
 3. **Four signage/people judgements** — (d)-5 through (d)-8.
+
+---
+
+# Addendum — 2 August 2026, after Lisa's decisions
+
+## Verbatim text requested for the copy edit (Option B)
+
+Pasted exactly as it appears in the page source. Nothing changed.
+
+**`/moving-to-elkhart/` ¶2 — line 215**
+
+> US-20 (the St. Joseph Valley Parkway) bypasses the south side of the city; State Road 19 runs through it; US-33 terminates here. Amtrak's Capitol Limited and Lake Shore Limited both stop at the Elkhart station, and the Interurban Trolley — a regional public bus service — connects Elkhart to Goshen, Dunlap, Osceola, and Mishawaka daily except Sundays and major holidays. South Bend International Airport, the nearest commercial service, is about 30 minutes away.
+
+**`/moving-to-elkhart/` ¶3 — line 217**
+
+> For most residents, the commute story is simple: it's short, and there are more ways to get around than the car alone.
+
+**`/es/mudarse-a-elkhart/` ¶2 — line 233**
+
+> La US-20 (el St. Joseph Valley Parkway) bordea el lado sur de la ciudad; la carretera estatal 19 la atraviesa; la US-33 termina aquí mismo. Los trenes Amtrak Capitol Limited y Lake Shore Limited paran en la estación de Elkhart, y el Interurban Trolley — un servicio de autobús público regional — conecta Elkhart con Goshen, Dunlap, Osceola y Mishawaka todos los días excepto domingos y días festivos importantes. El aeropuerto comercial más cercano, South Bend International, queda a unos 30 minutos.
+
+**`/es/mudarse-a-elkhart/` ¶3 — line 235**
+
+> Para la mayoría de los residentes, el trayecto diario es sencillo: es corto, y hay más de una manera de moverse además del carro.
+
+**One thing to know before drafting.** Lisa's instruction was to "remove the
+'budget for a car' line from the transportation section and leave the one under
+'The honest trade-offs.'" **There is no budget-for-a-car line in the
+transportation section today** — ¶2 and ¶3 above are its full text, and neither
+mentions a car. The only such line on the page is the trade-offs one, at EN 263 /
+ES 281, which is staying. So the instruction reads as a constraint on the *new*
+copy: keep the car-dependency framing out of the replacement, so the point is
+made once, in trade-offs. Noted so the draft is written against what is actually
+there.
+
+Also carried forward for the draft: keep US-20, State Road 19, US-33 and South
+Bend International; restore daily southbound service toward Washington DC
+alongside Chicago and New York. The Interurban Trolley currently appears in ¶2
+and again in the trade-offs paragraph — worth deciding whether it survives in the
+replacement or lives only in trade-offs, for the same reason as the car line.
+
+## Drive-time sweep — Goshen ↔ Elkhart, both languages
+
+**Not fixed. Reported only, per Lisa.**
+
+There are **three** different claims in circulation, not two, and
+`docs/VERIFIED_FACTS.md` contains two of them in consecutive sentences.
+
+### The canonical record contradicts itself
+
+`docs/VERIFIED_FACTS.md`, §"Elkhart — location", lines 106–108, verbatim:
+
+> East of South Bend and Mishawaka, near the Indiana–Michigan state line. About
+> **25 minutes northeast of Goshen**. South Bend, Mishawaka, and Goshen are all
+> within roughly 20 minutes.
+> · **Sources:** Wikipedia, "Elkhart, Indiana" · STATS Indiana
+
+Sentence two says 25; sentence three sweeps Goshen into a 20-minute group. Both
+carry the same two sources. **This is the file to settle first** — the build
+procedure says correct `VERIFIED_FACTS.md`, then check each page against it,
+never page against page.
+
+### Live pages — 23 occurrences
+
+| Claim | Count | Where |
+|---|---|---|
+| **25 min**, Elkhart ↔ Goshen | **17** | `/blog/community/elkhart-indiana-location-nearby-cities/` ×5 (meta description :11, schema description :29, FAQ schema answer :102, body :207, visible FAQ answer :227) · `/blog/spanish/ubicacion-elkhart-indiana-ciudades-cercanas/` ×5 (:11, :29, :97, :202, :215) · FAQ-block echoes on `/blog/community/elkhart-indiana-industries-employers/`:248, `/blog/spanish/industrias-empleadores-elkhart-indiana/`:249, `/blog/spanish/distrito-escolar-elkhart-indiana/`:256, `/blog/spanish/lugares-emblematicos-elkhart-indiana/`:245 · hub cards on `/blog/`:317, `/blog/community/`:247, `/blog/spanish/`:376 |
+| **20 min**, Elkhart ↔ Goshen | **4** | `/moving-to-elkhart/`:213 · `/es/mudarse-a-elkhart/`:231 · `/living-in-elkhart/`:213 · `/es/viviendo-en-elkhart/`:215 |
+| **"all within about 20 minutes"** — South Bend, Mishawaka **and** Goshen as one group | **2** | `/blog/community/elkhart-indiana-industries-employers/`:209 · `/blog/spanish/industrias-empleadores-elkhart-indiana/`:208 |
+
+The third framing is the one most likely to be missed by a sweep looking for a
+number: it never states a Goshen-specific figure, it folds Goshen into a group
+with two cities that are genuinely closer. Fixing 25↔20 without touching it
+would leave the contradiction alive in a different shape, in both languages.
+
+Note `/blog/community/elkhart-indiana-industries-employers/` and its Spanish twin
+carry **both** the 20-minute group claim (body) and the 25-minute claim (FAQ
+block) on the same page.
+
+### Generated — 2 occurrences
+
+`llms.txt`:81 (EN) and :176 (ES), both 25 min. Regenerated by `npm run llms`, so
+these follow the pages rather than needing separate edits — listed so the count
+is complete.
+
+### Authoring sources and records — 17 occurrences
+
+| Claim | Count | Where |
+|---|---|---|
+| **25 min** | 10 | `content/approved/communities-elkhart.md`:23,:87 · `content/approved/communities-elkhart-es.md`:23,:87 · `docs/FAQ_GAP_PAGE_CONTENT.md`:123,:136,:964,:977 · `docs/approved-copy/V1_0_FAQ_Gap_Blocks_EN_15_Pages_Lisa_Collio.md`:85 · `…ES_21_Pages…`:322 |
+| **20 min** | 4 | `docs/approved-copy/V1_0_Moving_to_Elkhart_Pillar_EN_Lisa_Collio.md`:79 · `V1_0_ES_Mudarse_a_Elkhart_Page_Lisa_Collio.md`:65 · `V1_0_Living_in_Elkhart_Page_EN_Lisa_Collio.md`:55 · `V1_0_ES_Viviendo_en_Elkhart_Page_Lisa_Collio.md`:45 |
+| **20 grouped** | 2 | `docs/approved-copy/V1_0_Elkhart_Living_Authority_Articles_1-5_EN_Lisa_Collio.md`:149 · `V1_0_ES_Adaptation_9_Articles_Wave1_Lisa_Collio.md`:105 |
+| **both** | 1 | `docs/VERIFIED_FACTS.md`:107 |
+
+These matter because of build-procedure failure 4: the "13 vs 14 elementary
+schools" regression happened when a correction landed on a page while an approved
+source still held the old number, so the wrong figure kept regenerating. **All 17
+have to move with the pages**, or the next rebuild reintroduces whichever number
+Lisa retires.
+
+`content/approved/communities-elkhart.md` and `-es.md` are the sources for the
+retired `/communities/elkhart/` pages, which now 301 to `/living-in-elkhart/`.
+They are still in the repo and still state 25.
+
+### Excluded, deliberately
+
+`content/source/Goshen-Elkhart-Reference-Data-Sheet.md`:16 and
+`content/approved/goshen-elkhart-data-sheet.md`:16 both contain "the median
+commute is about 19 minutes" — inside a sentence giving examples of how to
+phrase a fact, not a claim about the Goshen–Elkhart drive, and a different metric
+(median commute to work, not city-to-city). Not counted; recorded so it does not
+look like a missed hit.
+
+**Total: 42 occurrences** — 23 live, 2 generated, 17 authoring — across three
+mutually inconsistent claims in two languages.
+
+## Decisions applied this turn
+
+| Decision | Applied |
+|---|---|
+| Crops — clock tower B (0.15), portrait B (0.66), school B (0.30) | Recorded in the plan above; **not yet processed** |
+| Deer sculpture crop | **Held** — tracked in the punch list |
+| Church signage — do not use, leave slot image-free | **`elkhart-moving-elkhart-or-goshen` rejected**, both languages |
+| Brass Elk Brewing — do not use | **`elkhart-living-rivers-parks-outdoors` rejected**, both languages |
+| Fair crowd — approved | `elkhart-living-faq-known-for` stays in the build |
+| "916" — holding pending consent check | **Held, not rejected**; explicitly kept out of `rejected-assets.txt` |
+
+Both rejections are recorded in `content/source/rejected-assets.txt` under a
+separate **Ruling 2** with their own grounds, marked ⛔ in the manifest, and
+enforced by `audit.js` check 15.
+
+**One defect found and fixed while recording them.** Check 15's failure message
+was hardcoded to Ruling 1's rationale — "not Lisa's photography (ruling 29 Jul
+2026)" — so it would have said that about two photographs that *are* Lisa's. The
+list now takes an optional `slug | reason` and the message quotes it. Verified in
+both directions: a deliberately-broken page produces the correct per-ruling text
+for a Goshen slug and for an Elkhart slug, and the run returns clean once
+reverted.
+
+### Revised counts — 24 images processed, not 27
+
+| | Was | Now |
+|---|---|---|
+| Source photos to process | 27 | **24** (2 rejected, 1 held) |
+| `sections/` files | 108 | **96** |
+| Sections wired later, `/moving-to-elkhart/` + ES | 8 figure + 6 FAQ | **7 figure + 5 FAQ** |
+| Sections wired later, `/living-in-elkhart/` + ES | 8 figure + 5 FAQ | **7 figure + 5 FAQ** |
+| Article pages (PR 4) | 24 | **22** — the two older-home articles are held with their image |
+| `blog-headers/` files | 96 | **88** |
+
+EN/ES parity is unaffected: every rejection and the hold apply to both languages
+of a pair, so the counts move together and `audit.js` check 14 stays satisfied.
+The four Wave 1 baseline deletions in PR 4 are unchanged.
+
+## Still awaiting Lisa
+
+1. **The Option B replacement copy**, both languages, once drafted from the
+   verbatim text above.
+2. **The deer sculpture crop** — `focal_y` 0.50 or 0.28.
+3. **The "916" consent check.**
+4. **The drive-time number** — 20, 25, or a different figure, and whether the
+   "all within about 20 minutes" grouping stands.
