@@ -813,3 +813,95 @@ stands as recorded above, awaiting Lisa's number and its own PR.
 2. **The two authoring sources still naming the Capitol Limited.**
 3. **`--clean` cannot complete** — pre-existing, unrelated to Elkhart.
 4. **PRs 2–4** — wiring, with alt text to Lisa in both languages before merge.
+
+---
+
+# Addendum 4 — 2 August 2026: the review gate
+
+## Contact sheet — six sheets, 98 renderings, 49 image names
+
+`docs/CONTACT-1…6-*.png`. Every derived image at its **delivered crop**, at
+**both sizes**, with its focal point printed beneath it.
+
+| Sheet | Contents | Tiles |
+|---|---|---|
+| 1 | Section images, `/moving-to-elkhart/` + `/es/mudarse-a-elkhart/`, 1200×630 | 12 |
+| 2 | Section images, `/living-in-elkhart/` + `/es/viviendo-en-elkhart/`, 1200×630 | 13 |
+| 3 | All section images at the 800×420 `faq-item--media` / card size | 25 |
+| 4 | Article featured images, 12 EN, 1200×630, with source photo named | 12 |
+| 5 | Article featured images, 12 ES, 1200×630 | 12 |
+| 6 | Article thumbnails, all 24 slugs, 800×420 | 24 |
+| | **Total** | **98** |
+
+98 renderings = 49 image names × 2 sizes. The 196 files on disk are these 98
+renderings in `.jpg` and `.webp`.
+
+Lisa's four crop decisions are visible on sheets 1 and 2 and all landed:
+`elkhart-living-downtown` at 0.15 with the full clock-tower spire,
+`elkhart-living-faq-school-district` at 0.30 with the building filling the frame,
+`elkhart-living-why-lisa` at 0.66, and `elkhart-moving-cost-of-living` at 0.28
+with the antlers intact.
+
+## The Washington DC omission — recorded as a deliberate scope decision
+
+Lisa's ruling, 2 August 2026: **accepted as a decision, not a slip.** The
+southbound service is the Floridian, which runs to Miami via Washington DC.
+"Reaches Washington DC" would be technically accurate and quietly misleading
+about what the route actually is. **Chicago and New York describe the station
+honestly**, so the approved copy names those two and stops.
+
+Recorded in the as-built note in both approved-copy sources, so a future reader
+finds the reasoning at the point where the omission is visible rather than
+having to reconstruct it.
+
+## The two stale approved sources — fixed in this PR
+
+Not deferred to the drive-time PR.
+
+| File | Line | State |
+|---|---|---|
+| `docs/approved-copy/V1_0_Moving_to_Elkhart_Pillar_EN_Lisa_Collio.md` | 81 | **updated** — ¶2 replaced, dated as-built note added |
+| `docs/approved-copy/V1_0_ES_Mudarse_a_Elkhart_Page_Lisa_Collio.md` | 67 | **updated** — ¶2 replaced, dated as-built note added |
+
+Both notes follow the convention already used in
+`V1_0_ES_Adaptation_9_Articles_Wave1_Lisa_Collio.md`: a dated
+`⚠️ AS-BUILT CORRECTION` block at the top, recorded so a rebuild from the file
+cannot regress the live site, rather than a silent edit to approved body copy.
+Each records what the paragraph used to say, that the Capitol Limited was merged
+into the Floridian on 10 November 2024, what serves Elkhart today, why the
+replacement names no route at all, and the Washington DC decision above.
+
+**Verified, not assumed:** the ¶2 text in each source is now **byte-identical**
+to the paragraph on its live page — compared programmatically after stripping the
+`<p>` wrapper. Both return `True`.
+
+**Repo-wide, "Capitol Limited" now appears only inside the as-built notes and
+this project's own tracking documents** — never in body copy, never on a live
+page, and never in a source a rebuild would draw from. The regression path is
+closed.
+
+### Also needs doing outside the repo
+
+**Both updated files should go into Lisa's Claude Project**, replacing the
+copies there, so the Project and the repo do not diverge. Claude Code has no
+tool access to the Project panel — this is the Audit Checklist Part C1 boundary,
+and it is Lisa's action, not something this PR can complete.
+
+## PR 1 — final state
+
+| | |
+|---|---|
+| Source photographs uploaded | 27 |
+| Cleared | 26 |
+| **Processed** | **25** — 100 files in `assets/images/sections/` |
+| Rejected | 1 — `elkhart-moving-elkhart-or-goshen`, Ruling 3, final |
+| Article featured images rebuilt | 24 slugs — 96 files in `assets/images/blog-headers/` |
+| Build records | `SECTION_JOBS` +25 with blob SHAs · `CLEAN_JOBS` 18 repointed, 6 added |
+| Copy | ¶2 replaced on 2 live pages + 2 approved sources, both languages |
+| Reproducibility | `--sections` re-run reproduces all 100 files byte-for-byte |
+| Gates | `npm run audit` all hard checks · `npm run check:images` every variant in scope |
+| **Wired to a page** | **nothing** — that is PRs 2–4 |
+
+Next: PR 2 wires `/moving-to-elkhart/` + `/es/mudarse-a-elkhart/` — 12 section
+images and their alt text, **28 strings** across the pair, to Lisa for approval
+in both languages before merge under the Section 13 gate.

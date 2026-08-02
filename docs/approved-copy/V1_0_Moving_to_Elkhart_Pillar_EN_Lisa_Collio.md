@@ -7,6 +7,37 @@
 
 **STATUS: APPROVED BY LISA AND BROKER — July 25, 2026. CLEARED TO BUILD NOW.** Revised FAQ block (expanded to 6 questions, mirrors the Goshen topic set, links to the newly-approved authority articles) is confirmed along with the rest of the page.
 
+> **⚠️ AS-BUILT CORRECTION — August 2, 2026 (Lisa's decision, recorded so a
+> rebuild from this file cannot regress the live site).**
+>
+> **The transportation paragraph under "Where Elkhart sits, and what that means for getting around" has been
+> replaced.** The version this file previously carried named **Amtrak's Capitol
+> Limited and Lake Shore Limited**. The Capitol Limited no longer exists — it
+> was merged with the Silver Star into the **Floridian** on 10 November 2024, so
+> the paragraph named a train that had not run for over a year. Elkhart station
+> (EKH, 131 Tyler Avenue) is served today by the **Lake Shore Limited**
+> (Chicago ↔ New York City / Boston) and the **Floridian** (Chicago ↔ Miami,
+> via Washington DC), and sits across the tracks from the National New York
+> Central Railroad Museum.
+>
+> **The approved replacement names no route at all**, deliberately: route names
+> on an evergreen page go stale, which is precisely how this error survived.
+> It also states no southbound Washington DC destination — a deliberate scope
+> decision, not an omission. The southbound service is the Floridian, which runs
+> to Miami via DC; "reaches Washington DC" would be technically accurate and
+> quietly misleading about what the route is. Chicago and New York describe the
+> station honestly.
+>
+> **Fixed here in the same PR that fixed the live pages** (2 Aug 2026), not
+> deferred. Leaving an approved source holding a retired fact while the page is
+> corrected is build-procedure failure 4 — the mechanism behind the
+> "13 vs 14 elementary schools" regression. The paragraph below now matches
+> `/moving-to-elkhart/` exactly.
+>
+> Paragraph 3 ("For most residents, the commute story is simple…") is unchanged, as is
+> every other paragraph in this section.
+
+
 Build and deploy to the preview branch immediately. Broker's comprehensive whole-site review still occurs before the final `main` merge/DNS cutover, per Lisa's standing July 2026 workflow — that restriction applies to the final merge/cutover step only, not to building or deploying to preview.
 
 **Version:** v1.0 · **Phase:** 1.b (pairs with `/living-in-elkhart/`, which is already live) · **Supersedes:** the current live Elkhart city guide page, which duplicates content top and bottom and is being retired in favor of this page and its `/living-in-elkhart/` counterpart
@@ -78,7 +109,7 @@ Lisa Collio has spent her career helping buyers and sellers in Goshen and Elkhar
 
 Elkhart is the largest city in the Elkhart–Goshen metropolitan area, part of the broader South Bend–Elkhart–Mishawaka region — the area locals call Michiana. South Bend is about 20 minutes away; Goshen, the county seat, is another 20 minutes south. Chicago is roughly two hours by the Indiana Toll Road, which runs directly through the city with exits at 92 and 96 — worth knowing that Elkhart runs on Eastern time while Chicago runs on Central, which quietly costs you an hour heading west and buys one back on the return.
 
-US-20 (the St. Joseph Valley Parkway) bypasses the south side of the city; State Road 19 runs through it; US-33 terminates here. Amtrak's Capitol Limited and Lake Shore Limited both stop at the Elkhart station, and the Interurban Trolley — a regional public bus service — connects Elkhart to Goshen, Dunlap, Osceola, and Mishawaka daily except Sundays and major holidays. South Bend International Airport, the nearest commercial service, is about 30 minutes away.
+US-20 (the St. Joseph Valley Parkway) bypasses the south side of the city; State Road 19 runs through it; US-33 terminates here. Amtrak stops downtown at the Elkhart station on Tyler Avenue, across from the National New York Central Railroad Museum, with daily service west to Chicago and daily eastbound service reaching New York City directly, plus connections into Amtrak's wider national network. These are long-distance routes rather than commuter trains — the schedules suit travel and visiting family, not a daily trip to work. Check Amtrak's website for current routes and schedules. The Interurban Trolley — a regional public bus service — connects Elkhart to Goshen, Dunlap, Osceola, and Mishawaka daily except Sundays and major holidays. South Bend International Airport, the nearest commercial service, is about 30 minutes away.
 
 For most residents, the commute story is simple: it's short, and there are more ways to get around than the car alone.
 
