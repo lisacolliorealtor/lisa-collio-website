@@ -747,6 +747,17 @@ SECTION_JOBS = {
 
     # Trades empty upper sky for the river reflection, which is the subject.
     # Source blob 8036d7763ab2.
+    # ADDED 2 Aug 2026 — this entry was MISSING from the Elkhart block merged in
+    # PR #104 and the file was never processed. The batch reconciles 27 source
+    # files = 1 rejected + 26 to process, but only 25 were built; the shortfall
+    # was this closing-CTA image. Found by differencing the source folder against
+    # SECTION_JOBS and the rejected list rather than trusting the earlier count.
+    # focal_y 0.35, chosen from rendered candidates: 0.50 clips the clock-tower
+    # cap and crowds Lisa's head against the top edge; 0.35 keeps the whole tower
+    # and gives her headroom, with the hanging basket intact. Source blob df3142492100.
+    "elkhart-moving-cta-closing":
+        ("assets/images/elkhart/elkhart-moving-cta-closing.jpg", 0.35, None),
+
     "elkhart-moving-faq-things-to-do":
         ("assets/images/elkhart/elkhart-moving-faq-things-to-do.jpg", 0.58, None),
 
