@@ -1,10 +1,10 @@
 Lisa Collio Website — Master Plan
 
-**Version 2.15 · July 2026 — supersedes v2.14**
+**Version 2.16 · August 2026 — supersedes v2.15**
 
 Governs all planning, copy, and page builds for lisacolliorealtor.com. Every Claude chat and Claude Code session follows this document. It is the single source of truth for the website; all companion documents in the Project — including the AI Business Brain (Section 22) — are governed by, and must stay consistent with, this plan wherever website content is concerned.
 
-Sections 1–14 keep the numbering of v2.1 so that every existing cross-reference in companion documents remains valid. Sections 15–20 were added in v2.2; v2.3 recorded the legal-pages approval; v2.4 integrates the AI Business Brain, adopts The Next Chapter Method™ as the visible brand framework, and records the ten brand-reconciliation decisions (Section 21) and the precedence order (Section 22); v2.5 completed the pre-build registry audit; v2.6 added the Goshen relocation cluster to the architecture and roadmap, formalized the general-content disclaimer and Sources page, closed out the Reference Data Sheet correction, and queued the Spanish Goshen and full Elkhart clusters. v2.7 renames the community pages for SEO (`/communities/goshen/` → `/living-in-goshen/`, `/communities/elkhart/` → `/living-in-elkhart/`) and locks the two-level Communities nav structure; v2.8 is a registry self-correction (§19 had gone stale after the v2.7 bump); v2.9 adds the Bilingual FAQ + Authority Article Cluster Standard (§8) — codifying the build procedure and root-cause lessons from the full Elkhart/Goshen community-cluster build session — and corrects the "highest-numbered version" self-reference pattern site-wide. **v2.10 adds the Featured-Image Standard as a new subsection under Images: text overlay and Lisa's cutout portrait are now a scoped exception limited to the Buyers/Sellers/Compradores/Vendedores clusters — every other page and article uses a clean photo with nothing overlaid, reversing the earlier site-wide text-overlay default. v2.11 is a registry sync — the two Spanish Wave adaptation documents (built between v2.9 and v2.10) are added to §19, which had not yet been updated when the v2.10 image-standard branch was cut in parallel.** **v2.12 adds three new locked standards, codifying lessons from the Goshen image-standard build: the Build Record Standard (every generated artifact needs a recorded, reproducible build job — no more reverse-engineering by hash-matching), the Verification Standard (report what was actually measured, prove a check catches real problems before trusting it), and the EN/ES Parity Standard (both languages ship in the same PR, verified by count, never assumed).** **v2.13 amends the three v2.12 standards (parity now covers substance, not just count; verification adds a prototype-then-scale gate) and adds four more: Field-Class Compliance Coverage, Single Open-Items Record, Rejected-Asset Standard, and Title/Identity-Text Consistency Sweep — plus a content-over-required-element priority rule for description fields.** **v2.14 is a self-correction: v2.13's own changelog said "four new locked standards" when the document body contained five — the fifth, PR Description Currency Standard, was undercounted in its own summary. Caught while regenerating CLAUDE.md, which had never mirrored v2.12 at all until this correction prompted a full sync of both versions together.** **v2.15 clarifies the Single Open-Items Record Standard's scope: repo-trackable, Claude-Code-actionable items only, since Claude Code has no access to the Claude Project's knowledge-base panel. Project-panel hygiene is the Audit Checklist's Part C, run by Claude in chat — a deliberately separate mechanism, not folded into the punch list.** The full change log is Section 20.
+Sections 1–14 keep the numbering of v2.1 so that every existing cross-reference in companion documents remains valid. Sections 15–20 were added in v2.2; v2.3 recorded the legal-pages approval; v2.4 integrates the AI Business Brain, adopts The Next Chapter Method™ as the visible brand framework, and records the ten brand-reconciliation decisions (Section 21) and the precedence order (Section 22); v2.5 completed the pre-build registry audit; v2.6 added the Goshen relocation cluster to the architecture and roadmap, formalized the general-content disclaimer and Sources page, closed out the Reference Data Sheet correction, and queued the Spanish Goshen and full Elkhart clusters. v2.7 renames the community pages for SEO (`/communities/goshen/` → `/living-in-goshen/`, `/communities/elkhart/` → `/living-in-elkhart/`) and locks the two-level Communities nav structure; v2.8 is a registry self-correction (§19 had gone stale after the v2.7 bump); v2.9 adds the Bilingual FAQ + Authority Article Cluster Standard (§8) — codifying the build procedure and root-cause lessons from the full Elkhart/Goshen community-cluster build session — and corrects the "highest-numbered version" self-reference pattern site-wide. **v2.10 adds the Featured-Image Standard as a new subsection under Images: text overlay and Lisa's cutout portrait are now a scoped exception limited to the Buyers/Sellers/Compradores/Vendedores clusters — every other page and article uses a clean photo with nothing overlaid, reversing the earlier site-wide text-overlay default. v2.11 is a registry sync — the two Spanish Wave adaptation documents (built between v2.9 and v2.10) are added to §19, which had not yet been updated when the v2.10 image-standard branch was cut in parallel.** **v2.12 adds three new locked standards, codifying lessons from the Goshen image-standard build: the Build Record Standard (every generated artifact needs a recorded, reproducible build job — no more reverse-engineering by hash-matching), the Verification Standard (report what was actually measured, prove a check catches real problems before trusting it), and the EN/ES Parity Standard (both languages ship in the same PR, verified by count, never assumed).** **v2.13 amends the three v2.12 standards (parity now covers substance, not just count; verification adds a prototype-then-scale gate) and adds four more: Field-Class Compliance Coverage, Single Open-Items Record, Rejected-Asset Standard, and Title/Identity-Text Consistency Sweep — plus a content-over-required-element priority rule for description fields.** **v2.14 is a self-correction: v2.13's own changelog said "four new locked standards" when the document body contained five — the fifth, PR Description Currency Standard, was undercounted in its own summary. Caught while regenerating CLAUDE.md, which had never mirrored v2.12 at all until this correction prompted a full sync of both versions together.** **v2.15 clarifies the Single Open-Items Record Standard's scope: repo-trackable, Claude-Code-actionable items only, since Claude Code has no access to the Claude Project's knowledge-base panel. Project-panel hygiene is the Audit Checklist's Part C, run by Claude in chat — a deliberately separate mechanism, not folded into the punch list.** **v2.16 reconciles and re-scopes the §19 registry (it now covers every governing and reference document wherever it lives, with a Location column, and gains 24 new rows plus three deliberately-unregistered classes), fixes its own four-versions-stale self-citation, and adds six new locked standards drawn from the Elkhart image programme: Report-Before-Build, Source-Repoint, Batch Reconciliation, Review-Surface, Alt-Text Correspondence, and Changelog Citation. Two existing standards are amended — Field-Class Compliance Coverage records its fourth instance, and Single Open-Items Record gains a mechanical corollary after two same-named, same-versioned punch lists diverged for five days.** The full change log is Section 20.
 
 Sources folded into this revision: everything listed in v2.3, plus the AI Business Brain v2.0 (38 documents), Volume 36 — The Next Chapter Method™: Dream Client Encyclopedia (8 files), and Volume 37 — Adaptación Cultural Hispana. The full registry with refresh cadences is Section 19.
 
@@ -279,7 +279,7 @@ Count parity is necessary but not sufficient. A Spanish page can match its Engli
 
 ## Field-Class Compliance Coverage Standard (locked, July 2026)
 
-A compliance rule is not enforced project-wide until it has been checked against every field class that can render user-facing text — not just the one class where the problem was first found. This project's Fair Housing sweep found the same category of violation three times in sequence, each discovered independently because a rule built for one field was never checked against its siblings: alt text (missed for months), then body copy (the homepage "quiet residential areas," found only after alt text was fixed), then meta descriptions (missed until a "Realtor Lisa Collio" instance surfaced by chance).
+A compliance rule is not enforced project-wide until it has been checked against every field class that can render user-facing text — not just the one class where the problem was first found. This project's Fair Housing sweep found the same category of violation three times in sequence, each discovered independently because a rule built for one field was never checked against its siblings: alt text (missed for months), then body copy (the homepage "quiet residential areas," found only after alt text was fixed), then meta descriptions (missed until a "Realtor Lisa Collio" instance surfaced by chance), then `og:image:alt` (August 2026 — eighteen article pages had their visible `<img>` alt corrected while the Open Graph equivalent kept describing a photograph replaced days earlier, so the wrong description was live on Facebook and LinkedIn as well as on the page). The fourth instance is the argument for the enumeration, not a footnote to it: each time, the rule was correctly applied where the problem was visible, and the parallel fields carrying the same content were not checked. **A fix applied to one field class is incomplete until the parallel fields are verified, not assumed.**
 
 When any content or compliance rule is introduced, explicitly enumerate every field class it should apply to before declaring the rule "done": H1, body copy, alt text, meta description, og/twitter tags, schema fields, captions, button/CTA text, and form labels. A rule proven correct on one class is a prototype, not a standard, until the enumeration is checked.
 
@@ -290,6 +290,13 @@ Exactly one open-items/punch-list record exists for this project, lives in the r
 Any edit to the open-items record is diffed against its last-known-good version before committing — a bad string-replace can silently delete a section without raising an error, which already happened once to this file.
 
 **Scope, clarified:** this standard covers repo-trackable, Claude-Code-actionable items only — anything with a PR, a file, or a build check behind it. It does not extend to the Claude Project's knowledge-base panel (uploaded reference documents, Project memory), which Claude Code has no tool access to check or edit. Project-panel hygiene — confirming the Project's copy of a governing document matches the highest version anywhere, catching duplicate or superseded files in the Project — is covered separately by the Audit Checklist's Part C (Project File Audit), run by Claude in chat rather than Claude Code in the repo. The two mechanisms are deliberately different because the tool access is different; a single merged record would contain entries neither tool could verify.
+
+**Mechanical corollary (new in v2.16).** The standard bars creating a *parallel* record, and this project never did — yet two punch lists numbered v2.8 existed simultaneously for five days, each holding items the other had never had. Nobody created a second document: a commit landed on a branch after that branch's PR had merged, `main` moved on independently, and the divergence was invisible because both files carried the same name and the same version number. **The version in the filename provided no protection, because both copies claimed the same one.** Two rules follow:
+
+- The open-items record is edited **only on a branch that will merge** — never on a branch whose PR has already merged, and never on one held back for any reason.
+- Before retiring any branch whose PR has merged, **check it for unmerged commits touching the open-items record.** In this instance the branch held the only description anywhere of three live `audit.js` compliance checks, and the only record that the sold-listing consent file was an inventory rather than a certification. Retiring it unexamined would have silently deleted a compliance caveat covering live advertising copy.
+
+A same-named, same-versioned file at two commits is not caught by "don't create a parallel record." It has to be checked for.
 
 ## Rejected-Asset Standard (locked, July 2026)
 
@@ -302,6 +309,63 @@ Any change to a page's canonical title or H1 must be verified by a full-text sea
 ## PR Description Currency Standard (locked, July 2026)
 
 A pull request's title and description are re-verified against its actual current diff immediately before merge — never trusted from when they were first written. Approval attaches to what is actually in the diff at merge time, not to an earlier summary of intent, since mid-PR corrections can leave a description describing a decision that was later reversed.
+
+## Report-Before-Build Standard (locked, August 2026)
+
+Every Claude Code task begins with a report-only reconnaissance step, before anything is processed, built, renamed, wired, or committed. In that step Claude Code must:
+
+1. **State the plan** file by file, and explain how each decision was derived
+2. **Confirm it has every input it needs**, and name anything missing rather than inferring, improvising, or fabricating it
+3. **Verify inputs against live repo state** rather than trusting the instructions file or Lisa's framing — filenames, counts, EXIF and provenance, whether a target path already exists, whether `main` has moved
+4. **Proactively surface conflicts and discrepancies**, including anything that would overwrite existing content, contradict another page, or expand scope beyond the instructions
+5. **Stop and wait for Lisa's sign-off** before building
+
+Every instructions message drafted for Claude Code is structured this way.
+
+Adopted after the Elkhart image batch, where the report-first step caught, before anything reached a page: an image-count error (26 vs 27), a slug collision that would have overwritten a live Spanish article, a placeholder pasted in place of approved copy, a stale Master Plan section citation (§2 vs §8), a sitewide factual contradiction, and a live factual error naming a train route retired in November 2024. Each was cheap to fix at the report stage and expensive after wiring.
+
+**The standard extends to Lisa's own framing.** Where an instruction conflicts with what Claude Code can observe in the repo, the observation governs and the conflict is reported rather than resolved silently. During that batch three separate instructions from chat were wrong — a claim that a PR had merged when it hadn't, an alt-text "correction" that would have introduced the defect it was meant to fix, and a proposed audit heuristic with an 80% false-positive rate. Each was caught by checking rather than complying.
+
+## Source-Repoint Standard (locked, August 2026)
+
+When a source asset is repointed or replaced under an existing filename, the pages that display it change without their HTML changing. This is invisible to a diff and invisible to any check that compares markup.
+
+Any repoint — `CLEAN_JOBS`, `SECTION_JOBS`, `OVERLAY_JOBS`, or a re-upload under an existing filename — must be followed by verifying that every existing alt text, caption, and description still describes the new image. In this project a repoint left eighteen article pages displaying an Elkhart photograph while telling screen-reader users about a backyard deck, and the PR that caused it correctly reported "nothing wired to any page."
+
+**A change with no diff is still a change.** Filename stability is a convenience, not evidence that nothing moved.
+
+## Batch Reconciliation Standard (locked, August 2026; `audit.js` check 22)
+
+At the close of any batch the arithmetic is verified by differencing sets, never by trusting a running total: **source files − rejections = job-table entries = artifacts built.** Each equality is checked as a set difference per folder, and any file appearing on one side and not the other is named.
+
+This project shipped a batch reporting "25 processed, 1 rejected" against 27 source files. The missing file was found only when a later session differenced the source folder against the job table instead of re-reading its own count. A running total is a claim; a set difference is a measurement.
+
+## Review-Surface Standard (locked, August 2026)
+
+A review surface must be capable of showing what is being reviewed. A contact sheet at roughly one-third of delivered size under-represents fine detail by about 3× — text legible on the published page is unreadable on the sheet, and a reviewer will make confident calls in both directions on evidence the surface cannot carry.
+
+Contact sheets for any image batch include **1:1 zoom crops of every legible text region** — signage, plaques, wordmarks, lettering — alongside the delivered-size tiles. In this project the absence of that surface produced one wrong rejection reason (a school sign called illegible when it was legible at delivered size) and would have permitted the opposite error just as easily.
+
+The general form: **"I could not see it on the review surface" is not evidence about the artifact.** It is evidence about the surface.
+
+## Alt-Text Correspondence Standard (locked, August 2026; `audit.js` check 23)
+
+Alt text is verified against the image it belongs to, not only against the compliance rules. A string can pass every Fair Housing, business-name and identity check while describing a different photograph — this project approved an alt string reading "a river bend seen from a park bank" for an image of a fairground midway, and it passed all three scans cleanly.
+
+Two mechanisms:
+
+- **The slug-to-string map ships with the drafts, not after them.** Every proposed string is presented beside its own image and slug, so the reviewer sees them together. The correspondence error above was found precisely when that map was first laid out — after approval.
+- **Two artifacts derived from the same source photograph must carry the same alt text within a language** (`audit.js` check 23). One photograph cannot honestly have two irreconcilable descriptions. This check flags approximately 2% of image groups and caught both the error above and a pre-existing divergence nobody had noticed.
+
+A heuristic considered and rejected: flagging any alt string sharing no content word with its slug. Measured at an 80% false-positive rate, because slugs name a slot's *topic* while alt text describes the *depicted subject* — the vocabularies differ by design. **A noisy check gets switched off, which is a worse outcome than no check.** Prototype and measure before building; this is the Verification Standard applied to checks themselves.
+
+## Changelog Citation Standard (locked, August 2026)
+
+A version number inside a changelog, revision log, dated as-built note, or historical record is **data, not a pointer.** It records what was true on a date and must never be genericized or updated.
+
+A version number in a live cross-reference — "governed by," "drafted per," "see" — is a pointer, and is written version-agnostically so it cannot go stale.
+
+The distinction is not mechanical and a find-and-replace will not respect it. A sweep that genericized version pins across this project's documents correctly changed fifteen live citations and incorrectly rewrote changelog entries recording which version introduced which rule — destroying the record it was meant to protect. When in doubt, ask whether the number tells the reader *what to consult* (pointer, genericize) or *what happened* (data, preserve).
 
 ## Images
 
@@ -331,7 +395,7 @@ Any already-built non-Buy/Sell images with baked-in text or cutout portrait need
 
 - NAR layer checklist (NAR-Code-of-Ethics-Website-Compliance-Reference.md, §7).
 
-- RESPA build checklist (RESPA_Compliance_Rules_Lisa_Collio.docx, §9).
+- RESPA build checklist (RESPA_Compliance_Rules_Lisa_Collio.md, §9).
 
 - If market stats appear: Section 16 refresh checks.
 
@@ -446,15 +510,33 @@ Unchanged from v2.3, except: the reviews document is now **v2** — original Spa
 
 Unchanged from v2.3. disclamers.docx has now been **deleted from the Project** (its audit findings remain recorded here and in v2.3's history).
 
-# 19. Companion Document Registry (AMENDED in v2.4)
+# 19. Companion Document Registry (AMENDED in v2.4; RECONCILED AND RE-SCOPED in v2.16)
 
-Every document in the Project, its role, and its refresh cadence. When a document is replaced, its successor takes its row; superseded legacy content is marked and never carried forward.
+Every governing and reference document for this project, its role, its location, and its refresh cadence. When a document is replaced, its successor takes its row; superseded legacy content is marked and never carried forward.
+
+## Scope ruling (new in v2.16)
+
+This registry previously said it covered documents "in the Project," but had drifted into inconsistency: `docs/VERIFIED_FACTS.md` was added as a row while being repo-only, and `CLAUDE.md` was removed from the registry *for being repo-only*. Two identical situations, opposite treatments — and as a result the Punch List, the Audit Checklist and CLAUDE.md, three of this project's four governing documents, had no row anywhere.
+
+**Ruled, v2.16: the registry covers every governing and reference document for this project, wherever it lives.** Each row carries a Location — Project, Repo, or Both. This makes location drift visible rather than hiding it, and it matches the standing rule that governing documents live in both the Project and the repo, never only one.
+
+A row marked **Both** whose two copies disagree is a defect, findable by the Audit Checklist's Part C.
+
+## Governing documents
+
+| **Document** | **Exact filename** | **Location** | **Role** | **Refresh** |
+| --- | --- | --- | --- | --- |
+| Website Master Plan (this document) | `V2_16_Website_Master_Plan_Lisa_Collio.md` | Both | Single source of truth for the website | On decision changes; version log in §20 |
+| Pre-Launch Punch List | `V2.9 Pre Launch Punch List Lisa Collio.md` (in `docs/`, not `docs/approved-copy/`) | Both | Single open-items record (§8) | In place, every session |
+| Audit Checklist | `V1_4_Audit_Checklist_Lisa_Collio.md` | Both | Site, batch and Project-file audit procedure | As checks are added |
+| CLAUDE.md | `CLAUDE.md` (repo root) | Repo | Mirrors this plan for Claude Code sessions (§13) | With every Master Plan bump, same PR |
+
+**Self-reference note (new in v2.16):** the Master Plan row names no version number by design. Row 1 previously read "this doc, v2.11" inside a v2.15 document — stale through four versions, and the same class of self-reference bug caught in v2.8, v2.11 and v2.14. The version lives in §20 and in the filename; it is not repeated here.
 
 ## Website documents
 
 | **Document** | **Role** | **Refresh** |
 | --- | --- | --- |
-| Lisa_Collio_Website_Master_Plan (this doc, v2.11) | Single source of truth for the website | On decision changes; version log in §20 |
 | Lisa_Collio_Brand_Cheat_Sheet_v3_1_2026.md | Brand quick reference — v3.1 (Next Chapter Edition), carries the §21 decisions; adds the /disclaimers/ + /sources/ mention and the corrected RE/MAX Red hex code (#E60E16). Supersedes v3.0. | With Master Plan changes |
 | Lisa_Collio_Marketing_Voice_Extras.docx | Stylistic copy bank (not locked facts) | As needed |
 | Lisa_Collio_Resumen_estrategico...docx | Lane-1/Lane-2 audience model (Spanish). "100+" superseded (§2) | Static reference |
@@ -462,13 +544,13 @@ Every document in the Project, its role, and its refresh cadence. When a documen
 | Federal-Fair-Housing-Act-Website-Compliance-Reference.md | Compliance — federal layer (§15) | Periodic vs. HUD guidance |
 | IREC-Website-Compliance-Reference.md | Compliance — Indiana layer (§15) | Quarterly vs. 876 IAC |
 | NAR-Code-of-Ethics-Website-Compliance-Reference.md | Compliance — NAR layer (§15). **Edited July 2026: its §4 cross-reference now points to the approved Privacy Policy (disclamers.docx retired)** | Each January |
-| RESPA_Compliance_Rules_Lisa_Collio.docx | Compliance — lending-content rules (§15) | On business/relationship changes |
+| RESPA_Compliance_Rules_Lisa_Collio.md | Compliance — lending-content rules (§15) | On business/relationship changes |
 | MLS_Website_Data_Update.md | Verified MLS figures + approved language (§16) | Quarterly |
 | Market-Stats-Page.md | Drafted canonical /market-stats/ page (§16) | Quarterly with data |
 | MLS-Data-Source-Refresh-Checklist.md | Data refresh process (§16) | As site grows |
 | Elkhart-County-Mid-Year-Market-Update-2026.md | Dated blog post (archive once published) | New post each ~Jul/~Jan |
-| Goshen-Elkhart-Reference-Data-Sheet-v1_1.md | Sourced civic facts (§8, §16) — **v1.1 (NEW in v2.6):** both "walkable" instances removed, full banned-term list added, ZIP-code guidance added, illustrative-commute-figure flag added. Supersedes and replaces the deleted v1.0 file. | Annually |
-| lisa-collio-google-reviews.md (v2) | Verified reviews source of truth (§17) | As new reviews arrive |
+| Goshen-Elkhart-Reference-Data-Sheet.md | Sourced civic facts (§8, §16). **Corrected in v2.16:** the row previously named a `-v1_1` file that does not exist and claimed a "full banned-term list added" — the file contains no such list. The "walkable" removal, ZIP-code guidance and illustrative-commute-figure flag are confirmed present. | Annually |
+| lisa-collio-google-reviews.md | Verified reviews source of truth (§17) | As new reviews arrive |
 | HOME_page / BUY_A_HOME / SELL_A_HOME / MEET_LISA article sets | Drafted authority content (§11) | Frozen once published |
 | CLUSTER_1_Compradores_Hispanohablantes_Authority_Articles.docx | Drafted: /es/compradores/ hub + 7 Spanish articles (§11) | Frozen once published |
 | Lisa_Collio_Legal_Pages_APPROVED_2026.docx | Approved legal set (§18): Privacy Policy, Terms, disclosures — approved by Lisa + managing broker | On legal/practice changes, with broker approval |
@@ -481,13 +563,46 @@ Every document in the Project, its role, and its refresh cadence. When a documen
 | Lisa_Collio_Goshen_Authority_Article_6_RV_EN_v1_0.md | Approved: 6th Goshen relocation authority article — RV industry employment (§11) | Frozen once published |
 | Lisa_Collio_Disclaimers_and_Sources_v1_0.md | Approved: /disclaimers/ page, /sources/ page, and the new general-content footer disclaimer line (§8) | /sources/ grows with each new page published; /disclaimers/ as legal/practice changes |
 | Goshen-Cluster-Decisions-and-Photo-List.md | Working reference: Lisa's decision log + photography shot list for the Goshen cluster — not build content | As needed |
-| Claude_Code_Instructions_Batch_2f_URL_Rename.md | One-time task list for the Batch 2f rename/nav work — **not evergreen reference material; safe to delete from the Project once Batch 2f merges** | Delete after use |
 | V1_0_ES_Adaptation_9_Articles_Wave1_Lisa_Collio.md | **NEW row in v2.11 (built between v2.9 and v2.10; missed the v2.10 registry pass).** Approved: 9 Spanish article adaptations closing the EN/ES divergence gap on the Elkhart/Goshen community cluster; resolves the RV/MH Hall of Fame legacy-figure contradiction. Built as PR #66. | Frozen once published |
 | V1_0_ES_Adaptation_7_Articles_Wave2_Lisa_Collio.md | **NEW row in v2.11 (same gap as above).** Approved: 7 net-new Spanish articles + the `/es/mudarse-a-elkhart/` FAQ expansion (5→6 questions). Built as PR #68 (rerouted after #67 stranded on a merged-but-undeleted branch — see CLAUDE.md v1.4). | Frozen once published |
 | V1_0_Bilingual_FAQ_Authority_Article_Playbook_Lisa_Collio.md | **NEW row in v2.9.** Governs any FAQ+authority-article+Spanish-twin cluster build (§8). Evergreen reference, not a one-time task file. Also committed to `docs/approved-copy/` in the repo per its own §8 rule. | As new lessons/regressions surface |
 | docs/VERIFIED_FACTS.md | **NEW row in v2.9.** Canonical single-source-of-truth facts file referenced by §8's cluster standard. Lives in the repo, not the Project files, since it's consulted by build tooling directly; each entry sourced and dated, disagreements between sources logged rather than silently resolved. | On correction or new verifiable fact |
 
 *Removed from the Project (July 2026, Lisa): disclamers.docx (superseded by §18 legal set) · CLAUDE.md (repo-only, §13) · duplicate Goshen-Elkhart-Reference-Data-Sheet.md.*
+
+*Corrections applied in v2.16: four filename or version errors fixed (Reference Data Sheet, RESPA extension, reviews version, Master Plan self-citation), one description asserting content the file does not contain, and one expired "delete after use" row removed now that Batch 2f has merged. `CLAUDE.md` returns to the registry under the v2.16 scope ruling above.*
+
+*Two duplicate pairs remain to be resolved as file hygiene, not registry entries: `content/approved/goshen-elkhart-data-sheet.md` is byte-identical to its `content/source/` copy — §19's own footnote records this duplicate as removed from the Project, but it still exists in the repo — and `market-stats-page.md` has the same duplication with no removal ever recorded.*
+
+## Added in v2.16 (24 rows)
+
+Confirmed against the repo tree, 5 August 2026.
+
+| **Document** | **Location** | **Role** | **Refresh** |
+| --- | --- | --- | --- |
+| `docs/approved-copy/V1_0_Goshen_Elkhart_Image_Filenames_Lisa_Collio.md` | Repo | Image manifest carrying three numbered asset rulings; drove the Goshen and Elkhart image batches | As batches ship |
+| `docs/SPANISH_STYLE_DECISIONS.md` | Repo | Standing Spanish rulings, so a future session does not "correct" a deliberate choice | As rulings are made |
+| `docs/LAUNCH_CHECKLIST.md` | Repo | Governs every step after DNS cutover | At cutover, then archive |
+| `docs/LAUNCH_RUNBOOK.md` | Repo | Cutover procedure | At cutover, then archive |
+| `content/source/rejected-assets.txt` | Repo | Holds the numbered asset rejections; named directly by the Rejected-Asset Standard (§8) | On each ruling |
+| 16 approved page and article source files in `docs/approved-copy/` — `V1.0_ES_Articulos_Goshen_1-6` · `V1.0_ES_Disclaimers_Page` · `V1.0_ES_Legal_Pages` · `V1.0_ES_Mudarse_a_Goshen_Page` · `V1.0_ES_Viviendo_en_Goshen_Page` · `V1_0_ES_Mudarse_a_Elkhart_Page` · `V1_0_ES_Viviendo_en_Elkhart_Page` · `V1_0_Elkhart_Living_Authority_Articles_1-5_EN` · `V1_0_Elkhart_Moving_Authority_Articles_1-6_EN` · `V1_0_FAQ_Gap_Blocks_EN_15_Pages` · `V1_0_FAQ_Gap_Blocks_ES_21_Pages` · `V1_0_FAQ_Replacement_5_Articles` · `V1_0_Goshen_Living_Authority_Articles_1-5_EN` · `V1_0_Living_in_Elkhart_Page_EN` · `V1_0_Moving_to_Elkhart_Pillar_EN` · `V1_0_Verify_Current_Details_Disclaimer` (all `_Lisa_Collio.md`) | Repo | Approved source copy for built pages and articles (§11) — same class as the Goshen rows above | Frozen once published |
+
+**Naming-convention note:** seven files in `docs/approved-copy/` use the `V1.0_` (dot) form and the rest use `V1_0_` (underscore). Normalise in a single dedicated change, never bundled with content work — a half-applied rename is worse than an inconsistent one.
+
+## Deliberately unregistered classes (new in v2.16)
+
+Recorded as *ruled out* rather than left unregistered by omission. An unregistered file with no stated reason reads as an oversight to the next session — which is how seventy files accumulated outside this registry.
+
+| Class | Ruling |
+| --- | --- |
+| **One-time Claude Code instruction files** (`docs/approved-copy/V1.0_Claude_Code_Instructions_*`, `docs/drafts/V1_0_Claude_Code_Instructions_*`) | **No rows.** v2.4 created a "delete after use" row for exactly this class and it never fired. A retirement row nobody retires is worse than no row. The class is unregistered by rule; delete the file when its batch merges. |
+| **Session records and dated audit reports** (`docs/*_AUDIT.md`, `docs/ELKHART_IMAGE_*`, `docs/DRIVE_TIME_INVENTORY.md`, `docs/PUNCH_LIST_BRANCH_DIVERGENCE.md`, and similar) | **No rows.** These record a session's findings; they do not govern future work. Preserved in the repo and in git history. Registering them would grow the registry without adding governance. |
+| **Build inputs and machine-read control files** (`content/*.json`, `content/approved/*`, `content/source/*.txt` except `rejected-assets.txt`) | **No rows.** `content/approved/` is the repo-side rendering of content whose authoring records are already registered; registering both double-counts the same content. |
+
+## Flagged in v2.16, not resolved
+
+- **Rows for the six approved Goshen source documents** register files that repo pages cite as their factual basis, none of which is in the repo. This is what Build Procedure rule 3 exists to prevent; the Goshen set predates the rule and the Elkhart equivalents were committed correctly. Decide whether to commit them or record the decision not to.
+- **`docs/FEATURED_IMAGE_OVERLAY_AUDIT.md`** declares itself "RESOLVED — remediation complete" while CLAUDE.md points at it as the live list awaiting Lisa's reshoot decision. One of the two is wrong.
 
 ## AI Business Brain documents (NEW in v2.4 — governed by Section 22)
 
@@ -499,7 +614,20 @@ Every document in the Project, its role, and its refresh cadence. When a documen
 
 # 20. Version History
 
-## v2.15 — July 2026 (this version)
+## v2.16 — August 2026 (this version)
+
+- **§19 registry reconciled and re-scoped.** The registry said it covered documents "in the Project" while containing a repo-only row and having removed another *for being* repo-only. Ruled: it covers every governing and reference document wherever it lives, with a Location column. Three of the four governing documents — Punch List, Audit Checklist, CLAUDE.md — had no row anywhere and now do.
+- **§19 self-citation fixed.** Row 1 read "this doc, v2.11" inside a v2.15 document — stale through four versions. The Master Plan row now names no version at all; §20 and the filename carry it. Fourth instance of this document's recurring self-reference bug (v2.8, v2.11, v2.14).
+- **Six registry defects corrected** — four filename or version errors, one description asserting content the file does not contain, one expired "delete after use" row removed. Two duplicate file pairs flagged for hygiene.
+- **24 new rows added**, and three classes ruled *deliberately unregistered* so future sessions know what sits outside the registry by decision rather than by oversight.
+- **Six new locked standards in §8**, all from the Elkhart image programme: Report-Before-Build, Source-Repoint, Batch Reconciliation (`audit.js` check 22), Review-Surface, Alt-Text Correspondence (check 23), and Changelog Citation.
+- **Field-Class Compliance Coverage Standard amended** to record its fourth instance — `og:image:alt`, where eighteen pages had visible alt text corrected while the Open Graph equivalent kept describing a replaced photograph, live on Facebook and LinkedIn.
+- **Single Open-Items Record Standard amended** with a mechanical corollary, after two punch lists carrying the same name and the same version number diverged for five days. Nobody created a parallel record; a commit landed on a branch after its PR merged. The version in the filename gave no protection.
+- **Audit Checklist filename normalised** to `V1_4_Audit_Checklist_Lisa_Collio.md`; cited generically wherever referenced.
+- Two items flagged and left open by design: six approved Goshen source documents cited by repo pages but absent from the repo, and `FEATURED_IMAGE_OVERLAY_AUDIT.md` disagreeing with CLAUDE.md about its own status.
+- Drafted in chat from Claude Code's §19 registry audit, its punch-list divergence report, the PR #89 description audit, and the Elkhart batch record.
+
+## v2.15 — July 2026
 
 - **Scope clarification, not a new rule.** The Single Open-Items Record Standard said "this project" without specifying whether that meant the git repo or the whole Claude Project, including the knowledge-base panel Claude Code cannot access. Clarified: the standard covers repo-trackable, Claude-Code-actionable items only. Project-panel hygiene is explicitly the Audit Checklist's Part C, run by Claude in chat, since that's the tool with actual access to check it.
 - Raised by Claude Code while updating the punch list through PR #94 — flagged as a legitimate ambiguity rather than silently picking a reading.
