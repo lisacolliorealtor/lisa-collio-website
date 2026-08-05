@@ -1,9 +1,29 @@
 # /es/mudarse-a-elkhart/ — Página pilar de reubicación (Español)
 
 *Prepared for Lisa Collio, Real Estate Agent · July 2026*
-*Drafted per Master Plan v2.8 (§6, §7 bilingual rules, §8, §13 review gate), Volume 37 — Adaptación Cultural Hispana, the Federal Fair Housing Act Website Compliance Reference, and the approved English source `V1_0_Moving_to_Elkhart_Pillar_EN_Lisa_Collio.md` (facts only — this is a cultural adaptation, not a translation).*
+*Drafted per the highest-numbered Master Plan version in Project files (§6, §7 bilingual rules, §8, §13 review gate), Volume 37 — Adaptación Cultural Hispana, the Federal Fair Housing Act Website Compliance Reference, and the approved English source `V1_0_Moving_to_Elkhart_Pillar_EN_Lisa_Collio.md` (facts only — this is a cultural adaptation, not a translation).*
 
 **STATUS: APPROVED BY LISA — July 25, 2026. CLEARED TO BUILD NOW.**
+
+> **⚠️ AS-BUILT CORRECTION — August 2, 2026 (Lisa's decision, recorded so a
+> rebuild from this file cannot regress the live site).**
+>
+> **The Goshen ↔ Elkhart drive-time figure has been removed, not corrected.**
+> The text below previously stated a duration. The site carried three
+> incompatible claims — 25 minutes, 20 minutes, and a grouped "all within about
+> 20 minutes" that folded Goshen in with two closer cities — and
+> `docs/VERIFIED_FACTS.md` stated two of them in consecutive sentences under the
+> same sources.
+>
+> **No figure was chosen, deliberately.** The drive varies by which part of
+> Goshen you start in and which part of Elkhart you are going to, which is why
+> three claims existed. Picking one would manufacture precision the geography
+> does not support. The copy now states the direction and not a duration. The
+> Chicago figure (about 2 hours by the Indiana Toll Road) is unaffected and
+> stays.
+>
+> `docs/VERIFIED_FACTS.md` is the canonical record and carries the ruling.
+
 
 > **⚠️ AS-BUILT CORRECTION — August 2, 2026 (Lisa's decision, recorded so a
 > rebuild from this file cannot regress the live site).**
@@ -93,7 +113,7 @@ Y hay algo que conviene decir desde el principio: con Lisa Collio, todo el proce
 
 ## Dónde queda Elkhart y qué significa eso para moverse
 
-Elkhart es la ciudad más grande del área metropolitana Elkhart–Goshen, dentro de la región que localmente se conoce como Michiana. South Bend queda a unos 20 minutos; Goshen, la sede del condado, a otros 20 minutos hacia el sur. Chicago queda a unas dos horas por la Indiana Toll Road, que atraviesa la ciudad directamente por las salidas 92 y 96 — y vale la pena saber que Elkhart usa el horario del Este mientras Chicago usa el horario Central, así que el viaje de ida "regala" una hora y el de regreso la cobra.
+Elkhart es la ciudad más grande del área metropolitana Elkhart–Goshen, dentro de la región que localmente se conoce como Michiana. South Bend queda cerca; Goshen, la sede del condado, queda justo al sur. Chicago queda a unas dos horas por la Indiana Toll Road, que atraviesa la ciudad directamente por las salidas 92 y 96 — y vale la pena saber que Elkhart usa el horario del Este mientras Chicago usa el horario Central, así que el viaje de ida "regala" una hora y el de regreso la cobra.
 
 La US-20 (el St. Joseph Valley Parkway) bordea el lado sur de la ciudad; la carretera estatal 19 la atraviesa; la US-33 termina aquí mismo. Amtrak para en la estación de Elkhart, en el centro sobre Tyler Avenue, frente al National New York Central Railroad Museum, con servicio diario hacia el oeste a Chicago y servicio diario hacia el este que llega directamente a la ciudad de Nueva York, además de conexiones a la red nacional de Amtrak. Son rutas de larga distancia, no trenes de cercanías — los horarios sirven para viajar o visitar familia, no para ir al trabajo todos los días. Consulte el sitio web de Amtrak para conocer las rutas y horarios vigentes. El Interurban Trolley — un servicio de autobús público regional — conecta Elkhart con Goshen, Dunlap, Osceola y Mishawaka todos los días excepto domingos y días festivos importantes. El aeropuerto comercial más cercano, South Bend International, queda a unos 30 minutos.
 

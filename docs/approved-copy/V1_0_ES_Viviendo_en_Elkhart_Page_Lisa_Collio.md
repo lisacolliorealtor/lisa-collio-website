@@ -1,9 +1,29 @@
 # /es/viviendo-en-elkhart/ — Página de comunidad (Español)
 
 *Prepared for Lisa Collio, Real Estate Agent · July 2026*
-*Drafted per Master Plan v2.8 (§6, §7 bilingual rules, §8, §13 review gate), Volume 37 — Adaptación Cultural Hispana, the Federal Fair Housing Act Website Compliance Reference, and the approved English source `V1_0_Living_in_Elkhart_Page_EN_Lisa_Collio.md` (facts only — cultural adaptation, not translation).*
+*Drafted per the highest-numbered Master Plan version in Project files (§6, §7 bilingual rules, §8, §13 review gate), Volume 37 — Adaptación Cultural Hispana, the Federal Fair Housing Act Website Compliance Reference, and the approved English source `V1_0_Living_in_Elkhart_Page_EN_Lisa_Collio.md` (facts only — cultural adaptation, not translation).*
 
 **STATUS: APPROVED BY LISA — July 25, 2026. CLEARED TO BUILD NOW.**
+
+> **⚠️ AS-BUILT CORRECTION — August 2, 2026 (Lisa's decision, recorded so a
+> rebuild from this file cannot regress the live site).**
+>
+> **The Goshen ↔ Elkhart drive-time figure has been removed, not corrected.**
+> The text below previously stated a duration. The site carried three
+> incompatible claims — 25 minutes, 20 minutes, and a grouped "all within about
+> 20 minutes" that folded Goshen in with two closer cities — and
+> `docs/VERIFIED_FACTS.md` stated two of them in consecutive sentences under the
+> same sources.
+>
+> **No figure was chosen, deliberately.** The drive varies by which part of
+> Goshen you start in and which part of Elkhart you are going to, which is why
+> three claims existed. Picking one would manufacture precision the geography
+> does not support. The copy now states the direction and not a duration. The
+> Chicago figure (about 2 hours by the Indiana Toll Road) is unaffected and
+> stays.
+>
+> `docs/VERIFIED_FACTS.md` is the canonical record and carries the ruling.
+
 
 Build this page and deploy it to the preview branch immediately — do not wait for anything further to build. Once the entire site is built and deployed to preview, Lisa's broker will review the complete site at the preview link and request any changes directly. Do not merge to `main` or trigger the production DNS cutover until Lisa gives explicit go-ahead after that review — but that restriction applies to the final merge/cutover step only, not to building or deploying this page to preview.
 
@@ -42,7 +62,7 @@ Si todavía está decidiendo si mudarse, la [guía Mudarse a Elkhart](/es/mudars
 
 ## La ciudad de un vistazo
 
-Elkhart tiene aproximadamente 54,000 habitantes. La sede del condado es Goshen, a unos 20 minutos al sur, pero Elkhart es la ciudad más grande y poblada del condado. Está dentro de la región South Bend–Elkhart–Mishawaka — conocida localmente como Michiana — y usa el horario del Este. El alcalde actual, Rod Roberson, el primer alcalde afroamericano de la ciudad, asumió el cargo en 2019 y ha centrado su administración en infraestructura, seguridad pública, vecindarios y calidad de vida a través de una iniciativa llamada ASPIRE.
+Elkhart tiene aproximadamente 54,000 habitantes. La sede del condado es Goshen, justo al sur, pero Elkhart es la ciudad más grande y poblada del condado. Está dentro de la región South Bend–Elkhart–Mishawaka — conocida localmente como Michiana — y usa el horario del Este. El alcalde actual, Rod Roberson, el primer alcalde afroamericano de la ciudad, asumió el cargo en 2019 y ha centrado su administración en infraestructura, seguridad pública, vecindarios y calidad de vida a través de una iniciativa llamada ASPIRE.
 
 ## El centro de Elkhart
 

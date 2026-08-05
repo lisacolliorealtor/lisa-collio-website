@@ -1,7 +1,7 @@
 # Bilingual FAQ + Authority Article Build Playbook
 
 *Prepared for Lisa Collio, Real Estate Agent · July 2026*
-*Distilled from the full Elkhart/Goshen community-cluster build session (Master Plan v2.8 era) — every mistake, regression, and fix, converted into a repeatable procedure. This document supersedes ad-hoc practice for any future page cluster built with the "5-question FAQ + full authority article, matching Spanish twin" pattern.*
+*Distilled from the full Elkhart/Goshen community-cluster build session (the highest-numbered Master Plan version in Project files era) — every mistake, regression, and fix, converted into a repeatable procedure. This document supersedes ad-hoc practice for any future page cluster built with the "5-question FAQ + full authority article, matching Spanish twin" pattern.*
 
 **STATUS: New standing reference. Recommend Claude Code fold the "Locked Procedure" and "Pre-Flight Checklist" sections into `CLAUDE.md` directly, and recommend bumping the Master Plan to v2.9 with a pointer to this document in the page-standards section (§8).**
 

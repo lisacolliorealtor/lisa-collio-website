@@ -5,6 +5,26 @@
 
 **STATUS: DRAFT — pending Lisa's review.** One of these (`distrito-escolar-elkhart-indiana`) may need to be retired rather than patched — see the flag at the end before building it.
 
+> **⚠️ AS-BUILT CORRECTION — August 2, 2026 (Lisa's decision, recorded so a
+> rebuild from this file cannot regress the live site).**
+>
+> **The Goshen ↔ Elkhart drive-time figure has been removed, not corrected.**
+> The text below previously stated a duration. The site carried three
+> incompatible claims — 25 minutes, 20 minutes, and a grouped "all within about
+> 20 minutes" that folded Goshen in with two closer cities — and
+> `docs/VERIFIED_FACTS.md` stated two of them in consecutive sentences under the
+> same sources.
+>
+> **No figure was chosen, deliberately.** The drive varies by which part of
+> Goshen you start in and which part of Elkhart you are going to, which is why
+> three claims existed. Picking one would manufacture precision the geography
+> does not support. The copy now states the direction and not a duration. The
+> Chicago figure (about 2 hours by the Indiana Toll Road) is unaffected and
+> stays.
+>
+> `docs/VERIFIED_FACTS.md` is the canonical record and carries the ruling.
+
+
 **BUILD INSTRUCTION (Claude Code, once approved):** For each URL below, add the "## Preguntas Frecuentes" block as visible on-page content, and update that page's FAQPage schema to contain these 3 Q&A pairs (replacing the current single H1-as-question entry). No other content on these pages changes.
 
 ---
@@ -319,7 +339,7 @@ Una estructura constante e intencional, en lugar de dejarlo al azar o a lo que u
 Justo al este de South Bend y Mishawaka, cerca de la frontera con Michigan, con acceso relativamente fácil al área metropolitana de South Bend.
 
 ### ¿A qué distancia está Elkhart de Goshen?
-A unos 25 minutos al noreste de Goshen, la sede del condado.
+Al noreste de Goshen, la sede del condado.
 
 ### ¿Por qué muchos compradores comparan Elkhart y Goshen directamente?
 Porque ambas ciudades están a poca distancia en auto una de la otra, mientras que cada una ofrece su propio carácter y opciones de vivienda distintivas.

@@ -5,6 +5,26 @@
 
 **STATUS: APPROVED BY LISA — July 25, 2026. BUILT AND MERGED July 27, 2026 (PR #66).**
 
+> **⚠️ AS-BUILT CORRECTION — August 2, 2026 (Lisa's decision, recorded so a
+> rebuild from this file cannot regress the live site).**
+>
+> **The Goshen ↔ Elkhart drive-time figure has been removed, not corrected.**
+> The text below previously stated a duration. The site carried three
+> incompatible claims — 25 minutes, 20 minutes, and a grouped "all within about
+> 20 minutes" that folded Goshen in with two closer cities — and
+> `docs/VERIFIED_FACTS.md` stated two of them in consecutive sentences under the
+> same sources.
+>
+> **No figure was chosen, deliberately.** The drive varies by which part of
+> Goshen you start in and which part of Elkhart you are going to, which is why
+> three claims existed. Picking one would manufacture precision the geography
+> does not support. The copy now states the direction and not a duration. The
+> Chicago figure (about 2 hours by the Indiana Toll Road) is unaffected and
+> stays.
+>
+> `docs/VERIFIED_FACTS.md` is the canonical record and carries the ruling.
+
+
 > **⚠️ AS-BUILT CORRECTION — July 27, 2026 (Lisa's decision, recorded so a
 > rebuild from this file cannot regress the live site).**
 >
@@ -102,7 +122,7 @@ La fortaleza de la industria de RV es también una forma de exposición. Es genu
 
 ### El traslado por trabajo
 
-Muchos residentes también se trasladan a South Bend, Mishawaka, y Goshen, todos a unos 20 minutos — vale la pena saberlo si su búsqueda de empleo no se limita a Elkhart.
+Muchos residentes también se trasladan a South Bend, Mishawaka, y Goshen — vale la pena saberlo si su búsqueda de empleo no se limita a Elkhart.
 
 ## Preguntas frecuentes
 

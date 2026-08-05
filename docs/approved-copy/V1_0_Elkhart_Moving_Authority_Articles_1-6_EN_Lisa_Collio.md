@@ -1,7 +1,7 @@
 # /moving-to-elkhart/ — Six Authority Articles (English)
 
 *Prepared for Lisa Collio, Real Estate Agent · July 2026*
-*Per Master Plan v2.8 (§6, §7, §8, §13, §15), Federal Fair Housing Act Website Compliance Reference, RESPA Compliance Rules, and the 8 Elkhart sources supplied by Lisa (Wikipedia, City of Elkhart, Visit Elkhart County, ACHP, Tripadvisor, Greater Elkhart Chamber, Britannica, Baugo Community Schools). Mirrors the topic set of the approved Goshen Moving-page article set (Lisa_Collio_Goshen_Authority_Articles_1-5_EN_v1_0.md + Article 6) — same 6 topics, entirely new writing and outline for Elkhart, not a find-and-replace.*
+*Per the highest-numbered Master Plan version in Project files (§6, §7, §8, §13, §15), Federal Fair Housing Act Website Compliance Reference, RESPA Compliance Rules, and the 8 Elkhart sources supplied by Lisa (Wikipedia, City of Elkhart, Visit Elkhart County, ACHP, Tripadvisor, Greater Elkhart Chamber, Britannica, Baugo Community Schools). Mirrors the topic set of the approved Goshen Moving-page article set (Lisa_Collio_Goshen_Authority_Articles_1-5_EN_v1_0.md + Article 6) — same 6 topics, entirely new writing and outline for Elkhart, not a find-and-replace.*
 
 **STATUS: APPROVED BY LISA AND BROKER — July 25, 2026. CLEARED TO BUILD NOW.**
 

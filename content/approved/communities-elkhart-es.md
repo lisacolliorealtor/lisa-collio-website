@@ -1,4 +1,24 @@
 # COMUNIDADES: ELKHART — Artículos de autoridad en español (APROBADO por Lisa, julio 2026)
+
+> **⚠️ AS-BUILT CORRECTION — August 2, 2026 (Lisa's decision, recorded so a
+> rebuild from this file cannot regress the live site).**
+>
+> **The Goshen ↔ Elkhart drive-time figure has been removed, not corrected.**
+> The text below previously stated a duration. The site carried three
+> incompatible claims — 25 minutes, 20 minutes, and a grouped "all within about
+> 20 minutes" that folded Goshen in with two closer cities — and
+> `docs/VERIFIED_FACTS.md` stated two of them in consecutive sentences under the
+> same sources.
+>
+> **No figure was chosen, deliberately.** The drive varies by which part of
+> Goshen you start in and which part of Elkhart you are going to, which is why
+> three claims existed. Picking one would manufacture precision the geography
+> does not support. The copy now states the direction and not a duration. The
+> Chicago figure (about 2 hours by the Indiana Toll Road) is unaffected and
+> stays.
+>
+> `docs/VERIFIED_FACTS.md` is the canonical record and carries the ruling.
+
 *Preparado julio 2026 · Adaptación cultural nativa (Volumen 37), NO traducción · Cada hecho proviene únicamente de Goshen-Elkhart-Reference-Data-Sheet.md · Regla bloqueada: cero lenguaje de "caminable" o basado en movimiento/capacidad física*
 
 **Nota sobre el alcance:** igual que en la versión en inglés, la hoja de datos no describe un carácter específico de "centro caminable" para Elkhart, así que no se inventó uno. Este set cubre lo que sí está documentado: identidad/economía, escuelas, lugares emblemáticos, y geografía (útil para compradores que se están reubicando).
@@ -20,7 +40,7 @@ Elkhart es hogar de fabricantes importantes de RV, incluyendo Thor Industries, F
 Elkhart es hogar del histórico Lerner Theatre, Wellfield Botanic Gardens, y el RV/MH Hall of Fame & Museum, que atrae a más de 15,000 visitantes al año. → Lea el artículo completo
 
 **5. ¿Dónde está ubicado Elkhart en relación con las ciudades cercanas?**
-Elkhart se encuentra en el norte de Indiana, justo al este de South Bend y Mishawaka, y a unos 25 minutos al noreste de Goshen. → Lea el artículo completo
+Elkhart se encuentra en el norte de Indiana, justo al este de South Bend y Mishawaka, y al noreste de Goshen. → Lea el artículo completo
 
 ---
 
@@ -84,7 +104,7 @@ Juntos, estos lugares emblemáticos le dan a Elkhart una combinación de arte e 
 
 Para cualquier persona que se esté reubicando al área, entender la ubicación de Elkhart en relación con las ciudades cercanas es una parte práctica de planear una mudanza.
 
-Elkhart se encuentra en el norte de Indiana, justo al este de South Bend y Mishawaka — lo cual significa que los residentes tienen acceso relativamente fácil a las comodidades y al aeropuerto del área metropolitana de South Bend mientras viven en una ciudad más pequeña. Dentro del condado de Elkhart mismo, Elkhart está ubicado a unos 25 minutos al noreste de Goshen, la sede del condado, facilitando el desplazamiento entre las dos ciudades por trabajo, compras, o para visitar a familiares.
+Elkhart se encuentra en el norte de Indiana, justo al este de South Bend y Mishawaka — lo cual significa que los residentes tienen acceso relativamente fácil a las comodidades y al aeropuerto del área metropolitana de South Bend mientras viven en una ciudad más pequeña. Dentro del condado de Elkhart mismo, Elkhart está ubicado al noreste de Goshen, la sede del condado, facilitando el desplazamiento entre las dos ciudades por trabajo, compras, o para visitar a familiares.
 
 Esta geografía es una de las razones por las que muchos compradores comparan Elkhart y Goshen directamente al decidir dónde establecerse — ambas ciudades se encuentran a poca distancia en auto una de la otra, mientras que cada una ofrece su propio carácter y opciones de vivienda distintivas.
 
