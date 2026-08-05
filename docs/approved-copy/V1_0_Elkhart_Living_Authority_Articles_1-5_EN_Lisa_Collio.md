@@ -5,6 +5,26 @@
 
 **STATUS: APPROVED BY LISA AND BROKER — July 25, 2026. CLEARED TO BUILD NOW.**
 
+> **⚠️ AS-BUILT CORRECTION — August 2, 2026 (Lisa's decision, recorded so a
+> rebuild from this file cannot regress the live site).**
+>
+> **The Goshen ↔ Elkhart drive-time figure has been removed, not corrected.**
+> The text below previously stated a duration. The site carried three
+> incompatible claims — 25 minutes, 20 minutes, and a grouped "all within about
+> 20 minutes" that folded Goshen in with two closer cities — and
+> `docs/VERIFIED_FACTS.md` stated two of them in consecutive sentences under the
+> same sources.
+>
+> **No figure was chosen, deliberately.** The drive varies by which part of
+> Goshen you start in and which part of Elkhart you are going to, which is why
+> three claims existed. Picking one would manufacture precision the geography
+> does not support. The copy now states the direction and not a duration. The
+> Chicago figure (about 2 hours by the Indiana Toll Road) is unaffected and
+> stays.
+>
+> `docs/VERIFIED_FACTS.md` is the canonical record and carries the ruling.
+
+
 Build and deploy to the preview branch immediately. Broker's comprehensive whole-site review still occurs before the final `main` merge/DNS cutover, per Lisa's standing July 2026 workflow — that restriction applies to the final merge/cutover step only, not to building or deploying to preview.
 
 **Version:** v1.0 · **Phase:** 1.b · **Supersedes:** none — new content, closes the FAQ-link gap on `/living-in-elkhart/`
@@ -146,7 +166,7 @@ The RV industry's strength is also a form of exposure. It's genuinely cyclical, 
 
 ## Commuting for work
 
-Many residents also commute to South Bend, Mishawaka, and Goshen, all within about 20 minutes — worth knowing if your job search isn't limited to Elkhart itself.
+Many residents also commute to South Bend, Mishawaka, and Goshen — worth knowing if your job search isn't limited to Elkhart itself.
 
 ---
 

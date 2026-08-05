@@ -1,4 +1,24 @@
 # COMMUNITIES: ELKHART — Authority Articles (APPROVED by Lisa, July 2026)
+
+> **⚠️ AS-BUILT CORRECTION — August 2, 2026 (Lisa's decision, recorded so a
+> rebuild from this file cannot regress the live site).**
+>
+> **The Goshen ↔ Elkhart drive-time figure has been removed, not corrected.**
+> The text below previously stated a duration. The site carried three
+> incompatible claims — 25 minutes, 20 minutes, and a grouped "all within about
+> 20 minutes" that folded Goshen in with two closer cities — and
+> `docs/VERIFIED_FACTS.md` stated two of them in consecutive sentences under the
+> same sources.
+>
+> **No figure was chosen, deliberately.** The drive varies by which part of
+> Goshen you start in and which part of Elkhart you are going to, which is why
+> three claims existed. Picking one would manufacture precision the geography
+> does not support. The copy now states the direction and not a duration. The
+> Chicago figure (about 2 hours by the Indiana Toll Road) is unaffected and
+> stays.
+>
+> `docs/VERIFIED_FACTS.md` is the canonical record and carries the ruling.
+
 *Prepared July 2026 · Every fact traces to Goshen-Elkhart-Reference-Data-Sheet.md ONLY · Zero steering language, zero school-quality judgments, zero demographic/income framing · Universal welcome framing throughout*
 
 **Note on scope:** unlike Goshen, the data sheet doesn't describe a specific "walkable downtown" character for Elkhart, so I didn't invent one. Instead, this set covers what's actually sourced: identity/economy, schools, landmarks, and geography (useful for relocation buyers comparing distances).
@@ -20,7 +40,7 @@ Elkhart is home to major RV manufacturers including Thor Industries, Forest Rive
 Elkhart is home to the historic Lerner Theatre, Wellfield Botanic Gardens, and the RV/MH Hall of Fame & Museum, which draws more than 15,000 visitors a year. → Read the full article
 
 **5. Where is Elkhart located relative to nearby cities?**
-Elkhart sits just east of South Bend and Mishawaka, near the Indiana–Michigan state line, and about 25 minutes northeast of Goshen. → Read the full article
+Elkhart sits just east of South Bend and Mishawaka, near the Indiana–Michigan state line, and northeast of Goshen. → Read the full article
 
 ---
 
@@ -84,7 +104,7 @@ Together, these landmarks give Elkhart a combination of historic arts and cultur
 
 For anyone relocating to the area, understanding Elkhart's location relative to nearby cities is a practical part of planning a move.
 
-Elkhart sits just east of South Bend and Mishawaka, near the Indiana–Michigan state line — meaning residents have relatively easy access to the amenities and airport of the greater South Bend area while living in a smaller city. Within Elkhart County itself, Elkhart is located about 25 minutes northeast of Goshen, the county seat, making it easy to move between the two cities for work, shopping, or visiting family.
+Elkhart sits just east of South Bend and Mishawaka, near the Indiana–Michigan state line — meaning residents have relatively easy access to the amenities and airport of the greater South Bend area while living in a smaller city. Within Elkhart County itself, Elkhart is located northeast of Goshen, the county seat, making it easy to move between the two cities for work, shopping, or visiting family.
 
 This geography is one reason many buyers compare Elkhart and Goshen directly when deciding where to settle — both cities sit within a short drive of each other, while each offers its own distinct character and housing options.
 

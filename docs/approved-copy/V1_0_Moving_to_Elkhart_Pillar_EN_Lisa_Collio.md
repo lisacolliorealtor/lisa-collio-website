@@ -1,11 +1,31 @@
 # Moving to Elkhart, Indiana — Relocation Pillar Page (English)
 
 *Prepared for Lisa Collio, Real Estate Agent · July 2026*
-*Drafted per Master Plan v2.8 (§6 architecture, §7 bilingual rules, §8 page standards, §13 review gate), the Federal Fair Housing Act Website Compliance Reference, and the Goshen–Elkhart Reference Data Sheet.*
+*Drafted per the highest-numbered Master Plan version in Project files (§6 architecture, §7 bilingual rules, §8 page standards, §13 review gate), the Federal Fair Housing Act Website Compliance Reference, and the Goshen–Elkhart Reference Data Sheet.*
 *Structure adapted from the SEO/AEO/GEO hub-and-spoke framework supplied by Krista Mashore's custom GPT. Source draft rewritten in full — see the Rewrite Notes at the end of this file for what changed and why.*
 *Facts checked against 8 sources supplied by Lisa (July 2026): Wikipedia, City of Elkhart official site, Visit Elkhart County, ACHP Preserve America, Tripadvisor, Greater Elkhart Chamber of Commerce, Britannica, and Baugo Community Schools.*
 
 **STATUS: APPROVED BY LISA AND BROKER — July 25, 2026. CLEARED TO BUILD NOW.** Revised FAQ block (expanded to 6 questions, mirrors the Goshen topic set, links to the newly-approved authority articles) is confirmed along with the rest of the page.
+
+> **⚠️ AS-BUILT CORRECTION — August 2, 2026 (Lisa's decision, recorded so a
+> rebuild from this file cannot regress the live site).**
+>
+> **The Goshen ↔ Elkhart drive-time figure has been removed, not corrected.**
+> The text below previously stated a duration. The site carried three
+> incompatible claims — 25 minutes, 20 minutes, and a grouped "all within about
+> 20 minutes" that folded Goshen in with two closer cities — and
+> `docs/VERIFIED_FACTS.md` stated two of them in consecutive sentences under the
+> same sources.
+>
+> **No figure was chosen, deliberately.** The drive varies by which part of
+> Goshen you start in and which part of Elkhart you are going to, which is why
+> three claims existed. Picking one would manufacture precision the geography
+> does not support. The copy now states the direction and not a duration. The
+> Chicago figure (about 2 hours by the Indiana Toll Road) is unaffected and
+> stays.
+>
+> `docs/VERIFIED_FACTS.md` is the canonical record and carries the ruling.
+
 
 > **⚠️ AS-BUILT CORRECTION — August 2, 2026 (Lisa's decision, recorded so a
 > rebuild from this file cannot regress the live site).**
@@ -107,7 +127,7 @@ Lisa Collio has spent her career helping buyers and sellers in Goshen and Elkhar
 
 ## Where Elkhart sits, and what that means for getting around
 
-Elkhart is the largest city in the Elkhart–Goshen metropolitan area, part of the broader South Bend–Elkhart–Mishawaka region — the area locals call Michiana. South Bend is about 20 minutes away; Goshen, the county seat, is another 20 minutes south. Chicago is roughly two hours by the Indiana Toll Road, which runs directly through the city with exits at 92 and 96 — worth knowing that Elkhart runs on Eastern time while Chicago runs on Central, which quietly costs you an hour heading west and buys one back on the return.
+Elkhart is the largest city in the Elkhart–Goshen metropolitan area, part of the broader South Bend–Elkhart–Mishawaka region — the area locals call Michiana. South Bend is a short drive; Goshen, the county seat, sits just to the south. Chicago is roughly two hours by the Indiana Toll Road, which runs directly through the city with exits at 92 and 96 — worth knowing that Elkhart runs on Eastern time while Chicago runs on Central, which quietly costs you an hour heading west and buys one back on the return.
 
 US-20 (the St. Joseph Valley Parkway) bypasses the south side of the city; State Road 19 runs through it; US-33 terminates here. Amtrak stops downtown at the Elkhart station on Tyler Avenue, across from the National New York Central Railroad Museum, with daily service west to Chicago and daily eastbound service reaching New York City directly, plus connections into Amtrak's wider national network. These are long-distance routes rather than commuter trains — the schedules suit travel and visiting family, not a daily trip to work. Check Amtrak's website for current routes and schedules. The Interurban Trolley — a regional public bus service — connects Elkhart to Goshen, Dunlap, Osceola, and Mishawaka daily except Sundays and major holidays. South Bend International Airport, the nearest commercial service, is about 30 minutes away.
 

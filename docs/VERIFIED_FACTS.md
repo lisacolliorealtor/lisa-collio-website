@@ -103,9 +103,15 @@ Goshen. County seat of Elkhart County. Known locally as **the Maple City**.
 cities, adjacent dates, and the single easiest error to make in this cluster.
 
 ### Elkhart — location
-East of South Bend and Mishawaka, near the Indiana–Michigan state line. About
-**25 minutes northeast of Goshen**. South Bend, Mishawaka, and Goshen are all
-within roughly 20 minutes.
+East of South Bend and Mishawaka, near the Indiana–Michigan state line. **Northeast of Goshen**, with South Bend and Mishawaka to the west.
+· ⚠️ **No drive-time figure is published for Goshen ↔ Elkhart, deliberately**
+  (Lisa, 2 August 2026). The drive varies by which part of Goshen you start in
+  and which part of Elkhart you are going to, which is why the site carried
+  three different claims — 25 minutes, 20 minutes, and a grouped "all within
+  about 20 minutes" that folded Goshen in with two closer cities. Picking one
+  would manufacture precision the geography does not support. State the
+  direction, not a duration. The Chicago figure (about 2 hours by the Indiana
+  Toll Road) is unaffected and stays.
 · **Sources:** Wikipedia, "Elkhart, Indiana" · STATS Indiana
 · **Phrasing:** plain geography only. "Northern Indiana" is barred as a
 service-area descriptor; the service area is "Goshen and Elkhart, Indiana".

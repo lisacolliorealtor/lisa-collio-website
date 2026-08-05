@@ -1,9 +1,29 @@
 # /living-in-elkhart/ — Page Rewrite (English)
 
 *Prepared for Lisa Collio, Real Estate Agent · July 2026*
-*Per Master Plan v2.8 (§6, §7, §8), Federal Fair Housing Act Website Compliance Reference, Goshen–Elkhart Reference Data Sheet, and the 8 sources supplied by Lisa: Wikipedia, City of Elkhart official site, Visit Elkhart County, ACHP Preserve America, Tripadvisor, Greater Elkhart Chamber of Commerce, Britannica, and Baugo Community Schools.*
+*Per the highest-numbered Master Plan version in Project files (§6, §7, §8), Federal Fair Housing Act Website Compliance Reference, Goshen–Elkhart Reference Data Sheet, and the 8 sources supplied by Lisa: Wikipedia, City of Elkhart official site, Visit Elkhart County, ACHP Preserve America, Tripadvisor, Greater Elkhart Chamber of Commerce, Britannica, and Baugo Community Schools.*
 
 **STATUS: APPROVED BY LISA AND BROKER — July 25, 2026. CLEARED TO BUILD NOW.** Revised FAQ block (mirrors the Goshen topic set, links to the newly-approved authority articles) is confirmed along with the rest of the page.
+
+> **⚠️ AS-BUILT CORRECTION — August 2, 2026 (Lisa's decision, recorded so a
+> rebuild from this file cannot regress the live site).**
+>
+> **The Goshen ↔ Elkhart drive-time figure has been removed, not corrected.**
+> The text below previously stated a duration. The site carried three
+> incompatible claims — 25 minutes, 20 minutes, and a grouped "all within about
+> 20 minutes" that folded Goshen in with two closer cities — and
+> `docs/VERIFIED_FACTS.md` stated two of them in consecutive sentences under the
+> same sources.
+>
+> **No figure was chosen, deliberately.** The drive varies by which part of
+> Goshen you start in and which part of Elkhart you are going to, which is why
+> three claims existed. Picking one would manufacture precision the geography
+> does not support. The copy now states the direction and not a duration. The
+> Chicago figure (about 2 hours by the Indiana Toll Road) is unaffected and
+> stays.
+>
+> `docs/VERIFIED_FACTS.md` is the canonical record and carries the ruling.
+
 
 Build and deploy to the preview branch immediately. Broker's comprehensive whole-site review still occurs before the final `main` merge/DNS cutover, per Lisa's standing July 2026 workflow — that restriction applies to the final merge/cutover step only, not to building or deploying to preview.
 
@@ -52,7 +72,7 @@ Elkhart sits at the confluence of the St. Joseph and Elkhart Rivers, about 15 mi
 
 ## The city at a glance
 
-Elkhart is home to roughly 54,000 people. The county seat is Goshen, about 20 minutes south, but Elkhart is the county's largest and most populous city. It sits within the South Bend–Elkhart–Mishawaka region — the area locals call Michiana — and runs on Eastern time. Current mayor Rod Roberson, the city's first Black mayor, took office in 2019 and has centered his administration on infrastructure, public safety, neighborhoods, and quality-of-place investment through an initiative called ASPIRE.
+Elkhart is home to roughly 54,000 people. The county seat is Goshen, just to the south, but Elkhart is the county's largest and most populous city. It sits within the South Bend–Elkhart–Mishawaka region — the area locals call Michiana — and runs on Eastern time. Current mayor Rod Roberson, the city's first Black mayor, took office in 2019 and has centered his administration on infrastructure, public safety, neighborhoods, and quality-of-place investment through an initiative called ASPIRE.
 
 ## Downtown Elkhart
 

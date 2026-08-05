@@ -120,7 +120,7 @@ Together, these landmarks give Elkhart a combination of historic arts and cultur
 ## 5. `/blog/community/elkhart-indiana-location-nearby-cities/`
 
 - **Title tag:** Where Is Elkhart, Indiana Located Relative to Nearby Cities?
-- **Meta description:** Where is Elkhart, Indiana located? Just east of South Bend and Mishawaka, near the Indiana–Michigan state line, about 25 minutes from Goshen.
+- **Meta description:** Where is Elkhart, Indiana located? Just east of South Bend and Mishawaka, near the Indiana–Michigan state line, the neighboring city to Goshen.
 - **H1:** Where Is Elkhart, Indiana Located Relative to Nearby Cities?
 - **Body length:** ~128 words
 
@@ -133,7 +133,7 @@ Together, these landmarks give Elkhart a combination of historic arts and cultur
 
 For anyone relocating to the area, understanding Elkhart's location relative to nearby cities is a practical part of planning a move.
 
-Elkhart sits just east of South Bend and Mishawaka, near the Indiana–Michigan state line — meaning residents have relatively easy access to the amenities and airport of the greater South Bend area while living in a smaller city. Within Elkhart County itself, Elkhart is located about 25 minutes northeast of Goshen, the county seat, making it easy to move between the two cities for work, shopping, or visiting family.
+Elkhart sits just east of South Bend and Mishawaka, near the Indiana–Michigan state line — meaning residents have relatively easy access to the amenities and airport of the greater South Bend area while living in a smaller city. Within Elkhart County itself, Elkhart is located northeast of Goshen, the county seat, making it easy to move between the two cities for work, shopping, or visiting family.
 
 This geography is one reason many buyers compare Elkhart and Goshen directly when deciding where to settle — both cities sit within a short drive of each other, while each offers its own distinct character and housing options.
 
@@ -961,7 +961,7 @@ Si está comparando agentes y se pregunta si "el método" es un nivel de servici
 ## 36. `/blog/spanish/ubicacion-elkhart-indiana-ciudades-cercanas/`
 
 - **Title tag:** ¿Dónde está ubicado Elkhart, Indiana?
-- **Meta description:** ¿Dónde está ubicado Elkhart, Indiana? Justo al este de South Bend y Mishawaka, y a unos 25 minutos en auto al noreste de Goshen, la sede del condado.
+- **Meta description:** ¿Dónde está ubicado Elkhart, Indiana? Justo al este de South Bend y Mishawaka, y al noreste de Goshen, la sede del condado.
 - **H1:** ¿Dónde está ubicado Elkhart, Indiana en relación con las ciudades cercanas?
 - **Body length:** ~158 words
 
@@ -974,7 +974,7 @@ Si está comparando agentes y se pregunta si "el método" es un nivel de servici
 
 Para cualquier persona que se esté reubicando al área, entender la ubicación de Elkhart en relación con las ciudades cercanas es una parte práctica de planear una mudanza.
 
-Elkhart se encuentra en el norte de Indiana, justo al este de South Bend y Mishawaka — lo cual significa que los residentes tienen acceso relativamente fácil a las comodidades y al aeropuerto del área metropolitana de South Bend mientras viven en una ciudad más pequeña. Dentro del condado de Elkhart mismo, Elkhart está ubicado a unos 25 minutos al noreste de Goshen, la sede del condado, facilitando el desplazamiento entre las dos ciudades por trabajo, compras, o para visitar a familiares.
+Elkhart se encuentra en el norte de Indiana, justo al este de South Bend y Mishawaka — lo cual significa que los residentes tienen acceso relativamente fácil a las comodidades y al aeropuerto del área metropolitana de South Bend mientras viven en una ciudad más pequeña. Dentro del condado de Elkhart mismo, Elkhart está ubicado al noreste de Goshen, la sede del condado, facilitando el desplazamiento entre las dos ciudades por trabajo, compras, o para visitar a familiares.
 
 Esta geografía es una de las razones por las que muchos compradores comparan Elkhart y Goshen directamente al decidir dónde establecerse — ambas ciudades se encuentran a poca distancia en auto una de la otra, mientras que cada una ofrece su propio carácter y opciones de vivienda distintivas.
 
