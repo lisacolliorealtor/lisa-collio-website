@@ -151,6 +151,26 @@ or any successor table). No asset ships without its build record.
   sample first, report the real hit rate, then decide whether to run it
   across the full set. Honest partial coverage beats a promised 100% that
   quietly under-delivers.
+- **A repo-scoped review cannot verify a chat incident (added 5 August 2026).**
+  Access to committed artifacts establishes that something **is not in the
+  repo**. It does not establish that it **did not happen**. Where a claim
+  describes an exchange, decision, or correction made in chat, report *"no
+  record in the repo, which does not settle it"* and ask — never report it as
+  unfounded. Earned three times in one pass: reviewing Master Plan v2.16, three
+  real incidents were reported as misstatements on the strength of a grep
+  returning nothing — the Elkhart High School sign legibility exchange (**the
+  origin of the Review-Surface Standard's own 3× figure**), the
+  `/blog/spanish/centro-de-elkhart-indiana/` slug collision that would have
+  overwritten a live published article, and the §2-vs-§8 citation correction.
+  Two lived only in chat; **the third was in the repo and the wrong file was
+  tested for it.**
+  **Why this is a standard and not a note: the correct framing was already in
+  that report.** One finding stated the limit explicitly and then applied it to
+  itself alone, while the other two were reported flatly. **Stating a limit
+  once does not discharge it — it applies to every finding of the same class in
+  the same report.** A confident retraction of a true incident deletes the
+  evidence a standard rests on; here it would have cost the Review-Surface
+  Standard its own origin.
 
 ### EN/ES Parity Standard
 Both languages ship in the same PR, verified by a measured count, not an
@@ -670,6 +690,15 @@ by construction rather than by remembering.
   the new Changelog Citation Standard, and is not rewritten.
 - Master Plan cited generically throughout; no version number added anywhere
   outside this log.
+- **Added to the Verification Standard: a repo-scoped review cannot verify a
+  chat incident.** Reviewing v2.16 against the built record, three real
+  incidents were reported as misstatements because a grep found nothing —
+  including the one that is the Review-Surface Standard's own origin. Two had
+  happened in chat; the third was in the repo, in a file the check never
+  looked at. Lisa supplied the evidence and the three findings were withdrawn.
+  The rule recorded is that absence from the repo is not evidence of absence,
+  and that stating that limit for one finding does not discharge it for the
+  others in the same report.
 - No identity, architecture, or compliance-rule changes.
 
 **v1.8 — August 5, 2026** (Claude, at Lisa's direction)
