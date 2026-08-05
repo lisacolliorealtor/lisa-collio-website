@@ -36,7 +36,7 @@ covered by 18 of those rows. **13 rows** name something not present in the repo.
 | Document | Exact path, verified present | Version string inside the file |
 | --- | --- | --- |
 | Master Plan | `docs/approved-copy/V2.15_Website_Master_Plan_Lisa_Collio.md` | v2.15 (§20) |
-| Punch List | `docs/V2.8 Pre Launch Punch List Lisa Collio.md` | "Pre-Launch Punch List — v2.8", 29 July 2026 |
+| Punch List | `docs/V2.9 Pre Launch Punch List Lisa Collio.md` | "Pre-Launch Punch List — v2.9", 5 August 2026 |
 | Audit Checklist | `docs/approved-copy/V1_4_Audit_Checklist_Lisa_Collio.md` | v1.4, 30 July 2026 |
 | CLAUDE.md | `CLAUDE.md` (repo root) | v1.7, 30 July 2026 |
 
@@ -54,8 +54,13 @@ noted so a future rename is a deliberate decision rather than a surprise.
 
 The registry lists the Master Plan (row 1) but not:
 
-- `docs/V2.8 Pre Launch Punch List Lisa Collio.md` — the single open-items
-  record named by a locked standard in §8.
+- `docs/V2.9 Pre Launch Punch List Lisa Collio.md` — the single open-items
+  record named by a locked standard in §8. *(Was v2.8 when this audit ran;
+  bumped to v2.9 later the same day by the branch reconciliation. The version
+  is in the filename and changes with every content bump — which is the
+  argument for registering it version-agnostically, as the punch list's own
+  governing-documents line already does for the Master Plan and the Audit
+  Checklist.)*
 - `docs/approved-copy/V1_4_Audit_Checklist_Lisa_Collio.md` — the document that
   *runs* the Part C Project audit §19 depends on.
 - `CLAUDE.md` — deliberately removed from the Project in July 2026 (the footnote

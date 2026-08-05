@@ -1,5 +1,5 @@
 # CLAUDE.md — lisa-collio-website
-**v1.7 (July 30, 2026)** — see the Revision Log at the end of this file.
+**v1.8 (August 5, 2026)** — see the Revision Log at the end of this file.
 Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
 files. This file defers to the Master Plan; if they ever disagree, the Master Plan
 wins. Deliberately no version number here — hardcoding one let this line go stale
@@ -91,6 +91,20 @@ URL rules: lowercase, hyphens, no dates, consistent trailing slash.
 - Primary CTA: Call or Text (574) 370-5410 (tap-to-call) / ES: "Llame o mande
   un mensaje de texto". Secondary: Schedule a free consultation / "Agende su
   consulta gratis" (GoHighLevel funnel).
+- **Phone phrasing differs by field class, deliberately (Lisa, 5 August 2026) —
+  do NOT unify these.** The CTA forms above are for *on-page* copy. In
+  **description fields** (meta, og, twitter, schema) the settled forms are
+  EN `Call or text (574) 370-5410.` and ES `Llame o escriba al (574)
+  370-5410.` The Spanish CTA form plus the number costs about 50 characters of
+  a 160-character ceiling — nearly a third of the description — so the
+  description form is deliberately shorter, per the description-length priority
+  rule (content wins; drop or shorten the required element, never the
+  substance). Both say the same thing to a Spanish reader; only one fits.
+  Written down because two field classes carrying the same fact in different
+  words is precisely what the Field-Class Compliance Coverage Standard normally
+  tells you to go and unify — this is the documented exception. **A field-class
+  difference with a stated reason is a decision; the same difference without
+  one is drift.**
 - FAQ standard (Lisa, July 2026): target = every page carries a 5-question FAQ
   section; each question answered briefly on-page and hyperlinked to a full
   authority article on the blog. Phase 1 ships the existing approved FAQ/article
@@ -158,12 +172,21 @@ form labels.
 
 ### Single Open-Items Record Standard
 Exactly one open-items/punch-list record exists for this project, lives in
-the repo (`docs/V2.3 Pre Launch Punch List Lisa Collio.md`, or its successor
-filename), and every session updates it in place — no parallel or competing
-tracking document, even temporarily. Diff any edit to it against its
-last-known-good version before committing: a bad string-replace can silently
-delete a section without raising an error, which already happened once to
-this file.
+the repo (`docs/`, always the highest-numbered `… Pre Launch Punch List Lisa
+Collio.md` — version-agnostic, because the pinned filename here had already
+gone six versions stale), and every session updates it in place — no parallel
+or competing tracking document, even temporarily. Diff any edit to it against
+its last-known-good version before committing: a bad string-replace can
+silently delete a section without raising an error, which already happened
+once to this file.
+**Mechanical corollary (added 5 August 2026, from a real incident):** the
+punch list is edited only on a branch that is going to merge, and any branch
+whose PR has already merged is checked for unmerged commits touching the
+punch list before it is retired. Nobody creates a parallel record
+deliberately — `claude/compliance-gaps-copy-fields-scwmod` got one because a
+commit landed on it *after* its PR merged, and `main` then moved on for five
+days. Two files, same name, **same version number**, each holding items the
+other never had. A version in the filename does not protect against this.
 **Scope, clarified (v2.15):** covers repo-trackable, Claude-Code-actionable
 items only — anything with a PR, a file, or a build check behind it. It does
 not extend to the Claude Project's knowledge-base panel, which Claude Code
@@ -503,6 +526,33 @@ overlay functions refuse an out-of-scope slug outright, so the default is clean
 by construction rather than by remembering.
 
 ## REVISION LOG
+
+**v1.8 — August 5, 2026** (Claude, at Lisa's direction)
+- **Recorded the Spanish phone-phrasing field-class ruling** under PAGE
+  STANDARDS. Two Spanish forms now exist by design: `Llame o mande un mensaje
+  de texto` in on-page CTAs, `Llame o escriba al (574) 370-5410.` in
+  description fields. The CTA form costs about 50 characters of a 160-character
+  ceiling, so the description form is deliberately shorter per the
+  description-length priority rule. Written down because this is the exact
+  shape the Field-Class Compliance Coverage Standard would otherwise tell a
+  future session to unify — it is the documented exception to that instinct.
+  Surfaced by the PR #89 meta-description audit, which found the split while
+  confirming the convention was internally consistent across all 51 rewrites.
+- **Added a mechanical corollary to the Single Open-Items Record Standard.**
+  The standard barred a *parallel* record; the incident it did not describe is
+  a record that forks without anyone creating one. A commit landed on
+  `claude/compliance-gaps-copy-fields-scwmod` after its PR merged, `main` moved
+  on, and two punch lists carrying **the same version number** diverged for
+  five days. The corollary: edit the punch list only on a branch that will
+  merge, and check any merged-PR branch for unmerged commits touching it before
+  retiring. Reconciled as punch list v2.9 and the branch retired.
+- **Made this file's own pointer to the punch list version-agnostic.** It named
+  `docs/V2.3 Pre Launch Punch List Lisa Collio.md` while the live file was
+  v2.8 — six versions stale, and the same failure mode v1.3 fixed for the
+  Master Plan citation and v2.8 of the punch list fixed for its own governing
+  line. Now "the highest-numbered `… Pre Launch Punch List Lisa Collio.md` in
+  `docs/`".
+- No identity, architecture, or compliance-rule changes.
 
 **v1.7 — July 30, 2026** (Claude, at Lisa's direction)
 - Added the **bundled-bump rule** to the header, per the Audit Checklist v1.3
