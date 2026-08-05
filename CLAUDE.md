@@ -1,5 +1,5 @@
 # CLAUDE.md — lisa-collio-website
-**v1.9 (August 5, 2026)** — see the Revision Log at the end of this file.
+**v2.0 (August 5, 2026)** — see the Revision Log at the end of this file.
 Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
 files. This file defers to the Master Plan; if they ever disagree, the Master Plan
 wins. Deliberately no version number here — hardcoding one let this line go stale
@@ -151,26 +151,23 @@ or any successor table). No asset ships without its build record.
   sample first, report the real hit rate, then decide whether to run it
   across the full set. Honest partial coverage beats a promised 100% that
   quietly under-delivers.
-- **A repo-scoped review cannot verify a chat incident (added 5 August 2026).**
-  Access to committed artifacts establishes that something **is not in the
-  repo**. It does not establish that it **did not happen**. Where a claim
-  describes an exchange, decision, or correction made in chat, report *"no
-  record in the repo, which does not settle it"* and ask — never report it as
-  unfounded. Earned three times in one pass: reviewing Master Plan v2.16, three
-  real incidents were reported as misstatements on the strength of a grep
-  returning nothing — the Elkhart High School sign legibility exchange (**the
-  origin of the Review-Surface Standard's own 3× figure**), the
-  `/blog/spanish/centro-de-elkhart-indiana/` slug collision that would have
-  overwritten a live published article, and the §2-vs-§8 citation correction.
-  Two lived only in chat; **the third was in the repo and the wrong file was
-  tested for it.**
-  **Why this is a standard and not a note: the correct framing was already in
-  that report.** One finding stated the limit explicitly and then applied it to
-  itself alone, while the other two were reported flatly. **Stating a limit
-  once does not discharge it — it applies to every finding of the same class in
-  the same report.** A confident retraction of a true incident deletes the
-  evidence a standard rests on; here it would have cost the Review-Surface
-  Standard its own origin.
+- **Repo-scoped review (added v2.17).** A review conducted from the repository
+  can establish that something is *not in the repository*. It cannot establish
+  that the thing did not happen — decisions, corrections and incidents occur in
+  chat and may never be written to a file. Report the null result as **"not
+  found in the repo," never as "unfounded,"** and say which artifacts were
+  searched. Two failure modes, both observed when reviewing Master Plan v2.16:
+  - **Testing the wrong artifact.** One incident reported as having no record
+    was in the repo the whole time, in a file the search had not thought to
+    check. The null result was real; the conclusion drawn from it was not.
+  - **Stating a limit once and not applying it.** The same report correctly
+    noted "only committed artifacts can be checked from here" under one
+    finding, and let two others go out flatly as unfounded. Naming a limitation
+    does not discharge it for the rest of the same class in the same report.
+
+  The cost is asymmetric and worth stating plainly: a confident retraction of a
+  true incident deletes the evidence a standard rests on. Here it would have
+  stripped the Review-Surface Standard of its own origin.
 
 ### EN/ES Parity Standard
 Both languages ship in the same PR, verified by a measured count, not an
@@ -659,6 +656,40 @@ overlay functions refuse an out-of-scope slug outright, so the default is clean
 by construction rather than by remembering.
 
 ## REVISION LOG
+
+**v2.0 — August 5, 2026** (Claude, at Lisa's direction)
+**Mirrors Master Plan v2.17**, applied as one bundled bump: v2.17 committed to
+`docs/approved-copy/V2_17_Website_Master_Plan_Lisa_Collio.md`, v2.16 deleted
+(not left alongside it), and this file updated in the same change. v2.17 is a
+correction pass — no new standards, no identity, architecture or compliance-rule
+changes — so this file's substantive content is unchanged apart from the item
+below.
+- **Repo-scoped review clause reconciled to its source, and the Master Plan
+  wording now governs.** v1.9 wrote this clause into CLAUDE.md during the v2.16
+  review, before any Master Plan carried it — leaving the mirror ahead of the
+  document it mirrors, which is precisely backwards for a file whose header says
+  it defers to the plan. v2.17 adds the clause at the source; this file's local
+  wording is replaced by it verbatim. The substance is the same in both: a
+  repository review can establish that something is **not in the repo**, never
+  that it **did not happen**; report the null result as *"not found in the repo,"*
+  never as *"unfounded,"* and say which artifacts were searched. The Master Plan's
+  version states the two failure modes more cleanly — testing the wrong artifact,
+  and stating a limit once without applying it to the rest of its class — so
+  nothing is lost in the swap.
+  **The rule this incident produces, worth stating once:** a lesson learned during
+  a review of a governing document belongs in that document first. Writing it only
+  into the mirror creates a rule with no source, which the next sync can silently
+  overwrite.
+- **Parallel-statement sweep run against this file, per the Field-Class
+  Compliance Coverage Standard** — v2.17's corrections are to claims that could
+  equally have been sitting here. Searched for all of them: "Reference Data Sheet
+  v1.1", "banned-term list", the reviews document as "v2",
+  `Lisa_Collio_Website_Build_Plan_v1_0`, "six approved Goshen source documents",
+  and `Goshen-Cluster-Decisions-and-Photo-List`. **Zero hits for all six** — this
+  file carried none of them. Recorded because a sweep that finds nothing is still
+  a measurement, and the alternative is a future session re-running it.
+- Master Plan cited generically throughout; no version number added anywhere
+  outside this log.
 
 **v1.9 — August 5, 2026** (Claude, at Lisa's direction)
 **Mirrors Master Plan v2.16**, applied as one bundled bump: v2.16 committed to
