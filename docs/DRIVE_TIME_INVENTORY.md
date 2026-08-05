@@ -239,3 +239,143 @@ those stay, since section numbers are the durable part of the reference.
 2. **If B: the number**, and whether the grouped claim keeps a figure.
 3. **The version-citation scope** — the two Elkhart files, or all 15.
 
+
+---
+
+# Addendum — 2 August 2026: Reading A confirmed, rewrites drafted
+
+Lisa's decision: **remove the figures.** Her ground is that no verified number
+exists to correct to — the drive genuinely varies by which part of Goshen you
+start in and which part of Elkhart you are going to, which is *why* the site
+carries three claims rather than one. Picking one and calling it verified would
+manufacture precision the geography does not support.
+
+**Nothing has been changed. This is the rewrite report she asked for.**
+
+## Correction to my own earlier figure
+
+I told her **11** occurrences were in SEO-sensitive fields. **It is 6.**
+Classified properly by field class, the 42 break down as:
+
+| Field class | Count |
+|---|---|
+| Visible body / FAQ copy | 17 |
+| Authoring sources and records | 17 |
+| `llms.txt` (regenerated) | 2 |
+| **Meta description** | **2** |
+| **Schema description** | **2** |
+| **FAQ schema answer** | **2** |
+
+The 11 came from counting every occurrence on the two location-article pages
+rather than the fields that actually render in search results. All six of the
+genuinely SEO-sensitive fields sit on the location article and its Spanish twin.
+Three hub-card blurbs echo the same sentence and are search-visible in practice,
+so they are drafted here too — nine strings needing real wording rather than
+deletion, not six and not eleven.
+
+## The nine strings that need wording, not deletion
+
+Each keeps the question answered and drops the number. **The Chicago figure is
+untouched throughout**, per Lisa.
+
+### `/blog/community/elkhart-indiana-location-nearby-cities/`
+
+**Meta description** and **schema description** (identical strings, lines 11 and 34)
+
+> **Now:** Where is Elkhart, Indiana? Just east of South Bend and Mishawaka, near the Indiana-Michigan line, about 25 minutes from Goshen and 2 hours from Chicago.
+>
+> **Proposed:** Where is Elkhart, Indiana? Just east of South Bend and Mishawaka, near the Indiana-Michigan line, the neighboring city to Goshen and 2 hours from Chicago.
+
+**FAQ schema answer** (line 108) — and its visible twin in the FAQ block
+
+> **Now:** About 25 minutes northeast of Goshen, the Elkhart County seat.
+>
+> **Proposed:** Northeast of Goshen, the Elkhart County seat, and a short drive from it.
+
+### `/blog/spanish/ubicacion-elkhart-indiana-ciudades-cercanas/`
+
+**Meta description** and **schema description** (lines 11 and 34)
+
+> **Now:** ¿Dónde está ubicado Elkhart, Indiana? Justo al este de South Bend y Mishawaka, y a unos 25 minutos en auto al noreste de Goshen, la sede del condado.
+>
+> **Proposed:** ¿Dónde está ubicado Elkhart, Indiana? Justo al este de South Bend y Mishawaka, y al noreste de Goshen, la sede del condado, a poca distancia en carro.
+
+**FAQ schema answer** (line 103) — and its visible twin
+
+> **Now:** A unos 25 minutos al noreste de Goshen, la sede del condado.
+>
+> **Proposed:** Al noreste de Goshen, la sede del condado, a poca distancia en carro.
+
+### Hub cards — `/blog/`, `/blog/community/`, `/blog/spanish/`
+
+> **Now (EN, ×2):** …about 25 minutes from Goshen.
+> **Proposed:** …the neighboring city to Goshen.
+>
+> **Now (ES):** …unos 25 minutos en auto al noreste de Goshen, la sede del condado.
+> **Proposed:** …al noreste de Goshen, la sede del condado, a poca distancia en carro.
+
+**A Fair Housing note on the Spanish wording.** "A poca distancia en carro" is
+deliberately *en carro* — by car. The banned-terms list bars "a poca distancia a
+pie" and "a pie de", and the bare phrase "a poca distancia" reads as
+proximity-by-foot in isolation. Naming the car keeps it a driving distance and
+outside the ambulatory category. If that still reads too close to the banned
+form, "a corta distancia en carro" or simply "al noreste de Goshen, la sede del
+condado" are the fallbacks.
+
+## The other 33 — figure removed, geography kept
+
+| Where | Now | Proposed |
+|---|---|---|
+| `/moving-to-elkhart/` ¶1 + ES twin | "South Bend is about 20 minutes away; Goshen, the county seat, is **another 20 minutes south**" | "South Bend is a short drive; Goshen, the county seat, sits just to the south" |
+| `/living-in-elkhart/` + ES twin | "The county seat is Goshen, **about 20 minutes south**, but Elkhart is the county's largest…" | "The county seat is Goshen, just to the south, but Elkhart is the county's largest…" |
+| employers articles, both languages | "commute to South Bend, Mishawaka, and Goshen, **all within about 20 minutes**" | "commute to South Bend, Mishawaka, and Goshen" |
+| location article body + FAQ, both languages | "about 25 minutes northeast of Goshen" | "northeast of Goshen" |
+| 17 authoring-source occurrences | as above | matched to whatever ships, with a dated as-built note per file |
+
+**The grouped claim is rewritten, not left.** Dropping "all within about 20
+minutes" removes the only place Goshen is folded in with two cities that are
+genuinely closer. Leaving it would keep the contradiction alive in a shape no
+number-based sweep finds — which is the whole reason it is on this list.
+
+## Order of operations
+
+1. **`docs/VERIFIED_FACTS.md` first.** Its Elkhart-location entry currently
+   states 25 minutes and the 20-minute grouping in consecutive sentences under
+   the same two sources. Both figures come out; the entry keeps the geography
+   and records that no single drive-time figure is published because the drive
+   varies by origin and destination within each city.
+2. **Every page checked against that entry** — never page against page.
+3. **All 17 authoring occurrences move with the pages**, each with a dated
+   as-built note. A page corrected while its approved source keeps the figure is
+   build-procedure failure 4, and it is what caused the elementary-schools
+   regression.
+4. **`llms.txt` regenerated** with `npm run llms` — no hand edit.
+5. **`npm run audit` and `npm run check:images`** before the PR opens.
+
+## Version citations — all 15 verified
+
+Every cited section number was checked against **V2.15** rather than assumed.
+
+| Result | Count |
+|---|---|
+| Files carrying a hardcoded `Master Plan v2.8` citation | **15** |
+| Cited section numbers that no longer exist in V2.15 | **0** |
+| Cited section numbers pointing at different content than intended | **0** |
+
+The Master Plan runs §1–§22 in V2.15 and every cited section still resolves to
+the subject the citing file needs — §6 Architecture & URL Map, §7 Bilingual
+Rules, §8 Page Standards, §9 Schema Map, §13 Platform & Workflow, §15 Compliance
+Framework, §17 Reviews & Testimonial Governance, §18 Legal Pages. One file, the
+Bilingual FAQ Playbook, cites the version with no section numbers at all.
+
+**So the section numbers are sound and only the version pin is stale.** Proposed
+treatment for all 15: replace the pinned `v2.8` with the version-agnostic form
+CLAUDE.md already uses — "the highest-numbered Master Plan version in Project
+files" — and keep every `§` reference exactly as written.
+
+## Awaiting Lisa
+
+1. **The nine drafted strings** — six SEO-sensitive fields plus three hub cards.
+2. **The Spanish "a poca distancia en carro" wording**, given how close it sits
+   to a banned form.
+3. Confirmation to proceed on the other 33 and all 15 version citations.
