@@ -1,5 +1,5 @@
 # CLAUDE.md — lisa-collio-website
-**v1.7 (July 30, 2026)** — see the Revision Log at the end of this file.
+**v1.9 (August 5, 2026)** — see the Revision Log at the end of this file.
 Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
 files. This file defers to the Master Plan; if they ever disagree, the Master Plan
 wins. Deliberately no version number here — hardcoding one let this line go stale
@@ -91,6 +91,20 @@ URL rules: lowercase, hyphens, no dates, consistent trailing slash.
 - Primary CTA: Call or Text (574) 370-5410 (tap-to-call) / ES: "Llame o mande
   un mensaje de texto". Secondary: Schedule a free consultation / "Agende su
   consulta gratis" (GoHighLevel funnel).
+- **Phone phrasing differs by field class, deliberately (Lisa, 5 August 2026) —
+  do NOT unify these.** The CTA forms above are for *on-page* copy. In
+  **description fields** (meta, og, twitter, schema) the settled forms are
+  EN `Call or text (574) 370-5410.` and ES `Llame o escriba al (574)
+  370-5410.` The Spanish CTA form plus the number costs about 50 characters of
+  a 160-character ceiling — nearly a third of the description — so the
+  description form is deliberately shorter, per the description-length priority
+  rule (content wins; drop or shorten the required element, never the
+  substance). Both say the same thing to a Spanish reader; only one fits.
+  Written down because two field classes carrying the same fact in different
+  words is precisely what the Field-Class Compliance Coverage Standard normally
+  tells you to go and unify — this is the documented exception. **A field-class
+  difference with a stated reason is a decision; the same difference without
+  one is drift.**
 - FAQ standard (Lisa, July 2026): target = every page carries a 5-question FAQ
   section; each question answered briefly on-page and hyperlinked to a full
   authority article on the blog. Phase 1 ships the existing approved FAQ/article
@@ -137,6 +151,26 @@ or any successor table). No asset ships without its build record.
   sample first, report the real hit rate, then decide whether to run it
   across the full set. Honest partial coverage beats a promised 100% that
   quietly under-delivers.
+- **A repo-scoped review cannot verify a chat incident (added 5 August 2026).**
+  Access to committed artifacts establishes that something **is not in the
+  repo**. It does not establish that it **did not happen**. Where a claim
+  describes an exchange, decision, or correction made in chat, report *"no
+  record in the repo, which does not settle it"* and ask — never report it as
+  unfounded. Earned three times in one pass: reviewing Master Plan v2.16, three
+  real incidents were reported as misstatements on the strength of a grep
+  returning nothing — the Elkhart High School sign legibility exchange (**the
+  origin of the Review-Surface Standard's own 3× figure**), the
+  `/blog/spanish/centro-de-elkhart-indiana/` slug collision that would have
+  overwritten a live published article, and the §2-vs-§8 citation correction.
+  Two lived only in chat; **the third was in the repo and the wrong file was
+  tested for it.**
+  **Why this is a standard and not a note: the correct framing was already in
+  that report.** One finding stated the limit explicitly and then applied it to
+  itself alone, while the other two were reported flatly. **Stating a limit
+  once does not discharge it — it applies to every finding of the same class in
+  the same report.** A confident retraction of a true incident deletes the
+  evidence a standard rests on; here it would have cost the Review-Surface
+  Standard its own origin.
 
 ### EN/ES Parity Standard
 Both languages ship in the same PR, verified by a measured count, not an
@@ -151,19 +185,44 @@ A compliance rule is not enforced project-wide until it has been checked
 against every field class that can render user-facing text. The Fair Housing
 term sweep found violations in alt text (missed for months), then body copy,
 then meta descriptions — three separate passes because each field class was
-checked only after the last one turned up a hit. Enumerate every applicable
-field class before declaring a rule "done": H1, body copy, alt text, meta
-description, og/twitter tags, schema fields, captions, button/CTA text, and
-form labels.
+checked only after the last one turned up a hit.
+**Fourth instance, August 2026 — `og:image:alt`.** Eighteen article pages had
+their visible `<img>` alt corrected while the Open Graph equivalent kept
+describing a photograph replaced days earlier, so the wrong description was
+live on Facebook and LinkedIn as well as on the page — and it survived a merge
+because the fix had been declared done after one field class. The fourth
+instance is the argument for the enumeration, not a footnote to it: each time,
+the rule was correctly applied where the problem was visible, and the parallel
+fields carrying the same content were not checked. **A fix applied to one field
+class is incomplete until the parallel fields are verified, not assumed.**
+Enumerate every applicable field class before declaring a rule "done": H1, body
+copy, alt text, meta description, `og:title`/`og:description`/`og:image:alt`,
+`twitter:` equivalents, schema fields, captions, button/CTA text, and form
+labels. A rule proven on one class is a prototype, not a standard.
 
 ### Single Open-Items Record Standard
 Exactly one open-items/punch-list record exists for this project, lives in
-the repo (`docs/V2.3 Pre Launch Punch List Lisa Collio.md`, or its successor
-filename), and every session updates it in place — no parallel or competing
-tracking document, even temporarily. Diff any edit to it against its
-last-known-good version before committing: a bad string-replace can silently
-delete a section without raising an error, which already happened once to
-this file.
+the repo (`docs/`, always the highest-numbered `… Pre Launch Punch List Lisa
+Collio.md` — version-agnostic, because the pinned filename here had already
+gone six versions stale), and every session updates it in place — no parallel
+or competing tracking document, even temporarily. Diff any edit to it against
+its last-known-good version before committing: a bad string-replace can
+silently delete a section without raising an error, which already happened
+once to this file.
+**Mechanical corollary (added 5 August 2026, from a real incident):** the
+punch list is edited only on a branch that is going to merge, and any branch
+whose PR has already merged is checked for unmerged commits touching the
+punch list before it is retired. Nobody creates a parallel record
+deliberately — `claude/compliance-gaps-copy-fields-scwmod` got one because a
+commit landed on it *after* its PR merged, and `main` then moved on for five
+days. Two files, same name, **same version number**, each holding items the
+other never had. A version in the filename does not protect against this — a
+same-named, same-versioned file at two commits is not caught by "don't create
+a parallel record," it has to be checked for. What that branch held: the only
+description anywhere in a punch list of three live `audit.js` compliance
+checks, and the only record that the sold-listing consent file was an
+inventory rather than a certification. Retiring it unexamined would have
+silently deleted a compliance caveat covering live advertising copy.
 **Scope, clarified (v2.15):** covers repo-trackable, Claude-Code-actionable
 items only — anything with a PR, a file, or a build check behind it. It does
 not extend to the Claude Project's knowledge-base panel, which Claude Code
@@ -171,6 +230,23 @@ has no tool access to check or edit. Project-panel hygiene (catching
 duplicate or superseded files in the Project, confirming the Project's copy
 of a governing document matches the highest version anywhere) is covered
 separately by the Audit Checklist's Part C1, run by Claude in chat.
+
+### Companion Document Registry — scope (Master Plan §19, ruled v2.16)
+The registry covers **every governing and reference document for this project,
+wherever it lives.** Each row carries a Location — Project, Repo, or Both — so
+location drift is visible instead of hidden. A row marked **Both** whose two
+copies disagree is a defect, findable by the Audit Checklist's Part C.
+The ruling exists because the registry said "in the Project" while carrying a
+repo-only row (`docs/VERIFIED_FACTS.md`) and having removed another *for being*
+repo-only (`CLAUDE.md`) — two identical situations, opposite treatments, and as
+a result three of this project's four governing documents had no row anywhere.
+All four now do: the Master Plan, the Punch List, the Audit Checklist, and this
+file. **Three classes are deliberately unregistered, by ruling rather than
+omission** — one-time Claude Code instruction files, session records and dated
+audit reports, and build inputs/machine-read control files (except
+`content/source/rejected-assets.txt`, which a locked standard names directly).
+An unregistered file with no stated reason reads as an oversight to the next
+session; that is how seventy files accumulated outside the registry.
 
 ### Rejected-Asset Standard
 When an asset is ruled out, that ruling is recorded as durably as a Build
@@ -194,6 +270,82 @@ current diff immediately before merge — never trusted from when they were
 first written. Approval attaches to what is actually in the diff at merge
 time, not to an earlier summary of intent, since mid-PR corrections can leave
 a description describing a decision that was later reversed.
+
+### Report-Before-Build Standard (August 2026)
+Every task begins with a report-only reconnaissance step, before anything is
+processed, built, renamed, wired, or committed. In it: state the plan file by
+file and how each decision was derived · confirm every needed input is present
+and **name what is missing rather than inferring or improvising it** · verify
+inputs against live repo state rather than the instructions file (filenames,
+counts, EXIF, whether a target path exists, whether `main` has moved) ·
+surface conflicts, overwrites, and scope expansion proactively · then stop and
+wait for Lisa's sign-off.
+**The standard extends to Lisa's own framing.** Where an instruction conflicts
+with what can be observed in the repo, the observation governs and the conflict
+is reported rather than resolved silently. On the Elkhart batch three chat
+instructions were wrong — a PR reported merged that had not merged (checking
+before force-pushing saved the PR), an alt-text "correction" that would have
+crossed two correct strings, and a proposed audit heuristic measured at an 80%
+false-positive rate. Each was caught by checking rather than complying.
+
+### Source-Repoint Standard (August 2026)
+When a source asset is repointed or replaced **under an existing filename**,
+the pages displaying it change without their HTML changing. That is invisible
+to a diff and to any check comparing markup. Any repoint — `CLEAN_JOBS`,
+`SECTION_JOBS`, `OVERLAY_JOBS`, or a re-upload over an existing filename — is
+followed by verifying that every existing alt attribute, `og:image:alt`,
+caption and description still describes the new image. A repoint here left 18
+article pages showing an Elkhart photograph while telling screen-reader users
+about a backyard deck, and the PR that caused it correctly reported "nothing
+wired to any page." **A change with no diff is still a change.**
+
+### Batch Reconciliation Standard (August 2026; `audit.js` check 22)
+At the close of any batch the arithmetic is verified by **differencing sets**,
+never by trusting a running total: source files − rejections = job-table
+entries = artifacts built. Each equality is a set difference per folder, and
+any file on one side and not the other is named. This project shipped a batch
+reporting "25 processed, 1 rejected" against 27 source files; the missing file
+surfaced only when the source folder was differenced against the job table
+instead of the count being re-read. **A running total is a claim; a set
+difference is a measurement.**
+
+### Review-Surface Standard (August 2026)
+A review surface must be capable of showing what is being reviewed. A contact
+sheet at roughly a third of delivered size under-represents fine detail by
+about 3×, so a reviewer makes confident calls in both directions on evidence
+the surface cannot carry. Contact sheets for any image batch ship **1:1 zoom
+crops of every legible text region** — signage, plaques, wordmarks, lettering
+— beside the delivered-size tiles, each labelled with the pixel dimensions it
+occupies in the delivered file. **"I could not see it on the review surface"
+is not evidence about the artifact. It is evidence about the surface.**
+
+### Alt-Text Correspondence Standard (August 2026; `audit.js` check 23)
+Alt text is verified against the image it belongs to, not only against the
+compliance rules. A string can pass every Fair Housing, business-name and
+identity check while describing a different photograph — an approved string
+reading "a river bend seen from a park bank" belonged to a fairground midway,
+and all three scans passed on it, because each tests **wording** and none tests
+**correspondence**. Two mechanisms: the slug-to-string map ships **with** the
+drafts, not after them, so the reviewer sees each string beside its own image;
+and two artifacts derived from the same source photograph must carry the same
+alt text within a language (check 23, which flags ~2% of image groups).
+A heuristic considered and rejected: flagging any alt string sharing no content
+word with its slug — measured at an 80% false-positive rate, because slugs name
+a slot's *topic* while alt text describes the *depicted subject*. **A noisy
+check gets switched off, which is worse than no check.** Prototype and measure
+before building — the Verification Standard applied to checks themselves.
+
+### Changelog Citation Standard (August 2026)
+A version number inside a changelog, revision log, dated as-built note, or
+historical record is **data, not a pointer** — it records what was true on a
+date and is never genericized or updated. A version number in a live
+cross-reference ("governed by," "drafted per," "see") **is** a pointer, and is
+written version-agnostically so it cannot go stale. The distinction is not
+mechanical and a find-and-replace will not respect it: a sweep here correctly
+genericized 15 live citations and wrongly rewrote changelog entries recording
+which version introduced which rule, destroying the record it was meant to
+protect. Ask whether the number tells the reader *what to consult* (pointer,
+genericize) or *what happened* (data, preserve).
 
 ## ASSETS
 Photos live in assets/images/{lisa, logos, client-reviews, client-general,
@@ -461,11 +613,15 @@ standard, not this one. A Buyers/Sellers-cluster page can legitimately carry the
 cutout twice — once in its hero, once in its featured image. Two rules, two
 scopes.
 
-**Retroactive cleanup is flagged, never auto-applied.** Existing out-of-scope
-images with baked-in text or the cutout are listed in
-`docs/FEATURED_IMAGE_OVERLAY_AUDIT.md` for Lisa's reshoot/re-export decision.
-Do not regenerate a clean image from a text-bearing one without her sign-off on
-the photo itself.
+**Retroactive cleanup is complete — this line previously said otherwise and was
+wrong (corrected 5 August 2026).** `docs/FEATURED_IMAGE_OVERLAY_AUDIT.md` is a
+**closed record**, not a live worklist: it reports zero out-of-scope slugs
+outstanding, and `npm run check:images` confirms it independently — 37 in-scope
+slugs carry a band, 58 out-of-scope carry none, "every variant matches its
+scope." Flagged in Master Plan v2.16 as a disagreement between two documents;
+resolved here in favour of the audit, which the build check corroborates.
+The standing rule still holds for anything **new**: do not regenerate a clean
+image from a text-bearing one without Lisa's sign-off on the photo itself.
 
 #### Templates A/B/C — Buyers/Sellers scope only
 Composited by `scripts/generate-featured-images.py`.
@@ -503,6 +659,74 @@ overlay functions refuse an out-of-scope slug outright, so the default is clean
 by construction rather than by remembering.
 
 ## REVISION LOG
+
+**v1.9 — August 5, 2026** (Claude, at Lisa's direction)
+**Mirrors Master Plan v2.16**, applied as one bundled bump: v2.16 committed to
+`docs/approved-copy/V2_16_Website_Master_Plan_Lisa_Collio.md`, v2.15 deleted
+(not left alongside it), and this file updated in the same change.
+- **Six new locked standards folded in**, all from the Elkhart image programme:
+  Report-Before-Build, Source-Repoint, Batch Reconciliation (`audit.js` check
+  22), Review-Surface, Alt-Text Correspondence (check 23), and Changelog
+  Citation.
+- **Field-Class Compliance Coverage amended** to carry its fourth instance —
+  `og:image:alt` — and its field enumeration expanded to name the `og:` and
+  `twitter:` fields individually rather than as one "og/twitter tags" bucket.
+  The bucket is what let the fourth instance happen.
+- **Single Open-Items Record** gains what its mechanical corollary was missing:
+  what the diverged branch actually held.
+- **Master Plan §19's scope ruling mirrored** as a new subsection — the
+  registry now covers every governing and reference document wherever it lives,
+  with a Location column, and three classes are unregistered by ruling rather
+  than omission. This file has a registry row again for the first time since
+  July.
+- **Corrected a live claim in the Featured image standard.** It said
+  out-of-scope images with baked-in text were "listed for Lisa's
+  reshoot/re-export decision." They are not: the audit reports zero
+  outstanding and `npm run check:images` corroborates it (37 in-scope with a
+  band, 58 out-of-scope clean). v2.16 flagged this as a disagreement between
+  two documents and left it open; resolved here in favour of the audit,
+  because a build check settles it. The v1.5 log entry below still records the
+  49-slug figure that was true when it was written — a changelog is data, per
+  the new Changelog Citation Standard, and is not rewritten.
+- Master Plan cited generically throughout; no version number added anywhere
+  outside this log.
+- **Added to the Verification Standard: a repo-scoped review cannot verify a
+  chat incident.** Reviewing v2.16 against the built record, three real
+  incidents were reported as misstatements because a grep found nothing —
+  including the one that is the Review-Surface Standard's own origin. Two had
+  happened in chat; the third was in the repo, in a file the check never
+  looked at. Lisa supplied the evidence and the three findings were withdrawn.
+  The rule recorded is that absence from the repo is not evidence of absence,
+  and that stating that limit for one finding does not discharge it for the
+  others in the same report.
+- No identity, architecture, or compliance-rule changes.
+
+**v1.8 — August 5, 2026** (Claude, at Lisa's direction)
+- **Recorded the Spanish phone-phrasing field-class ruling** under PAGE
+  STANDARDS. Two Spanish forms now exist by design: `Llame o mande un mensaje
+  de texto` in on-page CTAs, `Llame o escriba al (574) 370-5410.` in
+  description fields. The CTA form costs about 50 characters of a 160-character
+  ceiling, so the description form is deliberately shorter per the
+  description-length priority rule. Written down because this is the exact
+  shape the Field-Class Compliance Coverage Standard would otherwise tell a
+  future session to unify — it is the documented exception to that instinct.
+  Surfaced by the PR #89 meta-description audit, which found the split while
+  confirming the convention was internally consistent across all 51 rewrites.
+- **Added a mechanical corollary to the Single Open-Items Record Standard.**
+  The standard barred a *parallel* record; the incident it did not describe is
+  a record that forks without anyone creating one. A commit landed on
+  `claude/compliance-gaps-copy-fields-scwmod` after its PR merged, `main` moved
+  on, and two punch lists carrying **the same version number** diverged for
+  five days. The corollary: edit the punch list only on a branch that will
+  merge, and check any merged-PR branch for unmerged commits touching it before
+  retiring. Reconciled as punch list v2.9 and the branch retired.
+- **Made this file's own pointer to the punch list version-agnostic.** It named
+  `docs/V2.3 Pre Launch Punch List Lisa Collio.md` while the live file was
+  v2.8 — six versions stale, and the same failure mode v1.3 fixed for the
+  Master Plan citation and v2.8 of the punch list fixed for its own governing
+  line. Now "the highest-numbered `… Pre Launch Punch List Lisa Collio.md` in
+  `docs/`".
+- No identity, architecture, or compliance-rule changes.
 
 **v1.7 — July 30, 2026** (Claude, at Lisa's direction)
 - Added the **bundled-bump rule** to the header, per the Audit Checklist v1.3

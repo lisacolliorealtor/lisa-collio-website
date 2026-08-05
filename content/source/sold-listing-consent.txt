@@ -10,13 +10,15 @@
 # nothing stopped a future page from adding a new "Sold by Lisa Collio, <new
 # address>" caption without anyone confirming consent exists for it.
 #
-# This file does not itself certify that consent is on file — it is the
-# mechanical gate that forces a deliberate decision before a new address can
-# ship in "sold" framing. The 14 addresses below are the ones already live in
-# production (sellers/ + es/vendedores/) as of the July 2026 audit-gap sweep;
-# they are recorded here as a starting inventory, not yet independently
-# re-verified against Lisa's consent records. Confirm consent is on file for
-# each before treating this list as a compliance clearance.
+# CONSENT CONFIRMED — Lisa Collio, 2 August 2026. Lisa has signed written
+# seller consent on file for all 14 addresses below. This list is therefore a
+# compliance clearance, not merely a starting inventory: check 21's gate is
+# backed by actual records.
+#
+# The 14 addresses are the ones live in production (sellers/ + es/vendedores/)
+# as of the July 2026 audit-gap sweep. Check 21 remains the mechanical gate
+# that forces a deliberate decision before any NEW address can ship in "sold"
+# framing.
 #
 # Adding a new address here is a decision, not a formality: confirm written
 # seller consent is on file first.
