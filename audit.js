@@ -773,6 +773,76 @@ function checkIdentityText(raw, f, field, checkName) {
   }
 }
 
+/* 23. Same photo, same language, same alt text ------------------------------
+ * Two <img> elements built from the SAME source photograph must carry the same
+ * alt text within a language. Different derived files, different pages, one
+ * photograph — a screen-reader user hears one description of it, not two.
+ *
+ * This exists because a whole review gate can pass on a string that is about
+ * the wrong picture. An approved alt string for /living-in-elkhart/ read "A
+ * river bend seen from a park bank"; its image is a county fair midway at dusk.
+ * It was compliant, well-formed and describing a different photograph, and the
+ * Fair Housing scan, the business-name scan and the digit check all passed on
+ * it, because every one of them tests WORDING and none tests CORRESPONDENCE.
+ *
+ * The obvious heuristic — "an alt string sharing no content word with its slug"
+ * — was prototyped first and thrown away: measured against the live tree it
+ * flags 212 of 266 images, an 80% false-positive rate. Slugs name the topic of
+ * a slot ("cost-of-living", "known-for", "trade-offs") while alt text describes
+ * the depicted subject, so the two vocabularies differ by design. A check that
+ * cries wolf gets switched off — the same reasoning that scoped checks 17 and
+ * 18. This grouping instead flagged 3 of 138 groups, one of them the real
+ * divergence on the fairground photo.
+ *
+ * Source of truth for "same photograph": SECTION_JOBS and CLEAN_JOBS in
+ * scripts/generate-featured-images.py, which record the source behind every
+ * derived file.
+ */
+{
+  const jobsPath = path.join(ROOT, "scripts", "generate-featured-images.py");
+  if (fs.existsSync(jobsPath)) {
+    const py = read(jobsPath);
+    // derived name -> source photo path, from both job tables
+    const srcOf = new Map();
+    for (const table of ["SECTION_JOBS", "CLEAN_JOBS"]) {
+      const i = py.indexOf(table + " = {");
+      if (i < 0) continue;
+      const blk = py.slice(i, py.indexOf("\n}\n", i));
+      for (const m of blk.matchAll(/^\s{4}"([a-z0-9-]+)":\s*\n\s*\("([^"]+)"/gm)) srcOf.set(m[1], m[2]);
+    }
+    const isEs = (u) => u.startsWith("/es/") || u.startsWith("/blog/spanish/");
+    const seen = new Map();   // `${source} ${lang}` -> Map(alt -> [pages])
+    for (const f of pageFiles) {
+      const s = read(f), u = urlOf(f), lang = isEs(u) ? "es" : "en";
+      for (const m of s.matchAll(
+        /<img[^>]*src="\/assets\/images\/(?:sections|blog-headers)\/([^"]+?)\.(?:jpg|webp)"[^>]*alt="([^"]*)"/g)) {
+        const name = m[1].replace(/-(thumb|header)$/, "");
+        const alt = decode(m[2]).trim();
+        const src = srcOf.get(name);
+        // Skip unmapped names and non-path sources (FROM_COMPOSITE placeholders),
+        // which are not a single photograph and cannot be compared this way.
+        if (!alt || !src || !src.includes("/")) continue;
+        const key = `${src} ${lang}`;
+        if (!seen.has(key)) seen.set(key, new Map());
+        const byAlt = seen.get(key);
+        if (!byAlt.has(alt)) byAlt.set(alt, []);
+        byAlt.get(alt).push(u);
+      }
+    }
+    for (const [key, byAlt] of seen) {
+      if (byAlt.size < 2) continue;
+      const [src, lang] = key.split(" ");
+      const variants = [...byAlt.entries()]
+        .map(([alt, pages]) => `\n        "${alt}"  --  ${[...new Set(pages)].join(", ")}`)
+        .join("");
+      err("alt-consistency",
+        `${src} [${lang}] carries ${byAlt.size} different alt strings. One photograph, ` +
+        `one description per language — if they disagree, at least one is describing ` +
+        `something else:${variants}`);
+    }
+  }
+}
+
 /* ------------------------------------------------------------------------- */
 const group = (list) => {
   const by = {};
