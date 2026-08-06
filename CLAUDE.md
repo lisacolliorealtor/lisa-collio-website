@@ -1,5 +1,5 @@
 # CLAUDE.md — lisa-collio-website
-**v2.0 (August 5, 2026)** — see the Revision Log at the end of this file.
+**v2.1 (August 6, 2026)** — see the Revision Log at the end of this file.
 Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
 files. This file defers to the Master Plan; if they ever disagree, the Master Plan
 wins. Deliberately no version number here — hardcoding one let this line go stale
@@ -113,9 +113,29 @@ URL rules: lowercase, hyphens, no dates, consistent trailing slash.
   (Next Chapter Method, Communities, Market Stats) plus the ES market-stats page.
 - Reading level ~6th grade as a clarity target, never at the cost of natural
   sentence rhythm.
-- Reviews: always verbatim (typos, emojis preserved). Spanish originals on /es/
-  pages; English translations labeled as translated. Names displayed exactly as
-  they appear on Google (per Lisa: "Anidem" and "EliteGodGamer" stay as-is).
+- **Review Language Standard (Master Plan §17, written into the plan in v2.18;
+  locked).** Reviews appear in the reader's language — English reviews on
+  English pages, Spanish reviews on Spanish pages, same as every other page.
+  Where a review's original is in the other language, the translation is used
+  and carries an explicit label naming the source language: a Spanish original
+  on an English page is labeled translated from Spanish; an English original on
+  a Spanish page is labeled translated from English — the rule runs both
+  directions, not Spanish-only. The label sits with the quote, not as a
+  footnote. Originals are always quoted verbatim in their own language;
+  translations are always labeled; neither is ever presented as the other.
+  **Why translation is allowed here and nowhere else:** Volume 37 bars
+  translation for everything Lisa writes — Spanish content is cultural
+  adaptation, never translation. A review is not Lisa's writing; it is a
+  client's factual statement, and the verbatim rule makes altering it
+  impermissible, so translating it with a label is the correct (and only)
+  option — rewriting it culturally would mean rewriting a client's words. The
+  two rules govern different classes of content and do not conflict. This was
+  a real, consistently-applied rule long before v2.18 — it existed only as
+  scattered per-review notes, so sessions kept re-asking Lisa, and one session
+  inferred a stricter rule (Spanish pages may quote Spanish originals *only*)
+  that would have wrongly barred an English-original review from a Spanish
+  page. Names displayed exactly as they appear on Google (per Lisa: "Anidem"
+  and "EliteGodGamer" stay as-is).
 - Client stories other than documented reviews = approved illustrative
   composites, covered by the site-wide footer disclaimer — never invent new ones.
 - Schema per Master Plan §9; AggregateRating 5.0/39 (Google only).
@@ -656,6 +676,28 @@ overlay functions refuse an out-of-scope slug outright, so the default is clean
 by construction rather than by remembering.
 
 ## REVISION LOG
+
+**v2.1 — August 6, 2026** (Claude, at Lisa's direction)
+**Mirrors Master Plan v2.18**, applied as one bundled bump: v2.18 committed to
+`docs/approved-copy/V2_18_Website_Master_Plan_Lisa_Collio.md`, v2.17 deleted
+(not left alongside it), and this file updated in the same change. Checked
+v2.18's own changelog against its count claim before treating it as ground
+truth: it claims two items changed, and the document body carries exactly
+two — no undercount this time.
+- **Review Language Standard folded in (PAGE STANDARDS, replacing the old
+  one-line Reviews bullet).** Written into Master Plan §17 for the first time
+  in v2.18 after existing only as scattered per-review notes; see the expanded
+  bullet above for the full rule and its reasoning.
+- **v2.17's changelog undercount (recorded, not repeated here as new
+  content).** v2.18 corrects its own predecessor's changelog, which described
+  the reviews-version-pointer fix as covering "§9 and §17" when it covered
+  three places, including §8's Images block. This file never mirrored that
+  undercounted line as a standing claim, so nothing here needed correcting —
+  recorded per the Changelog Citation Standard (the correction is data,
+  belonging to the Master Plan's own historical record, not to CLAUDE.md).
+- No identity, architecture, or compliance-rule changes beyond the Review
+  Language Standard itself, which formalizes existing practice rather than
+  changing it.
 
 **v2.0 — August 5, 2026** (Claude, at Lisa's direction)
 **Mirrors Master Plan v2.17**, applied as one bundled bump: v2.17 committed to
