@@ -2,7 +2,8 @@
 /*
  * audit.js — standing site audit, run with `npm run audit`.
  *
- * Codifies the checks in docs/approved-copy/V1_4_Audit_Checklist_Lisa_Collio.md
+ * Codifies the checks in the current Audit Checklist (docs/approved-copy/,
+ * always the highest-numbered `..._Audit_Checklist_Lisa_Collio.md`)
  * (Parts B and the automated-checks appendix) that a machine can settle, so
  * regressions are caught before review instead of during it. Every check here
  * exists because something actually slipped through: a school-count that said
@@ -843,22 +844,36 @@ function checkIdentityText(raw, f, field, checkName) {
   }
 }
 
-/* 24. Master Plan self-reference — §19 row 1's Exact filename cell ----------
+/* 24. Governing-documents self-reference — §19's "Exact filename" column ----
  * The Companion Document Registry's "Governing documents" table (§19) names
- * the Master Plan's own row with no version number by design (Self-reference
- * note, added v2.16) — the version lives in §20 and in the actual filename,
- * not repeated in the table.
+ * no version number in ANY row's Exact filename cell, by design (Version-
+ * agnostic filename note, widened in v2.20) — the version lives in §20 and in
+ * the actual filename, not repeated in the table.
  *
- * v2.16 cleared the version from the Role column and declared the pattern
- * "extinct by construction." It wasn't: the same row's Exact filename column
- * still read `V2_16_Website_Master_Plan_Lisa_Collio.md`, stale through v2.17
- * and v2.18, caught only in v2.19 — the fifth-instance fix never checked the
- * sibling field in its own row. Scoped narrowly on purpose: this checks only
- * §19 row 1's Exact filename cell, not the whole document. Dozens of dated
+ * v2.16 cleared the version from row 1's Role column and declared the
+ * pattern "extinct by construction." It wasn't: row 1's Exact filename
+ * column still read `V2_16_...`, caught only in v2.19 — which fixed row 1
+ * and never checked whether OTHER ROWS in the same column carried the same
+ * defect. They did: v2.19 shipped with row 2 (Pre-Launch Punch List) reading
+ * `V2.9 Pre Launch Punch List Lisa Collio.md` and row 3 (Audit Checklist)
+ * reading `V1_4_Audit_Checklist_Lisa_Collio.md`, caught only in v2.20. The
+ * unit of the fix is the FIELD CLASS — every Exact filename cell in this
+ * one table — not the row where a defect happened to be noticed first.
+ *
+ * Scoped to the 4-row "Governing documents" table only, still on purpose:
+ * §19's OTHER tables ("Website documents," "Added in v2.16," etc.) legitimately
+ * carry dozens of permanently-versioned filenames (e.g.
+ * `V1_0_ES_Adaptation_9_Articles_Wave1_Lisa_Collio.md`) that must never be
+ * flagged — those are correct as named, forever. And dozens of dated
  * "(NEW in v2.4)" / "(added v2.17)" provenance tags are correct throughout
- * the rest of the file (Changelog Citation Standard — a date of introduction
- * is data, not a stale pointer), and a whole-file version-string ban would
- * fail on every one of them.
+ * the rest of the document (Changelog Citation Standard — a date of
+ * introduction is data, not a stale pointer); a whole-file version-string
+ * ban would fail on every one of them.
+ *
+ * Pattern generalized from v2.19's `V2_[0-9]`/`v2\.[0-9]` (hardcoded to "2,"
+ * which is why it would never have caught the Audit Checklist's `V1_4`) to
+ * `\bV\d[_.]\d`, matching both the dot form (`V2.9`) and the underscore form
+ * (`V1_4`).
  */
 {
   const copyDir = path.join(ROOT, "docs", "approved-copy");
@@ -866,22 +881,32 @@ function checkIdentityText(raw, f, field, checkName) {
     ? fs.readdirSync(copyDir).filter((f) => /^V\d.*_Website_Master_Plan_Lisa_Collio\.md$/.test(f))
     : [];
   if (planFiles.length !== 1) {
-    err("master-plan-self-ref",
+    err("governing-docs-self-ref",
       `docs/approved-copy/ contains ${planFiles.length} Master Plan file(s) (expected exactly 1) — ` +
       `check 24 cannot run: ${planFiles.join(", ") || "none found"}`);
   } else {
     const planPath = path.join(copyDir, planFiles[0]);
     const md = read(planPath);
-    const rowMatch = md.match(/^\|\s*Website Master Plan \(this document\)\s*\|([^|]*)\|/m);
-    if (!rowMatch) {
-      err("master-plan-self-ref",
-        `docs/approved-copy/${planFiles[0]}: §19's "Website Master Plan (this document)" row not found — check 24 cannot run`);
+    const tableStart = md.indexOf("## Governing documents");
+    const tableEnd = md.indexOf("## Website documents");
+    if (tableStart < 0 || tableEnd < 0 || tableEnd <= tableStart) {
+      err("governing-docs-self-ref",
+        `docs/approved-copy/${planFiles[0]}: could not locate the §19 "Governing documents" table ` +
+        `(bounded by "## Governing documents" and "## Website documents") — check 24 cannot run`);
     } else {
-      const filenameCell = rowMatch[1].trim();
-      if (/V2_[0-9]/.test(filenameCell) || /v2\.[0-9]/i.test(filenameCell)) {
-        err("master-plan-self-ref",
-          `docs/approved-copy/${planFiles[0]}: §19 row 1's Exact filename cell names a version ` +
-          `("${filenameCell}"), contradicting the Self-reference note beside it that the row names none`);
+      const table = md.slice(tableStart, tableEnd);
+      const rows = [...table.matchAll(/^\|\s*([^|]+?)\s*\|\s*([^|]*?)\s*\|\s*(?:[^|]*\|){2}/gm)]
+        .filter((m) => m[1] !== "**Document**" && !/^-+$/.test(m[1]));
+      if (!rows.length) {
+        err("governing-docs-self-ref",
+          `docs/approved-copy/${planFiles[0]}: §19 "Governing documents" table found but no data rows parsed — check 24 cannot run`);
+      }
+      for (const [, docName, filenameCell] of rows) {
+        if (/\bV\d[_.]\d/.test(filenameCell)) {
+          err("governing-docs-self-ref",
+            `docs/approved-copy/${planFiles[0]}: §19 "${docName}" row's Exact filename cell names a version ` +
+            `("${filenameCell.trim()}"), contradicting the Version-agnostic filename note that no row does`);
+        }
       }
     }
   }

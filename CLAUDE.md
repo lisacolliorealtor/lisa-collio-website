@@ -1,9 +1,9 @@
 # CLAUDE.md — lisa-collio-website
-**v2.2 (August 11, 2026)** — see the Revision Log at the end of this file.
+**v2.3 (August 11, 2026)** — see the Revision Log at the end of this file.
 Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
 files. This file defers to the Master Plan; if they ever disagree, the Master Plan
 wins. Deliberately no version number here — hardcoding one let this line go stale
-while the plan moved on. **Bundled-bump rule (Audit Checklist v1.3):** every Master
+while the plan moved on. **Bundled-bump rule (Audit Checklist):** every Master
 Plan version bump is one unit of work — commit the new version to the repo, delete
 the superseded version, and update CLAUDE.md's citations and mirrored content to
 match, all in the same change. CLAUDE.md going two full versions (v2.12, v2.13)
@@ -676,6 +676,11 @@ overlay functions refuse an out-of-scope slug outright, so the default is clean
 by construction rather than by remembering.
 
 ## REVISION LOG
+
+**v2.3 — August 11, 2026** (Claude, at Lisa's direction)
+**Mirrors Master Plan v2.20**, a single-item bundled bump: v2.20 committed to `docs/approved-copy/V2_20_Website_Master_Plan_Lisa_Collio.md`, v2.19 deleted (not left alongside it), and this file updated in the same change. v2.20 completes the sweep v2.19 started: §19's governing-documents table names no version in any row's Exact filename cell now, not just the Master Plan's own row — the Pre-Launch Punch List and Audit Checklist rows carried the identical defect, the sixth instance of the Field-Class Compliance Coverage Standard and the second in consecutive versions.
+- No live citation in this file needed the same fix — checked every reference to the Punch List and Audit Checklist; all were already version-agnostic or correctly dated history, **except line 6's Audit Checklist v1.3 citation, genericized in this same pass.** That line sat right after this file's own sentence explaining why hardcoding a version here goes stale — leaving it hardcoded one clause later was the same defect this bump exists to fix, one document over.
+- One-time Claude Code instruction files whose batch has merged were deleted per the Master Plan's §19 ruling — all six found in the repo, not just the one first flagged. Full list and per-file verification in the punch list's §B entry for this bump.
 
 **v2.2 — August 11, 2026** (Claude, at Lisa's direction)
 **Mirrors Master Plan v2.19**, a single-item bundled bump: v2.19 committed to `docs/approved-copy/V2_19_Website_Master_Plan_Lisa_Collio.md`, v2.18 deleted (not left alongside it), and this file updated in the same change. v2.19 fixes a defect Claude found in chat while reading v2.18 ahead of its bundled bump, and Claude Code confirmed against the merged file: §19 row 1's Exact filename cell still named `V2_16_...`, four versions stale, directly beneath a self-reference note claiming the row named no version. v2.18's own §20 entry is annotated in place to reflect this (a changelog is data, not rewritten) rather than corrected retroactively.
