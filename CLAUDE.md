@@ -1,5 +1,5 @@
 # CLAUDE.md — lisa-collio-website
-**v2.3 (August 11, 2026)** — see the Revision Log at the end of this file.
+**v2.4 (August 11, 2026)** — see the Revision Log at the end of this file.
 Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
 files. This file defers to the Master Plan; if they ever disagree, the Master Plan
 wins. Deliberately no version number here — hardcoding one let this line go stale
@@ -676,6 +676,10 @@ overlay functions refuse an out-of-scope slug outright, so the default is clean
 by construction rather than by remembering.
 
 ## REVISION LOG
+
+**v2.4 — August 11, 2026** (Claude, at Lisa's direction)
+Pre-Launch Punch List renamed `V2.9 → V2.10 Pre Launch Punch List Lisa Collio.md`, unblocked by Master Plan v2.20 making §19's citation of it version-agnostic. Rename plus a version-history entry in that file, not a content pass — Revision Log entry only, since this file's own citations of the punch list (line 222, and the generic mentions elsewhere) were already version-agnostic and needed no edit. Confirmed by re-checking, not assumed from the last time this was verified.
+- Swept the repo for live pointers to the old filename before renaming: zero found. The two that existed (`audit.js`'s header comment, `scripts/generate-featured-images.py:280`) were already fixed in the v2.20 PR; everything else naming the old filename is dated changelog/audit-report data, correctly left untouched.
 
 **v2.3 — August 11, 2026** (Claude, at Lisa's direction)
 **Mirrors Master Plan v2.20**, a single-item bundled bump: v2.20 committed to `docs/approved-copy/V2_20_Website_Master_Plan_Lisa_Collio.md`, v2.19 deleted (not left alongside it), and this file updated in the same change. v2.20 completes the sweep v2.19 started: §19's governing-documents table names no version in any row's Exact filename cell now, not just the Master Plan's own row — the Pre-Launch Punch List and Audit Checklist rows carried the identical defect, the sixth instance of the Field-Class Compliance Coverage Standard and the second in consecutive versions.
