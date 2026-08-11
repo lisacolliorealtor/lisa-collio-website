@@ -843,6 +843,50 @@ function checkIdentityText(raw, f, field, checkName) {
   }
 }
 
+/* 24. Master Plan self-reference — §19 row 1's Exact filename cell ----------
+ * The Companion Document Registry's "Governing documents" table (§19) names
+ * the Master Plan's own row with no version number by design (Self-reference
+ * note, added v2.16) — the version lives in §20 and in the actual filename,
+ * not repeated in the table.
+ *
+ * v2.16 cleared the version from the Role column and declared the pattern
+ * "extinct by construction." It wasn't: the same row's Exact filename column
+ * still read `V2_16_Website_Master_Plan_Lisa_Collio.md`, stale through v2.17
+ * and v2.18, caught only in v2.19 — the fifth-instance fix never checked the
+ * sibling field in its own row. Scoped narrowly on purpose: this checks only
+ * §19 row 1's Exact filename cell, not the whole document. Dozens of dated
+ * "(NEW in v2.4)" / "(added v2.17)" provenance tags are correct throughout
+ * the rest of the file (Changelog Citation Standard — a date of introduction
+ * is data, not a stale pointer), and a whole-file version-string ban would
+ * fail on every one of them.
+ */
+{
+  const copyDir = path.join(ROOT, "docs", "approved-copy");
+  const planFiles = fs.existsSync(copyDir)
+    ? fs.readdirSync(copyDir).filter((f) => /^V\d.*_Website_Master_Plan_Lisa_Collio\.md$/.test(f))
+    : [];
+  if (planFiles.length !== 1) {
+    err("master-plan-self-ref",
+      `docs/approved-copy/ contains ${planFiles.length} Master Plan file(s) (expected exactly 1) — ` +
+      `check 24 cannot run: ${planFiles.join(", ") || "none found"}`);
+  } else {
+    const planPath = path.join(copyDir, planFiles[0]);
+    const md = read(planPath);
+    const rowMatch = md.match(/^\|\s*Website Master Plan \(this document\)\s*\|([^|]*)\|/m);
+    if (!rowMatch) {
+      err("master-plan-self-ref",
+        `docs/approved-copy/${planFiles[0]}: §19's "Website Master Plan (this document)" row not found — check 24 cannot run`);
+    } else {
+      const filenameCell = rowMatch[1].trim();
+      if (/V2_[0-9]/.test(filenameCell) || /v2\.[0-9]/i.test(filenameCell)) {
+        err("master-plan-self-ref",
+          `docs/approved-copy/${planFiles[0]}: §19 row 1's Exact filename cell names a version ` +
+          `("${filenameCell}"), contradicting the Self-reference note beside it that the row names none`);
+      }
+    }
+  }
+}
+
 /* ------------------------------------------------------------------------- */
 const group = (list) => {
   const by = {};

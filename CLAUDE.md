@@ -1,5 +1,5 @@
 # CLAUDE.md — lisa-collio-website
-**v2.1 (August 6, 2026)** — see the Revision Log at the end of this file.
+**v2.2 (August 11, 2026)** — see the Revision Log at the end of this file.
 Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
 files. This file defers to the Master Plan; if they ever disagree, the Master Plan
 wins. Deliberately no version number here — hardcoding one let this line go stale
@@ -676,6 +676,10 @@ overlay functions refuse an out-of-scope slug outright, so the default is clean
 by construction rather than by remembering.
 
 ## REVISION LOG
+
+**v2.2 — August 11, 2026** (Claude, at Lisa's direction)
+**Mirrors Master Plan v2.19**, a single-item bundled bump: v2.19 committed to `docs/approved-copy/V2_19_Website_Master_Plan_Lisa_Collio.md`, v2.18 deleted (not left alongside it), and this file updated in the same change. v2.19 fixes a defect Claude found in chat while reading v2.18 ahead of its bundled bump, and Claude Code confirmed against the merged file: §19 row 1's Exact filename cell still named `V2_16_...`, four versions stale, directly beneath a self-reference note claiming the row named no version. v2.18's own §20 entry is annotated in place to reflect this (a changelog is data, not rewritten) rather than corrected retroactively.
+- No content, architecture, or compliance-rule change in this file beyond the version bump itself — CLAUDE.md never mirrored the §19 registry table, so nothing here carried the stale citation. Recorded per the Field-Class Compliance Coverage Standard's fifth-instance note: confirmed no sibling field in this file needed the same fix.
 
 **v2.1 — August 6, 2026** (Claude, at Lisa's direction)
 **Mirrors Master Plan v2.18**, applied as one bundled bump: v2.18 committed to
