@@ -277,8 +277,11 @@ def generate_header(house_filename, title, bar_color, lisa_side, out_slug):
 # prestamos-fha-y-usda-en-espanol, and cuanto-vale-mi-casa-elkhart. Their
 # featured images were never regenerated after their H1s were revised, so
 # regenerating from the CURRENT H1 will change the image, not reproduce it.
-# See docs/V2.3 Pre Launch Punch List Lisa Collio.md, section E, for the
-# baked-vs-live title text and the open decision on whether to realign them.
+# See the current Pre-Launch Punch List (docs/, always the highest-numbered
+# "... Pre Launch Punch List Lisa Collio.md") for the baked-vs-live title text
+# and the open decision on whether to realign them — search for
+# "costos-de-cierre-que-son" rather than citing a section letter, which has
+# already moved once since this comment was written.
 OVERLAY_JOBS = {
     "is-goshen-indiana-good-place-to-buy-home":
         ("twilight-exterior-split-level-green-shutters.jpg", 0),   # blue / right
