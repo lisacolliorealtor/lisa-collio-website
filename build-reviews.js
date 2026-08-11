@@ -112,8 +112,9 @@ function poolsFor(lang) {
 const POOLS = { en: poolsFor("en"), es: poolsFor("es") };
 
 // ---- Rendering --------------------------------------------------------------
-function stars() {
-  return `<span class="review-stars" aria-label="5 de 5 estrellas">★★★★★</span>`;
+function stars(lang) {
+  const label = lang === "es" ? "5 de 5 estrellas" : "5 out of 5 stars";
+  return `<span class="review-stars" aria-label="${label}">★★★★★</span>`;
 }
 
 function transLabel(r, lang) {
@@ -135,20 +136,20 @@ function photoCard(r, lang) {
     return `        <figure class="review-card review-card--photoonly">
           <picture><source srcset="${src}.webp" type="image/webp"><img class="review-card__photo" src="${src}.jpg" alt="${alt}" width="800" height="600" loading="lazy"></picture>
           <blockquote></blockquote>
-          <figcaption>${stars()}${esc(r.name)}${src5}</figcaption>
+          <figcaption>${stars(lang)}${esc(r.name)}${src5}</figcaption>
         </figure>`;
   }
   return `        <figure class="review-card">
           <picture><source srcset="${src}.webp" type="image/webp"><img class="review-card__photo" src="${src}.jpg" alt="${alt}" width="800" height="600" loading="lazy"></picture>
           <blockquote>${esc(r.text)}</blockquote>
-          <figcaption>${stars()}${esc(r.name)}${src5}${label}</figcaption>
+          <figcaption>${stars(lang)}${esc(r.name)}${src5}${label}</figcaption>
         </figure>`;
 }
 
 function textCard(r, lang) {
   return `        <figure class="review-card review-card--textonly">
           <blockquote>${esc(r.text)}</blockquote>
-          <figcaption>${stars()}${esc(r.name)}<span class="review-card__note">${esc(r.source)}</span>${transLabel(r, lang)}</figcaption>
+          <figcaption>${stars(lang)}${esc(r.name)}<span class="review-card__note">${esc(r.source)}</span>${transLabel(r, lang)}</figcaption>
         </figure>`;
 }
 
