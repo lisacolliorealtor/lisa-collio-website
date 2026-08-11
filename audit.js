@@ -887,6 +887,77 @@ function checkIdentityText(raw, f, field, checkName) {
   }
 }
 
+/* 25. Screen-reader text matches its page's language ------------------------
+ * aria-label, alt, the title ATTRIBUTE (not the <title> tag), and
+ * .sr-only/.visually-hidden text are read aloud by assistive tech even though
+ * sighted users never see them as body copy — so they carry the same
+ * one-language-per-page obligation as visible text (Master Plan §7), and a
+ * mismatch is invisible to every check that only looks at rendered content.
+ *
+ * Found the way this class of bug usually is here: build-reviews.js's stars()
+ * helper hard-coded aria-label="5 de 5 estrellas" with no lang parameter, so
+ * every English page's star rating read the rating aloud in Spanish — 148
+ * instances across 74 pages, unnoticed because nothing renders an aria-label
+ * visibly and no prior check reads inside one.
+ *
+ * Exactly two strings are exempt, by exact match — the locked bilingual-toggle
+ * badges (Master Plan §7): the "Hablo español" banner on EN pages and the
+ * "English" toggle back on ES pages are the ONLY other-language content the
+ * Master Plan permits on a page, and they are aria-labelled/visible in the
+ * *other* language by design. Nothing else is exempt — a heuristic exemption
+ * (e.g. "contains español") would swallow a genuine future defect that merely
+ * resembles the toggle text.
+ *
+ * The language guess is deliberately conservative: Spanish diacritics/¿/¡ or a
+ * stopword-majority mark a string Spanish; an English-stopword majority marks
+ * it English; anything else (names, numbers, brand terms, short strings with
+ * no function words) is left UNCLASSIFIED and never flagged. This UNDERCOUNTS
+ * rather than over-flags on purpose — checks 17/18/23's history is that a
+ * heuristic which cries wolf gets switched off, which is worse than a gap. A
+ * clean run here is evidence for the strings this check can actually judge,
+ * not a certificate that every screen-reader string on the site is correct.
+ */
+{
+  const EXEMPT_SR_STRINGS = new Set([
+    "Hablo español — ver esta página en español",
+    "English — view this page in English",
+  ]);
+  const ES_WORDS = new Set(["de","del","la","el","en","para","con","sobre","es","son","una","su","sus","al","por","que","los","las"]);
+  const EN_WORDS = new Set(["the","and","of","to","in","for","with","on","is","are","out","close","skip","menu","open","search","main","view","page"]);
+  const ES_CHARS = /[ñÑ¿¡áéíóúÁÉÍÓÚü]/;
+  const guessLang = (s) => {
+    if (ES_CHARS.test(s)) return "es";
+    const words = (s.toLowerCase().match(/[a-záéíóúñ]+/g) || []);
+    let en = 0, es = 0;
+    for (const w of words) { if (EN_WORDS.has(w)) en++; if (ES_WORDS.has(w)) es++; }
+    if (es > en) return "es";
+    if (en > es) return "en";
+    return null; // ambiguous — not classified, never flagged
+  };
+  const FIELDS = [
+    { name: "aria-label", re: /\baria-label="([^"]*)"/g },
+    { name: "alt", re: /\balt="([^"]*)"/g },
+    { name: "title-attr", re: /(?<!<)\btitle="([^"]*)"/g },
+    { name: "sr-only", re: /class="[^"]*(?:sr-only|visually-hidden)[^"]*"[^>]*>([^<]*)</g },
+  ];
+  for (const f of pageFiles) {
+    const s = read(f);
+    const m = s.match(/<html[^>]*\blang="([^"]+)"/);
+    const lang = m ? m[1] : null;
+    if (lang !== "en" && lang !== "es") continue;
+    for (const { name, re } of FIELDS) {
+      for (const match of s.matchAll(re)) {
+        const val = decode(match[1]).trim();
+        if (!val || EXEMPT_SR_STRINGS.has(val)) continue;
+        const guessed = guessLang(val);
+        if (guessed && guessed !== lang)
+          err("sr-lang-mismatch",
+            `${rel(f)} [${name}]: "${val}" reads as ${guessed}, page is lang="${lang}"`);
+      }
+    }
+  }
+}
+
 /* ------------------------------------------------------------------------- */
 const group = (list) => {
   const by = {};
