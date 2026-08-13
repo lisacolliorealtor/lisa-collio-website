@@ -394,6 +394,42 @@ main { flex: 1 0 auto; }
     padding: 0 0 0 var(--space-4);
   }
   .nav-drop__caret { display: none; }
+
+  /* Open-menu reachability fix (live bug since PR #71, July 2026 — found
+     13 August 2026 while investigating an unrelated hero-scroll report;
+     confirmed by measurement that Contact, the last nav item, sat
+     permanently below the fold and did not move when the page was scrolled).
+     .site-header is position:sticky with no height cap of its own, and the
+     checkbox-revealed .site-nav had none either — a sticky element has no
+     internal scroll, so any content below the fold inside it was simply
+     unreachable, not just hard to reach.
+
+     Deliberately NOT a calc(100vh - <bar height>) fix: the "bar" (brand
+     lockup + toggle + badge/CTA) is a different height in each language —
+     188px EN vs 227px ES at 390px width, because the Spanish CTA text wraps
+     to two lines — and would differ again at every future breakpoint or
+     label change. A pixel constant here is exactly the kind of unowned
+     number that goes stale silently.
+
+     Self-adjusting instead: cap the whole open header at the viewport height
+     and let it scroll as ONE unit — brand lockup, toggle, actions and nav
+     list together — so it's correct for any content length in either
+     language with nothing to keep in sync. :has() has shipped in every
+     evergreen mobile browser since 2022; the @supports fallback below covers
+     the remainder by capping the nav list itself at a generous vh fraction
+     (also unitless-safe — no pixel budget to compute). */
+  .site-header:has(.nav-toggle__box:checked) {
+    max-height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  @supports not selector(:has(a)) {
+    .nav-toggle__box:checked ~ .site-nav {
+      max-height: 70vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
 }
 @media (max-width: 860px) {
   .brand-lockup { gap: var(--space-3); }

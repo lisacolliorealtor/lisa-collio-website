@@ -1159,6 +1159,59 @@ for (const f of pageFiles) {
   }
 }
 
+/* 29. Mobile nav open-panel must have a bounded, scrollable escape hatch ----
+ * Real bug, live since PR #71 (July 2026), found 13 August 2026 while
+ * investigating an unrelated hero-scroll report: the checkbox-revealed mobile
+ * menu (`.nav-toggle__box:checked ~ .site-nav`) had no height cap, and its
+ * ancestor `.site-header` is `position: sticky` with no cap of its own either.
+ * A sticky element has no internal scroll — content below the fold inside it
+ * was permanently unreachable, not just hard to reach. Contact, the last item
+ * in the list, was never reachable on a phone. Survived a full site audit and
+ * 27 mechanical checks because every one of them reads HTML/CSS as text; none
+ * render a page and measure it (see the punch-list gap this opens).
+ *
+ * This check is static (text-based, matching every other check in this file)
+ * and is honestly scoped: it verifies the CSS structurally guarantees an
+ * escape hatch exists, which is sufficient ONLY because the shipped fix is
+ * self-adjusting (100vh + auto-scroll can't be defeated by content growth —
+ * no pixel budget to keep in sync as labels or breakpoints change). If a
+ * future change swaps this for a fixed calc(100vh - Npx) approach, this check
+ * could NOT catch that constant being wrong for some breakpoint or label
+ * length — that would need a real rendered-viewport measurement, which is the
+ * separate, deliberately-not-built gap tracked in the punch list.
+ *
+ * Passes if assets/css/site.css contains EITHER:
+ *   (a) a :has(.nav-toggle__box:checked) ancestor rule with a bounded height
+ *       (max-height/height, not "none") AND overflow(-y) auto/scroll, or
+ *   (b) the same two properties set directly on the toggle-revealed panel
+ *       rule (.nav-toggle__box:checked ~ .site-nav).
+ */
+{
+  const cssPath = path.join(ROOT, "assets", "css", "site.css");
+  if (!fs.existsSync(cssPath)) {
+    err("mobile-nav-scroll", "assets/css/site.css is missing — check 29 cannot run");
+  } else {
+    const css = read(cssPath);
+    const hasEscapeHatch = (ruleBody) => {
+      const hasBoundedHeight = /(?:^|[;{])\s*(?:max-height|height)\s*:\s*(?!none\b)[^;}]+/i.test(ruleBody);
+      const hasScroll = /(?:^|[;{])\s*overflow(?:-y)?\s*:\s*(?:auto|scroll)\b/i.test(ruleBody);
+      return hasBoundedHeight && hasScroll;
+    };
+    // Selectors are matched loosely (minified CSS has no guaranteed whitespace)
+    // and bodies captured up to the next top-level "}".
+    const hasAncestorRule = [...css.matchAll(/\.site-header:has\([^)]*\.nav-toggle__box:checked[^)]*\)\s*\{([^}]*)\}/g)]
+      .some((m) => hasEscapeHatch(m[1]));
+    const hasPanelRule = [...css.matchAll(/\.nav-toggle__box:checked\s*~\s*\.site-nav\s*\{([^}]*)\}/g)]
+      .some((m) => hasEscapeHatch(m[1]));
+    if (!hasAncestorRule && !hasPanelRule) {
+      err("mobile-nav-scroll",
+        "assets/css/site.css: the checkbox-revealed mobile nav has no bounded, scrollable escape hatch " +
+        "(neither a :has(.nav-toggle__box:checked) ancestor rule nor the panel rule itself sets a bounded " +
+        "max-height/height together with overflow(-y): auto/scroll) — content below the fold may be unreachable");
+    }
+  }
+}
+
 /* ------------------------------------------------------------------------- */
 const group = (list) => {
   const by = {};
