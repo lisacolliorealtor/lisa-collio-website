@@ -997,8 +997,13 @@ main { flex: 1 0 auto; }
   color: #fff;
   font-weight: 600;
 }
-.hero--photo .hero__sub { color: #c3cce4; }
-.hero--photo .hero__tagline { color: #c3cce4; }
+/* Near-white, not the prior #c3cce4 — Hero Standard §4. Measured: at the lightest
+   scrim stop (38% navy) over a light photo tone, #c3cce4 drops to ~2.4:1 (fails
+   AA); #fff holds ~3.9:1 there and 12–16:1 at the 82% stop where hero__text
+   actually sits. White is the only color with real margin across the whole
+   gradient, not just the zone text happens to occupy today. */
+.hero--photo .hero__sub { color: #fff; }
+.hero--photo .hero__tagline { color: #fff; }
 .hero--photo .btn--secondary { color: #fff; border-color: #fff; }
 .hero--photo .btn--secondary:hover { background: #fff; color: var(--navy-ink); }
 .hero--photo .hero__portrait {
@@ -1017,6 +1022,21 @@ main { flex: 1 0 auto; }
   .hero--photo .hero__text { padding-bottom: var(--space-6); }
   .hero--photo .hero__portrait { max-width: 78%; margin-inline: auto; }
 }
+
+/* ---------- Tier 2 page hero (Hero Standard §2) ----------------------------
+   Same background/scrim/contrast treatment as .hero--photo, no portrait, no
+   grid split. Text column stays LEFT and capped narrow so it sits in the
+   gradient's darkest stop (82% navy) at every viewport width, not the
+   lighter stop on the right where a two-column Tier 1 layout would put a
+   portrait. Breadcrumb and optional meta line reuse the existing
+   .page-hero__breadcrumb / .page-hero__meta classes unchanged — both are
+   standalone-styled (not scoped under .page-hero), so they render identically
+   here. Mobile: unchanged structurally, per the spec — there is no second
+   column to reflow, so nothing extra is needed at the .hero--photo breakpoint
+   already above. */
+.hero--tier2 .wrap { max-width: 780px; }
+.hero--tier2 .hero__text { padding-bottom: var(--space-8); }
+.hero--tier2 .page-hero__breadcrumb { margin-bottom: var(--space-4); }
 
 /* ---------- Review-card variants (no empty photo slots — ever) ------------- */
 /* Text-only quote card: the quotation is the visual focus. */
@@ -1138,6 +1158,10 @@ main { flex: 1 0 auto; }
   .media-row__media { order: -1; }
 }
 .media-row__media img { width: 100%; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md); }
+/* A media-row slot holding more than one image (e.g. Awards & Recognition's
+   trophy-wall photo plus the relocated medal photo) stacks them with the
+   same rhythm as the rest of the page rather than butting them together. */
+.media-row__media > img + img { margin-top: var(--space-4); }
 
 /* Awards & Recognition — Individual and Team lists kept visually distinct
    (NAR Art. 12: personal production must never read as team production). */

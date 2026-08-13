@@ -21,6 +21,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { execFileSync } = require("child_process");
 
 const ROOT = __dirname;
 const IGNORE = new Set([".git", "node_modules", "assets", "docs", "content", "scripts"]);
@@ -978,6 +979,181 @@ function checkIdentityText(raw, f, field, checkName) {
         if (guessed && guessed !== lang)
           err("sr-lang-mismatch",
             `${rel(f)} [${name}]: "${val}" reads as ${guessed}, page is lang="${lang}"`);
+      }
+    }
+  }
+}
+
+/* 26. Placeholder hero image — WARNING, not ERROR, on purpose -------------
+ * Hero Standard v1.0: no real hero photographs exist yet for any of the
+ * twelve hero slots (Home + 11 Tier 2 pages). Every one currently points at
+ * assets/images/hero/_placeholder.jpg so the component build could ship
+ * before Lisa's photography does — this PR's whole purpose is to put that
+ * placeholder live, so a hard fail here would break the very run that's
+ * supposed to ship it.
+ *
+ * Two independent signals are checked, not one, so a rename alone can't hide
+ * a placeholder that's about to go to production: the filename (the
+ * leading-underscore convention already used elsewhere in this repo for
+ * dev/throwaway assets) AND the data-hero-placeholder="true" attribute on
+ * the <section>. Either signal present without the other is itself flagged —
+ * that mismatch means someone edited one and not the other, which is exactly
+ * the kind of drift this check exists to catch.
+ *
+ * This check stays WARNING-level for this PR by Lisa's ruling (12 August
+ * 2026: "WARNING now, blocking before launch"). Flipping it to an ERROR is
+ * tracked as a pre-launch punch list item — do not flip it here without that
+ * sign-off; a silent severity change would defeat the point of asking first.
+ */
+for (const f of pageFiles) {
+  const s = read(f);
+  for (const m of s.matchAll(/<section class="hero[^"]*"[^>]*>/g)) {
+    const tag = m[0];
+    const hasPlaceholderImg = /_placeholder\.(jpg|webp)/.test(tag);
+    const hasPlaceholderAttr = /data-hero-placeholder="true"/.test(tag);
+    if (hasPlaceholderImg && hasPlaceholderAttr) {
+      warn("hero-placeholder", `${rel(f)}: hero still on the placeholder photo — real photography pending`);
+    } else if (hasPlaceholderImg !== hasPlaceholderAttr) {
+      warn("hero-placeholder", `${rel(f)}: placeholder signals disagree (filename=${hasPlaceholderImg}, attribute=${hasPlaceholderAttr}) — fix whichever one didn't get updated`);
+    }
+  }
+}
+
+/* 27. Fair Housing terms in hero copy ---------------------------------------
+ * Hero Standard v1.0 extends the Fair Housing term ban to hero copy: the
+ * headline (.hero__promise) and the supporting line / H1 (.hero__identity)
+ * are advertising copy at the top of the page, the same class of text check
+ * 18 already guards in meta/schema descriptions — and the alt-text history
+ * behind check 17 ("a quiet Goshen street" reaching production because
+ * nothing scoped to that field class existed yet) is exactly the risk here:
+ * a banned term in a hero headline would be the single most prominent
+ * instance of it on the page.
+ *
+ * Reuses content/source/fair-housing-terms.txt (the same list checks 17
+ * and this share) rather than a second copy that could drift from it.
+ * Scoped to the two hero text fields specifically, not the whole hero
+ * section, so it doesn't fire on breadcrumb labels, meta lines, or CTA
+ * button text — none of which is the kind of descriptive copy this list
+ * targets.
+ */
+{
+  const listPath = path.join(ROOT, "content", "source", "fair-housing-terms.txt");
+  if (!fs.existsSync(listPath)) {
+    err("fair-housing-hero", "content/source/fair-housing-terms.txt is missing — check 27 cannot run");
+  } else {
+    const terms = read(listPath)
+      .split("\n")
+      .map((l) => l.trim())
+      .filter((l) => l && !l.startsWith("#"))
+      .map((l) => {
+        const [cat, term] = l.split("|").map((x) => x.trim());
+        return { cat, term };
+      });
+    const FIELDS = [
+      { name: "hero__promise", re: /<p class="hero__promise">([\s\S]*?)<\/p>/g },
+      { name: "hero__identity", re: /<h1 class="hero__identity">([\s\S]*?)<\/h1>/g },
+    ];
+    for (const f of pageFiles) {
+      const s = read(f);
+      for (const { name, re } of FIELDS) {
+        for (const m of s.matchAll(re)) {
+          const text = strip(m[1]);
+          if (!text.trim()) continue;
+          for (const { cat, term } of terms) {
+            const termRe = new RegExp(`(^|[^\\p{L}])${term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}([^\\p{L}]|$)`, "iu");
+            if (termRe.test(text))
+              err("fair-housing-hero",
+                `${rel(f)} [${name}]: hero copy contains "${term}" (${cat}) — "${text.slice(0, 90)}"`);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 28. Hero image contrast — mechanical WCAG AA sampler ----------------------
+ * Hero Standard v1.0 §4 requires 4.5:1 contrast between hero text and the
+ * photo behind it. This measures it directly from the actual image file
+ * instead of trusting a photo "looks dark enough" — the failure mode this
+ * exists for is a real photograph landing in a hero slot that turns out too
+ * light where the text sits, caught only after Lisa has already shot all
+ * twelve. Runs against the placeholder today (which is deliberately dark)
+ * and against every real photo as it replaces one.
+ *
+ * Samples the LEFT 40% of the image — the zone under .hero__text / the Tier
+ * 2 .wrap, which sits inside the gradient's 0%-52% span (the 82%-opacity
+ * navy stop), not the lighter 100% stop on the right where a Tier 1 portrait
+ * sits. See scripts/hero-contrast-sample.py for the full reasoning; this is
+ * the same zone correction behind the .hero__sub / .hero__tagline color fix
+ * in this same PR. Blends the sampled average color with the .hero--photo
+ * scrim (rgba(0,6,46,.82)) — the same math the gradient itself performs — to
+ * get the color actually rendered, then computes contrast against the hero
+ * text color, which is #fff everywhere under .hero--photo (verified: every
+ * .hero__promise / .hero__identity / .hero__sub / .hero__tagline rule under
+ * .hero--photo in site.css sets color: #fff, no exceptions).
+ *
+ * Requires python3 + Pillow, the same dependency scripts/generate-featured-
+ * images.py and scripts/check-image-scope.py already carry — not a new one
+ * introduced here. If the sampler can't run (missing interpreter, missing
+ * Pillow, missing image file), that is reported as its own error rather than
+ * silently skipped, since a check that can't run isn't evidence of anything.
+ */
+{
+  const SCRIM = { r: 0, g: 6, b: 46 };
+  const SCRIM_ALPHA = 0.82;
+  const relLuminance = ({ r, g, b }) => {
+    const chan = (v) => {
+      const c = v / 255;
+      return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+    };
+    return 0.2126 * chan(r) + 0.7152 * chan(g) + 0.0722 * chan(b);
+  };
+  const contrastRatio = (c1, c2) => {
+    const l1 = relLuminance(c1), l2 = relLuminance(c2);
+    const [lighter, darker] = l1 > l2 ? [l1, l2] : [l2, l1];
+    return (lighter + 0.05) / (darker + 0.05);
+  };
+  const WHITE = { r: 255, g: 255, b: 255 };
+  const samplerPath = path.join(ROOT, "scripts", "hero-contrast-sample.py");
+  const seen = new Set(); // one sample per unique image, not per page that uses it
+  for (const f of pageFiles) {
+    const s = read(f);
+    for (const m of s.matchAll(/<section class="hero[^"]*"[^>]*style="--hero-img:url\('([^']+)'\)"/g)) {
+      const url = m[1];
+      if (seen.has(url)) continue;
+      seen.add(url);
+      const imgPath = path.join(ROOT, url.replace(/^\//, ""));
+      if (!fs.existsSync(imgPath)) {
+        err("hero-contrast", `${rel(f)}: --hero-img "${url}" does not exist on disk — check 28 cannot sample it`);
+        continue;
+      }
+      if (!fs.existsSync(samplerPath)) {
+        err("hero-contrast", `scripts/hero-contrast-sample.py is missing — check 28 cannot run`);
+        continue;
+      }
+      let sample;
+      try {
+        const out = execFileSync("python3", [samplerPath, imgPath], { encoding: "utf8" });
+        sample = JSON.parse(out);
+      } catch (e) {
+        err("hero-contrast", `${url}: contrast sampler failed to run (${e.message.split("\n")[0]}) — check 28 cannot verify this image`);
+        continue;
+      }
+      if (sample.error) {
+        err("hero-contrast", `${url}: contrast sampler could not read this image (${sample.error})`);
+        continue;
+      }
+      const blended = {
+        r: sample.r * (1 - SCRIM_ALPHA) + SCRIM.r * SCRIM_ALPHA,
+        g: sample.g * (1 - SCRIM_ALPHA) + SCRIM.g * SCRIM_ALPHA,
+        b: sample.b * (1 - SCRIM_ALPHA) + SCRIM.b * SCRIM_ALPHA,
+      };
+      const ratio = contrastRatio(blended, WHITE);
+      if (ratio < 4.5) {
+        err("hero-contrast",
+          `${url}: hero text zone contrast is ${ratio.toFixed(2)}:1 against white text (needs 4.5:1) — ` +
+          `sampled RGB(${sample.r.toFixed(0)},${sample.g.toFixed(0)},${sample.b.toFixed(0)}), ` +
+          `blended with the scrim to RGB(${blended.r.toFixed(0)},${blended.g.toFixed(0)},${blended.b.toFixed(0)})`);
       }
     }
   }
