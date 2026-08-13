@@ -1,0 +1,57 @@
+# Licensed / provenance-confirmed image assets — positive record.
+#
+# Companion to content/source/rejected-assets.txt: that file records what is
+# banned; this one records what is legitimately licensed or authorized, so a
+# future provenance check has an allowlist to consult before flagging an
+# asset on missing or foreign EXIF alone. Proposed in
+# docs/approved-copy/V1_0_Hero_Standard_Lisa_Collio.md §5 (positive-provenance
+# record) and created 13 August 2026 for the Hero Standard photo build, the
+# first batch to actually need it.
+#
+# Format: one entry per asset, with these fields:
+#   FILE:            path relative to repo root
+#   PHOTOGRAPHER:    who took it
+#   LICENSE:         what right Lisa has to publish it
+#   LICENSE ON FILE: where the license/agreement itself is kept (not this repo
+#                    — Lisa's own records; not digitized here)
+#   EXIF NOTE:       explains missing/foreign camera metadata so a future
+#                    check does not mistake it for a rejection signal
+#
+# ---------------------------------------------------------------------------
+
+FILE: assets/images/hero/home.jpg
+PHOTOGRAPHER: Lisa Collio (own listing photography)
+LICENSE: Lisa's own photo; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: Camera metadata stripped (no Make/Model/DateTime). Confirmed by
+  Lisa, 13 August 2026, as her own listing photo — the missing EXIF is
+  expected for this file and is NOT a rejection signal.
+
+FILE: assets/images/hero/buyers.jpg
+PHOTOGRAPHER: Lisa Collio (own listing photography)
+LICENSE: Lisa's own photo; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: Camera metadata stripped (no Make/Model/DateTime). Confirmed by
+  Lisa, 13 August 2026, as her own listing photo — the missing EXIF is
+  expected for this file and is NOT a rejection signal.
+  Same property as next-chapter-method.jpg below (Lisa confirmed, 13 August
+  2026) — the same listing's exterior appears in both hero slots.
+
+FILE: assets/images/hero/next-chapter-method.jpg
+PHOTOGRAPHER: Lisa Collio (own listing photography)
+LICENSE: Lisa's own photo; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: Camera metadata stripped (no Make/Model/DateTime). Confirmed by
+  Lisa, 13 August 2026, as her own listing photo — the missing EXIF is
+  expected for this file and is NOT a rejection signal.
+  Same property as buyers.jpg above.
+
+FILE: assets/images/homes-elkhart/1765-n-bay-drive-elkhart-in-46514/twilight-front-1.jpg
+PHOTOGRAPHER: Third-party photographer, hired by Lisa
+LICENSE: Lisa holds the license from the photographer and the sellers'
+  agreement for this property (1765 N Bay Drive, Elkhart — also see
+  content/source/sold-listing-consent.txt, already listed)
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: Camera metadata present but names a camera that is not Lisa's
+  (Nikon D7500) — expected for this file, since it was shot by a hired
+  photographer, and is NOT a rejection signal.
