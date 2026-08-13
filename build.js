@@ -36,6 +36,13 @@ const DEFAULTS = {
   esHref: "/es/", // "Hablo español" badge target; overridden per page via marker JSON
   enHref: "/",    // "English" badge target on /es/ pages
   blogHref: "/blog/", // footer Blog link; ES pages override to /blog/spanish/
+  // Hero Standard build (August 2026): every Tier 2 hero defaults to the
+  // shared placeholder — no real photographs exist yet. Both are overridden
+  // per page, one at a time, as each page's real photo lands (HERO_JOBS
+  // records which). Never edit these two defaults to point at a real photo —
+  // that would silently "finish" every page still on the placeholder.
+  heroImg: "/assets/images/hero/_placeholder.jpg",
+  placeholderAttr: 'data-hero-placeholder="true"',
 };
 
 // Directories never scanned for pages.
