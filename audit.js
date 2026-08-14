@@ -984,13 +984,17 @@ function checkIdentityText(raw, f, field, checkName) {
   }
 }
 
-/* 26. Placeholder hero image — WARNING, not ERROR, on purpose -------------
- * Hero Standard v1.0: no real hero photographs exist yet for any of the
- * twelve hero slots (Home + 11 Tier 2 pages). Every one currently points at
- * assets/images/hero/_placeholder.jpg so the component build could ship
- * before Lisa's photography does — this PR's whole purpose is to put that
- * placeholder live, so a hard fail here would break the very run that's
- * supposed to ship it.
+/* 26. Placeholder hero image — ERROR (flipped from WARNING 13 August 2026) -
+ * Hero Standard v1.0: originally every one of the twelve hero slots (Home +
+ * 11 Tier 2 pages) pointed at assets/images/hero/_placeholder.jpg, so this
+ * check shipped as a WARNING (12 August 2026 ruling) rather than break the
+ * build whose whole purpose was to ship that placeholder.
+ *
+ * All twelve real photographs landed 13 August 2026 (Phase 1 of the Hero
+ * Standard photo build) — the condition the punch list recorded for the
+ * flip ("once every one of the twelve hero photos above has actually
+ * landed") is met, so this is now a hard fail: a real hero regressing back
+ * to the placeholder is a shipped defect, not expected drift.
  *
  * Two independent signals are checked, not one, so a rename alone can't hide
  * a placeholder that's about to go to production: the filename (the
@@ -999,11 +1003,6 @@ function checkIdentityText(raw, f, field, checkName) {
  * the <section>. Either signal present without the other is itself flagged —
  * that mismatch means someone edited one and not the other, which is exactly
  * the kind of drift this check exists to catch.
- *
- * This check stays WARNING-level for this PR by Lisa's ruling (12 August
- * 2026: "WARNING now, blocking before launch"). Flipping it to an ERROR is
- * tracked as a pre-launch punch list item — do not flip it here without that
- * sign-off; a silent severity change would defeat the point of asking first.
  */
 for (const f of pageFiles) {
   const s = read(f);
@@ -1012,9 +1011,9 @@ for (const f of pageFiles) {
     const hasPlaceholderImg = /_placeholder\.(jpg|webp)/.test(tag);
     const hasPlaceholderAttr = /data-hero-placeholder="true"/.test(tag);
     if (hasPlaceholderImg && hasPlaceholderAttr) {
-      warn("hero-placeholder", `${rel(f)}: hero still on the placeholder photo — real photography pending`);
+      err("hero-placeholder", `${rel(f)}: hero still on the placeholder photo — real photography pending`);
     } else if (hasPlaceholderImg !== hasPlaceholderAttr) {
-      warn("hero-placeholder", `${rel(f)}: placeholder signals disagree (filename=${hasPlaceholderImg}, attribute=${hasPlaceholderAttr}) — fix whichever one didn't get updated`);
+      err("hero-placeholder", `${rel(f)}: placeholder signals disagree (filename=${hasPlaceholderImg}, attribute=${hasPlaceholderAttr}) — fix whichever one didn't get updated`);
     }
   }
 }
