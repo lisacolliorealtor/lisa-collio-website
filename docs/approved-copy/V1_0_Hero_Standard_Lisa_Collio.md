@@ -87,7 +87,9 @@ Tier 3's detailed treatment is **deferred** — it is a distinct build touching 
 
 The current homepage background is 1600×1067, already thin for a full-bleed background on a wide monitor. CSS `cover` will upscale past it and soften.
 
-**There is no focal-point control on this slot.** Unlike the section-image pipeline's `focal_y`, the hero background crops dead-centre at every viewport. An off-centre subject will be cut on some screens with no way to bias it.
+**Focal-point control (added 17 August 2026).** The hero background now supports `--hero-focal-x` / `--hero-focal-y` custom properties on `.hero--photo` (`assets/css/src/site.css`), set per page via `build.js` marker JSON (Tier 2) or inline style (Home/Tier 1) — same pattern as `--hero-img`. Both default to `50%`, reproducing the old dead-centre crop exactly, so no existing page changes unless it opts in.
+
+**The cropping axis flips between viewports — this is the non-obvious part.** `background-size: cover` crops whichever axis the container overflows on relative to the source photo's own aspect ratio. For Tier 2's current photos: at desktop, containers are wider-than-tall relative to the source, so `cover` crops **height** and `--hero-focal-y` is what controls framing. At mobile, the same containers are narrower-than-tall relative to the same photos, so `cover` crops **width** instead, and it is `--hero-focal-x` doing the work — `-y` has no visible effect there. A "crop up" or "crop down" instruction only addresses the desktop view unless a matching `-x` value is chosen too. Always consider both axes when setting a focal value, not just the vertical language used to describe the requested change. (This finding drove the 17 August focal-point build across seven pages — see the punch list for the specific values and their reasoning.)
 
 Consequences for shooting:
 

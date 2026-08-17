@@ -43,6 +43,14 @@ const DEFAULTS = {
   // that would silently "finish" every page still on the placeholder.
   heroImg: "/assets/images/hero/_placeholder.jpg",
   placeholderAttr: 'data-hero-placeholder="true"',
+  // Focal-point control (13 August 2026): 50%/50% reproduces the old
+  // hardcoded "center" behavior exactly, so any page that doesn't set these
+  // is unaffected. Always rendered (never omitted) so --hero-focal-x/-y is
+  // never declared with an empty value, which would defeat the CSS
+  // var(..., 50%) fallback by making the property "set but blank" instead
+  // of genuinely unset.
+  heroFocalX: "50%",
+  heroFocalY: "50%",
 };
 
 // Directories never scanned for pages.

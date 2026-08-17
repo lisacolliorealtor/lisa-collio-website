@@ -1010,14 +1010,31 @@ main { flex: 1 0 auto; }
 /* ---------- Photographic homepage hero ------------------------------------ */
 /* Page sets the image via a custom property:
      <section class="hero hero--photo" style="--hero-img:url(...)">
-   Dark navy gradient guarantees WCAG-AA white text over any photo. */
+   Dark navy gradient guarantees WCAG-AA white text over any photo.
+
+   Focal-point control (added 13 August 2026): --hero-focal-x / --hero-focal-y
+   default to 50% (the old hardcoded "center" behavior) so no page changes
+   unless it opts in via its own inline style, same pattern as --hero-img.
+   Adjusting framing is a CSS-variable edit, never a re-crop of the file.
+
+   IMPORTANT — the axis that actually does the cropping FLIPS between
+   viewports, because background-size:cover crops whichever axis the
+   container overflows on relative to the source photo's own aspect ratio:
+   at desktop, Tier 2 containers are wider-than-tall relative to these
+   photos, so cover crops HEIGHT and --hero-focal-y is what's doing the
+   work. At mobile, the same containers are narrower-than-tall relative to
+   the same photos, so cover crops WIDTH instead, and it's --hero-focal-x
+   that determines what survives — -y has no visible effect there. "Crop
+   up" is a desktop-only instruction unless a matching -x value is set too;
+   assume both axes need a value considered, not just the one "up/down"
+   language describes. */
 .hero--photo {
   background-color: var(--navy-ink); /* fallback while/if the photo doesn't load */
   background-image:
     linear-gradient(to right, rgba(0, 6, 46, 0.82) 0%, rgba(0, 6, 46, 0.66) 52%, rgba(0, 6, 46, 0.38) 100%),
     var(--hero-img);
   background-size: cover;
-  background-position: center;
+  background-position: var(--hero-focal-x, 50%) var(--hero-focal-y, 50%);
   padding-block: var(--space-8) 0;
 }
 .hero--photo .hero__grid { align-items: end; }
@@ -1071,7 +1088,16 @@ main { flex: 1 0 auto; }
    column to reflow, so nothing extra is needed at the .hero--photo breakpoint
    already above. */
 .hero--tier2 .wrap { max-width: 780px; }
-.hero--tier2 .hero__text { padding-bottom: var(--space-8); }
+/* Height increase, approved by Lisa 13 August 2026 after the placeholder-era
+   measurement showed Tier 2 rendering at 423px mobile / 376px desktop — read
+   as "cramped." Measured before shipping, not guessed: this pair
+   (padding-block 7rem top + padding-bottom 8rem) renders 551px mobile / 488px
+   desktop, verified with Playwright against the real component, identical
+   whether the background is a placeholder or a real photo (padding-driven,
+   not image-driven). Still well short of Tier 1's Home hero (967/716),
+   deliberately — Tier 2 carries no portrait to fill that height with. */
+.hero--tier2 { padding-block: 7rem 0; }
+.hero--tier2 .hero__text { padding-bottom: 8rem; }
 .hero--tier2 .page-hero__breadcrumb { margin-bottom: var(--space-4); }
 
 /* ---------- Review-card variants (no empty photo slots — ever) ------------- */
