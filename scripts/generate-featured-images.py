@@ -931,6 +931,15 @@ def build_section_jobs():
 # reproducible: 50 of 52 jobs regenerate byte-for-byte.
 FROM_COMPOSITE = "<from-composite>"
 
+# Sentinel for a job whose source photo was deleted for cause (a rejected-
+# assets.txt ruling) and must never be re-fetched or re-derived from, even
+# though the already-built -header/-thumb/.webp files on disk are correct and
+# stay live. build_clean_jobs() skips these with a printed note instead of
+# crashing on a missing file. See each entry's own comment for which ruling
+# and why this one specific job's delivered output was checked and found
+# clean despite the source being gone.
+SOURCE_DELETED = "<source-deleted>"
+
 
 def generate_clean_from_composite(out_slug, thumb=True):
     """Rebuild a clean image from the photo region of an existing Template B
@@ -961,7 +970,11 @@ CLEAN_JOBS = {
     "why-clients-choose-lisa-collio":
         ("assets/images/lisa/lisa-collio-headshot-remax-branded.jpg", 0.58, None),
     "what-is-it-like-to-work-with-lisa-collio":
-        ("assets/images/lisa/lisa-collio-open-house-flag-summer.jpg", 0.45, None),
+        ("assets/images/lisa/lisa-collio-open-house-flag-summer.jpg", 0.45, (0.0, 0.0, 1.0, 0.75)),
+        # crop_box added 18 Aug 2026: the source's yard sign carries the banned
+        # number 574-975-0141 in its bottom blue bar (source y ~77-79%). This
+        # excludes the bottom quarter of the source entirely, well clear of it,
+        # verified against the delivered 1200x630 output below.
 
     # --- Group 1: Template A house photos, source already clean in homes-general/
     "buying-an-older-home-in-elkhart-indiana":
@@ -1051,7 +1064,17 @@ CLEAN_JOBS = {
     "why-lisa-collio-became-real-estate-agent":
         ("assets/images/lisa/lisa-collio-holiday-lights-portrait-2.jpg", 0.30, None),
     "moving-to-goshen-indiana-from-out-of-state":
-        ("assets/images/lisa/lisa-collio-for-sale-sign-summer.jpg", 0.35, None),
+        (SOURCE_DELETED, 0.35, None),
+        # Source was assets/images/lisa/lisa-collio-for-sale-sign-summer.jpg,
+        # DELETED 17 Aug 2026 (content/source/rejected-assets.txt Ruling 4):
+        # the same yard sign carries the banned number 574-975-0141, but in a
+        # DIFFERENT spot than the what-is-it-like-to-work-with-lisa-collio job
+        # above -- checked directly against this job's own delivered output at
+        # this focal_y (0.35), not assumed from the other job's crop: the
+        # number sits below this frame's bottom edge, not in it. Delivered
+        # -header/-thumb/.webp files on disk are correct and unaffected by the
+        # source deletion. Not reproducible by --clean until Lisa supplies a
+        # replacement source under this same job entry.
     # These two were framed by hand in the original composite. Rather than guess
     # the crop, take the photo region straight out of the Template B composite:
     # in B the colour band sits BELOW the photo and never overlaps it, so that
@@ -1090,6 +1113,9 @@ def build_clean_jobs():
     for slug, (src, focal_y, crop_box) in CLEAN_JOBS.items():
         if src is FROM_COMPOSITE or src == FROM_COMPOSITE:
             print(generate_clean_from_composite(slug))
+        elif src is SOURCE_DELETED or src == SOURCE_DELETED:
+            print(f"{slug}: skipped, source deleted for cause (see job comment) "
+                  f"-- delivered files on disk unchanged")
         else:
             print(generate_clean(src, slug, focal_y=focal_y, crop_box=crop_box))
 
