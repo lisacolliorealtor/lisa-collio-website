@@ -90,3 +90,35 @@ goshen-moving-cta-closing | ruling 1, 29 Jul 2026: not Lisa's photography
 goshen-moving-location-commute | ruling 1, 29 Jul 2026: not Lisa's photography
 goshen-moving-faq-moving-from-out-of-state | ruling 1, 29 Jul 2026: not Lisa's photography
 elkhart-moving-elkhart-or-goshen | ruling 3, 2 Aug 2026: Lisa's photo, rejected for identifiable minors with no release and for familial status on a where-should-I-live comparison page
+
+# ---------------------------------------------------------------------------
+# RULING 4 (Lisa, 17 August 2026) — banned phone number 574-975-0141 baked
+# into a yard-sign photo, legible. CLAUDE.md's standing rule: delete this
+# number on sight. Found by sweeping the whole class of filenames ("sign",
+# "banner", "flag", "graphic", "courthouse", "listing") after one instance
+# was reported, not by chasing the one file alone.
+#
+# DIFFERENT MECHANISM FROM RULINGS 1-3 ABOVE: these six are not manifest
+# slugs any job table ever produced an output for under this filename, so
+# audit.js check 15 (which matches PAGE REFERENCES to a slug) does not
+# enforce this list the same way. Five of the six were never referenced by
+# any page or job table at all — confirmed by repo-wide grep before
+# deletion — and are simply gone from assets/images/lisa/, recorded here so
+# a future session does not re-upload the same photos:
+#   lisa-collio-for-sale-sign-winter       DELETED 17 Aug 2026
+#   lisa-collio-sold-sign-winter           DELETED 17 Aug 2026
+#   lisa-collio-sold-sign-selfie-winter    DELETED 17 Aug 2026
+#   lisa-collio-courthouse-listing         DELETED 17 Aug 2026
+#   lisa-collio-open-house-flag-fall       DELETED 17 Aug 2026
+#
+# The sixth is NOT deleted and NOT resolved:
+#   lisa-collio-open-house-flag-summer     HELD, NOT deleted, 17 Aug 2026 —
+#     this one IS a live job-table source (scripts/generate-featured-images.py,
+#     outName "what-is-it-like-to-work-with-lisa-collio"). The delivered
+#     1200x630 crop (focal_y 0.45) was reconstructed and checked at full
+#     resolution: the banned number IS legible in it, live on
+#     /blog/community/what-is-it-like-to-work-with-lisa-collio/ right now.
+#     Deleting the source would break that page's featured image outright.
+#     This needs a re-crop that excludes the sign's bottom bar, or a full
+#     photo replacement — Lisa's call, not resolved in this pass. See the
+#     punch list for the open item.
