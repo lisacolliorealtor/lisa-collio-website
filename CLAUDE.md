@@ -1,5 +1,5 @@
 # CLAUDE.md — lisa-collio-website
-**v2.4 (August 11, 2026)** — see the Revision Log at the end of this file.
+**v2.5 (August 17, 2026)** — see the Revision Log at the end of this file.
 Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
 files. This file defers to the Master Plan; if they ever disagree, the Master Plan
 wins. Deliberately no version number here — hardcoding one let this line go stale
@@ -623,12 +623,15 @@ This includes the ~56 new Goshen/Elkhart section and FAQ images: those slots
 receive clean photos. The rotation log is not tracked outside the exception
 scope — with no color band there is no variant to rotate.
 
-**Do not confuse this with the Tier 1 page hero.** The signature hero on Home,
-Buyers, Sellers, Meet Lisa, Next Chapter Method, and Contact also uses Lisa's
-cutout, but it layers real HTML text over the photo and is governed by the hero
-standard, not this one. A Buyers/Sellers-cluster page can legitimately carry the
-cutout twice — once in its hero, once in its featured image. Two rules, two
-scopes.
+**Do not confuse this with the Tier 1 page hero.** The hero component is
+governed by the hero standard, not this featured-image standard. **Lisa's
+cutout portrait appears in a hero on the Home page, EN and ES, only** (ruling,
+Lisa, 12 August 2026) — earlier drafts of this file described it appearing on
+six pages (Home, Buyers, Sellers, Meet Lisa, Next Chapter Method, Contact);
+that was never true of the live site, only Home ever had it, and the claim is
+corrected here to match Master Plan v2.21 §8. A Buyers or Sellers cluster page
+can still carry the cutout in its *featured image* under the rule above — the
+two standards remain independently scoped.
 
 **Retroactive cleanup is complete — this line previously said otherwise and was
 wrong (corrected 5 August 2026).** `docs/FEATURED_IMAGE_OVERLAY_AUDIT.md` is a
@@ -676,6 +679,12 @@ overlay functions refuse an out-of-scope slug outright, so the default is clean
 by construction rather than by remembering.
 
 ## REVISION LOG
+
+**v2.5 — August 17, 2026** (Claude, at Lisa's direction)
+**Mirrors Master Plan v2.21**, a single-item bundled bump: v2.21 committed to `docs/approved-copy/V2_21_Website_Master_Plan_Lisa_Collio.md`, v2.20 deleted (not left alongside it), and this file updated in the same change. v2.21 records the hero programme, which no version of the Master Plan had described until now: the Hero Standard as a governing document (§8), the Image Review Policy narrowing (three things gate an image — Fair Housing, rights to use it, whether it is Lisa's to publish — three project-invented conventions retired as blocking criteria), the cutout portrait's correct scope (Home EN/ES only, not the six pages earlier versions described), the Market Stats ES-pair correction (`/es/estadisticas-del-mercado/` has been live since it shipped — the row said "deferred to phase 2" for eighteen versions), and a §19 registry entry for both hero documents.
+- **Corrects the Featured image standard's cutout-scoping claim** ("Do not confuse this with the Tier 1 page hero"), which stated the cutout appeared on six pages (Home, Buyers, Sellers, Meet Lisa, Next Chapter Method, Contact). Only Home, EN and ES, ever carried it — corrected to match Master Plan v2.21 §8's ruling.
+- **No other CLAUDE.md content required a change.** The Image Review Policy narrowing (legible signage/dated content/crop composition retired as blocking criteria) needed no edit here: those conventions were never encoded in this file as standing rules in the first place, only in the Master Plan and as unwritten project practice — recording that negative rather than leaving it unconfirmed.
+- **v2.21's own drafting caught a seventh instance of the changelog self-miscounting pattern this project tracks (v2.8, v2.11, v2.14, v2.16, v2.17, v2.19).** A first draft of v2.21's §20 entry claimed "two passages in §8" and "at least five citations" for the cutout-scoping error; Claude Code counted and found two occurrences in the whole document, one in §8 (corrected) and one inside §20's own historical v2.10 entry (correctly left as written — a changelog is data, not a pointer). Lisa supplied a corrected v2.21 before this bump; recorded here because it is the first instance of this pattern appearing inside a changelog entry describing a correction to the same kind of error.
 
 **v2.4 — August 11, 2026** (Claude, at Lisa's direction)
 Pre-Launch Punch List renamed `V2.9 → V2.10 Pre Launch Punch List Lisa Collio.md`, unblocked by Master Plan v2.20 making §19's citation of it version-agnostic. Rename plus a version-history entry in that file, not a content pass — Revision Log entry only, since this file's own citations of the punch list (line 222, and the generic mentions elsewhere) were already version-agnostic and needed no edit. Confirmed by re-checking, not assumed from the last time this was verified.
