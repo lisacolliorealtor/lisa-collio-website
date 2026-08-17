@@ -52,6 +52,7 @@ const { hashFile } = require("./hash-util");
 
 const ROOT = __dirname;
 const DATA = JSON.parse(fs.readFileSync(path.join(ROOT, "content/reviews.json"), "utf8"));
+const THANKYOU = JSON.parse(fs.readFileSync(path.join(ROOT, "content/thank-you-messages.json"), "utf8"));
 const GENERAL_DIR = path.join(ROOT, "assets/images/client-general");
 const REVIEW_PHOTO_DIR = path.join(ROOT, "assets/images/client-reviews");
 const COMPONENTS_DIR = path.join(ROOT, "components");
@@ -160,7 +161,18 @@ function textCard(r, lang) {
         </figure>`;
 }
 
-function generalCard(name, lang) {
+// Third card: was a client-general photo captioned "Lisa's clients" with no
+// text (blockquote empty, .review-card--photoonly hides it). Replaced 17
+// August 2026 with a rotating thank-you message in Lisa's own voice (see
+// content/thank-you-messages.json). The photo and its rotation are UNCHANGED
+// -- only what renders below it changes. This is deliberately NOT a review:
+// no star rating, no platform-source tag, and a distinct .review-card--thankyou
+// background (CSS) keep it visually apart from the two verbatim client
+// testimonials beside it, so it never reads as a fabricated review. Never
+// carries a "Translated from" label -- message and lang always match (the
+// caller passes THANKYOU[lang]), and EN/ES are independently authored, not
+// translations of each other (Master Plan SS17 / Volume 37).
+function thankYouCard(name, message, lang) {
   const src = `/assets/images/client-general/${name}`;
   const jpgV = hashFile(path.join(ROOT, `assets/images/client-general/${name}.jpg`));
   const webpV = hashFile(path.join(ROOT, `assets/images/client-general/${name}.webp`));
@@ -168,10 +180,10 @@ function generalCard(name, lang) {
     lang === "es"
       ? "Clientes de Lisa Collio celebrando la compra de su casa en Goshen y Elkhart, Indiana"
       : "Clients of Lisa Collio celebrating a home purchase in Goshen and Elkhart, Indiana";
-  return `        <figure class="review-card review-card--photoonly">
+  return `        <figure class="review-card review-card--thankyou">
           <picture><source srcset="${src}.webp?v=${webpV}" type="image/webp"><img class="review-card__photo" src="${src}.jpg?v=${jpgV}" alt="${alt}" width="800" height="600" loading="lazy"></picture>
-          <blockquote></blockquote>
-          <figcaption>${lang === "es" ? "Clientes de Lisa" : "Lisa's clients"}</figcaption>
+          <blockquote>${esc(message)}</blockquote>
+          <figcaption>— Lisa Collio</figcaption>
         </figure>`;
 }
 
@@ -350,7 +362,8 @@ function main() {
   // ---- Assignment -----------------------------------------------------------
   const lastUsed = new Map(); // person -> page index last placed
   const lastGeneral = new Map(); // client-general photo -> page index
-  const assigned = new Map(); // rel -> { persons:Set, general:string }
+  const lastMessage = new Map(); // "lang:index" -> page index last placed
+  const assigned = new Map(); // rel -> { persons:Set, general:string, message:{lang,idx} }
   const overflow = [];
   const results = new Map();
 
@@ -409,10 +422,39 @@ function main() {
     }
     if (!g) g = generalPhotos[idx % generalPhotos.length];
 
+    // Thank-you message: a lighter rotation than the reviewer/general-photo
+    // picks above. It reuses the adjacency graph (so the same sentence doesn't
+    // show up on two pages a visitor can click between) but carries none of
+    // the person/household-banning machinery -- that exists because reviewers
+    // are identifiable people, and none of it applies to Lisa's own marketing
+    // copy. Banned indices come only from adjacent pages in the SAME language
+    // pool; an EN page's Spanish-twin neighbour (linked via hreflang) never
+    // bans anything here, since the two pools' indices aren't the same message.
+    const msgs = THANKYOU[lang];
+    const bannedMsg = new Set();
+    for (const nb of adj.get(rel)) {
+      const prev = assigned.get(nb);
+      if (prev && prev.message && prev.message.lang === lang) bannedMsg.add(prev.message.idx);
+    }
+    let mIdx = -1;
+    {
+      let bestSeen = Infinity;
+      for (let i = 0; i < msgs.length; i++) {
+        if (bannedMsg.has(i)) continue;
+        const seen = lastMessage.get(`${lang}:${i}`) ?? -1;
+        if (seen < bestSeen) {
+          bestSeen = seen;
+          mIdx = i;
+        }
+      }
+    }
+    if (mIdx === -1) mIdx = idx % msgs.length; // pool (15) smaller than a page's ban set -- not expected, but never crash
+    lastMessage.set(`${lang}:${mIdx}`, idx);
+
     lastUsed.set(a.person, idx);
     lastUsed.set(b.person, idx);
     lastGeneral.set(g, idx);
-    assigned.set(rel, { persons: new Set([a.person, b.person]), general: g });
+    assigned.set(rel, { persons: new Set([a.person, b.person]), general: g, message: { lang, idx: mIdx } });
 
     const heading = lang === "es" ? "Lo que dicen sus clientes" : "What Lisa's clients say";
     const more =
@@ -430,7 +472,7 @@ function main() {
       <div class="review-grid review-grid--three">
 ${photoCard(a, lang)}
 ${textCard(b, lang)}
-${generalCard(g, lang)}
+${thankYouCard(g, msgs[mIdx], lang)}
       </div>
     </div>${schema ? `\n${schema}` : ""}
   </section>

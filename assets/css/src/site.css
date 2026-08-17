@@ -762,7 +762,24 @@ main { flex: 1 0 auto; }
   color: var(--black);
   font-size: var(--fs-300);
   line-height: 1.65;
+  quotes: "\201C" "\201D";
 }
+/* Proper wrapping curly quotes, unified sitewide (17 August 2026). Before this,
+   the visual quote mark was three inconsistent things: an oversized floating
+   ::before on .review-card--textonly only (no closing pair), nothing at all on
+   the photo variant, and literal curly-quote characters hand-typed into Home's
+   two hardcoded review blocks. quotes + ::before/::after on the shared
+   .review-card blockquote selector covers every card, both languages, with no
+   markup change in build-reviews.js -- Home's hand-typed characters are removed
+   separately so they don't double up with this. */
+.review-card blockquote::before { content: open-quote; }
+.review-card blockquote::after { content: close-quote; }
+/* Lisa's own marketing copy (the thank-you card), not a client testimonial --
+   quote marks around it would make it read MORE like a review, the opposite of
+   the visual distinction this card needs. See .review-card--thankyou below. */
+.review-card--thankyou blockquote { quotes: none; }
+.review-card--thankyou blockquote::before,
+.review-card--thankyou blockquote::after { content: none; }
 .review-card figcaption {
   padding: 0 var(--space-5) var(--space-5);
   font-weight: 600;
@@ -1103,27 +1120,37 @@ main { flex: 1 0 auto; }
 /* ---------- Review-card variants (no empty photo slots — ever) ------------- */
 /* Text-only quote card: the quotation is the visual focus. */
 .review-card--textonly {
-  position: relative;
   background: rgba(0, 6, 46, 0.04);
-  padding-top: var(--space-6);
   justify-content: center;   /* don't leave a tall empty area beside photo cards */
 }
-.review-card--textonly::before {
-  content: "\201C";
-  position: absolute;
-  top: var(--space-2);
-  left: var(--space-4);
-  font-family: var(--font-display);
-  font-size: 4.5rem;
-  line-height: 1;
-  color: var(--remax-blue);
-  opacity: 0.85;
-}
-.review-card--textonly blockquote { font-size: var(--fs-400); padding-top: var(--space-4); }
+/* The old oversized floating "❝" (::before, 4.5rem, absolutely positioned, no
+   closing pair) is gone — replaced sitewide by the wrapping quotes rule above.
+   The extra top padding this card and its blockquote carried existed only to
+   clear that floating glyph; removed with it, or text-only cards would show a
+   large empty gap at the top that photo cards don't have. */
+.review-card--textonly blockquote { font-size: var(--fs-400); }
 
 /* Photo-only "happy client" card: image + name + stars, no quote styling. */
 .review-card--photoonly blockquote { display: none; }
 .review-card--photoonly figcaption { padding-top: var(--space-4); }
+
+/* Thank-you card: Lisa's own marketing copy, not a client review (17 August
+   2026) -- stacked visual distinction so it never reads as a fabricated
+   testimonial sitting in a row of real ones: no star rating and no
+   platform-source tag (both a markup-level omission in build-reviews.js, not
+   CSS), no quote marks (see the .review-card--thankyou blockquote override
+   near the top of this section), and a tinted background distinct from BOTH
+   the plain white photo/text review cards and the navy-tinted --textonly
+   card. RE/MAX Blue at low opacity reads as "an official note from Lisa,"
+   not as another testimonial. */
+.review-card--thankyou {
+  background: rgba(0, 61, 165, 0.06);
+  border-color: rgba(0, 61, 165, 0.18);
+}
+.review-card--thankyou figcaption {
+  font-style: italic;
+  color: var(--remax-blue);
+}
 .review-stars {
   display: block;
   color: var(--remax-red);

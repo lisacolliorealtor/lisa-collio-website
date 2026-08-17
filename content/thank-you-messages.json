@@ -1,0 +1,37 @@
+{
+  "_README": "Rotating thank-you messages for the review section's third card, replacing the old static 'Lisa's clients' caption (17 August 2026). These are Lisa's OWN MARKETING COPY, not client reviews -- they must never be treated as reviews and must never carry the Master Plan Section17 'Translated from X' label. EN and ES are INDEPENDENTLY AUTHORED, not translations of each other (Volume 37: Lisa's own writing is cultural adaptation, never translation, same as everywhere else on the site) -- never pair them by array index, never treat one language as the source for the other. Source: docs/approved-copy/English_Thank_you.docx and Spanish_Thank_you.docx, 15 messages each, extracted verbatim. Rendered with an em dash + 'Lisa Collio' attribution appended by build-reviews.js, not stored here.",
+  "en": [
+    "Thank you for trusting me to help you find a place to call home. It was an honor to be part of your journey!",
+    "Thank you for choosing me to guide you through such an important decision. I’m so excited for this new chapter in your life!",
+    "Helping you find the right home was a privilege. Thank you for trusting me every step of the way!",
+    "Thank you for allowing me to be part of your home-buying journey. I’m grateful for your trust and confidence in me!",
+    "From the first showing to closing day, it was a joy helping you make your smart move. Congratulations on your new home!",
+    "Thank you for trusting me with such an important milestone. I hope your new home is filled with wonderful memories for years to come!",
+    "Your goals mattered every step of the way. Thank you for trusting me to help turn your plans into a place you can call home.",
+    "I’m so grateful you chose me as your REALTOR®. Congratulations on your new home and the exciting chapter ahead!",
+    "Thank you for allowing me to guide you through the process. Your new home is the beginning of something wonderful!",
+    "It was a pleasure helping you navigate the journey home. Thank you for your trust, your confidence, and the opportunity to serve you!",
+    "Every home search has a story. Thank you for letting me be part of yours. Congratulations on your new beginning!",
+    "Thank you for trusting me to help you find not just a house, but a home that fits the life you’re building.",
+    "I’m honored to have been part of your journey. May your new home bring you countless happy memories!",
+    "Thank you for putting your trust in me. Helping you reach the closing table was a privilege—and celebrating with you was the best part!",
+    "Your smart move started with a dream. Thank you for trusting me to help you turn that dream into a home!"
+  ],
+  "es": [
+    "Gracias por confiar en mí para ayudarle a encontrar un lugar al que pueda llamar hogar. ¡Fue un honor ser parte de su historia!",
+    "Gracias por elegirme para acompañarle en una decisión tan importante. ¡Me alegra mucho ser parte de este nuevo capítulo de su vida!",
+    "Fue un privilegio ayudarle a encontrar el hogar adecuado. ¡Gracias por confiar en mí durante todo el proceso!",
+    "Gracias por permitirme ser parte de su proceso de compra. ¡Aprecio mucho su confianza y la oportunidad de servirle!",
+    "Desde la primera visita hasta el día del cierre, fue un placer ayudarle a dar este paso. ¡Felicidades por su nuevo hogar!",
+    "Gracias por confiar en mí en un momento tan importante. ¡Espero que su nuevo hogar esté lleno de hermosos recuerdos durante muchos años!",
+    "Sus metas fueron importantes en cada paso del camino. Gracias por confiar en mí para ayudarle a convertir sus planes en un lugar al que pueda llamar hogar.",
+    "Me siento muy agradecida de que me haya elegido como su REALTOR®. ¡Felicidades por su nuevo hogar y por este emocionante capítulo que comienza!",
+    "Gracias por permitirme acompañarle durante todo el proceso. ¡Su nuevo hogar es el comienzo de algo maravilloso!",
+    "Fue un placer ayudarle a recorrer el camino hacia su nuevo hogar. ¡Gracias por su confianza y por darme la oportunidad de servirle!",
+    "Cada búsqueda de hogar tiene una historia. Gracias por permitirme ser parte de la suya. ¡Felicidades por este nuevo comienzo!",
+    "Gracias por confiar en mí para ayudarle a encontrar no solo una casa, sino un hogar que se adapte a la vida que está construyendo.",
+    "Me siento honrada de haber sido parte de su camino. ¡Que su nuevo hogar esté lleno de momentos felices y recuerdos inolvidables!",
+    "Gracias por depositar su confianza en mí. ¡Fue un privilegio ayudarle a llegar al cierre y aún mejor poder celebrar este logro con usted!",
+    "Su movimiento inteligente comenzó con un sueño. Gracias por confiar en mí para ayudarle a convertir ese sueño en un hogar."
+  ]
+}
