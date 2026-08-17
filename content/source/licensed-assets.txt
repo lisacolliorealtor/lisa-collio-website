@@ -3,19 +3,26 @@
 # Companion to content/source/rejected-assets.txt: that file records what is
 # banned; this one records what is legitimately licensed or authorized, so a
 # future provenance check has an allowlist to consult before flagging an
-# asset on missing or foreign EXIF alone. Proposed in
-# docs/approved-copy/V1_0_Hero_Standard_Lisa_Collio.md §5 (positive-provenance
-# record) and created 13 August 2026 for the Hero Standard photo build, the
-# first batch to actually need it.
+# asset on missing or foreign EXIF alone. Proposed in the current Hero
+# Standard (highest-numbered `V…_Hero_Standard_Lisa_Collio.md` in
+# docs/approved-copy/) §5 (positive-provenance record) and created 13 August
+# 2026 for the Hero Standard photo build, the first batch to actually need it.
 #
 # Format: one entry per asset, with these fields:
 #   FILE:            path relative to repo root
-#   PHOTOGRAPHER:    who took it
+#   PHOTOGRAPHER:    who took it (or, for AI-generated content, N/A)
+#   TYPE:            "photograph" or "AI-generated illustration -- not a
+#                    photograph" (added 17 August 2026, first AI-illustration
+#                    batch -- omitted/implied "photograph" on earlier entries)
 #   LICENSE:         what right Lisa has to publish it
 #   LICENSE ON FILE: where the license/agreement itself is kept (not this repo
 #                    — Lisa's own records; not digitized here)
 #   EXIF NOTE:       explains missing/foreign camera metadata so a future
 #                    check does not mistake it for a rejection signal
+#   DOES NOT DEPICT: (AI-generated illustrations only) states plainly that the
+#                    image is not a real place, a real person, or property
+#                    that could be mistaken for an actual listing -- the
+#                    question a future reader will actually have
 #
 # ---------------------------------------------------------------------------
 
@@ -45,6 +52,10 @@ EXIF NOTE: Camera metadata stripped (no Make/Model/DateTime). Confirmed by
   Lisa, 13 August 2026, as her own listing photo — the missing EXIF is
   expected for this file and is NOT a rejection signal.
   Same property as buyers.jpg above.
+  NAME COLLISION, noted 17 August 2026: assets/images/home/next-chapter-method.jpg
+  (below) is a DIFFERENT file — an AI-generated illustration for the Home
+  page body, not this listing photo. Different folder, different content,
+  different purpose. Never cross-reference the two.
 
 FILE: assets/images/homes-elkhart/1765-n-bay-drive-elkhart-in-46514/twilight-front-1.jpg
 PHOTOGRAPHER: Third-party photographer, hired by Lisa
@@ -55,3 +66,75 @@ LICENSE ON FILE: with Lisa, not digitized in this repo
 EXIF NOTE: Camera metadata present but names a camera that is not Lisa's
   (Nikon D7500) — expected for this file, since it was shot by a hired
   photographer, and is NOT a rejection signal.
+
+# ---------------------------------------------------------------------------
+# First AI-generated illustration batch, 17 August 2026 -- Home page body
+# images. Permitted under the Master Plan's Images section as amended v2.22
+# (17 August 2026): AI-generated illustrations are allowed as body images,
+# broker-approved, where they aid comprehension, never as a substitute for a
+# real photograph, never depicting a real place/person/property that could be
+# mistaken for a listing. Heroes remain excluded (Hero Standard §6) -- none of
+# these three is a hero image.
+
+FILE: assets/images/home/next-chapter-method.jpg
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a stylized illustration of an agent
+  overlooking a symbolic path toward a home, not a real location.
+  NAME COLLISION: see assets/images/hero/next-chapter-method.jpg above --
+  different file, different folder, different content. Never cross-reference
+  the two.
+
+FILE: assets/images/home/transforming-dreams.jpg
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a stylized illustration of an agent and a
+  dream-cloud sketch of a home, not a real location or a real client.
+
+FILE: assets/images/home/unlocking-smart-moves.jpg
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a stylized illustration of an agent
+  holding a key, surrounded by symbolic vignettes, not a real location, real
+  client, or real transaction.
+
+# Not an AI-generated illustration -- a real photograph with no EXIF, added
+# to this file for the same reason the entries above exist: missing EXIF
+# alone reads as a rejection signal without a positive record explaining it.
+FILE: assets/images/home/real-estate-guidance.jpg
+PHOTOGRAPHER: Lisa Collio (own photograph)
+LICENSE: Lisa's own photo; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present. Not investigated further — Lisa confirmed
+  it as her own photograph when supplying it for the Home page body-image
+  build, 17 August 2026.
+  Delivered at 957x958, under the Hero Standard's 1200px floor (that floor is
+  written for heroes; applied here as the site's general resolution
+  guidance). Lisa's ruling, 17 August 2026, made knowing the shortfall:
+  ship as-is — soft on a large monitor, fine on the phone traffic that is
+  most of her visitors. Logged as a post-launch replacement candidate in the
+  punch list.

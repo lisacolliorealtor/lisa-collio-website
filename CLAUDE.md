@@ -1,5 +1,5 @@
 # CLAUDE.md — lisa-collio-website
-**v2.5 (August 17, 2026)** — see the Revision Log at the end of this file.
+**v2.6 (August 17, 2026)** — see the Revision Log at the end of this file.
 Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
 files. This file defers to the Master Plan; if they ever disagree, the Master Plan
 wins. Deliberately no version number here — hardcoding one let this line go stale
@@ -365,9 +365,26 @@ protect. Ask whether the number tells the reader *what to consult* (pointer,
 genericize) or *what happened* (data, preserve).
 
 ## ASSETS
+**Lisa's original photography for photographs; no stock photography anywhere.
+AI-generated illustrations are permitted as body images (added August 2026,
+broker-approved)** where they aid comprehension of a section's idea — never as
+a substitute for a real photograph of an actual place, person, or property. An
+AI-generated image must never depict a real place, a real person, or property
+that could be mistaken for an actual listing, and is recorded as an
+illustration — not a photograph — in `content/source/licensed-assets.txt`.
+**Heroes are excluded from this exception and remain original photography
+only, no AI-generated imagery under any circumstance** (Hero Standard §6).
+This mirrors the Master Plan's Images section (§8) — previously CLAUDE.md
+carried no line on original-photography/no-AI at all, a gap in the mirror
+found and closed the same day the Images section was amended, not a rule that
+changed here independently.
+
 Photos live in assets/images/{lisa, logos, client-reviews, client-general,
-homes-elkhart, homes-goshen, goshen, elkhart}. Claude Code selects images by
-folder context; Lisa reviews all picks in the page PR.
+homes-elkhart, homes-goshen, goshen, elkhart, home}. Claude Code selects images
+by folder context; Lisa reviews all picks in the page PR.
+- home/: Home page body images only (Tier 1 sections + Buyers/Sellers path
+  cards) — a mix of Lisa's own photographs and broker-approved AI-generated
+  illustrations, per the AI-illustration rule above.
 - client-reviews/: ONLY photos of clients who have a review, named
   review-firstname-lastname.jpg. Pairing rule: a client photo appears ONLY with
   that same client's own verbatim review (pairing manifest supplied by Lisa).
@@ -679,6 +696,12 @@ overlay functions refuse an out-of-scope slug outright, so the default is clean
 by construction rather than by remembering.
 
 ## REVISION LOG
+
+**v2.6 — August 17, 2026** (Claude, at Lisa's direction)
+**Mirrors Master Plan v2.22**, a single-item bundled bump: v2.22 committed to `docs/approved-copy/V2_22_Website_Master_Plan_Lisa_Collio.md`, v2.21 deleted (not left alongside it), and this file updated in the same change. v2.22 amends the Images section: AI-generated illustrations are now permitted as body images, broker-approved, under stated conditions (aid comprehension, never a substitute for a real photograph, never depict a real place/person/property that could be mistaken for a listing, recorded as an illustration in `content/source/licensed-assets.txt`) — heroes are explicitly excluded and remain original photography only (Hero Standard §6, bumped to v1.1 the same day with a clarifying cross-reference).
+- **ASSETS section gains the rule it never had.** A repo-wide sweep for AI-imagery language (Report-Before-Build, for the Home page body-image build) found the ban in two places — Hero Standard §6 (hero-scoped) and the Master Plan's Images section (site-wide, the one amended) — and confirmed CLAUDE.md mirrored neither. Not a duplicate ban needing removal; a pre-existing mirror gap, closed here in the same change rather than left for a future session to rediscover by cross-referencing the Master Plan.
+- **`home/` added to the photo-folder list**, five body images (two of Lisa's own photographs, three AI-generated illustrations — the site's first) wired to Home EN/ES in the same PR as this bump.
+- **Hero Standard's own status line corrected, not just amended.** It had read "Status: DRAFT — pending Lisa's approval. Not built" since 12 August, five days after Lisa actually approved it and twelve hero photographs built from it went live — a routine edit surfaced it, not a dedicated audit. Recorded here because it's the same class of defect the Market Stats row and the cutout-scope passage were in v2.21: a governing document describing a state of the site that stopped being true days or weeks earlier.
 
 **v2.5 — August 17, 2026** (Claude, at Lisa's direction)
 **Mirrors Master Plan v2.21**, a single-item bundled bump: v2.21 committed to `docs/approved-copy/V2_21_Website_Master_Plan_Lisa_Collio.md`, v2.20 deleted (not left alongside it), and this file updated in the same change. v2.21 records the hero programme, which no version of the Master Plan had described until now: the Hero Standard as a governing document (§8), the Image Review Policy narrowing (three things gate an image — Fair Housing, rights to use it, whether it is Lisa's to publish — three project-invented conventions retired as blocking criteria), the cutout portrait's correct scope (Home EN/ES only, not the six pages earlier versions described), the Market Stats ES-pair correction (`/es/estadisticas-del-mercado/` has been live since it shipped — the row said "deferred to phase 2" for eighteen versions), and a §19 registry entry for both hero documents.
