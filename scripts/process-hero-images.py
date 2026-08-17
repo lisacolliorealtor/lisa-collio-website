@@ -166,6 +166,33 @@ def build_placeholder():
 # Lisa's 13 August ruling — missing/foreign EXIF on those four is expected
 # and explained there, not a rejection signal (Verification Standard: the
 # gap is confirmed against the actual check artifact, not assumed).
+#
+# Updated again 17 August 2026: the hero component gained per-image focal-point
+# control (--hero-focal-x / --hero-focal-y on .hero--photo, site.css) so
+# "dead-center, no focal-point control" below is no longer literally true for
+# ANY slot — every slot now carries explicit focal-x/y values, defaulting to
+# 50%/50% (visually identical to the old hardcoded center) unless Lisa's
+# review called for a different framing. Each entry's "focalPoint" field
+# records the value actually wired into that slot's page(s) via build.js
+# marker JSON (Tier 2) or inline style (Home). Reproducing a slot's image
+# reproduces the photograph; the focal value is a separate, independently
+# recorded build fact and is NOT re-derived from the image.
+#
+# background-size:cover crops whichever axis the container overflows on
+# relative to the source photo's aspect ratio, and — critically — THAT AXIS
+# FLIPS BETWEEN VIEWPORTS for Tier 2: desktop containers are wider-than-tall
+# relative to these photos (cover crops height, focal-y does the work);
+# mobile containers are narrower-than-tall (cover crops width, focal-x does
+# the work, focal-y has no visible effect there). A focal value is chosen
+# with both axes in mind, not just the vertical "crop up/down" language used
+# to describe the requested change.
+#
+# Three slots' photographs were replaced 17 August 2026 (moving-to-goshen,
+# living-in-goshen, moving-to-elkhart) — same filenames, new content, per
+# Lisa's direction. Their "source"/"provenance"/"deliveredDimensions" below
+# describe the NEW photograph; the superseded entry is not retained here
+# (this table records current build state, not a history — see the
+# Changelog Citation Standard on live vs. historical data).
 HERO_JOBS = {
     "home": {
         "tier": 1,
@@ -176,7 +203,9 @@ HERO_JOBS = {
                    "-> process-hero-images.py (resize to 3200w max, JPEG q88 + WEBP q85)",
         "provenance": "Lisa's own listing photo, authorization held. Stripped EXIF confirmed by Lisa "
                        "13 August 2026 as expected for this file — see content/source/licensed-assets.txt.",
-        "cropBehavior": "full-bleed cover, dead-center, no focal-point control",
+        "cropBehavior": "full-bleed cover, focal-point controlled (--hero-focal-x/-y)",
+        "focalPoint": {"x": "58%", "y": "25%", "setBy": "inline style, index.html + es/index.html",
+                        "reason": "Lisa's direction 13 Aug 2026: crop up so house is framed, not lawn."},
         "placeholder": False,
     },
     "buyers": {
@@ -189,7 +218,9 @@ HERO_JOBS = {
         "provenance": "Lisa's own listing photo, authorization held. Stripped EXIF confirmed by Lisa "
                        "13 August 2026 as expected for this file — see content/source/licensed-assets.txt. "
                        "Same property as next-chapter-method.jpg (Lisa confirmed, 13 August 2026).",
-        "cropBehavior": "full-bleed cover, dead-center, no focal-point control",
+        "cropBehavior": "full-bleed cover, focal-point controlled (--hero-focal-x/-y)",
+        "focalPoint": {"x": "50%", "y": "50%", "setBy": "DEFAULTS (build.js) — no override wired",
+                        "reason": "Not part of Lisa's 17 Aug adjustment list; default reproduces prior center crop."},
         "placeholder": False,
     },
     "sellers": {
@@ -204,7 +235,9 @@ HERO_JOBS = {
                        "and the sellers' agreement for 1765 N Bay Drive, Elkhart. See "
                        "content/source/licensed-assets.txt and content/source/sold-listing-consent.txt "
                        "(address already listed). Nikon D7500 EXIF is expected, not a rejection signal.",
-        "cropBehavior": "full-bleed cover, dead-center, no focal-point control",
+        "cropBehavior": "full-bleed cover, focal-point controlled (--hero-focal-x/-y)",
+        "focalPoint": {"x": "50%", "y": "50%", "setBy": "DEFAULTS (build.js) — no override wired",
+                        "reason": "Not part of Lisa's 17 Aug adjustment list; default reproduces prior center crop."},
         "placeholder": False,
     },
     "moving-to-goshen": {
@@ -212,11 +245,14 @@ HERO_JOBS = {
         "en_file": "moving-to-goshen/index.html", "es_file": "es/mudarse-a-goshen/index.html",
         "heroImg": "assets/images/hero/moving-to-goshen.jpg",
         "deliveredDimensions": "3200x2400",
-        "source": "lisa/hero-photos raw upload, blob b22bce653f44152066f40b2fefeef0cbb1245940 "
+        "source": "lisa/hero-crop-fixes raw upload, blob 6c83e58b0d4cbb3d9f7e228ee7fedc782cc9ae6d "
                    "(originally Apple MPO container — process-hero-images.py re-saves the primary frame "
-                   "as plain JPEG, stripping the trailing MPO data) -> resize to 3200w max, JPEG q88 + WEBP q85",
-        "provenance": "Lisa's own phone photography (Apple iPhone 16 Pro EXIF intact, 2026-07-22).",
-        "cropBehavior": "full-bleed cover, dead-center, no focal-point control",
+                   "as plain JPEG, stripping the trailing MPO data) -> resize to 3200w max, JPEG q88 + WEBP q85. "
+                   "Replaces the marquee-shot photo committed 13 August 2026 (superseded, not retained here).",
+        "provenance": "Lisa's own phone photography (downtown Goshen streetscape, Apple iPhone MPO EXIF).",
+        "cropBehavior": "full-bleed cover, focal-point controlled (--hero-focal-x/-y)",
+        "focalPoint": {"x": "32%", "y": "28%", "setBy": "build.js marker JSON, moving-to-goshen/index.html + es/mudarse-a-goshen/index.html",
+                        "reason": "Lisa's direction 17 Aug 2026: favor buildings, not street/cars."},
         "placeholder": False,
     },
     "living-in-goshen": {
@@ -224,10 +260,15 @@ HERO_JOBS = {
         "en_file": "living-in-goshen/index.html", "es_file": "es/viviendo-en-goshen/index.html",
         "heroImg": "assets/images/hero/living-in-goshen.jpg",
         "deliveredDimensions": "3200x2400",
-        "source": "lisa/hero-photos raw upload, blob df1076eef5763557f677d008e2342e1232e4d78e "
-                   "-> process-hero-images.py (resize to 3200w max, JPEG q88 + WEBP q85)",
-        "provenance": "Lisa's own phone photography (Apple iPhone 16 Pro EXIF intact, 2026-07-22).",
-        "cropBehavior": "full-bleed cover, dead-center, no focal-point control",
+        "source": "lisa/hero-crop-fixes raw upload, blob 3eb3058173e251e7aa65542b1c2fe0888e23711e "
+                   "-> process-hero-images.py (resize to 3200w max, JPEG q88 + WEBP q85). Replaces the "
+                   "courthouse-shot photo committed 13 August 2026 whose crop cut the dome (superseded, not "
+                   "retained here).",
+        "provenance": "Lisa's own phone photography (Goshen courthouse building with flowerbed).",
+        "cropBehavior": "full-bleed cover, focal-point controlled (--hero-focal-x/-y)",
+        "focalPoint": {"x": "50%", "y": "65%", "setBy": "build.js marker JSON, living-in-goshen/index.html + es/viviendo-en-goshen/index.html",
+                        "reason": "Set 17 Aug 2026 after reporting what the new photo shows: crops down "
+                                   "slightly to favor the courthouse/flowerbed over sky."},
         "placeholder": False,
     },
     "moving-to-elkhart": {
@@ -235,11 +276,14 @@ HERO_JOBS = {
         "en_file": "moving-to-elkhart/index.html", "es_file": "es/mudarse-a-elkhart/index.html",
         "heroImg": "assets/images/hero/moving-to-elkhart.jpg",
         "deliveredDimensions": "3200x2400",
-        "source": "lisa/hero-photos raw upload, blob ddf54ff7bc61bba7db71365ec215080358814e37 "
+        "source": "lisa/hero-crop-fixes raw upload, blob 33a846dc9cd8129ea5f02b06e2d37c8daf8417a2 "
                    "(originally Apple MPO container, re-saved as plain JPEG) -> resize to 3200w max, "
-                   "JPEG q88 + WEBP q85",
-        "provenance": "Lisa's own phone photography (Apple iPhone 16 Pro EXIF intact, 2026-07-23).",
-        "cropBehavior": "full-bleed cover, dead-center, no focal-point control",
+                   "JPEG q88 + WEBP q85. Replaces the photo committed 13 August 2026 (superseded, not "
+                   "retained here).",
+        "provenance": "Lisa's own phone photography (flowerbed and downtown Elkhart buildings, Apple iPhone MPO EXIF).",
+        "cropBehavior": "full-bleed cover, focal-point controlled (--hero-focal-x/-y)",
+        "focalPoint": {"x": "50%", "y": "68%", "setBy": "build.js marker JSON, moving-to-elkhart/index.html + es/mudarse-a-elkhart/index.html",
+                        "reason": "Lisa's direction 17 Aug 2026: favor flowerbed/buildings, not sky."},
         "placeholder": False,
     },
     "living-in-elkhart": {
@@ -251,7 +295,9 @@ HERO_JOBS = {
                    "(originally Apple MPO container, re-saved as plain JPEG) -> resize to 3200w max, "
                    "JPEG q88 + WEBP q85",
         "provenance": "Lisa's own phone photography (Apple iPhone 16 Pro EXIF intact, 2026-07-23).",
-        "cropBehavior": "full-bleed cover, dead-center, no focal-point control",
+        "cropBehavior": "full-bleed cover, focal-point controlled (--hero-focal-x/-y)",
+        "focalPoint": {"x": "50%", "y": "50%", "setBy": "DEFAULTS (build.js) — no override wired",
+                        "reason": "Not part of Lisa's 17 Aug adjustment list; default reproduces prior center crop."},
         "placeholder": False,
     },
     "about": {
@@ -264,7 +310,10 @@ HERO_JOBS = {
                    "JPEG q88 + WEBP q85",
         "provenance": "Lisa's own phone photography (Apple iPhone 16 Pro EXIF intact, 2026-08-13). "
                        "Door decal phone number (574-903-5966) confirmed by Lisa as her broker's number.",
-        "cropBehavior": "full-bleed cover, dead-center, no focal-point control",
+        "cropBehavior": "full-bleed cover, focal-point controlled (--hero-focal-x/-y)",
+        "focalPoint": {"x": "50%", "y": "18%", "setBy": "build.js marker JSON, about/index.html + es/conozca-a-lisa/index.html",
+                        "reason": "Lisa's direction 17 Aug 2026: crop up so the RE/MAX Results sign reads "
+                                   "(previously centered on the window)."},
         "placeholder": False,
     },
     "next-chapter-method": {
@@ -278,7 +327,9 @@ HERO_JOBS = {
                        "13 August 2026 as expected for this file — see content/source/licensed-assets.txt. "
                        "Same property as buyers.jpg; visible house number \"117\" is this listing's own, "
                        "approved by Lisa.",
-        "cropBehavior": "full-bleed cover, dead-center, no focal-point control",
+        "cropBehavior": "full-bleed cover, focal-point controlled (--hero-focal-x/-y)",
+        "focalPoint": {"x": "50%", "y": "50%", "setBy": "DEFAULTS (build.js) — no override wired",
+                        "reason": "Not part of Lisa's 17 Aug adjustment list; default reproduces prior center crop."},
         "placeholder": False,
     },
     "market-stats": {
@@ -289,7 +340,9 @@ HERO_JOBS = {
         "source": "lisa/hero-photos raw upload, blob 705f520ae3504d4cc36bb1fc291500c1a1b1ed90 "
                    "-> process-hero-images.py (native width kept, already near MAX_WIDTH; JPEG q88 + WEBP q85)",
         "provenance": "DJI drone photo (FC7303 EXIF intact, 2024-06-06, Photoshop-processed).",
-        "cropBehavior": "full-bleed cover, dead-center, no focal-point control",
+        "cropBehavior": "full-bleed cover, focal-point controlled (--hero-focal-x/-y)",
+        "focalPoint": {"x": "50%", "y": "50%", "setBy": "DEFAULTS (build.js) — no override wired",
+                        "reason": "Not part of Lisa's 17 Aug adjustment list; default reproduces prior center crop."},
         "placeholder": False,
     },
     "blog": {
@@ -302,7 +355,10 @@ HERO_JOBS = {
                    "-> process-hero-images.py (native width kept, not upscaled; JPEG q88 + WEBP q85)",
         "provenance": "Aerial photo, no EXIF (drone/export details not confirmed). Not flagged by Lisa as a "
                        "concern; not covered by licensed-assets.txt since no rejection-signal EXIF pattern applies.",
-        "cropBehavior": "full-bleed cover, dead-center, no focal-point control",
+        "cropBehavior": "full-bleed cover, focal-point controlled (--hero-focal-x/-y)",
+        "focalPoint": {"x": "50%", "y": "30%", "setBy": "build.js marker JSON, blog/index.html + blog/spanish/index.html",
+                        "reason": "Lisa's direction 17 Aug 2026: crop up toward the house (previously showing "
+                                   "driveway/yard)."},
         "placeholder": False,
     },
     "contact": {
@@ -314,7 +370,9 @@ HERO_JOBS = {
         "source": "lisa/hero-photos raw upload, blob a45103101966cf5d62bde86df95e262470f72790 "
                    "-> process-hero-images.py (native width kept, not upscaled; JPEG q88 + WEBP q85)",
         "provenance": "Canon EOS M50m2 EXIF intact, 2023-12-29, Photoshop-processed.",
-        "cropBehavior": "full-bleed cover, dead-center, no focal-point control",
+        "cropBehavior": "full-bleed cover, focal-point controlled (--hero-focal-x/-y)",
+        "focalPoint": {"x": "50%", "y": "75%", "setBy": "build.js marker JSON, contact/index.html + es/contacto/index.html",
+                        "reason": "Lisa's direction 17 Aug 2026: crop down onto the house (previously mostly sky)."},
         "placeholder": False,
     },
 }
