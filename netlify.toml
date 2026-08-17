@@ -62,38 +62,65 @@
     # Self-hosted everything: no external script/style/font/img/connect sources.
     Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
 
-# Asset caching. NOTE: nothing under /assets/ is content-addressed — site.css,
-# tokens.css, the woff2 fonts and every blog-headers image have stable filenames
-# whose CONTENTS change. The previous rule here was
-#   for = "/assets/*"  ->  "public, max-age=31536000, immutable"
-# on the stated assumption that these paths were content-addressed. They are not,
-# and `immutable` tells the browser never to revalidate — so a corrected image or
-# a CSS fix would not reach a returning visitor for up to a year, and a hard
-# refresh would not dislodge it either (Chrome honours `immutable` on reload).
-# Found 27 July 2026: cleaned featured images kept serving their old bytes on
-# deploy-preview-71 under unchanged filenames.
+# Asset caching. DURABLE FIX SHIPPED 17 August 2026 (content-hashed filenames,
+# tracked in the punch list since PR #71): CSS, images, and the root favicon /
+# apple-touch-icon files now carry a ?v=<content-hash> query string on every
+# reference (hash-assets.js — see that file for the full mechanism and why a
+# query string was chosen over renaming the physical file). The browser cache
+# key includes the query string, so a changed file is a genuinely different
+# URL — `immutable` is now correct and safe: a returning visitor with a stale
+# URL cached simply never requests the new one; they request the NEW URL fresh
+# on the next page load because the HTML referencing it changed. There is no
+# window where a corrected asset can still read as the old one.
 #
-# Revalidation is cheap here — Netlify serves ETags, so an unchanged asset costs
-# a 304, not a re-download. The durable fix is content-hashed filenames; until
-# that exists, keep max-age short enough that a correction lands in hours.
+# The previous version of this rule (kept here as the historical record of
+# why the interim fix looked the way it did) used
+#   for = "/assets/css/*"     -> "public, max-age=3600, must-revalidate"
+#   for = "/assets/images/*"  -> "public, max-age=86400, must-revalidate"
+# specifically BECAUSE nothing was content-addressed yet: a corrected image or
+# CSS fix could not reach a returning visitor until the short max-age expired.
+# Found 27 July 2026 (deploy-preview-71: cleaned featured images kept serving
+# their old bytes under unchanged filenames) — revalidation was cheap in the
+# interim (Netlify serves ETags, so an unchanged asset cost a 304, not a
+# re-download) but was never the durable answer, only the bridge to this.
 [[headers]]
   for = "/assets/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=3600, must-revalidate"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/assets/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=86400, must-revalidate"
+    Cache-Control = "public, max-age=31536000, immutable"
 
-# Fonts genuinely do not change in practice, but they are not hashed either, so
-# a week bounds how long a replacement would take to propagate.
+# Root favicon / apple-touch-icon files are hashed too (part of the same
+# href/src reference pattern hash-assets.js covers) — now immutable like CSS
+# and images. These previously fell through to the security-headers-only "/*"
+# rule above with no explicit Cache-Control of their own.
+[[headers]]
+  for = "/favicon*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/apple-touch-icon.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Fonts genuinely do not change in practice, but they are DELIBERATELY not
+# hashed (Report-Before-Build Phase 0 recon, 17 August 2026: fonts are
+# referenced only from @font-face url() inside CSS and from <link rel=preload>
+# in HTML — outside the five reference patterns that PR scoped, and the
+# existing max-age here already bounds a replacement to a week). If fonts are
+# ever brought into the hashing pipeline, this can become immutable too.
 [[headers]]
   for = "/assets/fonts/*"
   [headers.values]
     Cache-Control = "public, max-age=604800, must-revalidate"
 
 # Standard caching for HTML (always revalidate so content updates land immediately).
+# HTML itself is never hashed — it's the entry point that CARRIES the hashed
+# references, so it must always be fetched fresh for those references to be seen.
 [[headers]]
   for = "/*.html"
   [headers.values]
