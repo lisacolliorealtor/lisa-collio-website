@@ -4,7 +4,7 @@
 
 *v1.1 (17 August 2026) adds one clarifying sentence to §6: the Master Plan's Images section was amended the same day to permit AI-generated illustrations as body images under specific conditions (Home page body-image build). That exception does not reach heroes — §6 now says so explicitly, so a future session doesn't generalize the body-image rule upward. No other change.*
 
-**Status: DRAFT — pending Lisa's approval. Not built.**
+**Status: APPROVED BY LISA — 12 August 2026. Built.** Registered in Master Plan §19 as a governing document; twelve hero photographs built from this spec are live. This line said "DRAFT — pending Lisa's approval. Not built" from 12 August through 17 August — the document had been describing itself as unbuilt for five days after being approved and built. Corrected here, not restored, when a routine edit surfaced it.
 Supersedes the discussion record in `V1_0_Hero_Standard_Handoff_Lisa_Collio.md` (29 July 2026), which was explicitly not a spec. Where the two differ, this document governs; §9 records what changed and why.
 
 **Governing documents:** the current Website Master Plan · the current Pre-Launch Punch List · `content/source/rejected-assets.txt` · `docs/SPANISH_STYLE_DECISIONS.md`
@@ -183,7 +183,7 @@ Hero alt text is **copy under the Section 13 gate**, drafted and approved like a
 
 ## 10. Open items
 
-- **Eleven Tier 2 photographs** — Lisa is selecting these. Reconcile against `Lisa_Collio_Photo_Shot_List.docx` before shooting; it already reserves several hero slots and the Goshen batch drifted from its manifest at real cost.
+- ~~**Eleven Tier 2 photographs** — Lisa is selecting these.~~ **CLOSED.** Lisa selected them; all eleven (plus Home, twelve total) are built and live, recorded in `HERO_JOBS` (`scripts/process-hero-images.py`). Left as a strikethrough rather than deleted, so this section's own history is visible.
 - **Retiring `hero-twilight-1.jpg` and `-2.jpg`** — both are replaced on the homepages, but `-1` is also the recorded source for two other pages' featured images (`living-in-goshen-guide`, `viviendo-en-goshen`). Neither file is deleted without checking what else depends on it.
 - **Tier 3** — deferred, specified when built.
 - **Hero copy per Tier 2 page**, both languages — drafted and approved before the build.
