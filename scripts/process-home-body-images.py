@@ -49,8 +49,12 @@ HOME_BODY_JOBS = {
         "type": "photograph",
         "source": "lisa/home-body-images raw upload, blob 3976d0a090904173b99775fd6720f3c4d9c6ad20 "
                    "-> process-home-body-images.py (resize to 3200w max -- source is 3024w, under the "
-                   "ceiling, so NOT resized; JPEG q88 + WEBP q85)",
-        "deliveredDimensions": "3024x4032 (native, well over the 1200px floor)",
+                   "ceiling, so NOT resized; JPEG q88 + WEBP q85) -> cropped 17 August 2026 per Lisa's "
+                   "review of PR #126: box (left=65, top=1010, right=3010, bottom=3130) on the "
+                   "3024x4032 original, tightening to the RE/MAX Results banner through the balloon "
+                   "arch, banner top to just below Lisa's feet. Same source blob; crop is a processing "
+                   "parameter, not a re-upload.",
+        "deliveredDimensions": "2945x2120 (cropped from the 3024x4032 native; well over the 1200px floor)",
         "provenance": "Lisa's own photograph. EXIF intact: Apple iPhone 14 Pro, 2025:02:20 11:28:53.",
     },
     "next-chapter-method": {
