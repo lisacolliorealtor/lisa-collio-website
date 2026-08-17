@@ -1,6 +1,8 @@
 # Hero Standard
 
-*Lisa Collio, Real Estate Agent · 11 August 2026 · v1.0*
+*Lisa Collio, Real Estate Agent · 11 August 2026 · v1.1*
+
+*v1.1 (17 August 2026) adds one clarifying sentence to §6: the Master Plan's Images section was amended the same day to permit AI-generated illustrations as body images under specific conditions (Home page body-image build). That exception does not reach heroes — §6 now says so explicitly, so a future session doesn't generalize the body-image rule upward. No other change.*
 
 **Status: DRAFT — pending Lisa's approval. Not built.**
 Supersedes the discussion record in `V1_0_Hero_Standard_Handoff_Lisa_Collio.md` (29 July 2026), which was explicitly not a spec. Where the two differ, this document governs; §9 records what changed and why.
@@ -126,7 +128,7 @@ At desktop width the Home cutout sits right. On a phone it crops in half.
 
 ## 6. Provenance and consent
 
-**Original photography only.** No stock, no AI-generated places or people.
+**Original photography only.** No stock, no AI-generated places or people. **This exclusion is deliberate and unaffected by any body-image exception recorded elsewhere in the Master Plan — heroes never carry AI-generated or stock imagery, no exceptions** (added 17 August 2026, when the Master Plan's Images section was amended to permit AI-generated illustrations as body images under specific conditions — that exception does not reach heroes, and this sentence exists so a future session reading the body-image rule doesn't generalize it upward).
 
 **One documented exception exists:** `/sellers/`'s hero is a twilight exterior of 1765 N Bay Drive, Elkhart, shot by a photographer Lisa hired. She holds the license and the sellers' agreement. It is the site's first third-party image.
 
