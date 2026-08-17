@@ -1211,6 +1211,56 @@ for (const f of pageFiles) {
   }
 }
 
+/* 30. srcset / og:image / twitter:image / JSON-LD "image" resolve ----------
+ * Check 2 validates that every href/src points at a real page, file, or
+ * redirect. It has never covered the other four reference patterns an asset
+ * can appear in — srcset on <source>, og:image/twitter:image meta content,
+ * and JSON-LD "image" fields — a gap named directly in the Report-Before-
+ * Build Phase 0 recon for the content-hashed-filenames work (17 August
+ * 2026) and closed here, the right moment per that report: hash-assets.js
+ * now rewrites all five patterns, so a botched rewrite (or any future
+ * hand-edit) pointing one of these four at a file that doesn't exist would
+ * otherwise go uncaught by every existing check.
+ *
+ * Mirrors check 2's own approach: strip a `?v=...` cache-busting query and
+ * any #fragment before resolving (so this check is agnostic to whether an
+ * asset is hashed at all — it would catch the same defect before or after
+ * the hashing work existed), convert an absolute
+ * https://lisacolliorealtor.com/... URL to a root-relative path, then check
+ * it against the same on-disk file set check 2 builds.
+ *
+ * The og:image/twitter:image pattern requires the closing quote immediately
+ * after the property name (`(?:og:image|twitter:image)"`) so it does NOT
+ * also match og:image:width / og:image:height / og:image:alt — those carry
+ * a colon-suffixed property name, not a path, and would be a false positive
+ * here. Proven both ways: a mutation test (scripts/verify-check30.js,
+ * scratch-only, not committed) planted a nonexistent path in each of the
+ * four patterns in a throwaway copy of a real page and confirmed check 30
+ * catches all four; the live tree today produces zero findings.
+ */
+{
+  const files = new Set(walkAll(ROOT, () => true).map((f) => "/" + rel(f)));
+  const DOMAIN = "https://lisacolliorealtor.com";
+  const patterns = [
+    { name: "srcset", re: /srcset="([^"#?]+)(?:\?[^"#]*)?"/g },
+    { name: "og:image/twitter:image", re: /(?:og:image|twitter:image)"[^>]*content="([^"#?]+)(?:\?[^"#]*)?"/g },
+    { name: "JSON-LD image", re: /"image"\s*:\s*"([^"#?]+)(?:\?[^"#]*)?"/g },
+  ];
+  for (const f of htmlFiles) {
+    const s = read(f);
+    for (const { name, re } of patterns) {
+      for (const m of s.matchAll(re)) {
+        let u = m[1];
+        if (u.startsWith(DOMAIN)) u = u.slice(DOMAIN.length);
+        if (!u.startsWith("/")) continue; // not a same-site path (e.g. a data: URI or a third party never expected here)
+        if (files.has(u)) continue;
+        err("asset-paths-resolve",
+          `${rel(f)} -> ${name} references ${u} (no file on disk)`);
+      }
+    }
+  }
+}
+
 /* ------------------------------------------------------------------------- */
 const group = (list) => {
   const by = {};

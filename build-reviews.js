@@ -48,6 +48,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { hashFile } = require("./hash-util");
 
 const ROOT = __dirname;
 const DATA = JSON.parse(fs.readFileSync(path.join(ROOT, "content/reviews.json"), "utf8"));
@@ -125,6 +126,12 @@ function transLabel(r, lang) {
 
 function photoCard(r, lang) {
   const src = `/assets/images/client-reviews/${r.photo}`;
+  // Cache-busting hash (17 August 2026): computed from the actual file bytes
+  // on every run, via the same hashFile() hash-assets.js uses, so this
+  // second, independent code path never regresses to an unhashed reference
+  // on a solo `node build-reviews.js` re-run.
+  const jpgV = hashFile(path.join(ROOT, `assets/images/client-reviews/${r.photo}.jpg`));
+  const webpV = hashFile(path.join(ROOT, `assets/images/client-reviews/${r.photo}.webp`));
   const alt =
     lang === "es"
       ? `Cliente de Lisa Collio en Goshen y Elkhart, Indiana`
@@ -134,13 +141,13 @@ function photoCard(r, lang) {
   if (!r.text) {
     // photo-only star card — image + name + rating, never a quote
     return `        <figure class="review-card review-card--photoonly">
-          <picture><source srcset="${src}.webp" type="image/webp"><img class="review-card__photo" src="${src}.jpg" alt="${alt}" width="800" height="600" loading="lazy"></picture>
+          <picture><source srcset="${src}.webp?v=${webpV}" type="image/webp"><img class="review-card__photo" src="${src}.jpg?v=${jpgV}" alt="${alt}" width="800" height="600" loading="lazy"></picture>
           <blockquote></blockquote>
           <figcaption>${stars(lang)}${esc(r.name)}${src5}</figcaption>
         </figure>`;
   }
   return `        <figure class="review-card">
-          <picture><source srcset="${src}.webp" type="image/webp"><img class="review-card__photo" src="${src}.jpg" alt="${alt}" width="800" height="600" loading="lazy"></picture>
+          <picture><source srcset="${src}.webp?v=${webpV}" type="image/webp"><img class="review-card__photo" src="${src}.jpg?v=${jpgV}" alt="${alt}" width="800" height="600" loading="lazy"></picture>
           <blockquote>${esc(r.text)}</blockquote>
           <figcaption>${stars(lang)}${esc(r.name)}${src5}${label}</figcaption>
         </figure>`;
@@ -155,12 +162,14 @@ function textCard(r, lang) {
 
 function generalCard(name, lang) {
   const src = `/assets/images/client-general/${name}`;
+  const jpgV = hashFile(path.join(ROOT, `assets/images/client-general/${name}.jpg`));
+  const webpV = hashFile(path.join(ROOT, `assets/images/client-general/${name}.webp`));
   const alt =
     lang === "es"
       ? "Clientes de Lisa Collio celebrando la compra de su casa en Goshen y Elkhart, Indiana"
       : "Clients of Lisa Collio celebrating a home purchase in Goshen and Elkhart, Indiana";
   return `        <figure class="review-card review-card--photoonly">
-          <picture><source srcset="${src}.webp" type="image/webp"><img class="review-card__photo" src="${src}.jpg" alt="${alt}" width="800" height="600" loading="lazy"></picture>
+          <picture><source srcset="${src}.webp?v=${webpV}" type="image/webp"><img class="review-card__photo" src="${src}.jpg?v=${jpgV}" alt="${alt}" width="800" height="600" loading="lazy"></picture>
           <blockquote></blockquote>
           <figcaption>${lang === "es" ? "Clientes de Lisa" : "Lisa's clients"}</figcaption>
         </figure>`;
