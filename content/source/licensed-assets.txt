@@ -432,12 +432,51 @@ DOES NOT DEPICT: a specific advertised or sold listing (876 IAC 8-1-8(f) does
   it later turns out to duplicate an existing photo under a different name,
   that surfaces as an image-parity finding and is merged then, not searched
   for further now.
-  PLACED, 18 August 2026: below the four "Why Work With Lisa" cards on
-  /buyers/ and /es/compradores/, as a closing image before the process
-  section — per Lisa's placement ruling. EN alt: "Lisa Collio and a client
-  holding a 'Best Realtor Ever' sign and house keys." (reused from the
-  DOES NOT DEPICT description above, per the Alt-Text Correspondence
-  Standard, not rewritten). ES alt is a fresh Spanish description, not a
-  translation, per the standing rule — the "Best Realtor Ever" sign text is
-  quoted as-written (English, since that's what the physical sign says) with
-  the surrounding description in Spanish.
+  PLACED then REMOVED, 18 August 2026: briefly placed below the four "Why
+  Work With Lisa" cards on /buyers/ and /es/compradores/, then removed the
+  same day when Lisa replaced this pick with review-maria-baltazar.jpg in a
+  different slot (directly after the hero) — "one photo in that role, not
+  two." The record above (upload provenance, consent, EXIF) still applies
+  unchanged.
+  NOT ORPHANED, corrected same day: this file is still live on the site,
+  independent of the buyers-page placement above. Filing it into
+  client-general/ automatically added it to build-reviews.js's rotation
+  pool (28 → 29 client-general photos), and the next `node build-reviews.js`
+  run picked it up into five "thank you" review-card slots site-wide
+  (es/index.html and four blog articles), each with its own
+  page-appropriate generic alt text ("Clients of Lisa Collio celebrating a
+  home purchase in Goshen and Elkhart, Indiana" / Spanish equivalent) —
+  distinct from the specific alt text this file carried in its removed
+  buyers-page placement. This is the standard, expected mechanism for every
+  file in client-general/, not something wired manually for this task.
+
+# Derived crop of an existing consented photo -- not a new upload, not a new
+# consent question. Build record per the Build Record Standard: source,
+# parameters, and exact reproduction path.
+FILE: assets/images/buyers/review-maria-baltazar-buyers.jpg
+TYPE: derived crop -- not a new photograph
+SOURCE: assets/images/client-reviews/review-maria-baltazar.jpg (2048x1165),
+  already consent-covered under the standard pre-shoot photo/marketing
+  consent policy in docs/approved-copy/lisa-collio-google-reviews.md; this
+  crop introduces no new subject or new consent question.
+CROP: crop_box (0.19, 0.0, 1.0, 1.0) -- trims the left ~19% (empty wall and
+  a framed map behind the subjects) only; top, right, and bottom edges are
+  untouched. Result: 1659x1165. No face, hand, or clothing is cut by this
+  crop -- verified by inspection before applying (Lisa's approval, 18 August
+  2026, after reviewing the proposed box).
+REPRODUCE: PIL, `Image.open(source).crop((389, 0, 2048, 1165))`, saved as
+  JPEG quality 90 optimize=True, plus a WEBP sibling (quality 85).
+LICENSE ON FILE: inherited from the source file — see
+  docs/approved-copy/lisa-collio-google-reviews.md.
+DOES NOT DEPICT: a specific advertised or sold listing (876 IAC 8-1-8(f)
+  does not apply) — the same three people as the source photo, Lisa and two
+  clients in an office setting.
+PLACED, 18 August 2026: directly after the hero, before the intro
+  paragraphs, on /buyers/ and /es/compradores/. EN alt reused from the
+  source file's existing homepage usage, per the Alt-Text Correspondence
+  Standard: "Maria Baltazar celebrating her new home" — this crop doesn't
+  remove any subject matter (only background), so the existing string still
+  accurately describes what's visible. ES alt reused from the source file's
+  existing usage on other pages: "Cliente de Lisa Collio en Goshen y
+  Elkhart, Indiana" — no ES-specific alternative exists for the more
+  detailed EN string.
