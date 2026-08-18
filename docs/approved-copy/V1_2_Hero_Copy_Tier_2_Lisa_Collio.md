@@ -1,9 +1,9 @@
 # Hero Copy — Tier 2 Pages
 
-*Lisa Collio, Real Estate Agent · 12 August 2026 · v1.1*
+*Lisa Collio, Real Estate Agent · 17 August 2026 · v1.2*
 
-**Status: APPROVED BY LISA — 12 August 2026. Not yet built.**
-Supersedes v1.0. Changes in v1.1 are recorded at the end of this document.
+**Status: APPROVED BY LISA — 17 August 2026.**
+Supersedes v1.1. v1.1's copy is live; v1.2 revises six Spanish headlines only. Changes are recorded at the end of this document.
 Governed by the current Hero Standard. Eleven pages, twenty-two with Spanish twins.
 
 ---
@@ -37,7 +37,7 @@ Spanish is written natively in usted register, not translated from the English. 
 **EN headline:** Sell With a Plan, Not a Guess
 **EN supporting (existing H1, used as-is):** Selling Your Home in Goshen and Elkhart, Indiana
 
-**ES headline:** Venda con un plan, no con una suposición
+**ES headline:** Venda con un plan, no a la suerte
 **ES supporting (existing H1, used as-is):** Vender su casa en Goshen y Elkhart, Indiana
 
 ---
@@ -47,7 +47,7 @@ Spanish is written natively in usted register, not translated from the English. 
 **EN headline:** Your Move Starts Before the Boxes Do
 **EN supporting (existing H1, used as-is):** Moving to Goshen, Indiana: What to Know Before You Move
 
-**ES headline:** Su mudanza comienza antes que las cajas
+**ES headline:** Mudarse bien empieza mucho antes de empacar
 **ES supporting (existing H1, used as-is):** Mudarse a Goshen, Indiana: Lo que debe saber antes de dar el paso
 
 ---
@@ -67,7 +67,7 @@ Spanish is written natively in usted register, not translated from the English. 
 **EN headline:** Your Move Starts Before the Boxes Do
 **EN supporting (existing H1, used as-is):** Moving to Elkhart, Indiana: What to Know Before You Move
 
-**ES headline:** Su mudanza comienza antes que las cajas
+**ES headline:** Mudarse bien empieza mucho antes de empacar
 **ES supporting (existing H1, used as-is):** Mudarse a Elkhart, Indiana: Lo que debe saber antes de dar el paso
 
 ---
@@ -97,7 +97,7 @@ Spanish is written natively in usted register, not translated from the English. 
 **EN headline:** Every Move Is a Chapter
 **EN supporting (existing H1, used as-is):** The Next Chapter Method™
 
-**ES headline:** Cada mudanza es un capítulo
+**ES headline:** Cada decisión abre un capítulo nuevo
 **ES supporting (existing H1, used as-is):** Tu Próximo Capítulo™
 
 ---
@@ -107,7 +107,7 @@ Spanish is written natively in usted register, not translated from the English. 
 **EN headline:** What the Numbers Actually Say
 **EN supporting (existing H1, used as-is):** Goshen & Elkhart, Indiana Market Stats
 
-**ES headline:** Lo que dicen realmente los números
+**ES headline:** Los números, sin adornos
 **ES supporting (existing H1, used as-is):** Estadísticas del Mercado en Goshen y Elkhart, Indiana
 
 ---
@@ -117,7 +117,7 @@ Spanish is written natively in usted register, not translated from the English. 
 **EN headline:** Answers, Before You Need Them
 **EN supporting (NEW — replaces the existing H1 *The Blog*):** Articles on buying, selling, and moving in Goshen and Elkhart, Indiana
 
-**ES headline:** Respuestas, antes de que las necesite
+**ES headline:** Respuestas antes de que surjan las dudas
 **ES supporting (NEW — replaces the existing H1 *Artículos en español*):** Artículos sobre comprar, vender y mudarse en Goshen y Elkhart, Indiana
 
 ---
@@ -180,3 +180,31 @@ Also in v1.1: all eleven supporting lines replaced with the verbatim live H1s; `
 - **`/blog/`'s H1 change is copy, not markup** — it ships under the Section 13 gate like any other approved string.
 - **`/contact/`'s existing hero already has two CTA buttons.** The supporting line is the H1, so there is no phone number repeated above them.
 - **EN and ES ship in the same PR.** Every defect above existed in both languages.
+
+
+---
+
+## What changed in v1.2
+
+**Six Spanish headlines, on five distinct strings. No English changed. No supporting lines changed.**
+
+| Page | v1.1 | v1.2 |
+| --- | --- | --- |
+| Sellers | Venda con un plan, no con una suposición | Venda con un plan, no a la suerte |
+| Moving to Goshen | Su mudanza comienza antes que las cajas | Mudarse bien empieza mucho antes de empacar |
+| Moving to Elkhart | Su mudanza comienza antes que las cajas | Mudarse bien empieza mucho antes de empacar |
+| Life Chapters | Cada mudanza es un capítulo | Cada decisión abre un capítulo nuevo |
+| Market Stats | Lo que dicen realmente los números | Los números, sin adornos |
+| Blog | Respuestas, antes de que las necesite | Respuestas antes de que surjan las dudas |
+
+**Why, and it is one reason in five forms.** Every replaced line was structurally English wearing Spanish words — correct grammar, wrong instinct. Lisa raised *suposición* as not sounding authentic; reviewing the full set found four more of the same kind.
+
+- ***suposición*** is a dictionary word rather than a spoken one. *A la suerte* carries the same contrast the way a person says it.
+- ***antes que las cajas*** is an English construction. The image needs more scaffolding in Spanish, and *empacar* is the everyday verb.
+- ***Cada mudanza es un capítulo*** was the most consequential error. *Mudanza* is the physical act of moving boxes; the English "move" means a life decision. The Spanish read as "every truckload is a chapter" on the page about life stages.
+- ***realmente*** was carrying English emphasis Spanish places differently.
+- ***Respuestas, antes de que las necesite*** had English comma rhythm. *Dudas* is what people actually call the questions.
+
+**The standing lesson, and it is Volume 37's rule demonstrated rather than stated:** Spanish copy that passes a grammar check can still be translated English. The test is not whether it is correct — it is whether a Goshen seller would say it. That test has to be applied by someone reading it as Spanish, not by comparing it to the English line it sits beside.
+
+**Two Spanish headlines were reviewed and deliberately kept**, so a future session does not assume the whole set was suspect: *Su mudanza comienza…* was replaced on the Moving pages, but *Hablemos de su próxima mudanza* on Contact keeps *mudanza* correctly — that page is about the move itself. And *Una ciudad que vale la pena conocer antes de elegirla* is long but natural, so it stands.
