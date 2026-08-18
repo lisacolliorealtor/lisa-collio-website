@@ -297,6 +297,10 @@ const sameText = (a, b) => {
     "/blog/relocation/", "/blog/market-updates/",
     // English-only at launch (documented exception)
     "/blog/market-updates/elkhart-county-mid-year-market-update-2026/",
+    // First Spanish Market Updates article — a parallel market update, not a
+    // translated pair, so no EN twin is forced (same reasoning as the EN
+    // mid-year update above having no ES twin).
+    "/blog/spanish/actualizacion-del-mercado-elkhart-county-mitad-2026/",
     // NOTE: the seven English Elkhart articles were exempt here while they had
     // no Spanish twin. Wave 2 (July 2026) built all seven, so the exemptions
     // were removed and those pages are now checked for real. An exemption that
@@ -608,6 +612,7 @@ const IDENTITY_COUNTY_OK = [
   "Elkhart County 4-H Fair",
   "Elkhart County Board of REALTORS®",
   "Elkhart County Mid-Year Market Update",
+  "Elkhart County, Mitad de 2026",
 ];
 const IDENTITY_RULES = [
   [/\bREALTORS?\b(?!®)/i, "REALTOR® without the ® mark"],
