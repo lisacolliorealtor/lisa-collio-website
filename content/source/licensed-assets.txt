@@ -787,3 +787,108 @@ BAKED-IN TEXT: "VENDIDO" and a bottom banner reading "LLAMA HOY PARA PONER
 PLACED, 18 August 2026: Section A intro (.section-figure) on
   /es/vendedores/, matching most-people.jpg's placement on /sellers/. Both
   language pages now carry an image in Section A's intro.
+
+# ---------------------------------------------------------------------------
+# Below-hero community-page photos, 18 August 2026. Four of Lisa's own
+# photographs for /moving-to-goshen/, /living-in-goshen/, /moving-to-elkhart/,
+# /living-in-elkhart/ (EN+ES, eight pages, one image per pair). A fifth file,
+# lisa-hero-meet-lisa.jpg, was uploaded in the same batch and moved into this
+# folder but is NOT processed or wired -- see its own entry below.
+#
+# DELIVERY FORMAT NOTE: all four ship at 1200x800 (1.5:1), not the sitewide
+# 1200x630 .section-figure ratio used elsewhere on these same pages. Lisa's
+# deliberate ruling, 18 August 2026: these are new above-the-lead people
+# photos, not part of the existing H2 section-figure sequence, and 1.9:1
+# would cut her off from a 4:3 source. Recorded in scripts/process-below-hero-
+# photos.py's job table with the same reasoning, not as an unexplained
+# one-off.
+
+FILE: assets/images/sections/lisa-living-in-elkhart.jpg
+PHOTOGRAPHER: Lisa Collio (own photograph)
+LICENSE: Lisa's own photo; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: Full EXIF present — Apple iPhone 16 Pro, 2026-07-23 20:19:09 —
+  not a rejection signal.
+CROP: (0, 336, 4032, 3024), top-trim only. See scripts/process-below-hero-
+  photos.py for the per-photo reasoning (this source has no feet in frame
+  at all; ~768px of headroom above her head made the top the only sensible
+  place to trim from).
+PLACED: /living-in-elkhart/ and /es/viviendo-en-elkhart/, immediately after
+  the hero, above the opening paragraph (.section-figure, 1200x800 — see
+  the batch note above for why this ratio).
+
+FILE: assets/images/sections/lisa-moving-to-elkhart.jpg
+PHOTOGRAPHER: Lisa Collio (own photograph)
+LICENSE: Lisa's own photo; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: Full EXIF present — Apple iPhone 16 Pro, 2026-07-23 17:22:09 —
+  not a rejection signal.
+CROP: (0, 336, 4032, 3024), top-trim only — her feet/shoes sit within
+  ~95px of the original frame's bottom edge, so the bottom was left
+  untouched.
+DOES NOT REQUIRE A CROP EXCEPTION: legible background signage (Civic
+  Plaza, City of Elkhart municipal branding, the recurring "Art Walk After
+  Hours / Last Wednesday of the Month" board, the Lerner theatre marquee,
+  and a partial "Patrick" storefront sign) is all left visible per Lisa's
+  ruling, 18 August 2026 — the 13 August Image Review Policy retired
+  legible signage as a blocking criterion, and none of this is dated,
+  one-time content (the Art Walk board is a recurring monthly notice, not
+  a dated event).
+PLACED: /moving-to-elkhart/ and /es/mudarse-a-elkhart/, same insertion
+  point as above (.section-figure, 1200x800).
+
+FILE: assets/images/sections/lisa-living-in-goshen.jpg
+PHOTOGRAPHER: Lisa Collio (own photograph)
+LICENSE: Lisa's own photo; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: Full EXIF present — Apple iPhone 16 Pro, 2026-07-22 19:55:45 —
+  not a rejection signal.
+CROP: (0, 336, 4032, 3024), top-trim only — same torso-up framing as
+  lisa-living-in-elkhart.jpg. This trims the very top of the Elkhart
+  County Courthouse dome's spire finial; Lisa's own framing is unaffected.
+  Approved by Lisa, 18 August 2026, no change needed.
+PLACED: /living-in-goshen/ and /es/viviendo-en-goshen/, same insertion
+  point as above (.section-figure, 1200x800).
+
+FILE: assets/images/sections/lisa-moving-to-goshen.jpg
+PHOTOGRAPHER: Lisa Collio (own photograph)
+LICENSE: Lisa's own photo; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: Full EXIF present — Apple iPhone 16 Pro, 2026-07-22 20:19:35 —
+  not a rejection signal.
+CROP: (0, 336, 4032, 3024), same top-trim as the other three. DELIBERATE
+  EXCEPTION, recorded because it reverses a constraint from an earlier
+  draft of this build: this crop leaves the Goshen Theater marquee visible
+  (a dated show listing, "GOSHEN THEATER PRESENTS JOSEPH & THE AMAZING
+  TECHNICOLOR DREAMCOAT AUG 21-30" / "INTERRA FREE SAT MORNING CARTOONS
+  AUG 9-12"). No top-trim crop can exclude it — the marquee's bottom edge
+  (~y990) sits only 88px above Lisa's head top (~y1078) in the 3024px-tall
+  source, so any crop low enough to exclude the marquee would also crop
+  into her hair. Lisa's ruling, 18 August 2026: accept the marquee as
+  visible. Reasoning: the only alternative left ~35px of delivered
+  headroom (risking clipping hair on export) and discarded roughly half
+  the frame's width and the street-level context that makes the photo
+  about Goshen. RESPA governs copy and referral arrangements, not what is
+  legible in a background photograph — "Interra" appearing as a sponsor
+  credit on a marquee is not a lender reference in Lisa's copy.
+  CONDITION OF THIS RULING: the alt text names none of it — no show title,
+  no dates, no "Interra," no storefront names. Verified against the
+  approved alt string before wiring (checked word-for-word; none of the
+  banned terms appear).
+PLACED: /moving-to-goshen/ and /es/mudarse-a-goshen/, same insertion point
+  as above (.section-figure, 1200x800).
+
+FILE: assets/images/sections/lisa-hero-meet-lisa.jpg
+PHOTOGRAPHER: Lisa Collio (own photograph)
+LICENSE: Lisa's own photo; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: Essentially no EXIF present (1 tag) — not investigated further,
+  consistent with a re-exported/re-saved file rather than a rejection
+  signal.
+NOT PROCESSED, NOT WIRED in this batch. Delivered at 960x717, under the
+  1200px floor — a known, pre-approved post-launch replacement candidate.
+  /about/ and /es/conozca-a-lisa/ are explicitly out of scope for this PR:
+  that pair is baselined at 19/12, and a correct bilingual build lands at
+  20/13, failing check 14 — a separate decision, separate PR. File is
+  moved into assets/images/sections/ alongside its batch-mates so it isn't
+  left at repo root, but sits unused pending that future decision.
