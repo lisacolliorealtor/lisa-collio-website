@@ -157,10 +157,10 @@
       "label": "Actualizaciones del Mercado",
       "hubUrl": null,
       "description": null,
-      "image": null,
-      "imageWidth": null,
-      "imageHeight": null,
-      "imageAlt": null
+      "image": "/assets/images/hero/market-stats.jpg",
+      "imageWidth": 2418,
+      "imageHeight": 1360,
+      "imageAlt": "Casas y calles vistas desde el aire en una zona residencial de Goshen, Indiana."
     }
   ]
 }
