@@ -178,7 +178,7 @@ function renderLanguage(lang) {
 
 function injectBetweenMarkers(html, name, replacement) {
   const re = new RegExp(
-    `(<!--\\s*${name}:start\\s*-->\\n)([\\s\\S]*?)(\\n?\\s*<!--\\s*${name}:end\\s*-->)`
+    `(<!--\\s*${name}:start\\s*-->\\n)([\\s\\S]*?)\\s*(<!--\\s*${name}:end\\s*-->)`
   );
   if (!re.test(html)) {
     throw new Error(`Markers ${name}:start/end not found — cannot inject.`);

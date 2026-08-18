@@ -193,23 +193,60 @@ const sameText = (a, b) => {
   }
 }
 
-/* 8. Blog index counts match reality -------------------------------------- */
+/* 8. Blog index counts match reality ---------------------------------------
+ * Source of truth is content/blog-articles.json, not folder-directory counts.
+ * Since the blog-listing manifest/generator build (18 August 2026), a topic's
+ * article count is deliberately allowed to diverge from its folder's file
+ * count: a listing-only category fix (the EN Elkhart-relocation pair) and
+ * cross-posting (an ES article counted under two topics at once) both do this
+ * on purpose. Counting directories, as this check did before that build,
+ * would permanently false-positive on both. */
 {
   const idx = path.join(ROOT, "blog", "index.html");
-  if (fs.existsSync(idx)) {
-    const s = read(idx);
-    const dirs = {
-      Buyers: "buyers", Sellers: "sellers", Community: "community",
-      Relocation: "relocation", "Market Updates": "market-updates", "En Español": "spanish",
+  const idxEs = path.join(ROOT, "blog", "spanish", "index.html");
+  const manifestPath = path.join(ROOT, "content", "blog-articles.json");
+  if ((fs.existsSync(idx) || fs.existsSync(idxEs)) && fs.existsSync(manifestPath)) {
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+    const countBy = (lang) => {
+      const counts = {};
+      for (const a of manifest[lang] || []) {
+        for (const cat of a.categories) counts[cat] = (counts[cat] || 0) + 1;
+      }
+      return counts;
     };
-    for (const [label, dir] of Object.entries(dirs)) {
-      const base = path.join(ROOT, "blog", dir);
-      if (!fs.existsSync(base)) continue;
-      const actual = fs.readdirSync(base, { withFileTypes: true })
-        .filter((e) => e.isDirectory() && fs.existsSync(path.join(base, e.name, "index.html"))).length;
-      const m = s.match(new RegExp(`${label}[^]{0,400}?(\\d+)\\s+articles?`));
-      if (m && Number(m[1]) !== actual)
-        err("blog-counts", `blog/index.html says ${label} = ${m[1]}, actual ${actual}`);
+
+    if (fs.existsSync(idx)) {
+      const s = read(idx);
+      const enLabels = {
+        buyers: "Buyers", sellers: "Sellers", community: "Community",
+        relocation: "Relocation", "market-updates": "Market Updates",
+      };
+      const counts = countBy("en");
+      for (const [key, label] of Object.entries(enLabels)) {
+        const expected = counts[key] || 0;
+        const m = s.match(new RegExp(`${label}[^]{0,400}?(\\d+)\\s+articles?`));
+        if (m && Number(m[1]) !== expected)
+          err("blog-counts", `blog/index.html says ${label} = ${m[1]}, manifest says ${expected}`);
+      }
+      const esM = s.match(/En Español[^]{0,400}?(\d+)\s+articles?/);
+      if (esM && Number(esM[1]) !== (manifest.es || []).length)
+        err("blog-counts", `blog/index.html says En Español = ${esM[1]}, manifest says ${(manifest.es || []).length}`);
+    }
+
+    if (fs.existsSync(idxEs)) {
+      const s = read(idxEs);
+      const esLabels = {
+        comprar: "Comprar", vender: "Vender", "conozca-a-lisa": "Conozca a Lisa",
+        goshen: "Goshen", elkhart: "Elkhart", reubicacion: "Reubicación",
+        "tu-proximo-capitulo": "Tu Próximo Capítulo",
+      };
+      const counts = countBy("es");
+      for (const [key, label] of Object.entries(esLabels)) {
+        const expected = counts[key] || 0;
+        const m = s.match(new RegExp(`${label}[^]{0,400}?(\\d+)\\s+art[ií]culos?`));
+        if (m && Number(m[1]) !== expected)
+          err("blog-counts", `blog/spanish/index.html says ${label} = ${m[1]}, manifest says ${expected}`);
+      }
     }
   }
 }
