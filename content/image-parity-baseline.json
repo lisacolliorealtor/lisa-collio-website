@@ -136,5 +136,11 @@
     "es": "/es/compradores/",
     "enImages": 28,
     "esImages": 27
+  },
+  {
+    "en": "/sellers/",
+    "es": "/es/vendedores/",
+    "enImages": 52,
+    "esImages": 53
   }
 ]

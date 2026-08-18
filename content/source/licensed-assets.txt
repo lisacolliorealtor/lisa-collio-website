@@ -754,12 +754,36 @@ DOES NOT DEPICT: a specific advertised or sold listing without consent —
 BAKED-IN TEXT: "Just SOLD" and a bottom banner reading "LIST YOUR / HOME
   WITH ME TODAY!" — covered by the Master Plan's baked-in-body-image-text
   extension, August 2026.
-PLACED, 18 August 2026: Section A intro (.section-figure) on /sellers/ only.
-  ITS SPANISH COUNTERPART, la-mayoria-de-las-personas.jpg, IS NOT SHIPPED IN
-  THIS BATCH — its baked-in bottom-banner text is untranslated English on
-  what was meant to be the Spanish version, a second instance of the
-  bilingual-purity gap already logged once on the Buyers batch
-  (get-pre-approved-first.png / no ES version). Lisa's ruling, 18 August
-  2026: /es/vendedores/'s Section A intro ships without an image for now; a
-  Spanish re-export is a follow-up, tracked in the punch list. The withheld
-  file remains on branch lisa/sellers-page-images, not committed to main.
+PLACED, 18 August 2026: Section A intro (.section-figure) on /sellers/.
+  ITS SPANISH COUNTERPART, la-mayoria-de-las-personas.jpg, WAS WITHHELD FROM
+  THE INITIAL BATCH — its baked-in bottom-banner text was untranslated
+  English on what was meant to be the Spanish version, a second instance of
+  the bilingual-purity gap first logged on the Buyers batch
+  (get-pre-approved-first.png / no ES version at the time). RESOLVED THE SAME
+  DAY: Lisa supplied a re-export with the banner translated to Spanish
+  ("LLAMA HOY PARA PONER TU CASA A LA VENTA," replacing "LIST YOUR / HOME
+  WITH ME TODAY!") — verified by direct inspection to contain no English
+  text anywhere before wiring. See the separate entry below for this file.
+
+FILE: assets/images/sellers/la-mayoria-de-las-personas.jpg
+TYPE: AI-generated composite -- not a straight photograph
+PHOTOGRAPHER: composite built from the same source elements as
+  assets/images/sellers/most-people.jpg above (Lisa's own cutout portrait +
+  the 1765 N Bay Drive, Elkhart hero photograph + generated text and
+  RE/MAX-style icon elements), Spanish-language re-export.
+LICENSE: same basis as most-people.jpg above — composite is Lisa's own
+  generated content (verbal broker approval); underlying house photo license
+  and 876 IAC 8-1-8(f) seller consent are the same records cited there.
+LICENSE ON FILE: with Lisa, not digitized in this repo.
+EXIF NOTE: No camera EXIF present — expected for a generated/composited
+  file, not a rejection signal.
+DOES NOT DEPICT: a specific advertised or sold listing without consent —
+  same written seller consent as most-people.jpg above.
+BAKED-IN TEXT: "VENDIDO" and a bottom banner reading "LLAMA HOY PARA PONER
+  TU CASA A LA VENTA" — 100% Spanish, verified by direct inspection to
+  contain no English text anywhere (the gap this file previously had).
+  Covered by the Master Plan's baked-in-body-image-text extension, August
+  2026.
+PLACED, 18 August 2026: Section A intro (.section-figure) on
+  /es/vendedores/, matching most-people.jpg's placement on /sellers/. Both
+  language pages now carry an image in Section A's intro.
