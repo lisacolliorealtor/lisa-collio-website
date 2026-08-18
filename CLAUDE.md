@@ -1,5 +1,5 @@
 # CLAUDE.md — lisa-collio-website
-**v2.6 (August 17, 2026)** — see the Revision Log at the end of this file.
+**v2.7 (August 18, 2026)** — see the Revision Log at the end of this file.
 Mirrors the highest-numbered Lisa_Collio_Website_Master_Plan version in Project
 files. This file defers to the Master Plan; if they ever disagree, the Master Plan
 wins. Deliberately no version number here — hardcoding one let this line go stale
@@ -372,6 +372,12 @@ a substitute for a real photograph of an actual place, person, or property. An
 AI-generated image must never depict a real place, a real person, or property
 that could be mistaken for an actual listing, and is recorded as an
 illustration — not a photograph — in `content/source/licensed-assets.txt`.
+**Baked-in text on an AI-generated body image is permitted under the same
+exception (added August 2026, broker-approved)** — distinct from the
+Featured-Image Standard's text-overlay exception below, which governs only
+the featured/`og:image` artifact for the Buyers/Sellers cluster. Alt text for
+such an image must convey the baked-in message itself, not describe the
+illustration generically.
 **Heroes are excluded from this exception and remain original photography
 only, no AI-generated imagery under any circumstance** (Hero Standard §6).
 This mirrors the Master Plan's Images section (§8) — previously CLAUDE.md
@@ -696,6 +702,11 @@ overlay functions refuse an out-of-scope slug outright, so the default is clean
 by construction rather than by remembering.
 
 ## REVISION LOG
+
+**v2.7 — August 18, 2026** (Claude, at Lisa's direction)
+**Mirrors Master Plan v2.23**, a single-item bundled bump: v2.23 committed to `docs/approved-copy/V2_23_Website_Master_Plan_Lisa_Collio.md`, v2.22 deleted (not left alongside it), and this file updated in the same change. v2.23 extends the AI-illustration exception to cover baked-in text on a body image (broker-approved; alt text must convey the baked-in message, not describe the illustration generically) — a case v2.22's exception was silent on, surfaced by the Buyers page image build (five body illustrations carry marketing-card text: four "why work with Lisa" cards plus one process-step image). Distinct from the Featured-Image Standard's text-overlay exception, which stays scoped to the Buyers/Sellers cluster's featured/`og:image` artifact only.
+- **ASSETS section updated with the same clause**, in the same change, per the Field-Class Compliance Coverage Standard — checked whether CLAUDE.md's mirror needed the addition rather than assuming the Master Plan bump alone was sufficient.
+- **One open item this bump does not resolve:** `get-pre-approved-first.png` carries English-only baked-in text ("BANK," "PRE-APPROVAL"). This ruling covers whether baked-in text is allowed at all, not whether an English-text image belongs on `/es/compradores/` — it ships on the English Buyers page only; the Spanish page's matching step currently has no image rather than one carrying English text. Recorded in the punch list, not decided here.
 
 **v2.6 — August 17, 2026** (Claude, at Lisa's direction)
 **Mirrors Master Plan v2.22**, a single-item bundled bump: v2.22 committed to `docs/approved-copy/V2_22_Website_Master_Plan_Lisa_Collio.md`, v2.21 deleted (not left alongside it), and this file updated in the same change. v2.22 amends the Images section: AI-generated illustrations are now permitted as body images, broker-approved, under stated conditions (aid comprehension, never a substitute for a real photograph, never depict a real place/person/property that could be mistaken for a listing, recorded as an illustration in `content/source/licensed-assets.txt`) — heroes are explicitly excluded and remain original photography only (Hero Standard §6, bumped to v1.1 the same day with a clarifying cross-reference).
