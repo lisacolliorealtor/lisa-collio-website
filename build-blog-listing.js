@@ -154,7 +154,7 @@ function renderFlatList(lang, groups) {
       }
       const catLabel = lang === "es"
         ? `<p class="blog-card__cat">En Español</p>`
-        : `<p class="blog-card__cat"><a href="${esc(TOPICS.en.find((x) => x.key === t.key).hubUrl)}">${esc(t.label)}</a></p>`;
+        : `<p class="blog-card__cat"><a href="${esc(t.hubUrl || `#${t.key}`)}">${esc(t.label)}</a></p>`;
       const heading = lang === "es"
         ? `<h2><a href="${esc(a.url)}">${esc(a.title)}</a></h2>`
         : `<h3><a href="${esc(a.url)}">${esc(a.title)}</a></h3>`;
