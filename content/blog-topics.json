@@ -1,0 +1,136 @@
+{
+  "en": [
+    {
+      "key": "buyers",
+      "label": "Buyers",
+      "hubUrl": "/blog/buyers/",
+      "description": "Guidance for buying a home in Goshen and Elkhart — timing, readiness, and process.",
+      "image": "/assets/images/homes-general/exterior-single-story-ranch-driveway.jpg",
+      "imageWidth": 2038,
+      "imageHeight": 1359,
+      "imageAlt": "A single-story ranch home with a long driveway and a fenced yard."
+    },
+    {
+      "key": "sellers",
+      "label": "Sellers",
+      "hubUrl": "/blog/sellers/",
+      "description": "Pricing, preparation, marketing, and timelines for selling in this market.",
+      "image": "/assets/images/homes-general/interior-dining-kitchen-glass-table-oak.jpg",
+      "imageWidth": 2038,
+      "imageHeight": 1360,
+      "imageAlt": "A bright open kitchen and dining area with a glass table, oak cabinets, and a stainless refrigerator."
+    },
+    {
+      "key": "community",
+      "label": "Community",
+      "hubUrl": "/blog/community/",
+      "description": "Who Lisa is and how she works, plus local guides to Goshen and Elkhart.",
+      "image": "/assets/images/goshen/goshen-living-downtown.jpg",
+      "imageWidth": 4284,
+      "imageHeight": 5712,
+      "imageAlt": "A downtown Goshen, Indiana storefront in a historic brick building."
+    },
+    {
+      "key": "relocation",
+      "label": "Relocation",
+      "hubUrl": "/blog/relocation/",
+      "description": "Moving to Goshen or Elkhart from somewhere else — timelines, industry context, and what to know first.",
+      "image": "/assets/images/elkhart/elkhart-moving-location-commute.jpg",
+      "imageWidth": 4032,
+      "imageHeight": 3024,
+      "imageAlt": "The historic Elkhart, Indiana train depot."
+    },
+    {
+      "key": "market-updates",
+      "label": "Market Updates",
+      "hubUrl": "/blog/market-updates/",
+      "description": "Real MLS numbers for Goshen and Elkhart, explained plainly through the year.",
+      "image": "/assets/images/hero/market-stats.jpg",
+      "imageWidth": 2418,
+      "imageHeight": 1360,
+      "imageAlt": "Aerial view of a Goshen, Indiana residential neighborhood."
+    }
+  ],
+  "es": [
+    {
+      "key": "comprar",
+      "label": "Comprar",
+      "hubUrl": null,
+      "description": null,
+      "image": "/assets/images/homes-general/exterior-red-wood-deck-backyard.jpg",
+      "imageWidth": 2038,
+      "imageHeight": 1359,
+      "imageAlt": "Una terraza de madera roja y un patio trasero cercado."
+    },
+    {
+      "key": "vender",
+      "label": "Vender",
+      "hubUrl": null,
+      "description": null,
+      "image": "/assets/images/homes-general/interior-kitchen-oak-cabinets-stainless-fridge.jpg",
+      "imageWidth": 2038,
+      "imageHeight": 1360,
+      "imageAlt": "Una cocina luminosa con gabinetes de roble, isla y refrigerador de acero inoxidable."
+    },
+    {
+      "key": "conozca-a-lisa",
+      "label": "Conozca a Lisa",
+      "hubUrl": null,
+      "description": null,
+      "image": "/assets/images/lisa/lisa-collio-headshot-red-top.jpg",
+      "imageWidth": 1559,
+      "imageHeight": 1559,
+      "imageAlt": "Retrato de Lisa Collio."
+    },
+    {
+      "key": "goshen",
+      "label": "Goshen",
+      "hubUrl": null,
+      "description": null,
+      "image": "/assets/images/goshen/goshen-living-downtown.jpg",
+      "imageWidth": 4284,
+      "imageHeight": 5712,
+      "imageAlt": "Una tienda en el centro histórico de Goshen, Indiana, en un edificio de ladrillo."
+    },
+    {
+      "key": "elkhart",
+      "label": "Elkhart",
+      "hubUrl": null,
+      "description": null,
+      "image": "/assets/images/elkhart/elkhart-living-downtown.jpg",
+      "imageWidth": 4032,
+      "imageHeight": 3024,
+      "imageAlt": "La torre del reloj del Lerner Theatre en el centro de Elkhart, Indiana."
+    },
+    {
+      "key": "reubicacion",
+      "label": "Reubicación",
+      "hubUrl": null,
+      "description": null,
+      "image": "/assets/images/elkhart/elkhart-moving-location-commute.jpg",
+      "imageWidth": 4032,
+      "imageHeight": 3024,
+      "imageAlt": "La antigua estación de tren de Elkhart, Indiana."
+    },
+    {
+      "key": "tu-proximo-capitulo",
+      "label": "Tu Próximo Capítulo™",
+      "hubUrl": null,
+      "description": null,
+      "image": "/assets/images/hero/next-chapter-method.jpg",
+      "imageWidth": 3200,
+      "imageHeight": 2135,
+      "imageAlt": "Un porche cubierto con una silla colgante, frente a la puerta principal de una casa."
+    },
+    {
+      "key": "market-updates",
+      "label": "Actualizaciones del Mercado",
+      "hubUrl": null,
+      "description": null,
+      "image": null,
+      "imageWidth": null,
+      "imageHeight": null,
+      "imageAlt": null
+    }
+  ]
+}
