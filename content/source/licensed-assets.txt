@@ -138,3 +138,375 @@ EXIF NOTE: No camera EXIF present. Not investigated further — Lisa confirmed
   ship as-is — soft on a large monitor, fine on the phone traffic that is
   most of her visitors. Logged as a post-launch replacement candidate in the
   punch list.
+
+# Buyers page body images (August 2026). All AI-generated illustrations below
+# are 1080x1080, under the Hero Standard's 1200px floor -- same as
+# home/real-estate-guidance.jpg above, logged as a post-launch replacement
+# candidate rather than a build blocker. Seven carry no baked-in text
+# (process-step illustrations); one (get-pre-approved-first.png) and all four
+# why-work-with-lisa-cards entries carry baked-in marketing-card text, covered
+# by the Master Plan's Images section extension of the AI-illustration
+# exception to baked-in body-image text (added August 2026, broker-approved,
+# same basis as the exception itself).
+
+FILE: assets/images/buyers/process/consult-with-lisa-collio.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a photorealistic-style illustration of an
+  agent and a client at a desk with a small house model, not a real
+  transaction or real client.
+
+FILE: assets/images/buyers/process/get-pre-approved-first.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a clipboard reading "PRE-APPROVAL" beside a
+  generic bank building model, not a real bank or real financial institution.
+  BAKED-IN TEXT: "BANK" and "PRE-APPROVAL" — English only. Wired on the
+  English Buyers page; deliberately NOT wired on /es/compradores/ to avoid
+  mixing an English-text image into a Spanish page (the bilingual moat is a
+  locked, no-exceptions-stated rule; this file predates a ruling on whether an
+  ES-text re-export is warranted). Flagged in the punch list.
+
+FILE: assets/images/buyers/process/figure-out-what-you-are-looking-for.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a photorealistic-style illustration of a
+  person sketching a wish-list of home priorities in a notebook, not a real
+  client.
+
+FILE: assets/images/buyers/process/go-see-them-in-person.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a photorealistic-style illustration of an
+  agent showing a couple a bright, empty kitchen, not a real listing or real
+  clients.
+
+FILE: assets/images/buyers/process/when-you-find-the-right-one.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a small house model beside a red heart on
+  a wood table, not a real property.
+
+FILE: assets/images/buyers/process/inspection-and-appraisal.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a hand holding a magnifying glass over a
+  house model beside a checklist, not a real inspection or real property.
+
+FILE: assets/images/buyers/process/closing-day.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a hand passing a house-shaped keychain to
+  another beside a house model and a signed document, not a real closing or
+  real clients.
+
+FILE: assets/images/buyers/why-work-with-lisa-cards/en/lisa-knows-this-market.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a comic-panel-style illustration of a
+  house, a magnifying glass over its interior, and a map pin, not a real
+  location.
+  BAKED-IN TEXT: "LISA KNOWS THIS MARKET FROM THE INSIDE" — covered by the
+  Master Plan's baked-in-body-image-text extension, August 2026.
+
+FILE: assets/images/buyers/why-work-with-lisa-cards/en/she-works-for-you.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a comic-panel-style illustration of a
+  handshake with a heart over a small house, not real clients or a real
+  transaction.
+  BAKED-IN TEXT: "SHE'S WORKING FOR YOU — NOT JUST FOR THE CLOSE" — covered by
+  the Master Plan's baked-in-body-image-text extension, August 2026.
+  RENAMED from the uploaded filename "she-working-for-you .png" (different
+  verb tense, trailing space) to match the concept it illustrates and the
+  page's actual heading, per Lisa's ruling, 18 August 2026.
+
+FILE: assets/images/buyers/why-work-with-lisa-cards/en/you-always-know.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a comic-panel-style illustration of a
+  phone showing notification icons and a bell, not a real device or real
+  content.
+  BAKED-IN TEXT: "YOU'LL ALWAYS KNOW WHAT'S HAPPENING" — covered by the
+  Master Plan's baked-in-body-image-text extension, August 2026.
+
+FILE: assets/images/buyers/why-work-with-lisa-cards/en/your-offer-gets-thought-through.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a comic-panel-style illustration of a
+  checklist on a clipboard and a lightbulb, not a real offer or real
+  paperwork.
+  BAKED-IN TEXT: "YOUR OFFER GETS THOUGHT THROUGH, NOT JUST FILLED OUT" —
+  covered by the Master Plan's baked-in-body-image-text extension, August
+  2026. RENAMED from the uploaded filename "your-offer-gets-thought.png"
+  (truncated) to match the page's actual heading, per Lisa's ruling, 18
+  August 2026.
+
+FILE: assets/images/buyers/why-work-with-lisa-cards/es/lisa-conoce-este-mercado.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a comic-panel-style illustration of a
+  house, a magnifying glass over its interior, and a map pin, not a real
+  location. Same composition as the English "lisa-knows-this-market.png"
+  above, different baked-in text.
+  BAKED-IN TEXT: "LISA CONOCE ESTE MERCADO DESDE ADENTRO" — covered by the
+  Master Plan's baked-in-body-image-text extension, August 2026.
+  RENAMED from the uploaded filename "lisa-conoce-este-mercado .png"
+  (trailing space) per Lisa's ruling, 18 August 2026.
+
+FILE: assets/images/buyers/why-work-with-lisa-cards/es/usted-siempre-sabra.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a comic-panel-style illustration of a
+  phone showing notification icons and a bell, not a real device. Same
+  composition as the English "you-always-know.png" above, different
+  baked-in text.
+  BAKED-IN TEXT: "USTED SIEMPRE SABRÁ QUÉ ESTÁ PASANDO" — covered by the
+  Master Plan's baked-in-body-image-text extension, August 2026.
+
+FILE: assets/images/buyers/why-work-with-lisa-cards/es/su-oferta-se-piensa.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a comic-panel-style illustration of a
+  checklist on a clipboard and a lightbulb, not a real offer. Same
+  composition as the English "your-offer-gets-thought-through.png" above,
+  different baked-in text.
+  BAKED-IN TEXT: "SU OFERTA SE PIENSA, NO SOLO SE LLENA" — covered by the
+  Master Plan's baked-in-body-image-text extension, August 2026.
+
+FILE: assets/images/buyers/why-work-with-lisa-cards/es/ella-trabaja-para-usted.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026. No written artifact exists for this
+  approval -- if the broker's single comprehensive pre-launch review produces
+  one covering this, this entry is updated then.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a comic-panel-style illustration of a
+  handshake with a heart over a small house, not real clients. Same
+  composition as the English "she-works-for-you.png" above, different
+  baked-in text.
+  BAKED-IN TEXT: "ELLA TRABAJA PARA USTED — NO SOLO PARA CERRAR" — covered by
+  the Master Plan's baked-in-body-image-text extension, August 2026.
+
+# Not an AI-generated illustration -- a real photograph of identifiable
+# clients, filed into client-general/ per its existing naming and consent
+# convention (August 2026). Not a review-paired photo (client-reviews/), so no
+# Photo -> Review Mapping row applies; this entry is its consent record.
+FILE: assets/images/client-general/clients-best-realtor-ever-title-office.jpg
+PHOTOGRAPHER: Lisa Collio (own photograph)
+LICENSE: Lisa confirmed she holds written permission from both clients
+  pictured, 18 August 2026 — separate from (and in addition to) the standing
+  pre-shoot consent-form policy described in
+  docs/approved-copy/lisa-collio-google-reviews.md, since this photo is not
+  paired with a review.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: Full camera EXIF present (Apple iPhone 16 Pro, captured 2026-07-14)
+  — no provenance concern.
+DOES NOT DEPICT: a specific advertised or sold listing (876 IAC 8-1-8(f) does
+  not apply) — Lisa and a client holding a "Best Realtor Ever / Fidelity
+  National Title" sign and house keys in an office setting. The "Fidelity
+  National Title" signage is legible but is not a blocking criterion under the
+  Image Review Policy (narrowed August 2026) — legible business names are not
+  gated.
+  UPLOADED AS: "why-work-with-lisa.jpg" — checked against every image hash in
+  the repo and not found to be a duplicate of any existing file (unlike its
+  sibling upload, buying-a-home.jpg, which was byte-identical to
+  client-reviews/review-maria-baltazar.jpg and was deleted rather than
+  duplicated). Filed here as a new photo per Lisa's ruling, 18 August 2026; if
+  it later turns out to duplicate an existing photo under a different name,
+  that surfaces as an image-parity finding and is merged then, not searched
+  for further now.
+  PLACED then REMOVED, 18 August 2026: briefly placed below the four "Why
+  Work With Lisa" cards on /buyers/ and /es/compradores/, then removed the
+  same day when Lisa replaced this pick with review-maria-baltazar.jpg in a
+  different slot (directly after the hero) — "one photo in that role, not
+  two." The record above (upload provenance, consent, EXIF) still applies
+  unchanged.
+  NOT ORPHANED, corrected same day: this file is still live on the site,
+  independent of the buyers-page placement above. Filing it into
+  client-general/ automatically added it to build-reviews.js's rotation
+  pool (28 → 29 client-general photos), and the next `node build-reviews.js`
+  run picked it up into five "thank you" review-card slots site-wide
+  (es/index.html and four blog articles), each with its own
+  page-appropriate generic alt text ("Clients of Lisa Collio celebrating a
+  home purchase in Goshen and Elkhart, Indiana" / Spanish equivalent) —
+  distinct from the specific alt text this file carried in its removed
+  buyers-page placement. This is the standard, expected mechanism for every
+  file in client-general/, not something wired manually for this task.
+
+# Derived crop of an existing consented photo -- not a new upload, not a new
+# consent question. Build record per the Build Record Standard: source,
+# parameters, and exact reproduction path.
+FILE: assets/images/buyers/process/get-pre-approved-first-es.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026 -- same standing approval already
+  covering the other 15 Buyers-page illustrations, no new approval sought
+  or needed for this one.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a photorealistic-style illustration of a
+  clipboard and a small bank building model, matching
+  get-pre-approved-first.png's composition and style, not a real bank or
+  real financial institution.
+  BAKED-IN TEXT: "BANCO" and "PRE-APROBACIÓN" — Spanish only, verified by
+  direct inspection before wiring (no "BANK" or "PRE-APPROVAL" anywhere in
+  the artwork). Generated specifically to close the documented gap where
+  /es/compradores/ step 2 previously shipped with no image rather than one
+  carrying English text — see Master Plan v2.23's changelog and the punch
+  list for the original finding.
+  DIMENSIONS: 1231x1278 (slightly portrait) — clears the 1200px width floor,
+  unlike the other 15 Buyers-page illustrations (all 1080x1080, logged as
+  under-floor). Different aspect ratio than the English
+  get-pre-approved-first.png (1080x1080 square); not cropped to match, since
+  .process-step__img has no forced aspect ratio and both render acceptably
+  at their native ratios.
+  WIRED, 18 August 2026: step 02 ("Primero, la pre-aprobación") on
+  /es/compradores/ only. The English page and its image are untouched.
+
+FILE: assets/images/buyers/review-maria-baltazar-buyers.jpg
+TYPE: derived crop -- not a new photograph
+SOURCE: assets/images/client-reviews/review-maria-baltazar.jpg (2048x1165),
+  already consent-covered under the standard pre-shoot photo/marketing
+  consent policy in docs/approved-copy/lisa-collio-google-reviews.md; this
+  crop introduces no new subject or new consent question.
+CROP: crop_box (0.19, 0.0, 1.0, 1.0) -- trims the left ~19% (empty wall and
+  a framed map behind the subjects) only; top, right, and bottom edges are
+  untouched. Result: 1659x1165. No face, hand, or clothing is cut by this
+  crop -- verified by inspection before applying (Lisa's approval, 18 August
+  2026, after reviewing the proposed box).
+REPRODUCE: PIL, `Image.open(source).crop((389, 0, 2048, 1165))`, saved as
+  JPEG quality 90 optimize=True, plus a WEBP sibling (quality 85).
+LICENSE ON FILE: inherited from the source file — see
+  docs/approved-copy/lisa-collio-google-reviews.md.
+DOES NOT DEPICT: a specific advertised or sold listing (876 IAC 8-1-8(f)
+  does not apply) — the same three people as the source photo, Lisa and two
+  clients in an office setting.
+PLACED, 18 August 2026: directly after the hero, before the intro
+  paragraphs, on /buyers/ and /es/compradores/. EN alt reused from the
+  source file's existing homepage usage, per the Alt-Text Correspondence
+  Standard: "Maria Baltazar celebrating her new home" — this crop doesn't
+  remove any subject matter (only background), so the existing string still
+  accurately describes what's visible. ES alt reused from the source file's
+  existing usage on other pages: "Cliente de Lisa Collio en Goshen y
+  Elkhart, Indiana" — no ES-specific alternative exists for the more
+  detailed EN string.

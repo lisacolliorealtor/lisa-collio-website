@@ -689,9 +689,16 @@ main { flex: 1 0 auto; }
 }
 .info-card h3 { color: var(--navy-ink); margin-bottom: var(--space-2); font-size: var(--fs-500); }
 .info-card p { color: var(--black); }
+/* Optional card image (added August 2026, Buyers page why-work-with-lisa
+   cards) — unforced aspect ratio, not cropped: several of these illustrations
+   carry baked-in text near the edges, which a forced object-fit crop could cut
+   off. */
+.info-card__img { width: 100%; height: auto; border-radius: var(--radius-sm); margin-bottom: var(--space-3); }
 
-/* Numbered process steps — text cards (deliberately distinct from the
-   photo-based Smart Move Framework cards; no imagery, inline number + accent). */
+/* Numbered process steps — text cards, originally deliberately imageless
+   (distinct from the photo-based Smart Move Framework cards). Optional image
+   support added August 2026 for the Buyers page process-step illustrations;
+   a step without an image still renders exactly as before. */
 .process-steps { display: grid; gap: var(--space-4); margin-top: var(--space-5); }
 @media (min-width: 700px) { .process-steps { grid-template-columns: 1fr 1fr; } }
 .process-step {
@@ -704,6 +711,7 @@ main { flex: 1 0 auto; }
 .process-step h3 { color: var(--navy-ink); margin-bottom: var(--space-2); font-size: var(--fs-500); }
 .process-step__num { color: var(--remax-red); font-weight: 800; }
 .process-step p { color: var(--black); }
+.process-step__img { width: 100%; height: auto; border-radius: var(--radius-sm); margin-bottom: var(--space-3); }
 .path-card h3 { color: var(--navy-ink); }
 .path-card p { color: var(--black); }
 .path-card__link {
