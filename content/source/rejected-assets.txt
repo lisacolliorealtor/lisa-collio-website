@@ -122,3 +122,20 @@ elkhart-moving-elkhart-or-goshen | ruling 3, 2 Aug 2026: Lisa's photo, rejected 
 #     This needs a re-crop that excludes the sign's bottom bar, or a full
 #     photo replacement — Lisa's call, not resolved in this pass. See the
 #     punch list for the open item.
+#
+# RULING 5 (Lisa, 18 August 2026) — lisa-collio-just-sold-marketing-graphic
+# (.jpg + .webp), DELETED. Flagged during the Sellers-page-images build as an
+# unused asset in the same "Just Sold" genre as the new most-people.jpg /
+# la-mayoria-de-las-personas.jpg composites, but a different, unrelated
+# property. Report-Before-Build check confirmed:
+#   - Never wired to any page — repo-wide grep (current tree and full git
+#     history, git log --all -S) found zero references anywhere except the
+#     punch-list line that flagged it.
+#   - No entry in licensed-assets.txt or sold-listing-consent.txt — no
+#     licensing/provenance record and no 876 IAC 8-1-8(f) consent record for
+#     whatever property it depicts.
+#   - The depicted house's address number ("1510") is partially legible in
+#     the frame — a live, undocumented consent gap, not a harmless spare.
+#   - Added to the repo ~27 July 2026, present for about 3.5 weeks, never
+#     used in that time.
+#   lisa-collio-just-sold-marketing-graphic (.jpg + .webp)   DELETED 18 Aug 2026
