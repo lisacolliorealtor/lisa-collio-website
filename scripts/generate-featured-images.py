@@ -1097,8 +1097,18 @@ CLEAN_JOBS = {
         ("assets/images/homes-general/interior-kitchen-cherry-cabinets-stainless.jpg", 0.5, None),
     "what-is-elkhart-indiana-known-for":
         ("assets/images/elkhart/elkhart-living-faq-known-for.jpg", 0.5, None),   # Elkhart batch 2 Aug 2026, blob 20673bb0f1a2
+    # CORRECTED 18 August 2026 (Full Site Audit finding): was wired to
+    # exterior-backyard-playset-shed-winter.jpg, a decorative homes-general
+    # photo unrelated to the article (downtown Goshen, RV manufacturing,
+    # Goshen College). Lisa's ruling: use goshen-living-known-for.jpg (Option
+    # A) -- Lisa on a downtown Goshen street corner, matching the article's
+    # own lead line ("the answer usually starts with its downtown"). Source
+    # is a tall 2316x3088 portrait cover-cropped into 1200x630; focal_y 0.67
+    # measured precisely (head top ~y1290, feet bottom ~y2430 in the
+    # original) to keep Lisa fully in frame head-to-feet, verified by
+    # rendering before applying.
     "what-is-goshen-indiana-known-for":
-        ("assets/images/homes-general/exterior-backyard-playset-shed-winter.jpg", 0.5, None),
+        ("assets/images/goshen/goshen-living-known-for.jpg", 0.67, None),
 
     # --- Group 2: Meet Lisa / brand people photos
     "why-lisa-collio-became-real-estate-agent":
