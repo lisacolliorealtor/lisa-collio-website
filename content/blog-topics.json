@@ -21,14 +21,34 @@
       "imageAlt": "A bright open kitchen and dining area with a glass table, oak cabinets, and a stainless refrigerator."
     },
     {
-      "key": "community",
-      "label": "Community",
-      "hubUrl": "/blog/community/",
-      "description": "Who Lisa is and how she works, plus local guides to Goshen and Elkhart.",
-      "image": "/assets/images/goshen/goshen-living-downtown.jpg",
-      "imageWidth": 4284,
-      "imageHeight": 5712,
-      "imageAlt": "A downtown Goshen, Indiana storefront in a historic brick building."
+      "key": "meet-lisa",
+      "label": "Meet Lisa",
+      "hubUrl": null,
+      "description": null,
+      "image": "/assets/images/lisa/lisa-collio-headshot-red-top.jpg",
+      "imageWidth": 1559,
+      "imageHeight": 1559,
+      "imageAlt": "Portrait of Lisa Collio."
+    },
+    {
+      "key": "goshen",
+      "label": "Goshen",
+      "hubUrl": null,
+      "description": null,
+      "image": "/assets/images/hero/moving-to-goshen.jpg",
+      "imageWidth": 3200,
+      "imageHeight": 2400,
+      "imageAlt": "A downtown Goshen, Indiana streetscape."
+    },
+    {
+      "key": "elkhart",
+      "label": "Elkhart",
+      "hubUrl": null,
+      "description": null,
+      "image": "/assets/images/elkhart/elkhart-living-downtown.jpg",
+      "imageWidth": 4032,
+      "imageHeight": 3024,
+      "imageAlt": "The Lerner Theatre clock tower in downtown Elkhart, Indiana."
     },
     {
       "key": "relocation",
@@ -39,6 +59,16 @@
       "imageWidth": 4032,
       "imageHeight": 3024,
       "imageAlt": "The historic Elkhart, Indiana train depot."
+    },
+    {
+      "key": "life-chapters",
+      "label": "Life Chapters",
+      "hubUrl": null,
+      "description": null,
+      "image": "/assets/images/hero/next-chapter-method.jpg",
+      "imageWidth": 3200,
+      "imageHeight": 2135,
+      "imageAlt": "A covered porch with a hanging chair, facing the front door of a home."
     },
     {
       "key": "market-updates",
@@ -87,10 +117,10 @@
       "label": "Goshen",
       "hubUrl": null,
       "description": null,
-      "image": "/assets/images/goshen/goshen-living-downtown.jpg",
-      "imageWidth": 4284,
-      "imageHeight": 5712,
-      "imageAlt": "Una tienda en el centro histórico de Goshen, Indiana, en un edificio de ladrillo."
+      "image": "/assets/images/hero/moving-to-goshen.jpg",
+      "imageWidth": 3200,
+      "imageHeight": 2400,
+      "imageAlt": "Una calle del centro de Goshen, Indiana."
     },
     {
       "key": "elkhart",
