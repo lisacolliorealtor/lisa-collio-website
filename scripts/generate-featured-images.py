@@ -628,6 +628,14 @@ def generate_clean(photo_path, out_slug, focal_y=0.5, crop_box=None, thumb=True)
 
 SECTIONS_DIR = os.path.join(ROOT, "assets", "images", "sections")
 
+# Sentinel for a section image built by a different script under a different
+# delivery contract than generate_section()'s fixed 1200x630 -- running it
+# through build_section_jobs() would silently overwrite a deliberately
+# different-sized deliverable. build_section_jobs() skips these with a
+# printed note instead of regenerating them wrong. See each entry's own
+# comment for the actual build script and reasoning.
+EXTERNAL_PIPELINE = "<external-pipeline>"
+
 # name -> (source photo, focal_y, crop_box). Same shape as CLEAN_JOBS so the
 # two read alike. Rebuild with `--sections`.
 SECTION_JOBS = {
@@ -876,6 +884,34 @@ SECTION_JOBS = {
     # d73a1e396423.
     "elkhart-living-faq-landmarks":
         ("assets/images/elkhart/elkhart-living-faq-landmarks.jpg", 0.5, None),
+
+    # Below-hero community-page photos of Lisa, 18 August 2026. Built by
+    # scripts/process-below-hero-photos.py, not this file's generate_section()
+    # -- delivered at 1200x800 (1.5:1), a deliberate departure from this
+    # table's fixed 1200x630, since these are new above-the-lead people photos
+    # from a 4:3 source and 1.9:1 would cut Lisa off. Raw sources (blob SHAs
+    # recorded in that script's BELOW_HERO_JOBS table and in
+    # content/source/licensed-assets.txt) were deleted after cropping, so
+    # these cannot be reproduced through this file's pipeline at all --
+    # EXTERNAL_PIPELINE marks them so build_section_jobs() skips rather than
+    # regenerating them at the wrong size.
+    "lisa-living-in-elkhart":
+        (EXTERNAL_PIPELINE, None, None),
+    "lisa-moving-to-elkhart":
+        (EXTERNAL_PIPELINE, None, None),
+    "lisa-living-in-goshen":
+        (EXTERNAL_PIPELINE, None, None),
+    "lisa-moving-to-goshen":
+        (EXTERNAL_PIPELINE, None, None),
+
+    # lisa-hero-meet-lisa.jpg, uploaded in the same batch, moved into
+    # assets/images/sections/ alongside its batch-mates. NOT processed, NOT
+    # wired to any page -- 960x717, under the 1200px floor, a pre-approved
+    # post-launch replacement candidate. Marked EXTERNAL_PIPELINE too: it's
+    # the untouched upload, not a generate_section() output, so it must be
+    # skipped the same way rather than crashing build_section_jobs().
+    "lisa-hero-meet-lisa":
+        (EXTERNAL_PIPELINE, None, None),
 }
 
 
@@ -904,7 +940,11 @@ def generate_section(photo_path, out_name, focal_y=0.5, crop_box=None):
 
 def build_section_jobs():
     for name, (src, focal_y, crop_box) in SECTION_JOBS.items():
-        print(generate_section(src, name, focal_y=focal_y, crop_box=crop_box))
+        if src is EXTERNAL_PIPELINE or src == EXTERNAL_PIPELINE:
+            print(f"{name}: skipped, built by scripts/process-below-hero-photos.py "
+                  f"(see job comment) -- delivered files on disk unchanged")
+        else:
+            print(generate_section(src, name, focal_y=focal_y, crop_box=crop_box))
 
 
 # Clean replacements built so far, recorded so the mapping is reproducible
