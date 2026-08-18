@@ -453,6 +453,36 @@ DOES NOT DEPICT: a specific advertised or sold listing (876 IAC 8-1-8(f) does
 # Derived crop of an existing consented photo -- not a new upload, not a new
 # consent question. Build record per the Build Record Standard: source,
 # parameters, and exact reproduction path.
+FILE: assets/images/buyers/process/get-pre-approved-first-es.png
+TYPE: AI-generated illustration -- not a photograph
+PHOTOGRAPHER: N/A -- generated content, no photographer
+LICENSE: Lisa's own generated content; verbal approval from the managing
+  broker, recorded by Lisa, August 2026 -- same standing approval already
+  covering the other 15 Buyers-page illustrations, no new approval sought
+  or needed for this one.
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: No camera EXIF present — expected for an AI-generated file, not a
+  rejection signal.
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a photorealistic-style illustration of a
+  clipboard and a small bank building model, matching
+  get-pre-approved-first.png's composition and style, not a real bank or
+  real financial institution.
+  BAKED-IN TEXT: "BANCO" and "PRE-APROBACIÓN" — Spanish only, verified by
+  direct inspection before wiring (no "BANK" or "PRE-APPROVAL" anywhere in
+  the artwork). Generated specifically to close the documented gap where
+  /es/compradores/ step 2 previously shipped with no image rather than one
+  carrying English text — see Master Plan v2.23's changelog and the punch
+  list for the original finding.
+  DIMENSIONS: 1231x1278 (slightly portrait) — clears the 1200px width floor,
+  unlike the other 15 Buyers-page illustrations (all 1080x1080, logged as
+  under-floor). Different aspect ratio than the English
+  get-pre-approved-first.png (1080x1080 square); not cropped to match, since
+  .process-step__img has no forced aspect ratio and both render acceptably
+  at their native ratios.
+  WIRED, 18 August 2026: step 02 ("Primero, la pre-aprobación") on
+  /es/compradores/ only. The English page and its image are untouched.
+
 FILE: assets/images/buyers/review-maria-baltazar-buyers.jpg
 TYPE: derived crop -- not a new photograph
 SOURCE: assets/images/client-reviews/review-maria-baltazar.jpg (2048x1165),

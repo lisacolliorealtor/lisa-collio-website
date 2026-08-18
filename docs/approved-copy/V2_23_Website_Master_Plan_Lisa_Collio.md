@@ -683,6 +683,7 @@ Recorded as *ruled out* rather than left unregistered by omission. An unregister
 **Not a loosening of the featured-image scope, and not a change to page-title rules.** Both existing text passages stay exactly as written; this is a third, previously-unaddressed case, not a reinterpretation of either.
 
 **One process-step illustration (`get-pre-approved-first.png`) carries English-only baked-in text ("BANK," "PRE-APPROVAL").** This ruling covers whether baked-in text is permitted at all — it does not, on its own, resolve whether an English-text image belongs on the Spanish Buyers page. Wired on `/buyers/` only; deliberately not wired on `/es/compradores/`, where that step currently ships without an image rather than mixing English text into Spanish-language content. Flagged in the punch list as an open item, not decided here.
+**Resolved the same day:** Lisa generated a Spanish-text illustration (`get-pre-approved-first-es.png`, "PRE-APROBACIÓN"/"BANCO", verified to carry no English text) and it is now wired into `/es/compradores/` step 02. Both language pages carry an image on every process step; see the punch list for the full build record.
 
 ## v2.22 — August 2026
 
