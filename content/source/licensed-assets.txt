@@ -510,3 +510,256 @@ PLACED, 18 August 2026: directly after the hero, before the intro
   existing usage on other pages: "Cliente de Lisa Collio en Goshen y
   Elkhart, Indiana" — no ES-specific alternative exists for the more
   detailed EN string.
+
+# ---------------------------------------------------------------------------
+# Sellers page body images, 18 August 2026. 25 AI-generated illustrations
+# (why-homeowners-choose-lisa-cards EN+ES, process, preparing-your-home-for-
+# sale, key-steps) plus one AI-generated composite (most-people.jpg). Same
+# basis as the Buyers batch above: broker-approved AI-illustration exception,
+# extended to baked-in body-image text where present. Individual per-file
+# entries follow the same convention used for the Buyers process/ and
+# why-work-with-lisa-cards sets; grouped fields not repeated below are LICENSE
+# / LICENSE ON FILE / EXIF NOTE, identical across all 25 illustrations:
+#   LICENSE:         Lisa's own generated content; verbal approval from the
+#                     managing broker, recorded by Lisa, August 2026. No
+#                     written artifact exists for this approval -- if the
+#                     broker's single comprehensive pre-launch review
+#                     produces one covering this, these entries are updated
+#                     then.
+#   LICENSE ON FILE: with Lisa, not digitized in this repo
+#   EXIF NOTE:       No camera EXIF present — expected for an AI-generated
+#                     file, not a rejection signal.
+
+FILE: assets/images/sellers/why-homeowners-choose-lisa-cards/en/strategic-pricing-from-the-start.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a comic-panel-style illustration of a
+  house and a magnifying glass over a price tag marked with dollar signs.
+BAKED-IN TEXT: "STRATEGIC PRICING FROM THE START" — covered by the Master
+  Plan's baked-in-body-image-text extension, August 2026.
+
+FILE: assets/images/sellers/why-homeowners-choose-lisa-cards/en/professional-marketing.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a comic-panel-style illustration of a
+  house, social-media icons, and a laptop showing a "FOR SALE" listing.
+BAKED-IN TEXT: "PROFESSIONAL MARKETING THAT CREATES EXPOSURE" — covered by
+  the Master Plan's baked-in-body-image-text extension, August 2026.
+
+FILE: assets/images/sellers/why-homeowners-choose-lisa-cards/en/clear-communication.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a comic-panel-style illustration of a
+  phone with text messages, an envelope, a phone-call icon, and a house.
+BAKED-IN TEXT: "CLEAR COMMUNICATION THROUGHOUT THE PROCESS" — covered by the
+  Master Plan's baked-in-body-image-text extension, August 2026.
+
+FILE: assets/images/sellers/why-homeowners-choose-lisa-cards/en/strong-negotiation-skills.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a comic-panel-style illustration of a
+  handshake over a clipboard beside a house and a price tag.
+BAKED-IN TEXT: "STRONG NEGOTIATION SKILLS" — covered by the Master Plan's
+  baked-in-body-image-text extension, August 2026.
+
+FILE: assets/images/sellers/why-homeowners-choose-lisa-cards/en/guidance-to-closing.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — a comic-panel-style illustration of a
+  house, a set of keys, and a "CLOSING DAY!" checklist.
+BAKED-IN TEXT: "GUIDANCE TO CLOSING" and "CLOSING DAY!" — covered by the
+  Master Plan's baked-in-body-image-text extension, August 2026.
+
+FILE: assets/images/sellers/why-homeowners-choose-lisa-cards/es/precio-estrategico.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — same illustration as
+  why-homeowners-choose-lisa-cards/en/strategic-pricing-from-the-start.png,
+  with Spanish baked-in text.
+BAKED-IN TEXT: "PRECIO ESTRATÉGICO DESDE EL PRIMER DÍA" — covered by the
+  Master Plan's baked-in-body-image-text extension, August 2026.
+
+FILE: assets/images/sellers/why-homeowners-choose-lisa-cards/es/mercadeo-profesional.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — same illustration as
+  why-homeowners-choose-lisa-cards/en/professional-marketing.png, with
+  Spanish baked-in text ("SE VENDE" replacing "FOR SALE" on the laptop
+  screen).
+BAKED-IN TEXT: "MERCADEO PROFESIONAL QUE GENERA EXPOSICIÓN" and "SE VENDE" —
+  covered by the Master Plan's baked-in-body-image-text extension, August
+  2026.
+
+FILE: assets/images/sellers/why-homeowners-choose-lisa-cards/es/comunicacion-clara.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — same illustration as
+  why-homeowners-choose-lisa-cards/en/clear-communication.png, with Spanish
+  baked-in text.
+BAKED-IN TEXT: "COMUNICACIÓN CLARA DURANTE TODO EL PROCESO" — covered by the
+  Master Plan's baked-in-body-image-text extension, August 2026.
+
+FILE: assets/images/sellers/why-homeowners-choose-lisa-cards/es/negociacion-firme.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — same illustration as
+  why-homeowners-choose-lisa-cards/en/strong-negotiation-skills.png, with
+  Spanish baked-in text.
+BAKED-IN TEXT: "NEGOCIACIÓN FIRME" — covered by the Master Plan's
+  baked-in-body-image-text extension, August 2026.
+
+FILE: assets/images/sellers/why-homeowners-choose-lisa-cards/es/acompanamiento-hasta-el-cierre.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — same illustration as
+  why-homeowners-choose-lisa-cards/en/guidance-to-closing.png, with Spanish
+  baked-in text.
+BAKED-IN TEXT: "ACOMPAÑAMIENTO HASTA EL CIERRE" and "¡DÍA DEL CIERRE!" —
+  covered by the Master Plan's baked-in-body-image-text extension, August
+  2026.
+
+FILE: assets/images/sellers/process/1-consultation.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — an illustration of an agent and a client
+  seated across a desk, gesturing toward a small house model between them.
+BAKED-IN TEXT: a numeral "1" badge only.
+RENAMED from the uploaded filename " 1-Consultation.png" (leading space) to
+  match the sitewide lowercase-hyphenated filename convention, per Lisa's
+  ruling, 18 August 2026.
+
+FILE: assets/images/sellers/process/2-pricing.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — an illustration of a house with a
+  magnifying glass showing a rising price bar-chart overlaid on it.
+BAKED-IN TEXT: a numeral "2" badge only.
+
+FILE: assets/images/sellers/process/3-preparation.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — an illustration of a living room with a
+  moving box, a houseplant, and a spray bottle and folded towel beside it.
+BAKED-IN TEXT: a numeral "3" badge only.
+
+FILE: assets/images/sellers/process/4-marketing.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — an illustration of a house listing shown
+  on a desktop monitor and a phone, beside a camera, connected to a globe
+  icon.
+BAKED-IN TEXT: a numeral "4" badge only.
+
+FILE: assets/images/sellers/process/5-showing.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — an illustration of an agent opening a
+  door to greet a couple for a home showing.
+BAKED-IN TEXT: a numeral "5" badge only.
+
+FILE: assets/images/sellers/process/6-negotiation.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — an illustration of a handshake beneath a
+  house icon, beside a signed checklist and a pen.
+BAKED-IN TEXT: a numeral "6" badge only.
+
+FILE: assets/images/sellers/process/7-closing.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — an illustration of a house, a signed
+  document, and a set of keys on a house-shaped keychain.
+BAKED-IN TEXT: a numeral "7" badge only.
+
+FILE: assets/images/sellers/preparing-your-home-for-sale/address-minor-repairs.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — an illustration of a worker kneeling to
+  repair a door handle with a screwdriver, a toolbox beside him.
+BAKED-IN TEXT: none.
+SHARED across languages: same file used on both /sellers/ and
+  /es/vendedores/ — no baked-in text, so no ES-specific version is needed.
+
+FILE: assets/images/sellers/preparing-your-home-for-sale/declutter-and-simplify.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — an illustration of a woman kneeling in a
+  living room, packing items into a moving box.
+BAKED-IN TEXT: none. Shared across languages, same as above.
+
+FILE: assets/images/sellers/preparing-your-home-for-sale/deep-clean-the-property.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — an illustration of a woman wiping down a
+  kitchen island with a cleaning cloth and a spray bottle.
+BAKED-IN TEXT: none. Shared across languages, same as above.
+
+FILE: assets/images/sellers/preparing-your-home-for-sale/improve-curb-appeal.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — an illustration of the front exterior of
+  a home with a manicured lawn, flower beds, and a welcoming entry.
+BAKED-IN TEXT: none. Shared across languages, same as above.
+
+FILE: assets/images/sellers/key-steps/price-it-right.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — an illustration of a house balanced on a
+  scale against a price tag and cash, with a rising market chart on a
+  clipboard.
+BAKED-IN TEXT: none. Shared across languages, same as above.
+
+FILE: assets/images/sellers/key-steps/get-your-home-ready.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — an illustration of a checklist, a moving
+  box, a spray bottle, and a broom beside a front door.
+BAKED-IN TEXT: none. Shared across languages, same as above.
+
+FILE: assets/images/sellers/key-steps/get-it-in-front.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — an illustration of a house photo shown
+  across a phone, a laptop, and a camera, connected to icons of four
+  potential buyers.
+BAKED-IN TEXT: none. Shared across languages, same as above.
+
+FILE: assets/images/sellers/key-steps/when-offers-come.png
+TYPE: AI-generated illustration -- not a photograph
+DOES NOT DEPICT: any real place, real person, or property that could be
+  mistaken for an actual listing — an illustration of a handshake over a
+  desk with a signed contract, a calculator, and a house key.
+BAKED-IN TEXT: none. Shared across languages, same as above.
+
+FILE: assets/images/sellers/most-people.jpg
+TYPE: AI-generated composite -- not a straight photograph
+PHOTOGRAPHER: composite built from Lisa's own cutout portrait and the
+  1765 N Bay Drive, Elkhart hero photograph (see
+  assets/images/homes-elkhart/1765-n-bay-drive-elkhart-in-46514/
+  twilight-front-1.jpg entry above), plus generated text and RE/MAX-style
+  icon elements.
+LICENSE: composite is Lisa's own generated content, same verbal
+  broker-approval basis as the illustrations above. The underlying house
+  photograph's license is the third-party-photographer license already on
+  file (see the twilight-front-1.jpg entry above); the "Just Sold" framing
+  of this specific property is covered by written seller consent already
+  logged in content/source/sold-listing-consent.txt ("1765 N Bay Drive,
+  Elkhart"), satisfying 876 IAC 8-1-8(f).
+LICENSE ON FILE: with Lisa, not digitized in this repo (both the composite
+  approval and the underlying photo license).
+EXIF NOTE: No camera EXIF present — expected for a generated/composited
+  file, not a rejection signal.
+DOES NOT DEPICT: a specific advertised or sold listing without consent —
+  written seller consent is on file for this exact property, as noted above.
+BAKED-IN TEXT: "Just SOLD" and a bottom banner reading "LIST YOUR / HOME
+  WITH ME TODAY!" — covered by the Master Plan's baked-in-body-image-text
+  extension, August 2026.
+PLACED, 18 August 2026: Section A intro (.section-figure) on /sellers/ only.
+  ITS SPANISH COUNTERPART, la-mayoria-de-las-personas.jpg, IS NOT SHIPPED IN
+  THIS BATCH — its baked-in bottom-banner text is untranslated English on
+  what was meant to be the Spanish version, a second instance of the
+  bilingual-purity gap already logged once on the Buyers batch
+  (get-pre-approved-first.png / no ES version). Lisa's ruling, 18 August
+  2026: /es/vendedores/'s Section A intro ships without an image for now; a
+  Spanish re-export is a follow-up, tracked in the punch list. The withheld
+  file remains on branch lisa/sellers-page-images, not committed to main.
