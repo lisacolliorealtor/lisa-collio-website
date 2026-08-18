@@ -432,3 +432,12 @@ DOES NOT DEPICT: a specific advertised or sold listing (876 IAC 8-1-8(f) does
   it later turns out to duplicate an existing photo under a different name,
   that surfaces as an image-parity finding and is merged then, not searched
   for further now.
+  PLACED, 18 August 2026: below the four "Why Work With Lisa" cards on
+  /buyers/ and /es/compradores/, as a closing image before the process
+  section — per Lisa's placement ruling. EN alt: "Lisa Collio and a client
+  holding a 'Best Realtor Ever' sign and house keys." (reused from the
+  DOES NOT DEPICT description above, per the Alt-Text Correspondence
+  Standard, not rewritten). ES alt is a fresh Spanish description, not a
+  translation, per the standing rule — the "Best Realtor Ever" sign text is
+  quoted as-written (English, since that's what the physical sign says) with
+  the surrounding description in Spanish.
