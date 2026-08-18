@@ -117,10 +117,10 @@
       "label": "Goshen",
       "hubUrl": null,
       "description": null,
-      "image": "/assets/images/goshen/goshen-living-downtown.jpg",
-      "imageWidth": 4284,
-      "imageHeight": 5712,
-      "imageAlt": "Una tienda en el centro histórico de Goshen, Indiana, en un edificio de ladrillo."
+      "image": "/assets/images/hero/moving-to-goshen.jpg",
+      "imageWidth": 3200,
+      "imageHeight": 2400,
+      "imageAlt": "Una calle del centro de Goshen, Indiana."
     },
     {
       "key": "elkhart",
