@@ -443,11 +443,14 @@ All four questions from v1.3 are closed. Nothing in this document is open.
 
 ## SIGN-OFF
 
-- [ ] **Lisa Collio** — reviewed and approved
-- [ ] **Managing Broker, RE/MAX Results / The Viruez Team** — advertising and legal content approved
-- [ ] **Managing Broker** — Fair Housing review of ad targeting and audience practices (§4.8)
-- [ ] **Brokerage counsel** — automated-voice consent flow reviewed against IC 24-5-14 and the TCPA (§4.7). *Required before voice features are enabled, not before this document is approved.*
-- [ ] Effective dates set on both language versions, matched
-- [ ] Build authorized
+- [x] **Lisa Collio** — reviewed and approved
+- [x] **Managing Broker, RE/MAX Results / The Viruez Team** — advertising and legal content approved. **Verbal approval, in office, 18 August 2026.** Scope of what was actually reviewed and approved, recorded here so this box doesn't read as broader than the conversation was:
+  - **Approved:** this document (v1.4) in full, and the live site as it stood after PR #141 merged (Privacy Policy revisions, both consent checkboxes, the `lead-capture` → `contact-en` rename).
+  - **NOT approved — not built at the time of review:** the cookie consent banner, Google tag, and Meta pixel (PR B, source §2.4–§2.6). A short broker walkthrough of the live banner is still required before DNS cutover.
+  - **NOT approved — did not come up in the 18 August conversation:** Fair Housing review of ad targeting and audience practices (§4.8). Must happen before any paid campaign runs, not assumed covered by this sign-off.
+- [ ] **Managing Broker** — Fair Housing review of ad targeting and audience practices (§4.8). **Still open** — see the note above; the 18 August approval did not reach this item.
+- [ ] **Brokerage counsel** — automated-voice consent flow reviewed against IC 24-5-14 and the TCPA (§4.7). *Required before voice features are enabled, not before this document is approved.* **Still open regardless of broker approval** — the broker's sign-off does not close this; it requires counsel specifically.
+- [x] Effective dates set on both language versions, matched
+- [x] Build authorized — PR A (#141), merged. PR B not yet built/authorized under this scope note.
 
-**Nothing in this document is approved copy until the boxes above are checked. Do not build from this file in its draft state.**
+**Revision note (19 August 2026):** §2.1/§2.2 were reformatted after this approval — the automated-messaging checkbox was split into a short clickable label plus supporting fine print, presentation only. All required disclosure elements are unchanged in substance and wording, the bold on "automated" is preserved, and the checkbox remains unchecked-by-default and not-required. Recorded here as a revision rather than a silent edit to approved copy — see PR #142.
