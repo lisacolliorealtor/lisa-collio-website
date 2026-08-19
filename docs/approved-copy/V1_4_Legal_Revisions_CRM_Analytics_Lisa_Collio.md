@@ -194,6 +194,8 @@ Unchanged from v1.2. Ships at launch on the existing Netlify forms.
 
 **Updated 19 August 2026 (Lisa, presentation only — legal content unchanged):** split into a short clickable label plus supporting fine print beneath it, inside the same box, so it doesn't dwarf the required authorization box above it. The bold on "automated" is preserved in the fine print — that's what carries the clear-and-conspicuous requirement. Fine print renders no smaller than 14px, at WCAG 2.1 AA contrast.
 
+**Updated again, same day (Lisa, presentation only — trim, not a new revision of content):** the first split still read too tall — the label added a line rather than replacing anything. Fine print trimmed to only what's required for consent validity: the automated-contact disclosure (bold preserved), the not-a-condition-of-service statement, and the STOP/HELP/stop-calls instructions. Dropped the message-frequency and data-rates sentences — already stated in the Privacy Policy and not load-bearing for consent validity here. Everything else unchanged: unchecked by default, not required, form submits with it unchecked, field names untouched, links live.
+
 Immediately above the submit button, **unchecked by default**, on every form collecting a phone number:
 
 **Checkbox label (clickable):**
@@ -202,7 +204,7 @@ Immediately above the submit button, **unchecked by default**, on every form col
 
 **Fine print (beneath the label, same box, static text):**
 
-> This means Lisa Collio may contact you at the phone number and email address you provide about buying or selling a home, **including by automated text messages, automated emails, and automated or prerecorded voice calls and voicemail**. Agreeing is not required to buy or sell a home or to receive any service. Message frequency varies and message and data rates may apply. Reply STOP to end texts or HELP for help, and you can ask at any time to stop calls. See the [Privacy Policy](/privacy/) and [Terms of Use](/terms/).
+> Includes **automated texts, automated emails, and automated or prerecorded voice calls and voicemail**. Not required to buy or sell a home or to receive any service. Reply STOP to end texts, HELP for help, or ask any time to stop calls. See the [Privacy Policy](/privacy/) and [Terms of Use](/terms/).
 
 ### 2.2 Spanish consent checkbox — NEW
 
@@ -212,11 +214,11 @@ Immediately above the submit button, **unchecked by default**, on every form col
 
 **Fine print (beneath the label, same box, static text):**
 
-> Esto significa que Lisa Collio puede comunicarse con usted al número de teléfono y al correo electrónico que proporcione, sobre la compra o venta de una vivienda, **incluyendo mensajes de texto automatizados, correos electrónicos automatizados y llamadas o mensajes de voz automatizados o pregrabados**. Aceptar no es requisito para comprar o vender una vivienda ni para recibir ningún servicio. La frecuencia de los mensajes varía y pueden aplicar tarifas de mensajes y datos. Responda STOP para dejar de recibir mensajes de texto o HELP para obtener ayuda, y puede pedir en cualquier momento que se detengan las llamadas. Consulte la [Política de Privacidad](/es/privacidad/) y los [Términos de Uso](/es/terminos/).
+> Incluye **mensajes de texto automatizados, correos electrónicos automatizados y llamadas o mensajes de voz automatizados o pregrabados**. No es requisito para comprar o vender una vivienda ni para recibir ningún servicio. Responda STOP para dejar de recibir mensajes de texto, HELP para obtener ayuda, o pida en cualquier momento que se detengan las llamadas. Consulte la [Política de Privacidad](/es/privacidad/) y los [Términos de Uso](/es/terminos/).
 
 **STOP and HELP stay in English** — those are the keywords carriers and the messaging platform recognize. Do not translate them.
 
-**Note:** the Spanish link now reads "Política de Privacidad," not "Aviso de Privacidad" as originally drafted here — corrected 19 August 2026 to match the page's own canonical name (its `<title>`/`<h1>`/~80 site references), per Lisa's direction on the live forms. The "Aviso" vs "Política" naming question itself is still open elsewhere on the site (punch list §C) — this is not that decision, just keeping this source document from citing the wrong one for its own content.
+**Note:** the Spanish link reads "Política de Privacidad," not "Aviso de Privacidad" as originally drafted here — corrected 19 August 2026 to match the page's own canonical name (its `<title>`/`<h1>`/~80 site references), per Lisa's direction on the live forms. The "Aviso" vs "Política" naming question itself is still open elsewhere on the site (punch list §C) — this is not that decision, just keeping this source document from citing the wrong one for its own content.
 
 ### 2.3 Mandatory build requirements (Claude Code)
 
