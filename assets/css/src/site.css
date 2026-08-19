@@ -1535,13 +1535,21 @@ main { flex: 1 0 auto; }
    page load only when no stored choice exists yet; server-rendered HTML
    never includes it, so a no-JS visitor never sees it and never gets
    tracked (nothing loads without it either). */
+/* Solid, opaque surface color -- deliberately NOT rgba(). This element is
+   position:fixed and scrolls over whatever page content sits underneath
+   (a dark photo hero, plain warm-white body copy, etc.); a translucent
+   background would blend with that varying content and make the banner's
+   own contrast unpredictable depending on scroll position. Computed as
+   remax-blue at 20% over warm-white (#C8D2E0) -- four times the form's
+   5% tint (rgba(0,61,165,0.05)), so this reads as a distinct surface, not
+   a form field, on every page regardless of what's behind it. */
 .consent-banner {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 200;
-  background: var(--warm-white);
+  background: #C8D2E0;
   border-top: 1px solid var(--remax-blue);
   box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.15);
 }
@@ -1555,7 +1563,7 @@ main { flex: 1 0 auto; }
   padding: var(--space-4) var(--space-5);
 }
 .consent-banner__text {
-  color: var(--black);
+  color: var(--navy-ink);
   font-size: var(--fs-200);
   line-height: 1.5;
   margin: 0;
@@ -1573,7 +1581,7 @@ main { flex: 1 0 auto; }
    site's actual primary CTA (Call or Text, in the header right next to
    this banner) and two solid red buttons here would read as competing
    urgent calls to action, which a cookie choice is not. Navy-ink instead
-   -- on the warm-white banner background above (not navy-ink), so the
+   -- on the banner's own tinted surface above (not navy-ink), so the
    button boundary and its text both clear WCAG 2.1 AA (verified with
    axe-core after this change, not assumed from the token name alone). */
 .consent-banner__btn {
