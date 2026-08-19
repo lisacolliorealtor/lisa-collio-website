@@ -16,7 +16,7 @@
 <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/tokens.css?v=f7a5062e">
-<link rel="stylesheet" href="/assets/css/site.css?v=8fcfd78b">
+<link rel="stylesheet" href="/assets/css/site.css?v=7158efb4">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -266,9 +266,12 @@
           <input id="lf-consent" name="consent" type="checkbox" value="yes" required>
           <label for="lf-consent">I authorize Lisa Collio to collect the information I've entered above and to contact me personally about my real estate inquiry by phone, text, or email. See the <a href="/privacy/">Privacy Policy</a>.</label>
         </div>
-        <div class="lead-form__consent">
+        <div class="lead-form__consent lead-form__consent--split">
           <input id="lf-auto-consent" name="automated-consent" type="checkbox" value="yes">
-          <label for="lf-auto-consent">Yes — Lisa Collio may contact me at the phone number and email address I've provided about buying or selling a home, <strong>including by automated text messages, automated emails, and automated or prerecorded voice calls and voicemail</strong>. I understand this is not required to buy or sell a home or to receive any service, that message frequency varies, that message and data rates may apply, that I can reply STOP to end texts or HELP for help, and that I can ask at any time to stop calls. See the <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms of Use</a>.</label>
+          <div class="lead-form__consent-text">
+            <label for="lf-auto-consent">Yes — Lisa may follow up by automated text, email, or voicemail. Not required.</label>
+            <p class="lead-form__consent-fineprint">This means Lisa Collio may contact you at the phone number and email address you provide about buying or selling a home, <strong>including by automated text messages, automated emails, and automated or prerecorded voice calls and voicemail</strong>. Agreeing is not required to buy or sell a home or to receive any service. Message frequency varies and message and data rates may apply. Reply STOP to end texts or HELP for help, and you can ask at any time to stop calls. See the <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms of Use</a>.</p>
+          </div>
         </div>
         <button class="btn btn--primary" type="submit">Send to Lisa</button>
       </form>

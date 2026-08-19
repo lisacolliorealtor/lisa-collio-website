@@ -1510,3 +1510,22 @@ main { flex: 1 0 auto; }
 }
 .lead-form__consent a { color: var(--remax-blue); font-weight: 600; }
 .lead-form button[type="submit"] { justify-self: start; }
+
+/* Split consent box: short clickable label + supporting fine print beneath it,
+   for the optional automated-messaging checkbox. Keeps the box visually
+   balanced against the required authorization box above it instead of
+   reading as a wall of legal text. Fine print floor is 14px, per the
+   clear-and-conspicuous requirement on the bolded "automated" disclosure —
+   do not shrink below that. */
+.lead-form__consent-text { display: grid; gap: var(--space-2); }
+.lead-form__consent--split label {
+  font-weight: 600;
+  line-height: 1.45;
+}
+.lead-form__consent-fineprint {
+  font-size: 0.875rem; /* 14px floor */
+  font-weight: 400;
+  color: var(--black);
+  line-height: 1.5;
+}
+.lead-form__consent-fineprint a { color: var(--remax-blue); font-weight: 600; }
