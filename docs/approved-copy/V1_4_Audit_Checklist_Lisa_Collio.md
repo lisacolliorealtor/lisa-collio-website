@@ -160,7 +160,7 @@ Before checking anything else, establish what currently exists, so the rest of t
 
 ### 11. Forms and lead capture
 
-- [ ] All forms (lead-capture, home-valuation, contact, others) tested end-to-end in both languages
+- [ ] All forms (contact-en, home-valuation, contacto-es, valor-vivienda-es) tested end-to-end in both languages
 - [ ] Every form has a unique `name` attribute sitewide (Netlify Forms requires this — a collision silently breaks submissions); `data-netlify="true"` and the honeypot field (`netlify-honeypot` + matching hidden `bot-field` input) present on every form
 - [ ] Consent checkboxes link to the correct-language legal pages
 - [ ] Form `action` points to an existing, correctly-language-matched thank-you page; no English legal-page link survives inside a Spanish form's consent copy (or vice versa)
