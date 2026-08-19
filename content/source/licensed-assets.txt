@@ -892,3 +892,192 @@ NOT PROCESSED, NOT WIRED in this batch. Delivered at 960x717, under the
   20/13, failing check 14 — a separate decision, separate PR. File is
   moved into assets/images/sections/ alongside its batch-mates so it isn't
   left at repo root, but sits unused pending that future decision.
+
+# ---------------------------------------------------------------------------
+# Meet Lisa page image batch — 19 August 2026. 16 sources, 16 placed, 0 unused.
+# Sources live unreferenced in assets/images/meet-lisa/; delivered artifacts are
+# built from them by scripts/process-meet-lisa-images.py, whose MEET_LISA_JOBS
+# table is the build record (source, crop box in source pixels, delivery size,
+# destination) for every one of them.
+# Consent and approval confirmed by Lisa, 19 August 2026: all client photographs
+# are covered by signed pre-shoot consent forms; the six illustrations are
+# broker-approved for illustration purposes.
+# ---------------------------------------------------------------------------
+
+FILE: assets/images/meet-lisa/updated-meet-lisa-hero.jpg
+PHOTOGRAPHER: Lisa Collio's own family photograph
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone/camera original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: meet-lisa-family-graduation (.jpg + .webp) — see MEET_LISA_JOBS
+NOTE: Lisa's own family at a graduation. All four people depicted are adults — no minors — confirmed
+  explicitly by Lisa, 19 August 2026.
+
+FILE: assets/images/meet-lisa/awards.jpeg
+PHOTOGRAPHER: Lisa Collio (own award photograph)
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone/camera original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: lisa-collio-100-club-medal (.jpg + .webp) — see MEET_LISA_JOBS
+NOTE: Lisa holding her RE/MAX 100% Club medal. Framing used exactly as delivered, uncropped, at Lisa's
+  instruction. Replaces the Executive Club medal photo in the Awards slot — a different award tier,
+  an intentional swap, not a re-edit of the same image.
+
+FILE: assets/images/meet-lisa/english-real-estate-professional.jpeg
+PHOTOGRAPHER: Lisa Collio
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone/camera original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: lisa-collio-title-rep-sold-sign (.jpg + .webp) — see MEET_LISA_JOBS
+NOTE: Lisa with a title company representative. Business associate, not a client — filed under lisa/,
+  not client-general/.
+
+FILE: assets/images/meet-lisa/family-and-community.jpg
+PHOTOGRAPHER: Lisa Collio
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone/camera original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: lisa-collio-community-picture-book (.jpg + .webp) — see MEET_LISA_JOBS
+NOTE: Delivered at its native 960x640: the media-row slot renders at 419px maximum, so this is 2.29x and
+  needs no resize. Approved alt text was revised by Lisa on 19 August 2026 — the original described a
+  group and a reading action not visible in the frame.
+
+FILE: assets/images/meet-lisa/real-estate-experience.jpeg
+PHOTOGRAPHER: Lisa Collio
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone/camera original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: lisa-collio-clients-after-closing (.jpg + .webp) — see MEET_LISA_JOBS
+NOTE: Clients, signed pre-shoot consent on file, confirmed by Lisa 19 August 2026 as the intended image
+  for the real-estate-experience section.
+
+FILE: assets/images/meet-lisa/how-many-homes.jpeg
+PHOTOGRAPHER: Lisa Collio
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone/camera original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: meet-lisa-faq-homes-sold (.jpg + .webp) — see MEET_LISA_JOBS
+NOTE: The only horizontally-cropped artifact in the batch. A full-width 1.9:1 crop of this portrait left
+  both subjects unreadable at the 350px the FAQ slot actually renders at, verified on a rendered
+  proof; the shipped crop keeps both RE/MAX banners, which the alt text's awards-event framing needs.
+
+FILE: assets/images/meet-lisa/why-do-clients-choose-lisa-collio-as-their-real-estate-agent.jpeg
+PHOTOGRAPHER: Lisa Collio
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone/camera original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: meet-lisa-faq-why-clients-choose (.jpg + .webp) — see MEET_LISA_JOBS
+NOTE: Clients, signed pre-shoot consent on file. "Best Realtor Ever" sign template previously
+  broker-approved. Crop retains the sign, which the approved alt text names.
+
+FILE: assets/images/meet-lisa/how-does-lisa-collio-help-seniors.jpeg
+PHOTOGRAPHER: Lisa Collio
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone/camera original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: meet-lisa-faq-seniors (.jpg + .webp) — see MEET_LISA_JOBS
+NOTE: Crop retains the roll-up banner reading "Guiding Seniors with Experience and Care," which the
+  approved alt text names. Banner carries (574) 370-5410 — the only correct number.
+
+FILE: assets/images/meet-lisa/does-lisa-collio-speak-spanish.jpg
+PHOTOGRAPHER: Lisa Collio
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone/camera original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: meet-lisa-faq-spanish (.jpg + .webp) — see MEET_LISA_JOBS
+NOTE: Clients, signed pre-shoot consent on file. Different clients from the why-clients-choose
+  photograph despite both carrying the same approved alt string — two photographs, one description,
+  correct and not a duplication error.
+
+FILE: assets/images/meet-lisa/what-is-it-like-to-work-with-lisa-collio-as-a-buyer-or-seller.jpg
+PHOTOGRAPHER: Lisa Collio
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone/camera original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: meet-lisa-faq-working-with-lisa (.jpg + .webp) — see MEET_LISA_JOBS
+NOTE: Delivered at its native 700x368 after cropping: 2.00x at the 350px FAQ slot, so no upscaling.
+  Yard sign reads "RE/MAX Results" with the slash and carries (574) 370-5410 — compliant. Per the
+  recorded decision of 19 August 2026, text on a photographed physical object is a record of that
+  object, not site copy.
+
+FILE: assets/images/meet-lisa/client-focused-guidance.png
+PHOTOGRAPHER: N/A
+TYPE: AI-generated illustration -- not a photograph
+LICENSE: generated for Lisa Collio; broker-approved for illustration use (19 August 2026)
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: no camera metadata — generated image, not a capture.
+DELIVERED AS: about/why-clients-trust-cards/en/client-focused-guidance (.png + .webp)
+DOES NOT DEPICT: not a real place, not a real person, and not property that could be
+  mistaken for an actual listing. Carries baked-in marketing text, permitted for body
+  images under the Master Plan's AI-illustration exception; the alt text conveys that
+  baked-in message rather than describing the artwork generically.
+
+FILE: assets/images/meet-lisa/strategic-real-estate-expertise.png
+PHOTOGRAPHER: N/A
+TYPE: AI-generated illustration -- not a photograph
+LICENSE: generated for Lisa Collio; broker-approved for illustration use (19 August 2026)
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: no camera metadata — generated image, not a capture.
+DELIVERED AS: about/why-clients-trust-cards/en/strategic-real-estate-expertise (.png + .webp)
+DOES NOT DEPICT: not a real place, not a real person, and not property that could be
+  mistaken for an actual listing. Carries baked-in marketing text, permitted for body
+  images under the Master Plan's AI-illustration exception; the alt text conveys that
+  baked-in message rather than describing the artwork generically.
+
+FILE: assets/images/meet-lisa/long-term-relationships.png
+PHOTOGRAPHER: N/A
+TYPE: AI-generated illustration -- not a photograph
+LICENSE: generated for Lisa Collio; broker-approved for illustration use (19 August 2026)
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: no camera metadata — generated image, not a capture.
+DELIVERED AS: about/why-clients-trust-cards/en/long-term-relationships (.png + .webp)
+DOES NOT DEPICT: not a real place, not a real person, and not property that could be
+  mistaken for an actual listing. Carries baked-in marketing text, permitted for body
+  images under the Master Plan's AI-illustration exception; the alt text conveys that
+  baked-in message rather than describing the artwork generically.
+
+FILE: assets/images/meet-lisa/orientacion-centrada-en-el-cliente.png
+PHOTOGRAPHER: N/A
+TYPE: AI-generated illustration -- not a photograph
+LICENSE: generated for Lisa Collio; broker-approved for illustration use (19 August 2026)
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: no camera metadata — generated image, not a capture.
+DELIVERED AS: about/why-clients-trust-cards/es/orientacion-centrada-en-el-cliente (.png + .webp)
+DOES NOT DEPICT: not a real place, not a real person, and not property that could be
+  mistaken for an actual listing. Carries baked-in marketing text, permitted for body
+  images under the Master Plan's AI-illustration exception; the alt text conveys that
+  baked-in message rather than describing the artwork generically.
+
+FILE: assets/images/meet-lisa/experiencia-estrategica-en-bienes-raices.png
+PHOTOGRAPHER: N/A
+TYPE: AI-generated illustration -- not a photograph
+LICENSE: generated for Lisa Collio; broker-approved for illustration use (19 August 2026)
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: no camera metadata — generated image, not a capture.
+DELIVERED AS: about/why-clients-trust-cards/es/experiencia-estrategica-en-bienes-raices (.png + .webp)
+DOES NOT DEPICT: not a real place, not a real person, and not property that could be
+  mistaken for an actual listing. Carries baked-in marketing text, permitted for body
+  images under the Master Plan's AI-illustration exception; the alt text conveys that
+  baked-in message rather than describing the artwork generically.
+
+FILE: assets/images/meet-lisa/relaciones-a-largo-plazo.png
+PHOTOGRAPHER: N/A
+TYPE: AI-generated illustration -- not a photograph
+LICENSE: generated for Lisa Collio; broker-approved for illustration use (19 August 2026)
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: no camera metadata — generated image, not a capture.
+DELIVERED AS: about/why-clients-trust-cards/es/relaciones-a-largo-plazo (.png + .webp)
+DOES NOT DEPICT: not a real place, not a real person, and not property that could be
+  mistaken for an actual listing. Carries baked-in marketing text, permitted for body
+  images under the Master Plan's AI-illustration exception; the alt text conveys that
+  baked-in message rather than describing the artwork generically.
