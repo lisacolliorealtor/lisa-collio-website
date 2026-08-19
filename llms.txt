@@ -185,11 +185,11 @@ rather than translated from the English.
 - [Accesibilidad](https://lisacolliorealtor.com/es/accesibilidad/): Declaración de accesibilidad de lisacolliorealtor.com, con la meta de cumplir WCAG 2.1 Nivel AA. Si algo del sitio le resulta difícil de usar, avísenos.
 - [Descargos de Responsabilidad](https://lisacolliorealtor.com/es/disclaimers/): Descargos de responsabilidad del sitio de Lisa Collio — información general, no es asesoría profesional, y notas sobre distritos escolares y terceros.
 - [Fuentes](https://lisacolliorealtor.com/es/fuentes/): Las fuentes usadas para investigar el contenido de comunidad y área en lisacolliorealtor.com, organizadas por la página o el artículo que respaldan.
-- [Política de Privacidad](https://lisacolliorealtor.com/es/privacidad/): Política de privacidad de lisacolliorealtor.com: qué información personal se recopila, cómo se usa y qué opciones tiene usted. Su información nunca se vende.
+- [Política de Privacidad](https://lisacolliorealtor.com/es/privacidad/): Política de privacidad de lisacolliorealtor.com: qué se recopila, cómo se usa y sus opciones — incluyendo cómo desactivar el análisis y la publicidad.
 - [Términos de Uso](https://lisacolliorealtor.com/es/terminos/): Términos de uso de lisacolliorealtor.com. Información general sobre comprar y vender casa en Goshen y Elkhart, Indiana — no es asesoría legal ni fiscal.
 - [Declaración de Vivienda Justa](https://lisacolliorealtor.com/es/vivienda-justa/): Declaración de vivienda justa: servicio profesional igualitario, conforme a la Ley Federal de Vivienda Justa, la ley de Indiana y el Código de Ética.
 - [Fair Housing Statement](https://lisacolliorealtor.com/fair-housing/): Fair Housing statement for Lisa Collio, Real Estate Agent: equal professional service for everyone under the Fair Housing Act and the REALTOR® Code of Ethics.
-- [Privacy Policy](https://lisacolliorealtor.com/privacy/): Privacy Policy for lisacolliorealtor.com: what is collected, how it is used, and your choices. Your information is never sold. No cookies, no tracking scripts.
+- [Privacy Policy](https://lisacolliorealtor.com/privacy/): Privacy Policy for lisacolliorealtor.com: what's collected, how it's used, and your choices — including how to opt out of analytics and advertising.
 - [Sources](https://lisacolliorealtor.com/sources/): The sources used to research and write the community and area content on lisacolliorealtor.com, organized by the page or article each source supports.
 - [Terms of Use](https://lisacolliorealtor.com/terms/): Terms of Use for lisacolliorealtor.com — the website of Lisa Collio, a real estate agent licensed in Indiana with RE/MAX Results, The Viruez Team.
 
