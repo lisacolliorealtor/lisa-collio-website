@@ -553,6 +553,67 @@ main { flex: 1 0 auto; }
 .prose a { color: var(--remax-blue); font-weight: 600; }
 .prose .lead { font-size: var(--fs-500); line-height: 1.6; color: var(--navy-ink); margin-bottom: var(--space-5); }
 .prose .effective-date { color: var(--black); font-weight: 600; margin-bottom: var(--space-5); }
+
+/* Policy change notice. Sits above the effective-date line on /privacy/ and
+   /es/privacidad/, satisfying that policy's own promise to note significant
+   changes clearly at the top of the page.
+
+   Callout, not alarm — deliberately between the two existing precedents:
+   stronger than .lead-form__consent's 5% blue tint so it reads as its own
+   element rather than a form sub-part, and far below .consent-banner's 20%,
+   which is calibrated for a fixed bar floating over unpredictable content.
+
+   The visual separation is carried by the 4px blue rule (8.87:1 against the
+   warm-white page), NOT by the fill. That is the lesson from the consent
+   banner's first build: a low-alpha tint alone blends into a warm-white
+   legal page — found on this very page — so the border does the work and
+   the fill only warms the panel. Measured contrast on the 8% fill (#E6E8E9):
+   body text 17.08:1, heading 16.03:1, link 7.73:1. All well past AA's 4.5:1.
+
+   Translucent rather than opaque is safe here where it was not for the
+   banner: this notice is in normal flow over a known warm-white background
+   and never scrolls over a photo. */
+.prose .change-notice {
+  background: rgba(0, 61, 165, 0.08);
+  border-left: 4px solid var(--remax-blue);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-5);
+}
+.prose .change-notice__title {
+  /* fs-500 (20px), deliberately between body (fs-400/17px) and the policy's
+     own section headings (.prose h2, fs-600/24px): reads as a heading, but
+     visually subordinate to the sections it points at. */
+  font-size: var(--fs-500);
+  color: var(--navy-ink);
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+}
+.prose .change-notice p {
+  margin-bottom: 0;
+  color: var(--black);
+  line-height: 1.6;
+}
+
+/* Anchor landing offset for linked-to headings in prose. Without this every
+   in-page anchor drops its heading completely underneath the sticky
+   .site-header and the reader arrives mid-paragraph with no heading visible.
+   Measured, not estimated: the header is 110px on desktop, 188px on English
+   mobile and 227px on Spanish mobile at 390px (the Spanish CTA wraps to a
+   second line), against headings only ~30px tall — so the heading was 100%
+   covered in every case, including the pre-existing #cookies target the
+   footer's Cookie Preferences link has pointed at since PR #143.
+
+   One value, deliberately above the largest measured header rather than a
+   per-breakpoint or per-language constant. This project already learned that
+   lesson on the mobile nav: a pixel constant tuned to one language and one
+   breakpoint silently drifts the next time the header, the language or the
+   copy changes. 15rem/240px fails safe in the direction that matters — if the
+   header grows, the heading is still clear of it; the cost of over-shooting
+   is whitespace above the heading, which is harmless. A JS-measured custom
+   property would track the header exactly and was considered; it adds a
+   runtime dependency for a static offset and is not worth it here. */
+.prose h2[id] { scroll-margin-top: 15rem; }
 .prose .signature-line {
   margin-top: var(--space-6);
   padding-top: var(--space-4);
