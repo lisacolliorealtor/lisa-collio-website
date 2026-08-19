@@ -595,19 +595,6 @@ main { flex: 1 0 auto; }
   line-height: 1.6;
 }
 
-/* Underlined, unlike .prose a elsewhere on the site. Not a style preference:
-   the link blue (#003DA5) sits at only 2.21:1 against the black body text it
-   is embedded in, so color alone does not distinguish these links (WCAG 1.4.1;
-   the 3:1 non-color threshold is what axe's link-in-text-block tests). The
-   600 weight .prose a already carries is not a cue axe counts, and is not one
-   a reader reliably notices mid-sentence either. Scoped to the notice so the
-   rest of the site's link styling is untouched. Contrast against the notice
-   fill is 7.73:1, well past AA. */
-.prose .change-notice a {
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
-}
-
 /* Anchor landing offset for linked-to headings in prose. Without this every
    in-page anchor drops its heading completely underneath the sticky
    .site-header and the reader arrives mid-paragraph with no heading visible.
