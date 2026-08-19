@@ -243,7 +243,7 @@
   <section class="section" id="hable-con-lisa">
     <div class="wrap wrap--narrow">
       <h2>Hable con Lisa</h2>
-      <p>¿Prefiere escribir en lugar de llamar? Escríbale a Lisa y ella le responderá personalmente — en español o inglés. Su información nunca se vende, y nunca se comparte con ningún prestamista, compañía de título ni proveedor de servicios de cierre.</p>
+      <p>¿Prefiere escribir en lugar de llamar? Escríbale a Lisa y ella le responderá personalmente — en español o inglés. Su información nunca se vende por dinero, y nunca se comparte con ningún prestamista, compañía de título ni proveedor de servicios de cierre.</p>
       <form name="contacto-es" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/es/contacto/gracias/" class="lead-form">
         <input type="hidden" name="form-name" value="contacto-es">
         <p class="lead-form__hp" hidden aria-hidden="true"><label>Deje este campo vacío si es una persona: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
@@ -253,7 +253,7 @@
         </div>
         <div class="lead-form__field">
           <label for="lf-telefono">Teléfono</label>
-          <input id="lf-telefono" name="telefono" type="tel" autocomplete="tel" required>
+          <input id="lf-telefono" name="telefono" type="tel" autocomplete="tel">
         </div>
         <div class="lead-form__field">
           <label for="lf-correo">Correo electrónico</label>
@@ -265,7 +265,11 @@
         </div>
         <div class="lead-form__consent">
           <input id="lf-consent-es" name="consentimiento" type="checkbox" value="si" required>
-          <label for="lf-consent-es">Autorizo a Lisa Collio a recopilar la información que ingresé arriba y a comunicarse conmigo sobre mi consulta de bienes raíces por teléfono, mensaje de texto o correo electrónico. Consulte la <a href="/es/privacidad/">Política de Privacidad</a>.</label>
+          <label for="lf-consent-es">Autorizo a Lisa Collio a recopilar la información que ingresé arriba y a comunicarse conmigo personalmente sobre mi consulta de bienes raíces por teléfono, mensaje de texto o correo electrónico. Consulte la <a href="/es/privacidad/">Política de Privacidad</a>.</label>
+        </div>
+        <div class="lead-form__consent">
+          <input id="lf-auto-consent-es" name="consentimiento-automatizado" type="checkbox" value="si">
+          <label for="lf-auto-consent-es">Sí — autorizo a Lisa Collio a comunicarse conmigo al número de teléfono y al correo electrónico que proporcioné, sobre la compra o venta de una vivienda, <strong>incluyendo mensajes de texto automatizados, correos electrónicos automatizados y llamadas o mensajes de voz automatizados o pregrabados</strong>. Entiendo que esto no es requisito para comprar o vender una vivienda ni para recibir ningún servicio, que la frecuencia de los mensajes varía, que pueden aplicar tarifas de mensajes y datos, que puedo responder STOP para dejar de recibir mensajes de texto o HELP para obtener ayuda, y que puedo pedir en cualquier momento que se detengan las llamadas. Consulte la <a href="/es/privacidad/">Política de Privacidad</a> y los <a href="/es/terminos/">Términos de Uso</a>.</label>
         </div>
         <button class="btn btn--primary" type="submit">Enviar a Lisa</button>
       </form>
