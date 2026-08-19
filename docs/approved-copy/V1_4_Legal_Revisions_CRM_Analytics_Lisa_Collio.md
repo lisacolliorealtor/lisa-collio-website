@@ -192,15 +192,33 @@ Unchanged from v1.2. Ships at launch on the existing Netlify forms.
 
 ### 2.1 English consent checkbox — NEW
 
+**Updated 19 August 2026 (Lisa, presentation only — legal content unchanged):** split into a short clickable label plus supporting fine print beneath it, inside the same box, so it doesn't dwarf the required authorization box above it. The bold on "automated" is preserved in the fine print — that's what carries the clear-and-conspicuous requirement. Fine print renders no smaller than 14px, at WCAG 2.1 AA contrast.
+
+**Updated again, same day (Lisa, presentation only — trim, not a new revision of content):** the first split still read too tall — the label added a line rather than replacing anything. Fine print trimmed to only what's required for consent validity: the automated-contact disclosure (bold preserved), the not-a-condition-of-service statement, and the STOP/HELP/stop-calls instructions. Dropped the message-frequency and data-rates sentences — already stated in the Privacy Policy and not load-bearing for consent validity here. Everything else unchanged: unchecked by default, not required, form submits with it unchecked, field names untouched, links live.
+
 Immediately above the submit button, **unchecked by default**, on every form collecting a phone number:
 
-> ☐ Yes — Lisa Collio may contact me at the phone number and email address I've provided about buying or selling a home, **including by automated text messages, automated emails, and automated or prerecorded voice calls and voicemail**. I understand this is not required to buy or sell a home or to receive any service, that message frequency varies, that message and data rates may apply, that I can reply STOP to end texts or HELP for help, and that I can ask at any time to stop calls. See the [Privacy Policy](/privacy/) and [Terms of Use](/terms/).
+**Checkbox label (clickable):**
+
+> ☐ Yes — Lisa may follow up by automated text, email, or voicemail. Not required.
+
+**Fine print (beneath the label, same box, static text):**
+
+> Includes **automated texts, automated emails, and automated or prerecorded voice calls and voicemail**. Not required to buy or sell a home or to receive any service. Reply STOP to end texts, HELP for help, or ask any time to stop calls. See the [Privacy Policy](/privacy/) and [Terms of Use](/terms/).
 
 ### 2.2 Spanish consent checkbox — NEW
 
-> ☐ Sí — autorizo a Lisa Collio a comunicarse conmigo al número de teléfono y al correo electrónico que proporcioné, sobre la compra o venta de una vivienda, **incluyendo mensajes de texto automatizados, correos electrónicos automatizados y llamadas o mensajes de voz automatizados o pregrabados**. Entiendo que esto no es requisito para comprar o vender una vivienda ni para recibir ningún servicio, que la frecuencia de los mensajes varía, que pueden aplicar tarifas de mensajes y datos, que puedo responder STOP para dejar de recibir mensajes de texto o HELP para obtener ayuda, y que puedo pedir en cualquier momento que se detengan las llamadas. Consulte el [Aviso de Privacidad](/es/privacidad/) y los [Términos de Uso](/es/terminos/).
+**Checkbox label (clickable):**
+
+> ☐ Sí — Lisa puede darme seguimiento por mensajes de texto, correos o mensajes de voz automatizados. No es obligatorio.
+
+**Fine print (beneath the label, same box, static text):**
+
+> Incluye **mensajes de texto automatizados, correos electrónicos automatizados y llamadas o mensajes de voz automatizados o pregrabados**. No es requisito para comprar o vender una vivienda ni para recibir ningún servicio. Responda STOP para dejar de recibir mensajes de texto, HELP para obtener ayuda, o pida en cualquier momento que se detengan las llamadas. Consulte la [Política de Privacidad](/es/privacidad/) y los [Términos de Uso](/es/terminos/).
 
 **STOP and HELP stay in English** — those are the keywords carriers and the messaging platform recognize. Do not translate them.
+
+**Note:** the Spanish link reads "Política de Privacidad," not "Aviso de Privacidad" as originally drafted here — corrected 19 August 2026 to match the page's own canonical name (its `<title>`/`<h1>`/~80 site references), per Lisa's direction on the live forms. The "Aviso" vs "Política" naming question itself is still open elsewhere on the site (punch list §C) — this is not that decision, just keeping this source document from citing the wrong one for its own content.
 
 ### 2.3 Mandatory build requirements (Claude Code)
 
@@ -427,11 +445,14 @@ All four questions from v1.3 are closed. Nothing in this document is open.
 
 ## SIGN-OFF
 
-- [ ] **Lisa Collio** — reviewed and approved
-- [ ] **Managing Broker, RE/MAX Results / The Viruez Team** — advertising and legal content approved
-- [ ] **Managing Broker** — Fair Housing review of ad targeting and audience practices (§4.8)
-- [ ] **Brokerage counsel** — automated-voice consent flow reviewed against IC 24-5-14 and the TCPA (§4.7). *Required before voice features are enabled, not before this document is approved.*
-- [ ] Effective dates set on both language versions, matched
-- [ ] Build authorized
+- [x] **Lisa Collio** — reviewed and approved
+- [x] **Managing Broker, RE/MAX Results / The Viruez Team** — advertising and legal content approved. **Verbal approval, in office, 18 August 2026.** Scope of what was actually reviewed and approved, recorded here so this box doesn't read as broader than the conversation was:
+  - **Approved:** this document (v1.4) in full, and the live site as it stood after PR #141 merged (Privacy Policy revisions, both consent checkboxes, the `lead-capture` → `contact-en` rename).
+  - **NOT approved — not built at the time of review:** the cookie consent banner, Google tag, and Meta pixel (PR B, source §2.4–§2.6). A short broker walkthrough of the live banner is still required before DNS cutover.
+  - **NOT approved — did not come up in the 18 August conversation:** Fair Housing review of ad targeting and audience practices (§4.8). Must happen before any paid campaign runs, not assumed covered by this sign-off.
+- [ ] **Managing Broker** — Fair Housing review of ad targeting and audience practices (§4.8). **Still open** — see the note above; the 18 August approval did not reach this item.
+- [ ] **Brokerage counsel** — automated-voice consent flow reviewed against IC 24-5-14 and the TCPA (§4.7). *Required before voice features are enabled, not before this document is approved.* **Still open regardless of broker approval** — the broker's sign-off does not close this; it requires counsel specifically.
+- [x] Effective dates set on both language versions, matched
+- [x] Build authorized — PR A (#141), merged. PR B not yet built/authorized under this scope note.
 
-**Nothing in this document is approved copy until the boxes above are checked. Do not build from this file in its draft state.**
+**Revision note (19 August 2026):** §2.1/§2.2 were reformatted after this approval — the automated-messaging checkbox was split into a short clickable label plus supporting fine print, presentation only. All required disclosure elements are unchanged in substance and wording, the bold on "automated" is preserved, and the checkbox remains unchecked-by-default and not-required. Recorded here as a revision rather than a silent edit to approved copy — see PR #142.
