@@ -1529,3 +1529,46 @@ main { flex: 1 0 auto; }
   line-height: 1.5;
 }
 .lead-form__consent-fineprint a { color: var(--remax-blue); font-weight: 600; }
+
+/* Cookie consent banner. Not a modal: no overlay, no focus trap, page
+   content behind it stays fully usable. Built by assets/js/consent.js on
+   page load only when no stored choice exists yet; server-rendered HTML
+   never includes it, so a no-JS visitor never sees it and never gets
+   tracked (nothing loads without it either). */
+.consent-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  background: var(--navy-ink);
+  border-top: 1px solid var(--remax-blue);
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.15);
+}
+.consent-banner[hidden] { display: none; }
+.consent-banner__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+}
+.consent-banner__text {
+  color: #fff;
+  font-size: var(--fs-200);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1 1 20rem;
+}
+.consent-banner__text a { color: #fff; text-decoration: underline; font-weight: 600; }
+.consent-banner__actions {
+  display: flex;
+  gap: var(--space-3);
+  flex: 0 0 auto;
+}
+.consent-banner__actions .btn { font-size: var(--fs-200); }
+/* .btn--secondary defaults to navy-ink text, invisible on this navy-ink
+   background (same fix already used on .band--cta) -- white text/border. */
+.consent-banner .btn--secondary { color: #fff; border-color: #fff; }
+.consent-banner .btn--secondary:hover { background: #fff; color: var(--navy-ink); }
