@@ -133,8 +133,8 @@
       '<div class="wrap consent-banner__inner">' +
       '<p class="consent-banner__text">' + copy.text + "</p>" +
       '<div class="consent-banner__actions">' +
-      '<button type="button" class="btn btn--primary" data-consent="accept">' + copy.accept + "</button>" +
-      '<button type="button" class="btn btn--secondary" data-consent="decline">' + copy.decline + "</button>" +
+      '<button type="button" class="consent-banner__btn" data-consent="accept">' + copy.accept + "</button>" +
+      '<button type="button" class="consent-banner__btn" data-consent="decline">' + copy.decline + "</button>" +
       "</div></div>";
     var skipLink = document.querySelector(".skip-link");
     if (skipLink && skipLink.parentNode) {

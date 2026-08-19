@@ -1535,13 +1535,21 @@ main { flex: 1 0 auto; }
    page load only when no stored choice exists yet; server-rendered HTML
    never includes it, so a no-JS visitor never sees it and never gets
    tracked (nothing loads without it either). */
+/* Solid, opaque surface color -- deliberately NOT rgba(). This element is
+   position:fixed and scrolls over whatever page content sits underneath
+   (a dark photo hero, plain warm-white body copy, etc.); a translucent
+   background would blend with that varying content and make the banner's
+   own contrast unpredictable depending on scroll position. Computed as
+   remax-blue at 20% over warm-white (#C8D2E0) -- four times the form's
+   5% tint (rgba(0,61,165,0.05)), so this reads as a distinct surface, not
+   a form field, on every page regardless of what's behind it. */
 .consent-banner {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 200;
-  background: var(--navy-ink);
+  background: #C8D2E0;
   border-top: 1px solid var(--remax-blue);
   box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.15);
 }
@@ -1555,20 +1563,41 @@ main { flex: 1 0 auto; }
   padding: var(--space-4) var(--space-5);
 }
 .consent-banner__text {
-  color: #fff;
+  color: var(--navy-ink);
   font-size: var(--fs-200);
   line-height: 1.5;
   margin: 0;
   flex: 1 1 20rem;
 }
-.consent-banner__text a { color: #fff; text-decoration: underline; font-weight: 600; }
+.consent-banner__text a { color: var(--remax-blue); text-decoration: underline; font-weight: 600; }
 .consent-banner__actions {
   display: flex;
   gap: var(--space-3);
   flex: 0 0 auto;
 }
-.consent-banner__actions .btn { font-size: var(--fs-200); }
-/* .btn--secondary defaults to navy-ink text, invisible on this navy-ink
-   background (same fix already used on .band--cta) -- white text/border. */
-.consent-banner .btn--secondary { color: #fff; border-color: #fff; }
-.consent-banner .btn--secondary:hover { background: #fff; color: var(--navy-ink); }
+/* Accept and Decline are visually IDENTICAL on purpose -- same fill, size,
+   weight, no preference implied between them. Deliberately not using
+   .btn--primary (brand red) or .btn--secondary: red is reserved for the
+   site's actual primary CTA (Call or Text, in the header right next to
+   this banner) and two solid red buttons here would read as competing
+   urgent calls to action, which a cookie choice is not. Navy-ink instead
+   -- on the banner's own tinted surface above (not navy-ink), so the
+   button boundary and its text both clear WCAG 2.1 AA (verified with
+   axe-core after this change, not assumed from the token name alone). */
+.consent-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-200);
+  line-height: 1;
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--navy-ink);
+  background: var(--navy-ink);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.consent-banner__btn:hover { background: var(--remax-blue); border-color: var(--remax-blue); transform: translateY(-1px); }
