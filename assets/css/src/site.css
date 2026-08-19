@@ -594,6 +594,39 @@ main { flex: 1 0 auto; }
   color: var(--black);
   line-height: 1.6;
 }
+
+/* Underlined, unlike .prose a elsewhere on the site. Not a style preference:
+   the link blue (#003DA5) sits at only 2.21:1 against the black body text it
+   is embedded in, so color alone does not distinguish these links (WCAG 1.4.1;
+   the 3:1 non-color threshold is what axe's link-in-text-block tests). The
+   600 weight .prose a already carries is not a cue axe counts, and is not one
+   a reader reliably notices mid-sentence either. Scoped to the notice so the
+   rest of the site's link styling is untouched. Contrast against the notice
+   fill is 7.73:1, well past AA. */
+.prose .change-notice a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+/* Anchor landing offset for linked-to headings in prose. Without this every
+   in-page anchor drops its heading completely underneath the sticky
+   .site-header and the reader arrives mid-paragraph with no heading visible.
+   Measured, not estimated: the header is 110px on desktop, 188px on English
+   mobile and 227px on Spanish mobile at 390px (the Spanish CTA wraps to a
+   second line), against headings only ~30px tall — so the heading was 100%
+   covered in every case, including the pre-existing #cookies target the
+   footer's Cookie Preferences link has pointed at since PR #143.
+
+   One value, deliberately above the largest measured header rather than a
+   per-breakpoint or per-language constant. This project already learned that
+   lesson on the mobile nav: a pixel constant tuned to one language and one
+   breakpoint silently drifts the next time the header, the language or the
+   copy changes. 15rem/240px fails safe in the direction that matters — if the
+   header grows, the heading is still clear of it; the cost of over-shooting
+   is whitespace above the heading, which is harmless. A JS-measured custom
+   property would track the header exactly and was considered; it adds a
+   runtime dependency for a static offset and is not worth it here. */
+.prose h2[id] { scroll-margin-top: 15rem; }
 .prose .signature-line {
   margin-top: var(--space-6);
   padding-top: var(--space-4);
