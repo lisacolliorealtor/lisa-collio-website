@@ -60,7 +60,24 @@
     X-Frame-Options = "DENY"
     Referrer-Policy = "strict-origin-when-cross-origin"
     # Self-hosted everything: no external script/style/font/img/connect sources.
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
+    # Widened 19 August 2026 for the gated Google tag (gtag.js, serving
+    # both Analytics G-K02P9DZ2JL and Ads AW-10807670744) and the Meta
+    # pixel (dataset 1510998314037084) -- both load only after a visitor
+    # accepts the cookie banner (assets/js/consent.js), never before.
+    # Hosts named individually, no wildcards, per standing policy. Derived
+    # from Google's and Meta's own published integration docs -- this
+    # sandbox's outbound network blocks googletagmanager.com/
+    # google-analytics.com/connect.facebook.net directly (confirmed via
+    # curl, CONNECT tunnel 403), so a live network trace to confirm the
+    # exact list wasn't possible here. KNOWN OPEN RISK: Google's own CSP
+    # guidance for GA4 hit collection recommends a *.google-analytics.com /
+    # *.analytics.google.com wildcard, because collection endpoints are
+    # region-sharded per property and can differ from what's listed below.
+    # A post-deploy console check (accept the banner, watch for CSP
+    # violations, confirm both tags actually fire) is required before this
+    # is trusted in production -- a blocked host fails silently and won't
+    # show up in this file.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.facebook.com; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.facebook.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
 
 # Asset caching. DURABLE FIX SHIPPED 17 August 2026 (content-hashed filenames,
 # tracked in the punch list since PR #71): CSS, images, and the root favicon /
@@ -115,6 +132,17 @@
 # ever brought into the hashing pipeline, this can become immutable too.
 [[headers]]
   for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+# assets/js/consent.js: same reasoning as fonts above -- referenced by a
+# plain <script src> in components/header.html and header-es.html, outside
+# the hash-assets.js reference patterns, not yet brought into the hashing
+# pipeline. A week-long max-age with must-revalidate bounds how long a
+# correction takes to reach a returning visitor. If this grows beyond one
+# file, bring it into hash-assets.js and make this immutable like CSS/images.
+[[headers]]
+  for = "/assets/js/*"
   [headers.values]
     Cache-Control = "public, max-age=604800, must-revalidate"
 
