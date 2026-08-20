@@ -219,9 +219,9 @@ labels. A rule proven on one class is a prototype, not a standard.
 
 ### Single Open-Items Record Standard
 Exactly one open-items/punch-list record exists for this project, lives in
-the repo (`docs/`, always the highest-numbered `… Pre Launch Punch List Lisa
-Collio.md` — version-agnostic, because the pinned filename here had already
-gone six versions stale), and every session updates it in place — no parallel
+the repo at the stable path `docs/PRE_LAUNCH_PUNCH_LIST.md` — **no version in
+the filename; the version lives in the document's own H1** — and every session
+updates it in place — no parallel
 or competing tracking document, even temporarily. Diff any edit to it against
 its last-known-good version before committing: a bad string-replace can
 silently delete a section without raising an error, which already happened

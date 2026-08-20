@@ -1303,6 +1303,61 @@ for (const f of pageFiles) {
   }
 }
 
+/* 31. The punch list keeps a stable filename and states its version inside ---
+ * The Pre-Launch Punch List lives at ONE permanent path, docs/PRE_LAUNCH_PUNCH_LIST.md,
+ * and carries its version in its own H1 rather than in its filename.
+ *
+ * This is a deliberate, scoped exception to this project's version-first naming
+ * convention, and it exists because of a merge property rather than a style
+ * preference. The punch list is the single open-items record, so nearly every PR
+ * edits it — 14 of the last 15 merged PRs did. When the version lived in the
+ * filename, two concurrent branches did not produce two edits to one file; they
+ * produced two DIFFERENTLY-NAMED files, and Git correctly refused to guess which
+ * was intended. Three consecutive PRs conflicted on it that way (#148, #149, #150),
+ * each needing a hand-reconciliation of a document whose whole purpose is to be
+ * the one authoritative record.
+ *
+ * Every other governing document keeps version-first naming. They are edited one
+ * at a time, in deliberate bundled bumps, so they never collide — the Master Plan
+ * was touched by NONE of those same 15 PRs. The exception is this file alone.
+ *
+ * What this check enforces, and why each half matters:
+ *   - the file exists at the stable path — so a future session cannot "restore"
+ *     the version-first convention here without the build telling it not to;
+ *   - its H1 states a version — because once the version is no longer in the
+ *     filename, nothing else records which version this is, and a dropped or
+ *     stale H1 would leave the "always use the highest version" rule with
+ *     nothing to read.
+ *
+ * No versioned punch-list file may exist alongside it either: that would be the
+ * two-records-one-name defect the Single Open-Items Record Standard is named for,
+ * arriving by a different route.
+ */
+{
+  const stable = path.join(ROOT, "docs", "PRE_LAUNCH_PUNCH_LIST.md");
+  if (!fs.existsSync(stable)) {
+    err("punch-list-filename",
+      "docs/PRE_LAUNCH_PUNCH_LIST.md is missing — the punch list must live at that exact " +
+      "path, with its version in its H1 (see the Single Open-Items Record Standard)");
+  } else {
+    const h1 = read(stable).split("\n")[0].trim();
+    if (!/^#\s+Pre-Launch Punch List\s+—\s+v\d+\.\d+\s*$/.test(h1)) {
+      err("punch-list-filename",
+        `docs/PRE_LAUNCH_PUNCH_LIST.md line 1 is "${h1}" — it must read ` +
+        `"# Pre-Launch Punch List — vN.N", since the filename no longer carries the version`);
+    }
+  }
+  const strays = fs.existsSync(path.join(ROOT, "docs"))
+    ? fs.readdirSync(path.join(ROOT, "docs"))
+        .filter((f) => /Pre[ _]Launch[ _]Punch[ _]List/i.test(f) && f !== "PRE_LAUNCH_PUNCH_LIST.md")
+    : [];
+  for (const f of strays) {
+    err("punch-list-filename",
+      `docs/${f} is a second punch-list file alongside the stable one — exactly one ` +
+      `open-items record may exist (Single Open-Items Record Standard)`);
+  }
+}
+
 /* ------------------------------------------------------------------------- */
 const group = (list) => {
   const by = {};
