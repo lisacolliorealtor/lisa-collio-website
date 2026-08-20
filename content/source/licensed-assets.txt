@@ -973,7 +973,7 @@ TYPE: photograph
 LICENSE: Lisa's own photograph; she holds authorization to publish it
 LICENSE ON FILE: with Lisa, not digitized in this repo
 EXIF NOTE: phone/camera original as delivered by Lisa; no foreign metadata.
-DELIVERED AS: meet-lisa-faq-why-clients-choose (.jpg + .webp) — see MEET_LISA_JOBS
+DELIVERED AS: client-general/meet-lisa/meet-lisa-faq-why-clients-choose (.jpg + .webp) — see MEET_LISA_JOBS
 NOTE: Clients, signed pre-shoot consent on file. "Best Realtor Ever" sign template previously
   broker-approved. Crop retains the sign, which the approved alt text names.
 
@@ -993,7 +993,7 @@ TYPE: photograph
 LICENSE: Lisa's own photograph; she holds authorization to publish it
 LICENSE ON FILE: with Lisa, not digitized in this repo
 EXIF NOTE: phone/camera original as delivered by Lisa; no foreign metadata.
-DELIVERED AS: meet-lisa-faq-spanish (.jpg + .webp) — see MEET_LISA_JOBS
+DELIVERED AS: client-general/meet-lisa/meet-lisa-faq-spanish (.jpg + .webp) — see MEET_LISA_JOBS
 NOTE: Clients, signed pre-shoot consent on file. Different clients from the why-clients-choose
   photograph despite both carrying the same approved alt string — two photographs, one description,
   correct and not a duplication error.

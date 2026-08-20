@@ -36,6 +36,17 @@ Two files are delivered at their native size on Lisa's instruction because they
 already clear 2x at their slot and upscaling them buys nothing:
 `family-and-community.jpg` (960x640, 2.29x at 419px) and the working-with-Lisa
 FAQ crop (700x368, 2.00x at 350px).
+
+Client photographs go in a meet-lisa/ SUBFOLDER of client-general/, not in
+client-general/ itself. That is not tidiness: build-reviews.js:83 enumerates
+every .webp sitting directly in assets/images/client-general/ and uses that
+sorted list as the pool for review-block Box 3, the standalone client photo
+that ships on 104 pages. Three files dropped into the folder root silently
+joined that pool and shifted the rotation everywhere — caught by
+`node build-reviews.js --check`, invisible to every other check and to the
+diff. readdirSync is not recursive and the filter is .endsWith(".webp"), so a
+subdirectory is excluded by construction while the files still live under
+client-general/ as instructed.
 """
 
 import os
@@ -78,7 +89,7 @@ MEET_LISA_JOBS = {
         src="family-and-community.jpg", dest="lisa",
         crop=None, width=None, kind="photo"),
     "lisa-collio-clients-after-closing": dict(
-        src="real-estate-experience.jpeg", dest="client-general",
+        src="real-estate-experience.jpeg", dest="client-general/meet-lisa",
         crop=None, width=1200, kind="photo"),
 
     # --- five FAQ images, 1.9:1. NEW FILES, not replacements: the slots
@@ -99,13 +110,13 @@ MEET_LISA_JOBS = {
     # vertical-only crop, full source width kept — no face can be lost sideways
     "meet-lisa-faq-why-clients-choose": dict(
         src="why-do-clients-choose-lisa-collio-as-their-real-estate-agent.jpeg",
-        dest="client-general",
+        dest="client-general/meet-lisa",
         crop=(0, 272, 4032, 2389), width=800, kind="photo"),
     "meet-lisa-faq-seniors": dict(
         src="how-does-lisa-collio-help-seniors.jpeg", dest="lisa",
         crop=(0, 393, 4032, 2510), width=800, kind="photo"),
     "meet-lisa-faq-spanish": dict(
-        src="does-lisa-collio-speak-spanish.jpg", dest="client-general",
+        src="does-lisa-collio-speak-spanish.jpg", dest="client-general/meet-lisa",
         crop=(0, 351, 2726, 1782), width=800, kind="photo"),
     # native 700x368 after crop: 2.00x at the 350px slot, so no upscale
     # (Lisa, 19 Aug). Rendered against an upscaled-to-800 variant first; the two
