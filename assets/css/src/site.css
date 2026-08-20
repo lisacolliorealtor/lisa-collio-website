@@ -276,6 +276,25 @@ main { flex: 1 0 auto; }
 }
 .site-header__actions { display: flex; align-items: center; gap: var(--space-3); }
 
+/* Paired Call / Text buttons. The header CTA used to be a single button reading
+   "Call or Text" / "Llame o mande un mensaje de texto" on a `tel:` href — it
+   promised two actions and did one. Two buttons is the fix; the cost is width,
+   because two buttons are intrinsically wider than one.
+   Measured across 320-1440px in both languages: at the site's standard
+   `.btn` padding of 1.4rem the pair pushes the ENGLISH header onto another row
+   (+39px at 360px, +56px at 480px). At 0.9rem it fits everywhere, and the
+   Spanish header — the tallest on the site — gets SHORTER, 243px to 227px at
+   320px. The tipping point is measured, not guessed: 0.9rem fits, 1.0rem grows.
+   That is a real constraint on this rule and it is written down rather than
+   left to be rediscovered: the header CTA carries tighter horizontal padding
+   than every other button on the site, deliberately, and the label lengths in
+   `components/header*.html` are what the 0.9rem is buying room for. Lengthening
+   either label means re-measuring the header at 360px English and 320px Spanish.
+   The anchor offset in `[id]:not(...)` is set above the LARGEST header, so a
+   header that shrinks needs no change there; one that grows would. */
+.cta-pair { display: flex; gap: var(--space-2); }
+.site-header .cta-pair .btn { white-space: nowrap; padding: 0.85rem 0.9rem; }
+
 /* Communities dropdown — CSS-only, keyboard accessible via :focus-within. */
 .nav-drop { position: relative; }
 .nav-drop__label {
