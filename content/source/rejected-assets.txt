@@ -86,8 +86,12 @@
 # one ruling's rationale applied to every entry.
 
 goshen-living-why-lisa | ruling 1, 29 Jul 2026: not Lisa's photography
-goshen-moving-cta-closing | ruling 1, 29 Jul 2026: not Lisa's photography
-goshen-moving-location-commute | ruling 1, 29 Jul 2026: not Lisa's photography
+# RULING 1 UPDATE (Lisa, 19 August 2026): two of the four slugs above have been
+# replaced with real photographs and their lines removed from this list —
+# goshen-moving-location-commute and goshen-moving-cta-closing. Both were
+# uploaded under the same manifest filename, processed and wired normally, per
+# the remedy stated above. The two slugs that remain here are still open and
+# their slots are still empty ON PURPOSE.
 goshen-moving-faq-moving-from-out-of-state | ruling 1, 29 Jul 2026: not Lisa's photography
 elkhart-moving-elkhart-or-goshen | ruling 3, 2 Aug 2026: Lisa's photo, rejected for identifiable minors with no release and for familial status on a where-should-I-live comparison page
 

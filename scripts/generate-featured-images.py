@@ -701,12 +701,49 @@ SECTION_JOBS = {
     "goshen-moving-faq-community-events":
         ("assets/images/goshen/goshen-moving-faq-community-events.jpg", 0.5, None),
     # 0.35: keeps Lisa's face clear of the bottom edge in a portrait source.
+    # focal_y 0.35 -> 0.50 (Lisa, 19 August 2026): at 1.9:1 this 2316x3088
+    # portrait keeps 39% of its height, and 0.35 put the crop bottom at 54.7%
+    # of the frame while the mouth sits at about 60% — cutting it off. 0.50
+    # clears the chin. Proofs at 0.35/0.47/0.50 were rendered and reviewed
+    # before the change; 0.47 worked but sat tight. The approved alt text
+    # names snow-covered shrubs and the new crop retains them.
     "goshen-moving-faq-cost-of-living":
-        ("assets/images/goshen/goshen-moving-faq-cost-of-living.jpg", 0.35, None),
+        ("assets/images/goshen/goshen-moving-faq-cost-of-living.jpg", 0.50, None),
     "goshen-moving-faq-older-home-checklist":
         ("assets/images/goshen/goshen-moving-faq-older-home-checklist.jpg", 0.5, None),
     "goshen-moving-faq-rv-industry-job":
         ("assets/images/goshen/goshen-moving-faq-rv-industry-job.jpg", 0.5, None),
+
+    # ===================================================================
+    # Goshen page image batch, 19 August 2026. Six photographs, one recrop.
+    # Delivery follows the existing convention for these pages: 1200x630
+    # section figures and 800x420 FAQ thumbs, both emitted per job.
+    #
+    # Items 1 and 2 CLOSE TWO OF THE FOUR 29 JULY REJECTIONS. Their slugs were
+    # on content/source/rejected-assets.txt because the originally-supplied
+    # images were not Lisa's photography; that file prescribes the remedy —
+    # a replacement arrives under the SAME manifest filename, its line is
+    # deleted, and it is processed and wired normally. Done exactly that, so
+    # check 15 stops guarding slots that are now filled. The other two July
+    # rejections stay open and their slots stay empty on purpose:
+    # goshen-moving-faq-moving-from-out-of-state and goshen-living-why-lisa.
+    "goshen-moving-location-commute":
+        ("assets/images/goshen/goshen-moving-location-commute.jpg", 0.5, None),
+    "goshen-moving-cta-closing":
+        ("assets/images/goshen/goshen-moving-cta-closing.jpg", 0.5, None),
+
+    # Items 3, 5, 6, 7 REPOINT rather than overwrite: new slugs, pages moved
+    # onto them, the superseded slugs left built and unreferenced. None of the
+    # five targets was shared with another page — verified per target, not
+    # assumed — so these are straight repoints with no collateral.
+    "goshen-moving-trade-offs-bridge":
+        ("assets/images/goshen/goshen-moving-trade-offs-bridge.jpg", 0.5, None),
+    "goshen-living-faq-known-for-welcome-sign":
+        ("assets/images/goshen/goshen-living-faq-known-for-welcome-sign.jpg", 0.5, None),
+    "goshen-living-faq-landmarks-bag-factory":
+        ("assets/images/goshen/goshen-living-faq-landmarks-bag-factory.jpg", 0.5, None),
+    "goshen-living-downtown-storefronts":
+        ("assets/images/goshen/goshen-living-downtown-storefronts.jpg", 0.5, None),
 
     # ===================================================================
     # Elkhart batch, 2 August 2026. 25 of the 27 uploaded files.
