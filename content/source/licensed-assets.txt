@@ -1081,3 +1081,79 @@ DOES NOT DEPICT: not a real place, not a real person, and not property that coul
   mistaken for an actual listing. Carries baked-in marketing text, permitted for body
   images under the Master Plan's AI-illustration exception; the alt text conveys that
   baked-in message rather than describing the artwork generically.
+
+# ---------------------------------------------------------------------------
+# Goshen page image batch — 19 August 2026. Six photographs across
+# /moving-to-goshen/ and /living-in-goshen/ and their Spanish twins. Sources in
+# assets/images/goshen/, jobs in SECTION_JOBS, artifacts in
+# assets/images/sections/ — the existing pipeline for these pages, so check 22
+# reconciles them by set difference automatically.
+# ---------------------------------------------------------------------------
+
+FILE: assets/images/goshen/goshen-moving-location-commute.jpg
+PHOTOGRAPHER: Lisa Collio
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: sections/goshen-moving-location-commute (.jpg + .webp at 1200x630, -thumb at 800x420)
+NOTE: US-33 corridor between Elkhart and Goshen. REPLACES a 29 July 2026 rejected
+  composite under the same manifest filename, per the remedy stated in
+  rejected-assets.txt; that line is now deleted and the slot is filled.
+
+FILE: assets/images/goshen/goshen-moving-cta-closing.jpg
+PHOTOGRAPHER: Lisa Collio
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: sections/goshen-moving-cta-closing (.jpg + .webp at 1200x630, -thumb at 800x420)
+NOTE: Lisa outside the former Chase Bag Company plant. REPLACES a 29 July 2026
+  rejected composite under the same manifest filename; line deleted, slot filled.
+  Alt text names Chase Bag Company: historic ghost signage on a defunct
+  manufacturer, ruled architectural fact rather than a business listing
+  (Lisa, 19 August 2026).
+
+FILE: assets/images/goshen/goshen-moving-trade-offs-bridge.jpg
+PHOTOGRAPHER: Lisa Collio
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: sections/goshen-moving-trade-offs-bridge (.jpg + .webp at 1200x630, -thumb at 800x420)
+NOTE: The Fort Wayne Street Bridge. Repoints /moving-to-goshen/ off
+  goshen-moving-trade-offs, which stays built and unreferenced. Alt text
+  neutralised to "an 1890s truss bridge": the plaque reads c. 1896 but sources
+  split 1896/1898, and the iron-vs-steel claim could not be confirmed.
+
+FILE: assets/images/goshen/goshen-living-faq-known-for-welcome-sign.jpg
+PHOTOGRAPHER: Lisa Collio
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: sections/goshen-living-faq-known-for-welcome-sign (.jpg + .webp at 1200x630, -thumb at 800x420)
+NOTE: Wooden Goshen welcome sign. Repoints off goshen-living-faq-known-for.
+
+FILE: assets/images/goshen/goshen-living-faq-landmarks-bag-factory.jpg
+PHOTOGRAPHER: Lisa Collio
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: sections/goshen-living-faq-landmarks-bag-factory (.jpg + .webp at 1200x630, -thumb at 800x420)
+NOTE: The Old Bag Factory — the same building as goshen-moving-cta-closing, at a
+  different distance. Repoints off goshen-living-faq-landmarks.
+
+FILE: assets/images/goshen/goshen-living-downtown-storefronts.jpg
+PHOTOGRAPHER: Lisa Collio
+TYPE: photograph
+LICENSE: Lisa's own photograph; she holds authorization to publish it
+LICENSE ON FILE: with Lisa, not digitized in this repo
+EXIF NOTE: phone original as delivered by Lisa; no foreign metadata.
+DELIVERED AS: sections/goshen-living-downtown-storefronts (.jpg + .webp at 1200x630, -thumb at 800x420)
+NOTE: Downtown streetscape. Repoints off goshen-living-downtown, which showed a
+  single storefront with a business name filling the frame. The Goshen Theater
+  marquee is visible carrying a dated announcement — permitted by standing
+  decision (Lisa, 19 August 2026): a marquee always carries dated content, so
+  the no-dated-content rule cannot apply to it.
