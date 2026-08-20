@@ -711,6 +711,21 @@ main { flex: 1 0 auto; }
   margin-bottom: var(--space-2);
 }
 .section h2 { margin-bottom: var(--space-4); }
+/* Paragraph spacing inside sections. The reset at the top of this file zeroes
+   every margin, and only `.prose p` restored it — so multi-paragraph body copy
+   inside a `.section` ran together with no gap at all. Set on the adjacent
+   sibling, not on every `p`: space belongs BETWEEN consecutive paragraphs, not
+   after a last one, under a single-paragraph card, or above a button.
+   `.prose` is untouched — the two classes are disjoint sitewide (0 elements
+   carry both, 0 nested either way), and a blog article renders byte-identical
+   with and without this rule.
+   The carve-out: `.path-card` is a flex column with `gap: var(--space-3)` and
+   `.blog-card`'s trailing meta line ("10 ARTICLES") belongs tight to its
+   description. A margin ADDS to a flex gap rather than collapsing into it, so
+   without this second line those four path-card paragraphs would sit at 28px
+   while every other gap on the site is 16px. */
+.section p + p { margin-top: var(--space-4); }
+.path-card p + p, .blog-card p + p { margin-top: 0; }
 
 /* Path cards (Buyers / Sellers) */
 .path-cards {
