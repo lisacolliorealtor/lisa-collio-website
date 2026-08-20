@@ -595,25 +595,50 @@ main { flex: 1 0 auto; }
   line-height: 1.6;
 }
 
-/* Anchor landing offset for linked-to headings in prose. Without this every
-   in-page anchor drops its heading completely underneath the sticky
-   .site-header and the reader arrives mid-paragraph with no heading visible.
-   Measured, not estimated: the header is 110px on desktop, 188px on English
-   mobile and 227px on Spanish mobile at 390px (the Spanish CTA wraps to a
-   second line), against headings only ~30px tall — so the heading was 100%
-   covered in every case, including the pre-existing #cookies target the
-   footer's Cookie Preferences link has pointed at since PR #143.
+/* Anchor landing offset for EVERY in-page anchor target. Without this an
+   anchor drops its target completely underneath the sticky .site-header and
+   the reader arrives mid-paragraph with nothing to orient them.
+   Measured, not estimated, across all 157 pages: the header is 110px on
+   desktop, 188px on English mobile and 227px on Spanish mobile at 390px (the
+   Spanish CTA wraps to a second line), and 227px English / 243px Spanish at
+   320px — against headings only ~30px tall, so the target was 100% covered
+   in every case.
 
    One value, deliberately above the largest measured header rather than a
    per-breakpoint or per-language constant. This project already learned that
    lesson on the mobile nav: a pixel constant tuned to one language and one
    breakpoint silently drifts the next time the header, the language or the
-   copy changes. 15rem/240px fails safe in the direction that matters — if the
-   header grows, the heading is still clear of it; the cost of over-shooting
-   is whitespace above the heading, which is harmless. A JS-measured custom
+   copy changes. 17rem/272px fails safe in the direction that matters — if the
+   header grows, the target is still clear of it; the cost of over-shooting is
+   whitespace above the target, which is harmless. A JS-measured custom
    property would track the header exactly and was considered; it adds a
-   runtime dependency for a static offset and is not worth it here. */
-.prose h2[id] { scroll-margin-top: 15rem; }
+   runtime dependency for a static offset and is not worth it here.
+
+   Widened from `.prose h2[id]` at 15rem (PR #146), which covered only headings
+   inside .prose and left the other three target shapes at zero: <main id="main">
+   on all 157 pages (the skip link — so a keyboard user bypassing the nav landed
+   with the content top hidden), the two contact CTA sections #talk-to-lisa and
+   #hable-con-lisa, and the ten blog-card ids on the two blog hubs.
+   Widened rather than supplemented, because it had to be: `.prose h2[id]` is
+   specificity (0,2,1) and outranks `[id]:not(…)` at (0,1,0), so an added rule
+   would have lost and #cookies would have kept the old value.
+
+   15rem was also 3px short. It was measured at 390px, where the Spanish header
+   is 227px; at 320px — the width WCAG 2.1 SC 1.4.10 Reflow is specified at, and
+   this site commits to AA — the Spanish header is 243px, so /es/privacidad/#cookies
+   had been landing 3px under the header since it shipped. 17rem clears the
+   largest measured header by 29px.
+
+   The form-control exclusion is the one measured side effect, not tidiness.
+   Browsers apply scroll-margin when scrolling a focused or invalid control into
+   view, so a universal [id] moved the contact form's constraint-validation
+   landing by 240px (y 3540 -> 3300 on /contact/). Excluding input, textarea,
+   select and button leaves every non-anchor behaviour — validation scroll, Tab
+   focus, the hamburger toggle, the consent banner's focus(#main) — bit-identical
+   to before. Everything else that matches ([id] hits 841 elements: 314 nav
+   labels, 157 fixed consent banners, 157 <main>, 16 blog-cards, 10 h2, 4
+   sections) is either a real anchor target or inert. */
+[id]:not(input, textarea, select, button) { scroll-margin-top: 17rem; }
 .prose .signature-line {
   margin-top: var(--space-6);
   padding-top: var(--space-4);
