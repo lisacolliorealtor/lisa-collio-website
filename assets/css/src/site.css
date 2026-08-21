@@ -169,6 +169,71 @@ main { flex: 1 0 auto; }
 .hablo-badge__globe { font-size: 1em; }         /* decorative icon */
 .hablo-badge__arrow { font-size: 0.9em; opacity: 0.9; }
 
+/* ---------- "Hablo español" banner (statement, NOT navigation) ------------ */
+/* Master Plan §78 (amended v2.24) separates two things that were one element
+   until now: the locked "Hablo español" claim, and the language toggle. Until
+   v2.24 the red `.hablo-badge` above carried both — it said "Hablo español"
+   AND it was the link to /es/. §220 had described them as separate exceptions
+   to the language-purity rule the whole time; §78 was the passage that had
+   merged them. Splitting them lets the toggle read plain "Español", matching
+   the "English" toggle on the Spanish side, without the locked claim moving
+   off 82 English pages with it.
+
+   This element is a claim, so it must NOT look clickable: it is a <p>, it has
+   no href, no tab stop, no hover state, no arrow and no globe. Every visual
+   cue that says "link" on this site belongs to `.hablo-badge` and none of them
+   is repeated here. The two now sit on the same page carrying related meaning,
+   and the failure mode worth designing against is someone tapping the claim
+   and nothing happening — hence red fill + arrow + globe = go somewhere;
+   white card + red rule + nothing else = a statement.
+
+   Opaque by design. The fill never depends on the photograph behind it, which
+   is the trap the hero scrim already documents: white text over the right-hand
+   end of that gradient measures about 3.9:1. Measured here instead:
+   navy-ink on white 19.71:1 (AAA), the 4px red rule 4.73:1 against white
+   (non-text needs 3:1).
+
+   Positioned absolutely inside the hero's existing padding so it adds ZERO
+   height to the hero and to the header at every width — verified 320-1440px
+   in both languages. Two positions, one per hero shape, because the shapes
+   differ rather than as a style choice: the homepage's Tier 1 hero has a
+   cutout portrait and open space at bottom-left, while `.page-hero` and the
+   Tier 2 heroes carry a breadcrumb at top-left and (on articles) a featured
+   image whose lower-left corner bottom-left placement would clip. */
+.hero--photo,
+.hero--tier2,
+.page-hero { position: relative; }
+.hablo-note {
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  color: var(--navy-ink);
+  font-family: var(--font-body);
+  font-weight: 700;
+  border-left: 4px solid var(--remax-red);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+  pointer-events: none;                 /* it is not a target, so do not take taps */
+  /* default position: top-right, clear of the breadcrumb and the featured image */
+  right: 20px;
+  top: 12px;
+  font-size: var(--fs-100);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+}
+/* Homepage Tier 1 hero only: larger, bottom-left beside the cutout portrait. */
+.hablo-note--hero {
+  right: auto;
+  top: auto;
+  left: 20px;
+  bottom: 16px;
+  font-size: var(--fs-300);
+  padding: 0.5rem 0.9rem;
+}
+
 /* ==========================================================================
    Site header
    Compliance (876 IAC 8-1-8): "RE/MAX Results" must have equal-or-greater
