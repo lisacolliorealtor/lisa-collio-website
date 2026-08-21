@@ -2356,7 +2356,9 @@ No API key, token, password, credential, or sensitive environment variable appea
 
 ---
 
-## Companion file
+## Companion files
+
+**`docs/LISA_COLLIO_AI_LLM_DISCOVERABILITY_AUDIT.md`** — a separate audit answering whether public AI systems and LLM-powered search can discover, crawl, parse, understand, and cite this site. Covers robots.txt per crawler token, raw-HTML vs rendered-DOM comparison on 14 pages, entity modelling for AI, first-hand-experience measurement, citation readiness, AI blocking risks, and the `netlify.app` duplicate-domain question. Its §11 contains "HOW AN AI SYSTEM WOULD UNDERSTAND THIS WEBSITE", plus ranked AI discoverability risks and strengths.
 
 **`docs/LISA_COLLIO_SEO_DATA.json`** — machine-readable dataset backing every table above.
 
