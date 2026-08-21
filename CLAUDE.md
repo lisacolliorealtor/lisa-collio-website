@@ -13,8 +13,13 @@ is not an acceptable outcome of a version bump.
 ## WHO / WHAT
 Website for Lisa Collio, Real Estate Agent — RE/MAX Results, The Viruez Team —
 serving Goshen and Elkhart, Indiana ONLY. Bilingual EN/ES site at
-lisacolliorealtor.com. Host: Netlify (server-side, cookie-less analytics).
-Forms/funnels/booking live in GoHighLevel, not this repo.
+lisacolliorealtor.com. Host: Netlify. **Analytics is not cookie-less as of 18
+August 2026** — Netlify server-side analytics (log-based, cookieless) runs
+ALONGSIDE a Google tag and a Meta pixel, both consent-gated by
+`assets/js/consent.js`. See Master Plan §23. Forms/funnels/booking live in
+GoHighLevel, not this repo; the integration is post-launch and GoHighLevel is
+not configured for outbound texting — the site's `sms:` links are the visitor
+texting from their own phone, which is a different thing (§2).
 
 ## LOCKED IDENTITY (use identically everywhere — never improvise)
 - Brand name: "Lisa Collio, Real Estate Agent" — ALWAYS with the comma.
@@ -272,6 +277,21 @@ audit reports, and build inputs/machine-read control files (except
 `content/source/rejected-assets.txt`, which a locked standard names directly).
 An unregistered file with no stated reason reads as an oversight to the next
 session; that is how seventy files accumulated outside the registry.
+
+### Pool-Folder Standard (August 2026)
+A folder a build script reads by **directory listing** is a content surface.
+Adding a file to it changes every page that renders from it, and there is no
+diff on those pages to show for it. This is the Source-Repoint Standard from a
+direction that standard does not describe: Source-Repoint covers a file replaced
+under an existing name; this covers a file **added to a folder nothing
+references by name**. Three client photographs filed exactly where the
+instructions said joined `build-reviews.js`'s Box 3 pool and shifted the review
+rotation on 104 pages — `audit`, `check:images`, `check`, `hreflang --check`,
+`llms --check`, the batch reconciler and axe-core were all clean, and the only
+signal was `node build-reviews.js --check`. Three tiers by failure mode: silent
+pools, guarded selectors, inert scans — establish which by grepping the scripts,
+not by recall. **`node build-reviews.js --check` runs on any task that adds,
+moves or renames an image file.**
 
 ### Rejected-Asset Standard
 When an asset is ruled out, that ruling is recorded as durably as a Build
@@ -710,6 +730,14 @@ overlay functions refuse an out-of-scope slug outright, so the default is clean
 by construction rather than by remembering.
 
 ## REVISION LOG
+
+**v2.9 — August 21, 2026** (Claude, at Lisa's direction)
+**Mirrors Master Plan v2.25**, a bundled bump: v2.25 committed to `docs/approved-copy/V2_25_Website_Master_Plan_Lisa_Collio.md`, v2.24 deleted (not left alongside it), and this file updated in the same change. v2.25 adds **§23 Analytics, Consent & CRM** — the first time the plan describes the programme that went live on 18 August: Google tag, Meta pixel, the consent banner that gates them, Netlify server-side analytics running alongside rather than instead, what the V1_4 legal revisions authorize and what they do not, and the post-launch GoHighLevel integration with its consent-flag migration.
+- **Line 16's "cookie-less analytics" corrected — the item opened 19 August and left open for two days.** This was the genuine live false statement: a claim in force, in a live section, on a site that had set advertising cookies since 18 August. Fixed here rather than in the effective-dates PR because it was governed by the bundled-bump rule and needed the Master Plan's own account of analytics to exist first.
+- **A finding reported for correction and correctly NOT actioned.** The Master Plan's §20 v2.3 entry records "Analytics decision recorded (Netlify server-side, cookie-less)" and was flagged as actively false. It is a **changelog entry**, so the Changelog Citation Standard makes it data rather than a pointer — rewriting it would have destroyed the record of the July decision, which is the exact failure that standard exists to prevent. A sweep of the whole live document for *cookie*, *analytic* and *netlify* returned **zero hits**: the plan carried no false claim in force, it was silent, and silence is what §23 fixes. Recorded because the correction was proposed by Claude Code and approved by Lisa before either checked which section the line lived in.
+- **Pool-Folder Standard folded in** (LOCKED STANDARDS) — it had lived only in the punch list since 19 August. Its operative half is the standing reminder, not the story: `node build-reviews.js --check` runs on any task that adds, moves or renames an image file.
+- **The GoHighLevel / `sms:` distinction mirrored** into the WHO / WHAT block, since this file's own line named GoHighLevel without it.
+- Master Plan §8 also gained the stable-filename exception and the page standards from PRs #152–#154, and §19's live checks list now names 26–31 including check 28's limitation. Not mirrored here: this file has never carried the mechanical-checks table, and adding one would create a second copy to drift.
 
 **v2.8 — August 20, 2026** (Claude, at Lisa's direction)
 **Mirrors Master Plan v2.24**, a single-item bundled bump: v2.24 committed to `docs/approved-copy/V2_24_Website_Master_Plan_Lisa_Collio.md`, v2.23 deleted (not left alongside it), and this file updated in the same change. v2.24 separates the locked "Hablo español" banner from the language toggle — until now one element carried both, so renaming the toggle to plain "Español" (to match the "English" toggle on the Spanish side) would have deleted a locked claim from 82 English pages as a side effect of a cosmetic change.
