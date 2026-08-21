@@ -70,8 +70,16 @@ seven-item order in the Design & Naming Addendum below.
 
 ## BILINGUAL RULES (the moat)
 - One language per page. No mixed-language pages, ever.
-- The ONLY Spanish on English pages: a compact "Hablo español" banner/badge on
-  every EN page, linking to the /es/ equivalent. Every ES page links back.
+- The ONLY Spanish on English pages: a compact, **non-clickable** "Hablo
+  español" banner on every EN page, plus the language toggle — two separate
+  elements as of Master Plan v2.24, which split them (§78 had described one
+  element where §220 had always described two). The banner is a claim: no link,
+  no hover, no tab stop, `lang="es"`, positioned inside the page's own hero so
+  it adds no height to the header or hero at any width. The toggle is the
+  navigation: it reads exactly "Español" on EN pages and "English" on ES pages
+  and links to that page's equivalent. `audit.js` check 32 enforces both.
+  The footer signature's own "Hablo español" is unrelated to either — a
+  credential in a list, not the bilingual marker.
 - Spanish pages are cultural adaptations (Volume 37 voice), never translations.
 - Spanish URLs use natural Spanish words.
 
@@ -702,6 +710,13 @@ overlay functions refuse an out-of-scope slug outright, so the default is clean
 by construction rather than by remembering.
 
 ## REVISION LOG
+
+**v2.8 — August 20, 2026** (Claude, at Lisa's direction)
+**Mirrors Master Plan v2.24**, a single-item bundled bump: v2.24 committed to `docs/approved-copy/V2_24_Website_Master_Plan_Lisa_Collio.md`, v2.23 deleted (not left alongside it), and this file updated in the same change. v2.24 separates the locked "Hablo español" banner from the language toggle — until now one element carried both, so renaming the toggle to plain "Español" (to match the "English" toggle on the Spanish side) would have deleted a locked claim from 82 English pages as a side effect of a cosmetic change.
+- **The defect was in §78, not §220.** §220's language-purity rule had always listed the banner and the toggle as two separate exceptions; §78 described them as one element and the build followed §78. v2.24 corrects §78 and deliberately leaves §220 alone — amending both for symmetry would have hidden which passage was actually wrong.
+- **BILINGUAL RULES updated here in the same change**, per the Field-Class Compliance Coverage Standard: this file carried the same reversed clause ("banner/badge … linking to the /es/ equivalent") and would otherwise have been the surviving copy of a rule the Master Plan had just reversed.
+- **New `audit.js` check 32 closes a real gap, not a theoretical one.** Nothing in the repo asserted the banner's *visible* text before this. Check 25 reads aria-labels, alt, title and sr-only strings only, and carries the toggle's aria-label in an exempt list — which reads like coverage and is not. The rename could have shipped a green audit while removing the phrase the Master Plan's Vision calls the brand's primary differentiator. Proven against seven deliberately-broken cases in both directions.
+- **§254's page-standards checklist tightened in the same pass** — it read "Hablo español banner (EN pages) / EN toggle (ES pages)", under-describing the toggle, which English pages also have. Not required by the amendment; fixed because leaving a known inaccuracy in a document already open is how drift starts.
 
 **v2.7 — August 18, 2026** (Claude, at Lisa's direction)
 **Mirrors Master Plan v2.23**, a single-item bundled bump: v2.23 committed to `docs/approved-copy/V2_23_Website_Master_Plan_Lisa_Collio.md`, v2.22 deleted (not left alongside it), and this file updated in the same change. v2.23 extends the AI-illustration exception to cover baked-in text on a body image (broker-approved; alt text must convey the baked-in message, not describe the illustration generically) — a case v2.22's exception was silent on, surfaced by the Buyers page image build (five body illustrations carry marketing-card text: four "why work with Lisa" cards plus one process-step image). Distinct from the Featured-Image Standard's text-overlay exception, which stays scoped to the Buyers/Sellers cluster's featured/`og:image` artifact only.

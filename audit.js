@@ -968,11 +968,12 @@ function checkIdentityText(raw, f, field, checkName) {
  * instances across 74 pages, unnoticed because nothing renders an aria-label
  * visibly and no prior check reads inside one.
  *
- * Exactly two strings are exempt, by exact match — the locked bilingual-toggle
- * badges (Master Plan §7): the "Hablo español" banner on EN pages and the
- * "English" toggle back on ES pages are the ONLY other-language content the
- * Master Plan permits on a page, and they are aria-labelled/visible in the
- * *other* language by design. Nothing else is exempt — a heuristic exemption
+ * Exactly two strings are exempt, by exact match — the locked language toggles
+ * (Master Plan §78): the "Español" toggle on EN pages and the "English" toggle
+ * back on ES pages are aria-labelled in the *other* language by design. The
+ * "Hablo español" banner is separate from the toggle as of v2.24 and is not
+ * exempted here: it is visible text, not a screen-reader string, so this check
+ * never reads it — check 32 asserts it instead. Nothing else is exempt — a heuristic exemption
  * (e.g. "contains español") would swallow a genuine future defect that merely
  * resembles the toggle text.
  *
@@ -987,7 +988,13 @@ function checkIdentityText(raw, f, field, checkName) {
  */
 {
   const EXEMPT_SR_STRINGS = new Set([
-    "Hablo español — ver esta página en español",
+    // Renamed by Master Plan v2.24, which split the locked "Hablo español"
+    // claim from the language toggle: the toggle now reads plain "Español"
+    // (matching "English" on the Spanish side) and the claim lives in the
+    // non-clickable `.hablo-note` banner, whose text is checked by check 32.
+    // Updating this list is not optional bookkeeping — the rename made this
+    // check fire on 81 pages, correctly, before the string was changed here.
+    "Español — ver esta página en español",
     "English — view this page in English",
   ]);
   const ES_WORDS = new Set(["de","del","la","el","en","para","con","sobre","es","son","una","su","sus","al","por","que","los","las"]);
@@ -1355,6 +1362,109 @@ for (const f of pageFiles) {
     err("punch-list-filename",
       `docs/${f} is a second punch-list file alongside the stable one — exactly one ` +
       `open-items record may exist (Single Open-Items Record Standard)`);
+  }
+}
+
+/* 32. The locked "Hablo español" banner, and the toggle it is no longer -------
+ * Master Plan §78 (amended v2.24) requires a compact, NON-CLICKABLE banner
+ * reading exactly "Hablo español" on every English page, and a separate
+ * language toggle reading exactly "Español" (EN) / "English" (ES).
+ *
+ * Until v2.24 those were one element: the red `.hablo-badge` said "Hablo
+ * español" AND linked to /es/. §220 had always described them as two separate
+ * exceptions to the language-purity rule; §78 was the passage that had merged
+ * them, and the merge is what made renaming the toggle look like a free
+ * cosmetic change when it would in fact have deleted a locked claim from 82
+ * pages.
+ *
+ * Why this check exists at all, stated plainly: nothing in this repo asserted
+ * the banner's VISIBLE text before today. Check 25 reads aria-labels, alt,
+ * title and sr-only strings — not rendered copy — and it happens to carry the
+ * toggle's aria-label in an exempt list, which reads like coverage and is not.
+ * A rename could therefore have shipped a green audit while removing the
+ * single most locked string on the English side of a bilingual site whose
+ * Master Plan calls it "the brand's primary differentiator". That is the gap
+ * this closes, and it is the same shape as check 31: a rule that was true by
+ * everyone remembering it, made true by the build instead.
+ *
+ * Four assertions, each mapping to a clause of the amended §78:
+ *   1. every English page carries EXACTLY ONE `.hablo-note` element  ("every
+ *      English page" — one, so a duplicate from a bad insert is caught too);
+ *   2. its text is EXACTLY "Hablo español"                            ("reading
+ *      exactly");
+ *   3. it is not a link and has no href                               ("non-
+ *      clickable ... no link") — checked on the element itself and on its
+ *      enclosing markup, since wrapping it in an <a> is the likelier mistake
+ *      than adding an href to a <p>;
+ *   4. the toggle's visible text is "Español" on EN and "English" on ES
+ *      (the separated control).
+ * Spanish pages must carry NO banner: it is the one piece of Spanish permitted
+ * on an English page, and on a Spanish page it would be redundant copy rather
+ * than a bilingual marker.
+ *
+ * Proven in both directions before shipping, per the Verification Standard —
+ * against the real tree (clean) and against four deliberately-broken copies:
+ * banner deleted, banner text altered, banner wrapped in an <a>, and toggle
+ * renamed back. Each fired; the clean tree did not.
+ */
+{
+  const BANNER = "Hablo español";
+  for (const f of pageFiles) {
+    const s = read(f);
+    const m = s.match(/<html[^>]*\blang="([^"]+)"/);
+    if (!m) continue;
+    const lang = m[1].toLowerCase().startsWith("es") ? "es" : "en";
+
+    const notes = [...s.matchAll(/<p([^>]*\bclass="[^"]*\bhablo-note\b[^"]*"[^>]*)>([\s\S]*?)<\/p>/g)];
+    const anyNoteTag = (s.match(/\bclass="[^"]*\bhablo-note\b/g) || []).length;
+
+    if (lang === "es") {
+      if (anyNoteTag) {
+        err("hablo-banner",
+          `${rel(f)} is lang="es" and carries a "${BANNER}" banner — the banner belongs ` +
+          `on English pages only (Master Plan §78)`);
+      }
+    } else {
+      if (anyNoteTag !== 1) {
+        err("hablo-banner",
+          `${rel(f)} has ${anyNoteTag} .hablo-note element(s) — every English page must ` +
+          `carry exactly one "${BANNER}" banner (Master Plan §78)`);
+      }
+      if (notes.length === 1) {
+        const [, attrs, inner] = notes[0];
+        const text = inner.replace(/<[^>]*>/g, "").replace(/&nbsp;/g, " ").trim();
+        if (text !== BANNER) {
+          err("hablo-banner",
+            `${rel(f)} banner reads "${text}" — Master Plan §78 locks it to exactly "${BANNER}"`);
+        }
+        if (/\bhref=/.test(attrs)) {
+          err("hablo-banner",
+            `${rel(f)} banner carries an href — §78 makes it non-clickable, a statement ` +
+            `of capability rather than navigation`);
+        }
+        // wrapped in a link? look at the markup immediately enclosing it
+        const idx = s.indexOf(notes[0][0]);
+        const before = s.slice(Math.max(0, idx - 400), idx);
+        const lastOpen = before.lastIndexOf("<a ");
+        if (lastOpen !== -1 && !before.slice(lastOpen).includes("</a>")) {
+          err("hablo-banner",
+            `${rel(f)} banner is inside an <a> — §78 makes it non-clickable; the language ` +
+            `toggle is the link, the banner is the claim`);
+        }
+      }
+    }
+
+    const want = lang === "es" ? "English" : "Español";
+    const other = lang === "es" ? "Español" : "English";
+    const badge = s.match(/<a[^>]*class="[^"]*\bhablo-badge\b[^"]*"[^>]*>([\s\S]*?)<\/a>/);
+    if (badge) {
+      const label = (badge[1].match(/<span>([^<]*)<\/span>/) || [, ""])[1].trim();
+      if (label !== want) {
+        err("hablo-toggle",
+          `${rel(f)} language toggle reads "${label}" — a lang="${lang}" page's toggle must ` +
+          `read exactly "${want}" (Master Plan §78). Note "${other}" is the other side's label.`);
+      }
+    }
   }
 }
 
