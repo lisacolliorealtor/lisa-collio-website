@@ -2,7 +2,9 @@
 
 *Trigger: when Lisa says "audit" (or "quick audit" / "batch check") in any chat, Claude runs the corresponding section below against the current live site or deploy preview, plus the Project file audit if requested. Always confirm the correct URL/preview to audit before starting — never assume.*
 
-**Version:** v1.4 · Updated 30 July 2026 · Governed by the current Website Master Plan (always the highest-numbered version in the repo) and all documents in its hierarchy. Update this file's version number whenever the checklist itself changes, following the locked file-naming convention (version first, description, "Lisa Collio" last).
+**Version:** v1.5 · Updated 21 August 2026 · Governed by the current Website Master Plan (always the highest-numbered version in the repo) and all documents in its hierarchy. Update this file's version number whenever the checklist itself changes, following the locked file-naming convention (version first, description, "Lisa Collio" last).
+
+**v1.5 change note (21 August 2026):** brings the checklist current with PRs #141–#159, which it did not mention at all. §2 GEO gains an entity/schema block and an Open Graph block; §4 NAP extends past Google Business Profile to the full citation set; new §18 covers analytics, consent and tracking; §7 gains the banner/toggle split; §10 gains the CTA-honesty rule; the automated-checks section goes from 21 checks to 32 with ERROR/WARN marked. **Two findings came out of writing it and are recorded where they were found, not just fixed:** the site has no `sameAs` and no `og:title`/`og:description` anywhere — both are build items, not checklist items, and a check that fails on every page from day one is noted as such rather than shipped as if it passed.
 
 **v1.4 change note:** folds in the repo-specific technical/process content from `docs/AUDIT_CHECKLIST.md` (a separate, older, non-canonical document discovered during a Part C2 repo audit — never a stale copy of this file, just a different one covering some of the same ground plus real gaps this file didn't have). That file is retired on this version landing — one document, not two. See Part B §13–17, the Pre-Audit Inventory Snapshot, and the two appendices below for what moved. Folded content was verified against the live repo before being copied in, not carried forward on trust — two corrections came out of that: the automated-checks appendix now reflects all 18 current `audit.js` checks (the old file predated checks 14–18 and mischaracterized hreflang pairing and llms.txt coverage as warnings — both are hard checks now), and the old file's Reviews section claim that "reviews appear only on main pages, never blog/authority articles" is dropped as stale — `build-reviews.js` now deliberately places reviews on every content page. §18 (Workflow / Draft-Approval Discipline) is not folded in here; its non-duplicate content went into CLAUDE.md's Build Procedure section instead, since that's where the rest of this project's PR/branch/draft-approval process rules already live.
 
@@ -70,6 +72,29 @@ Before checking anything else, establish what currently exists, so the rest of t
 - [ ] Distinctive, ownable phrasing exists for Lisa's frameworks (Next Chapter Method™, Smart Move Framework™) so they're attributable to her specifically, not generic real-estate language
 - [ ] Author/agent identity (E-E-A-T signals — see below) appears near key claims, not just in a footer far away
 
+**Entity and schema — added v1.5. Measured against the live site before these were written, so each states what is actually true today.**
+
+- [ ] **`RealEstateAgent` schema present** on the main pages. *Measured 21 August 2026: 138 instances across 136 pages.* **Do not check for `LocalBusiness`** — the site deliberately uses `RealEstateAgent`, which is a `LocalBusiness` subtype; the more specific type is correct and a `LocalBusiness` check would fail on every page and be wrong to "fix."
+- [ ] **`areaServed` populated with Goshen and Elkhart** as `City` nodes with full `PostalAddress`, and nothing else. *Measured: 136 pages.* This is the schema half of the locked service-area rule (Master Plan §2) — drift here is a compliance issue, not just an SEO one.
+- [ ] **`knowsLanguage` includes Spanish** (`["en","es"]`). *Measured: 261 occurrences.* The schema expression of the bilingual moat.
+- [ ] **`sameAs` links the site to Lisa's profiles** — Google Business Profile, Facebook, Instagram, LinkedIn, YouTube. **⚠️ THIS CHECK FAILS TODAY AND IS EXPECTED TO. Measured 21 August 2026: zero `sameAs` anywhere on the site, and no Facebook, Instagram, LinkedIn, YouTube, `g.page` or Google Maps URL appears anywhere either — not in schema, not even as a footer link.** Nothing connects the website to the profiles, so nothing tells a search engine or an LLM they are one entity. That is foundational to being *named* rather than merely present. Tracked as a build item in the punch list, blocked on Lisa supplying the URLs. **Recorded here as a known failure so a future run does not report it as a new finding, and does not quietly tick it.**
+- [ ] Schema `@id` values are stable and cross-referenced (`#agent`, `#website`) rather than re-declared per page with different identifiers
+- [ ] Schema NAP, `aggregateRating` and `review` nodes match what is visibly on the page (see §4)
+
+**Open Graph and social cards — added v1.5, and this is the largest gap the v1.5 pass found.**
+
+*Measured 21 August 2026:* the site ships `og:image`, `og:image:width`, `og:image:height`, `og:image:alt`, `twitter:image` and `twitter:card` on **96 of 157 pages** — and **no `og:title`, no `og:description`, no `og:url`, no `og:type`, no `og:site_name`, no `twitter:title`, no `twitter:description` on any page at all**. The remaining **61 pages have no Open Graph tags whatsoever**, including `/`, `/es/`, `/market-stats/` and every legal page.
+
+The consequence is concrete: sharing any page on Facebook or LinkedIn renders a fallback title and **no description** — every link Lisa posts, and every link a client forwards. It is also the layer Facebook and Instagram advertising renders from, so it stops being a sharing nicety the moment ads run. For a site whose whole GEO argument is being quotable by machines, the machine-readable social layer does not exist.
+
+- [ ] **`og:title` present on every page** and matching the page's own `<h1>`/title intent (not the raw `<title>` with its brand suffix). **⚠️ FAILS TODAY: 0 pages.**
+- [ ] **`og:description` present on every page**, matching the page's `meta description`. **⚠️ FAILS TODAY: 0 pages.**
+- [ ] **`og:url`** set to the page's canonical URL · **`og:type`** (`website` for hubs, `article` for blog posts) · **`og:site_name`**. **⚠️ FAIL TODAY: 0 pages each.**
+- [ ] **`og:locale`** correct per language (`en_US` / `es_US`) and `og:locale:alternate` naming the pair — the social-card expression of the hreflang pair.
+- [ ] **`og:image` on every page**, not just 96 — the 61 without one currently render with no image at all.
+- [ ] `twitter:title` and `twitter:description` present, or deliberately omitted with `twitter:card` set so the OG tags are used as fallback (state which, do not leave it ambiguous).
+- [ ] Every OG/Twitter field is checked as its **own field class** — the Field-Class Compliance Coverage Standard's fourth instance was exactly an `og:image:alt` that kept describing a replaced photograph after the visible `alt` was fixed.
+
 ### 3. AEO (answer-engine optimization — FAQ/structured-answer quality)
 
 - [ ] Every page has its 5-question FAQ section per the standing rule
@@ -86,7 +111,26 @@ Before checking anything else, establish what currently exists, so the rest of t
 - [ ] Phone number identical everywhere: (574) 370-5410 — check footers, contact page, schema, both languages
 - [ ] Address identical everywhere it appears (1918 Elkhart Rd, Goshen, IN 46526) — footer, legal pages, schema
 - [ ] Schema NAP fields match visible on-page NAP exactly (a common, easy-to-miss mismatch)
-- [ ] Google Business Profile NAP matches website NAP exactly (flag if not verified recently — check `LAUNCH_CHECKLIST.md` status)
+- [ ] Google Business Profile NAP matches website NAP exactly (flag if not verified recently — check `LAUNCH_CHECKLIST.md` status). **Signed in as `liskids1@gmail.com`.**
+
+**Full citation set — added v1.5. Character-for-character against the site footer, not "close enough".**
+
+The footer signature is the reference text. Every directory below must match it exactly:
+
+> `Lisa Collio, Real Estate Agent` · `(574) 370-5410` · `1918 Elkhart Rd, Goshen, IN 46526`
+
+- [ ] **The comma in "Lisa Collio, Real Estate Agent" is present in every listing.** It is the single character most likely to be dropped by a directory's own form, and dropping it produces "Lisa Collio Real Estate Agent" — which reads as a standalone business name and is barred by **876 IAC 8-1-8**. This is a licence-compliance check wearing an SEO check's clothing.
+- [ ] Google Business Profile
+- [ ] Realtor.com
+- [ ] Zillow
+- [ ] Bing Places
+- [ ] Apple Business Connect
+- [ ] NAR Find a REALTOR®
+- [ ] Phone formatted identically — `(574) 370-5410`, parentheses and hyphen, not `574-370-5410` or `+15743705410`, wherever the directory renders it as display text
+- [ ] Address line breaks and abbreviations identical — `1918 Elkhart Rd` (not `Road`), `Goshen, IN 46526`
+- [ ] Brokerage stated as `RE/MAX Results, The Viruez Team` with the slash — never `REMAX`, which is permitted only inside logo filenames
+- [ ] Any listing carrying the superseded `574-975-0141` is corrected on sight (Master Plan §2)
+- [ ] Record the date each was last verified; an unverified citation is not a passed check
 - [ ] Spanish pages use the same phone/address (no separate/altered contact info for the ES site)
 
 ### 5. E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)
@@ -128,6 +172,14 @@ Before checking anything else, establish what currently exists, so the rest of t
 - [ ] Featured images, schema, and FAQ structure present on ES pages at the same standard as EN, not a reduced version
 - [ ] Spanish nav structure matches English nav structure (two-level Goshen group, etc.) — check for drift after any nav change
 
+**Banner and toggle are two elements, not one — added v1.5 (Master Plan §78, amended v2.24).**
+
+- [ ] **The non-clickable "Hablo español" banner appears on every English page, exactly once**, reading exactly that. It is a claim, not navigation: no `href`, no hover state, no tab stop, `lang="es"`. Enforced by `audit.js` check 32.
+- [ ] **The banner is not on any Spanish page** — it is the one piece of Spanish permitted on an English page; on a Spanish page it would be redundant copy.
+- [ ] **The language toggle is a separate control** reading exactly `Español` on English pages and `English` on Spanish pages, linking to that page's equivalent.
+- [ ] The banner is visually distinct from the toggle so nobody tries to click it — the toggle carries the red fill, globe and arrow; the banner carries none of them.
+- [ ] The footer signature's own "Hablo español" is **not** the bilingual marker — it is a credential in a list, and never satisfies the §78 requirement on its own.
+
 ### 8. Sources / citations page
 
 - [ ] Every page/article that cites MLS or third-party data has that citation reflected on the Sources page
@@ -158,6 +210,13 @@ Before checking anything else, establish what currently exists, so the rest of t
 - [ ] Story/testimonial provenance labeled correctly everywhere (composite vs. verified review)
 - [ ] **Locked-string spot-check on any page quoting brand copy directly:** superseded phone `574-975-0141`, superseded "100+" track-record claim, bare self-claimed superlatives ("Top agent," "#1 agent" without qualification) — `audit.js` check 5 already hard-fails the first two sitewide; the superlatives sweep is not yet automated, so check it by hand. Verified 30 July 2026: every current "Top/Best/#1" hit sitewide resolves to the locked Top-20% stat, an approved award citation ("Best Real Estate Teams in Indiana"), or an approved article title — none are bare self-claims.
 
+**A CTA must do what its label promises — added v1.5.**
+
+- [ ] No button or link promises an action it does not offer. *"Call or Text" on a `tel:` href promised two actions and did one, on every page, for months (PR #154) — found by a person tapping it, not by any check.*
+- [ ] Texting uses `sms:+15743705410`, **bodyless** — the `?body=` separator differs between iOS and Android and no single form works on both
+- [ ] Every field class carrying the CTA moves together: rendered markup, shared components, **and any build-marker JSON the markup is generated from**. A fix applied only to rendered markup is silently reverted by the next `npm run build`
+- [ ] Header CTA labels are not lengthened without re-measuring the header at **360px English and 320px Spanish** — the header CTA carries deliberately tighter padding (0.85rem 0.9rem) than every other button, and it tips at 1.0rem (Master Plan §8)
+
 ### 11. Forms and lead capture
 
 - [ ] All forms (contact-en, home-valuation, contacto-es, valor-vivienda-es) tested end-to-end in both languages
@@ -170,7 +229,8 @@ Before checking anything else, establish what currently exists, so the rest of t
 
 ### 12. Post-launch / technical housekeeping (once DNS has cut over — check status even pre-launch)
 
-- [ ] Netlify server-side Analytics enabled (not Google Analytics)
+- [ ] **`docs/LAUNCH_CHECKLIST.md` is the authority for everything at and after cutover** — this section confirms status, it does not duplicate the steps. Rewritten 21 August 2026; do not work from a copy predating that.
+- [ ] Netlify server-side Analytics enabled — **alongside** Google Analytics and the Meta pixel, not instead of them (see §18). *The v1.4 line here read "(not Google Analytics)" and was superseded on 18 August 2026.*
 - [ ] Privacy Policy and Terms effective dates set and matched across EN/ES pairs
 - [ ] Domain verified in Google Search Console, sitemap submitted
 - [ ] Google Business Profile URL and NAP updated to match live site
@@ -220,6 +280,26 @@ This is the category that exists specifically because individual batches each fi
 
 ---
 
+### 18. Analytics, Consent & Tracking (added v1.5 — governed by Master Plan §23)
+
+Everything here went live 18–19 August 2026 and was approved by the managing broker verbally, in office, 19 August 2026. None of it existed when v1.4 was written.
+
+- [ ] **Consent banner appears** on a fresh profile, offers Accept and Decline, and the footer's Cookie Preferences link reopens it
+- [ ] **Accept fires both tags** — Google tag reports in GA Realtime, Meta pixel registers a PageView
+- [ ] **Decline suppresses BOTH tags.** Test this specifically, in a fresh profile, and not only the happy path: the gate is the thing the broker approved, so the gate is the thing to verify
+- [ ] **Consent is stored per-origin** — behaviour verified on `lisacolliorealtor.netlify.app` says nothing about the live domain. After cutover, re-test on `lisacolliorealtor.com`
+- [ ] **CSP in `netlify.toml` allows exactly the hosts the two tags need and nothing more** — `googletagmanager.com`, `connect.facebook.net`, `google-analytics.com`, `analytics.google.com`, `facebook.com`
+- [ ] **No tag fires before consent.** The tags are permitted *because* the gate exists; a tag that outruns the gate puts the site in contradiction with a broker-approved policy
+- [ ] **Never widen the CSP without re-reading the Privacy Policy in the same change** — adding a third-party script is a legal change before it is a technical one
+- [ ] **Netlify server-side Analytics is enabled alongside**, not instead — log-based and cookieless, it measures the traffic declines never reach
+- [ ] **Privacy Policy change notice** is present on `/privacy/` and `/es/privacidad/`, above the effective-date line, both languages matched
+- [ ] **The change notice comes down on or about 17 November 2026** (90 days from 19 August). Both languages together. If it is still up after that date without a recorded decision to keep it, that is the finding
+- [ ] **The notice deliberately does not name recorded voice** — brokerage counsel's IC 24-5-14 / TCPA review is open, voice is not switched on. Do not "complete" the notice by adding it
+- [ ] Privacy Policy effective date (**19 August 2026** / **19 de agosto de 2026**) still matches the revision it describes; Accessibility and Fair Housing stay at 25 July by decision
+- [ ] Any new form field capturing consent stores marketing consent and automated-messaging consent as **separate** flags — never collapsed into one
+
+---
+
 ## PART C — PROJECT FILE AUDIT (run when requested, or alongside a Full Site Audit)
 
 **This part has two halves, run together, not just one.** Project-panel hygiene and repo hygiene are checked by different mechanisms (Claude in chat has Project access; Claude Code has repo access), but a Full Site Audit is not complete until both halves report, and both single out the Master Plan specifically.
@@ -234,6 +314,8 @@ This is the category that exists specifically because individual batches each fi
 - [ ] Flag any approved-copy source file still sitting in the Project as DRAFT status when Claude Code has already confirmed it merged (status may need updating for the historical record)
 - [ ] **Confirm the Project's copy of the Master Plan specifically is the current version** — not just present, but matching the highest version number that exists anywhere (chat, repo, or Project). The Master Plan sat one version behind in the Project for a full session before being caught; this check exists because that already happened once.
 - [ ] Confirm the Project's copy of the Pre-Launch Punch List and this Audit Checklist are also current, same standard as the Master Plan
+- [ ] **The punch list is `PRE_LAUNCH_PUNCH_LIST.md` — no version in the filename, by design.** The version lives in its H1. Do not flag it as breaking the naming convention and do not "restore" version-first naming; `audit.js` check 31 fails the build if the repo copy is renamed. Exactly one punch-list file may exist. *(Added v1.5 because the convention check above would otherwise flag it every run.)*
+- [ ] Flag any one-time Claude Code instruction file whose batch has merged — Master Plan §19 leaves these unregistered and they are deleted once spent
 - [ ] Recommend a specific action for every flagged item (delete / archive / rename / keep-as-is) rather than just noting the issue
 
 ### C2 — Repo (ask Claude Code to check and report)
@@ -271,17 +353,56 @@ Save it as `docs/audits/AUDIT_REPORT_<YYYY-MM-DD>.md` (create the `docs/audits/`
 
 ## AUTOMATED CHECKS — what `npm run audit` and `npm run hreflang` actually enforce
 
-`audit.js` settles the mechanical checks in this document that a machine can verify. Run it before requesting review; it exits non-zero on ERRORS. Current as of 31 July 2026 (21 checks):
+`audit.js` settles the mechanical checks in this document that a machine can verify. Run it before requesting review; it exits non-zero on ERRORS. **Current as of 21 August 2026 — 32 checks.** *(v1.4 documented 21 and was three weeks stale; the count is stated here so the next gap is visible rather than inferred.)*
 
-**Hard checks (fail the run):** sitemap parity in both directions (1) · every internal link, asset, and redirect target resolves (2) · visible FAQ copy matches FAQPage schema word for word (3) · all JSON-LD parses (4) · locked identity rules — superseded phone, "100+", "Northern Indiana," comma-less business name, slash-free REMAX, the Alford variant, ambulatory phrasing, method brands without ™ (5) · footer signature on every page (6) · no Spanish page injecting the English CTA band (7) · blog index counts match the article directories (8), and every article is actually linked from its hub (8b) · every `<img>` has alt text (9) · hreflang pairing, reciprocity, and exemption-list discipline (10) · llms.txt coverage (12) · retail/dining business names barred on evergreen pages, required disclaimer marker on dated articles that name one (13) · EN/ES image-count parity, baseline can only shrink (14) · rejected-asset enforcement (15) · FAQ image matches its own question (16) · Fair Housing terms in alt text (17) · locked identity rules in description fields — meta/og/twitter/schema (18) · the same locked identity rules in `<title>` (19, added July 2026 after three pages carried unmarked "Realtor" in `<title>` past the check-18 fix, which never scanned that field) · schema `headline` matches its page's `<h1>` (20) · every "Sold by Lisa Collio" / "Vendida por Lisa Collio" / "Sold: `<address>`" claim has its address in `content/source/sold-listing-consent.txt` (21, 876 IAC 8-1-8(f) — previously enforced only by manual read-through, see the 8-1-8(f) item above).
+**31 of the 32 are hard ERRORS. Exactly one is a WARNING: check 11.**
 
-**Warnings (report, do not fail):** title and meta-description length (11) — the only warning-level check; everything else above is a hard failure.
+| # | Level | What it asserts |
+|---|---|---|
+| 1 | ERROR | Sitemap parity, both directions |
+| 2 | ERROR | Every internal link, asset and redirect target resolves |
+| 3 | ERROR | Visible FAQ copy matches FAQPage schema word for word |
+| 4 | ERROR | JSON-LD parses |
+| 5 | ERROR | Locked identity rules sitewide (incl. the `walkab` Fair Housing guard) |
+| 6 | ERROR | Footer signature on every page |
+| 7 | ERROR | One language per page — no English CTA band on a Spanish page |
+| 8 | ERROR | Blog index counts match the manifest |
+| 9 | ERROR | Images carry alt text |
+| 10 | ERROR | hreflang pairing |
+| **11** | **WARNING** | **SEO field lengths — title and meta description. The only warning-level check.** |
+| 12 | ERROR | `llms.txt` coverage |
+| 13 | ERROR | Retail/dining business names on evergreen pillar pages |
+| 14 | ERROR | EN/ES image parity against the baseline |
+| 15 | ERROR | Rejected image assets are not referenced |
+| 16 | ERROR | FAQ image matches its own question |
+| 17 | ERROR | Fair Housing terms in alt text (46-term list) |
+| 18 | ERROR | Locked identity rules in description fields |
+| 19 | ERROR | Locked identity rules in the `<title>` tag |
+| 20 | ERROR | `headline` field matches the on-page `<h1>` |
+| 21 | ERROR | Sold-listing address consent manifest |
+| 22 | ERROR | Section-image batch reconciliation by set difference |
+| 23 | ERROR | Same photo, same language, same alt text |
+| 24 | ERROR | §19's "Exact filename" column names no version |
+| 25 | ERROR | Screen-reader text matches its page's language |
+| 26 | ERROR | Placeholder hero image (flipped from WARNING, 13 Aug 2026) |
+| 27 | ERROR | Fair Housing terms in hero copy |
+| 28 | ERROR | Hero image contrast sampler — **see the limitation below** |
+| 29 | ERROR | Mobile nav open panel has a bounded, scrollable escape hatch |
+| 30 | ERROR | `srcset` / `og:image` / `twitter:image` / JSON-LD `image` all resolve |
+| 31 | ERROR | Punch list keeps its stable filename and states its version in its H1 |
+| 32 | ERROR | The "Hablo español" banner's visible text, its non-clickability, and both toggle labels |
 
-Checks 18–21 exist because the identity/Fair Housing rules were being applied to some copy-field classes and not others with no inventory of which — see the July 2026 copy-field-gap sweep. `<title>`, schema `headline`, and sold-listing address claims were the three gaps worth gating; `aria-label`, figcaption review-attribution text, button/CTA text, and form labels/placeholders were swept too and found clean with low-cardinality, template-generated content — not worth a dedicated check yet, but worth re-checking if that content stops being template-generated.
+**Check 28 carries a stated limitation, and it is recorded rather than left to read as coverage.** Under the current CSS its contrast-threshold branch **cannot fail for any photograph** — verified against the true worst-case in-zone scrim opacity, not assumed. What it actually guards are two infrastructure conditions: a broken `--hero-img` reference, and a missing sampler dependency. Both are real. The contrast claim is not, today. Redesigning or retiring it is an open decision.
 
-Deliberately NOT automated: the RESPA `$[0-9]` sweep, the Top/Best/#1 superlatives sweep, anything requiring approval, Fair Housing tone, photo-pairing rules, review verbatimness, market-data provenance, and `build-reviews.js`'s own rotation currency (`--check` exists but isn't wired into `npm run audit`). A green `npm run audit` run means the mechanical invariants hold — not that the copy is approved or that every manual item above has been checked.
+**Checks 18–21 exist because the identity and Fair Housing rules were being applied to some copy-field classes and not others, with no inventory of which** — the Field-Class Compliance Coverage Standard. Checks 17, 18 and 19 are each **deliberately scoped to one field class**, because the same rule applied sitewide produced 238 hits of which essentially none were real.
 
-Two normalisation notes, learned by getting them wrong first: compare FAQ text with HTML entities decoded (`&amp;` vs `&`) and with the space that tag-stripping leaves before punctuation removed, and treat one side being a prefix of the other as a match — schema answers carry no links, so they sometimes spell out a URL the visible copy renders as an anchor.
+**A clean audit is evidence about what these 32 checks can judge — not a certificate that the page is correct.** Several of this project's real defects were invisible to every check and were found by rendering the page and looking: the mobile-nav reachability bug, the anchor-landing bug, the review-rotation shift, and the CTA that promised texting and only called.
+
+**Deliberately NOT automated:** the RESPA `$[0-9]` sweep, the Top/Best/#1 superlatives sweep, anything requiring approval, Fair Housing tone, photo-pairing rules, review verbatim-ness.
+
+**Two normalisation notes, learned by getting them wrong first:** compare FAQ text with HTML entities decoded (`&amp;` vs `&`) and with the space that tag-stripping leaves behind.
+
+**A recurring failure worth naming, since it has now happened three times:** a `grep -c` answers *how many*, never *of what*. Counting matches without reading them produced a false link-contrast finding, a wrong article-repoint plan (the `/sellers/` hrefs counted were the site navigation), and a wrong ERROR/WARN classification of checks 18 and 19 (they report through the shared `checkIdentityText()` helper, so a search for direct `err(` calls found none). **Before a count becomes a finding, read a sample of what it matched.**
 
 ### hreflang pairing — `npm run hreflang`
 
